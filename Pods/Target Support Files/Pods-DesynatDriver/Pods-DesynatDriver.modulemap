@@ -1,0 +1,6 @@
+framework module Pods_DesynatDriver {
+  umbrella header "Pods-DesynatDriver-umbrella.h"
+
+  export *
+  module * { export * }
+}
