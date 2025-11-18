@@ -12,12 +12,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
     @IBAction func loginDidTapped(_ sender: Any) {
-        let vc = HomeViewController.instantiate(fromAppStoryboard: .Home)
+       // let vc = HomeViewController.instantiate(fromAppStoryboard: .Home)
+        let vc = TabBarVC.instantiate(fromAppStoryboard:.Home)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
