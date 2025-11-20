@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Bottom bar.png",
+      "filename" : "Frame 1561318092.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Bottom bar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Bottom bar@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -29,8 +29,8 @@ class TabBarVC: UIViewController {
     }
 
     private func setUserButtonImages(selectedTag: Int) {
-        let unselectedImages = ["homeUnselected", "productsUnselected", "show", "plansUnselected", "paymentsUnselected"]
-        let selectedImages = ["homeSelected", "productsSelected", "show", "plansSelected", "paymentsSelected"]
+        let unselectedImages = ["homeUnselect", "deliveriesUnselect","profileUnselect"]
+        let selectedImages = ["homeSelect", "deliveriesSelect","profileSelect"]
         
         for button in tabButtons {
             let imageName = (button.tag == selectedTag) ? selectedImages[button.tag] : unselectedImages[button.tag]
@@ -57,17 +57,11 @@ extension TabBarVC {
         case 0:
             childVC = HomeViewController.instantiate(fromAppStoryboard: .Home)
         case 1:
-            childVC = HomeViewController.instantiate(fromAppStoryboard: .Home)
+            childVC = DeliveriesVC.instantiate(fromAppStoryboard: .Home)
           //  childVC = ProductsViewController.instantiate(fromAppStoryboard: .Home)
         case 2:
-            childVC = HomeViewController.instantiate(fromAppStoryboard: .Home)
+            childVC = ProfileVC.instantiate(fromAppStoryboard: .Home)
           //  childVC = ShowViewController.instantiate(fromAppStoryboard: .Home)
-        case 3:
-            childVC = HomeViewController.instantiate(fromAppStoryboard: .Home)
-          //  childVC = SubscriptionPlanListViewController.viewFromNIB
-        case 4:
-            childVC = HomeViewController.instantiate(fromAppStoryboard: .Home)
-           // childVC = PaymentsController.instantiate(fromAppStoryboard: .Home)
         default:
             return
         }
