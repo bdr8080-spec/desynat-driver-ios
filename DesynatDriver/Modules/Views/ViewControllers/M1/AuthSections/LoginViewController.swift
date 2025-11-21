@@ -23,18 +23,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         txtCountryCode.text = countryCode
         txtPassword.isSecureTextEntry = true
-       // txtPassword.delegate = self
-       // emailTextField.delegate = self
+        txtPassword.delegate = self
+        emailTextField.delegate = self
         viewCountryCode.isHidden = true
         self.txtFieldLeading.constant = -65
         emailMobileImageView.image = UIImage(named: "email")
-      //  viewModel.countryListApi()
+        viewModel.countryListApi()
     }
 
     @IBAction func loginDidTapped(_ sender: Any) {
-       // if viewModel.validFields() {
+        if viewModel.validFields() {
             viewModel.loginApi()
-      //  }
+        }
     }
     
     @IBAction func forgotPasswordDidTapped(_ sender: Any) {
@@ -73,39 +73,38 @@ class LoginViewController: UIViewController {
 //    }
 }
 
-//extension LoginViewController: UITextFieldDelegate {
-//    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        
-//        let currentText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-//        var validation: StringValidation?
-//        
-//        if textField == self.emailTextField {
-//            if currentText.hasPrefix(" ") {
-//                return false
-//            }
-//            
-//            if !currentText.isNumber() {
-//                self.viewCountryCode.isHidden = true
-//                emailMobileImageView.image = UIImage(named: "email")
-//                self.txtFieldLeading.constant = -65
-//                validation = StringValidation(string: currentText, characterCount: 65, validation: .emailId)
-//                self.type = 1
-//                self.countryCode = ""
-//            } else {
-//                self.viewCountryCode.isHidden = false
-//                emailMobileImageView.image = UIImage(named: "phone")
-//                self.txtFieldLeading.constant = 12
-//                validation = StringValidation(string: currentText, characterCount: 15, validation: .mobileNo)
-//                self.type = 0
-//            }
-//    
-//            if let data = validation {
-//                return data.validate()
-//            } else {
-//                return true
-//            }
-//        }
-//        return true
-//    }
-//}
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        var validation: StringValidation?
+        
+        if textField == self.emailTextField {
+            if currentText.hasPrefix(" ") {
+                return false
+            }
+            
+            if !currentText.isNumber() {
+                self.viewCountryCode.isHidden = true
+                emailMobileImageView.image = UIImage(named: "email")
+                self.txtFieldLeading.constant = -65
+                validation = StringValidation(string: currentText, characterCount: 65, validation: .emailId)
+                self.type = 1
+            } else {
+                self.viewCountryCode.isHidden = false
+                emailMobileImageView.image = UIImage(named: "phone")
+                self.txtFieldLeading.constant = 12
+                validation = StringValidation(string: currentText, characterCount: 15, validation: .mobileNo)
+                self.type = 0
+            }
+    
+            if let data = validation {
+                return data.validate()
+            } else {
+                return true
+            }
+        }
+        return true
+    }
+}

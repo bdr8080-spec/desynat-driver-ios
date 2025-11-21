@@ -14,59 +14,32 @@ extension SceneDelegate {
 //    public func initializeApplication() {
 //        navigateTo(vc: ProfileSelectionVC.instantiate(fromAppStoryboard: .Main))
 //    }
-//    
-//    /// Navigate to Login Vc
-//    public func navigateToGuestLoginVc() {
-//        navigateTo(vc: GuestLogInVC.instantiate(fromAppStoryboard: .Main))
-//    }
-//    public func navigateToLandLordLoginVc() {
-//        navigateTo(vc: LandlordLoginVC.instantiate(fromAppStoryboard: .Main))
-//    }
-//    public func navigateToAgentLoginVc() {
-//        navigateTo(vc: AgentLoginVC.instantiate(fromAppStoryboard: .Main))
-//    }
-//    public func navigateToSideMenuVc() {
-//        navigateTo(vc: SideMenuVC.instantiate(fromAppStoryboard: .Home))
-//    }
-    // Navigate to Home Vc
-//    public func navigateToGuestHomeVc() {
-//        let vc = TabBarVC.instantiate(fromAppStoryboard: .Guest)
-//        vc.selectedProfile = .guest
-//        navigateTo(vc: vc)
-//    }
-//    public func navigateToAgentHomeVc() {
-//        let vc = TabBarVC.instantiate(fromAppStoryboard: .Guest)
-//        vc.selectedProfile = .agent
-//        navigateTo(vc: vc)
-//    }
-//    public func navigateToLanlordHomeVc() {
-//        let vc = TabBarVC.instantiate(fromAppStoryboard: .Guest)
-//        vc.selectedProfile = .landlord
-//        navigateTo(vc: vc)
-//    }
     
-//    public func navigateToProfileSelectScreen() {
-//        navigateTo(vc: ProfileSelectionVC.instantiate(fromAppStoryboard: .Main))
-//    }
-//
-
-//    /// Logout current user and navigate to loginVc
-    func logoutUser() {
-//        let roleName = Global.shared.user?.role?.name?.lowercased()
-//        Global.shared.user = nil
-//        kSharedUserDefaults.clearAllData(except: [.deviceToken,.selectedLanguage,.defaultLanguage,.language, .userId])
-//        UserDefaults.standard.set("no", forKey: "login")
-//        switch roleName{
-//            case "landlord":
-//            navigateToLandLordLoginVc()
-//        case "agent":
-//            navigateToAgentLoginVc()
-//        default:
-//            self.navigateToGuestLoginVc()
-//        }
-        
+    // Navigate to Home Vc
+    public func navigateToHomeVc() {
+        let vc = TabBarVC.instantiate(fromAppStoryboard: .Home)
+        navigateTo(vc: vc)
     }
-//    
+    
+    public func navigateToSelectLanguage() {
+        let vc = SelectLanguageViewController.instantiate(fromAppStoryboard:.Main)
+        navigateTo(vc: vc)
+    }
+
+    // Navigate to Login Vc
+      public func navigateToLoginVC() {
+          navigateTo(vc: LoginViewController.instantiate(fromAppStoryboard: .Main))
+      }
+
+  // Logout current user and navigate to loginVc
+    func logoutUser() {
+        kSharedUserDefaults.clearAllData(except: [.deviceToken,.userLocation,.selectedLanguage,.defaultLanguge,.language])
+        Global.shared.user = nil
+        self.navigateToLoginVC()
+        UserDefaults.standard.setValue("true", forKey: "isOnBoardingChecked")
+        UserDefaults.standard.set("no", forKey: "isLogin")
+    }
+    
 //    ///Pass custom vc to make it root controller
     public func navigateTo(vc:UIViewController) {
         let nc = UINavigationController(rootViewController: vc)

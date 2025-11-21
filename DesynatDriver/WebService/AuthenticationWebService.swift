@@ -31,113 +31,130 @@ extension WebService {
         }
     }
     
-//    func otpVerificationService(withParams dictParams: Dictionary<String, Any>,
-//                      completion:@escaping (_ user:User)-> Void) {
-//        CommonUtils.showHud(show: true)
-//        NetworkManager.shared.request(withAPI:.endpoint(.otpVerification), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
-//            
-//            CommonUtils.showHud(show: false)
-//            self.evaluateWebServiceResponse(response: result) { response, message,error in
-//                guard let user = response else {
-//                    if let error {
-//                        UIApplication.shared.topViewController()?.showAlert(msg: error)
-//                    }
-//                    return
-//                }
-//                kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
-//                print(user)
-//                kSharedUserDefaults.saveModelFor(key:.user, value: user)
-//                CommonUtils.showToast(message: "OTP verify succesfully")
-//                completion(user)
-//            }
-//        }
-//    }
-//    
-//    func resendOtpService(withParams dictParams: Dictionary<String, Any>,
-//                      completion:@escaping (_ user:User)-> Void) {
-//        CommonUtils.showHud(show: true)
-//        NetworkManager.shared.request(withAPI:.endpoint(.resendOtp), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
-//            
-//            CommonUtils.showHud(show: false)
-//            self.evaluateWebServiceResponse(response: result) { response, message,error in
-//                guard let user = response else {
-//                    if let error {
-//                        UIApplication.shared.topViewController()?.showAlert(msg: error)
-//                    }
-//                    return
-//                }
-//                kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
-//                print(user)
-//                kSharedUserDefaults.saveModelFor(key:.user, value: user)
-//                CommonUtils.showToast(message: "OTP resent succesfully")
-//                completion(user)
-//            }
-//        }
-//    }
-//    
-//    func forgotPasswordService(withParams dictParams: Dictionary<String, Any>,
-//                      completion:@escaping (_ user:User)-> Void) {
-//        CommonUtils.showHud(show: true)
-//        NetworkManager.shared.request(withAPI:.endpoint(.forgotPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
-//            
-//            CommonUtils.showHud(show: false)
-//            self.evaluateWebServiceResponse(response: result) { response, message,error in
-//                guard let user = response else {
-//                    if let error {
-//                        UIApplication.shared.topViewController()?.showAlert(msg: error)
-//                    }
-//                    return
-//                }
-//               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
-//                print(user)
-//                kSharedUserDefaults.saveModelFor(key:.user, value: user)
-//                CommonUtils.showToast(message: "OTP sent succesfully")
-//                completion(user)
-//            }
-//        }
-//    }
-//    
-//    func createPasswordService(withParams dictParams: Dictionary<String, Any>,
-//                      completion:@escaping (_ user:User)-> Void) {
-//        CommonUtils.showHud(show: true)
-//        NetworkManager.shared.request(withAPI:.endpoint(.createPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
-//            
-//            CommonUtils.showHud(show: false)
-//            self.evaluateWebServiceResponse(response: result) { response, message,error in
-//                guard let user = response else {
-//                    if let error {
-//                        UIApplication.shared.topViewController()?.showAlert(msg: error)
-//                    }
-//                    return
-//                }
-//               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
-//                print(user)
-//                kSharedUserDefaults.saveModelFor(key:.user, value: user)
-//                CommonUtils.showToast(message: message ?? "")
-//                completion(user)
-//            }
-//        }
-//    }
-//    
-//    func logoutService(completion:@escaping (_ user:EmptyModel)-> Void) {
-//        CommonUtils.showHud(show: true)
-//        NetworkManager.shared.request(withAPI:.endpoint(.logout), requestMethod: .get,requestModel:EmptyModel.self) { result, code in
-//            
-//            CommonUtils.showHud(show: false)
-//            self.evaluateWebServiceResponse(response: result) { response, message,error in
-//                guard let user = response else {
-//                    if let error {
-//                        UIApplication.shared.topViewController()?.showAlert(msg: error)
-//                    }
-//                    return
-//                }
-//               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
-//                print(user)
-//                //kSharedUserDefaults.saveModelFor(key:.user, value: user)
-//                CommonUtils.showToast(message: message ?? "")
-//                completion(user)
-//            }
-//        }
-//    }
+    func countryListService(completion:@escaping (_ user:[CountryModel])-> Void) {
+        CommonUtils.showHud(show: true)
+        NetworkManager.shared.request(withAPI:.endpoint(.country), requestMethod: .get,requestModel:[CountryModel].self) { result, code in
+            
+            CommonUtils.showHud(show: false)
+            self.evaluateWebServiceResponse(response: result) { response, message,error in
+                guard let user = response else {
+                    if let error {
+                        UIApplication.shared.topViewController()?.showAlert(msg: error)
+                    }
+                    return
+                }
+                completion(user)
+            }
+        }
+    }
+    
+    func forgotPasswordService(withParams dictParams: Dictionary<String, Any>,
+                               completion:@escaping (_ user:User)-> Void) {
+        CommonUtils.showHud(show: true)
+        NetworkManager.shared.request(withAPI:.endpoint(.forgotPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
+            
+            CommonUtils.showHud(show: false)
+            self.evaluateWebServiceResponse(response: result) { response, message,error in
+                guard let user = response else {
+                    if let error {
+                        UIApplication.shared.topViewController()?.showAlert(msg: error)
+                    }
+                    return
+                }
+               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
+                print(user)
+              //  kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                CommonUtils.showToast(message:message ?? "")
+                completion(user)
+            }
+        }
+    }
+    
+    func otpVerificationService(withParams dictParams: Dictionary<String, Any>,
+                      completion:@escaping (_ user:User)-> Void) {
+        CommonUtils.showHud(show: true)
+        NetworkManager.shared.request(withAPI:.endpoint(.verifyOtp), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
+            
+            CommonUtils.showHud(show: false)
+            self.evaluateWebServiceResponse(response: result) { response, message,error in
+                guard let user = response else {
+                    if let error {
+                        UIApplication.shared.topViewController()?.showAlert(msg: error)
+                    }
+                    return
+                }
+               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
+                print(user)
+               // kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                CommonUtils.showToast(message:message ?? "")
+                completion(user)
+            }
+        }
+    }
+    
+    func resendOtpService(withParams dictParams: Dictionary<String, Any>,
+                          completion:@escaping (_ user:User)-> Void) {
+        CommonUtils.showHud(show: true)
+        NetworkManager.shared.request(withAPI:.endpoint(.resendOtp), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
+            
+            CommonUtils.showHud(show: false)
+            self.evaluateWebServiceResponse(response: result) { response, message,error in
+                guard let user = response else {
+                    if let error {
+                        UIApplication.shared.topViewController()?.showAlert(msg: error)
+                    }
+                    return
+                }
+               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
+                print(user)
+               // kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                CommonUtils.showToast(message:message ?? "")
+                completion(user)
+            }
+        }
+    }
+
+    func createPasswordService(withParams dictParams: Dictionary<String, Any>,
+                      completion:@escaping (_ user:User)-> Void) {
+        CommonUtils.showHud(show: true)
+        NetworkManager.shared.request(withAPI:.endpoint(.createPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
+            
+            CommonUtils.showHud(show: false)
+            self.evaluateWebServiceResponse(response: result) { response, message,error in
+                guard let user = response else {
+                    if let error {
+                        UIApplication.shared.topViewController()?.showAlert(msg: error)
+                    }
+                    return
+                }
+               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
+                print(user)
+               // kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                CommonUtils.showToast(message: message ?? "")
+                completion(user)
+            }
+        }
+    }
+    
+    func logoutService(completion:@escaping (_ user:EmptyModel)-> Void) {
+        CommonUtils.showHud(show: true)
+        NetworkManager.shared.request(withAPI:.endpoint(.logout), requestMethod: .get,requestModel:EmptyModel.self) { result, code in
+            
+            CommonUtils.showHud(show: false)
+            self.evaluateWebServiceResponse(response: result) { response, message,error in
+                guard let user = response else {
+                    if let error {
+                        UIApplication.shared.topViewController()?.showAlert(msg: error)
+                    }
+                    return
+                }
+               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
+                print(user)
+                //kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                CommonUtils.showToast(message: message ?? "")
+                completion(user)
+            }
+        }
+    }
     
 }

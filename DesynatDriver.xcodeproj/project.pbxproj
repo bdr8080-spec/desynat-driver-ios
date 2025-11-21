@@ -18,7 +18,6 @@
 		6B7D3A962ECC48C600897521 /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A382ECC48C600897521 /* LocationPermissionViewController.swift */; };
 		6B7D3A982ECC48C600897521 /* MediaPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A3A2ECC48C600897521 /* MediaPermissionViewController.swift */; };
 		6B7D3A992ECC48C600897521 /* NotificationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A3B2ECC48C600897521 /* NotificationPermissionViewController.swift */; };
-		6B7D3A9A2ECC48C600897521 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A3C2ECC48C600897521 /* OTPViewController.swift */; };
 		6B7D3A9B2ECC48C600897521 /* RegisterationSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A3D2ECC48C600897521 /* RegisterationSuccessViewController.swift */; };
 		6B7D3A9C2ECC48C600897521 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A3E2ECC48C600897521 /* ResetPasswordViewController.swift */; };
 		6B7D3A9D2ECC48C600897521 /* SelectLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A3F2ECC48C600897521 /* SelectLanguageViewController.swift */; };
@@ -82,6 +81,14 @@
 		6B7D3AD72ECC48C600897521 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D3A602ECC48C600897521 /* Poppins-Thin.ttf */; };
 		6B7D3AD82ECC48C600897521 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B7D3A612ECC48C600897521 /* Poppins-ThinItalic.ttf */; };
 		6B7D3ADB2ECC4AFC00897521 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3ADA2ECC4AFC00897521 /* TabBarVC.swift */; };
+		6BB33F342ED0342D00C7BE25 /* StringValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F332ED0342D00C7BE25 /* StringValidation.swift */; };
+		6BB33F362ED034C200C7BE25 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F352ED034C200C7BE25 /* String.swift */; };
+		6BB33F3A2ED0431600C7BE25 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F392ED0431600C7BE25 /* ForgotPasswordViewModel.swift */; };
+		6BB33F3F2ED074F300C7BE25 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F3E2ED074F300C7BE25 /* OTPViewModel.swift */; };
+		6BB33F412ED078B800C7BE25 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F402ED078B800C7BE25 /* OTPViewController.swift */; };
+		6BB33F452ED0841600C7BE25 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F442ED0841600C7BE25 /* ResetPasswordViewModel.swift */; };
+		6BB33F472ED0904D00C7BE25 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F462ED0904D00C7BE25 /* ProfileVM.swift */; };
+		6BB33F492ED0970900C7BE25 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB33F482ED0970900C7BE25 /* LocationManager.swift */; };
 		6BE5D1672ECEDAB9000A7EA6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5D1662ECEDAB9000A7EA6 /* ProfileVC.swift */; };
 		6BE5D1692ECEDAE5000A7EA6 /* DeliveriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5D1682ECEDAE5000A7EA6 /* DeliveriesVC.swift */; };
 		6BE5D1732ECEE485000A7EA6 /* ProfileWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5D16F2ECEE485000A7EA6 /* ProfileWebService.swift */; };
@@ -567,7 +574,6 @@
 		6B7D3A382ECC48C600897521 /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
 		6B7D3A3A2ECC48C600897521 /* MediaPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPermissionViewController.swift; sourceTree = "<group>"; };
 		6B7D3A3B2ECC48C600897521 /* NotificationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionViewController.swift; sourceTree = "<group>"; };
-		6B7D3A3C2ECC48C600897521 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		6B7D3A3D2ECC48C600897521 /* RegisterationSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterationSuccessViewController.swift; sourceTree = "<group>"; };
 		6B7D3A3E2ECC48C600897521 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		6B7D3A3F2ECC48C600897521 /* SelectLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageViewController.swift; sourceTree = "<group>"; };
@@ -629,6 +635,14 @@
 		6B7D3A8D2ECC48C600897521 /* StringConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstant.swift; sourceTree = "<group>"; };
 		6B7D3A902ECC48C600897521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B7D3ADA2ECC4AFC00897521 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		6BB33F332ED0342D00C7BE25 /* StringValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidation.swift; sourceTree = "<group>"; };
+		6BB33F352ED034C200C7BE25 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6BB33F392ED0431600C7BE25 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		6BB33F3E2ED074F300C7BE25 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		6BB33F402ED078B800C7BE25 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		6BB33F442ED0841600C7BE25 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		6BB33F462ED0904D00C7BE25 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		6BB33F482ED0970900C7BE25 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6BE5D1662ECEDAB9000A7EA6 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		6BE5D1682ECEDAE5000A7EA6 /* DeliveriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveriesVC.swift; sourceTree = "<group>"; };
 		6BE5D16A2ECEE485000A7EA6 /* AuthenticationWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWebService.swift; sourceTree = "<group>"; };
@@ -1198,12 +1212,12 @@
 		6B7D3A412ECC48C600897521 /* AuthSections */ = {
 			isa = PBXGroup;
 			children = (
+				6BB33F402ED078B800C7BE25 /* OTPViewController.swift */,
 				6BE5D53D2ECF2DE3000A7EA6 /* LoginViewController.swift */,
 				6B7D3A372ECC48C600897521 /* ForgotPasswordViewController.swift */,
 				6B7D3A382ECC48C600897521 /* LocationPermissionViewController.swift */,
 				6B7D3A3A2ECC48C600897521 /* MediaPermissionViewController.swift */,
 				6B7D3A3B2ECC48C600897521 /* NotificationPermissionViewController.swift */,
-				6B7D3A3C2ECC48C600897521 /* OTPViewController.swift */,
 				6B7D3A3D2ECC48C600897521 /* RegisterationSuccessViewController.swift */,
 				6B7D3A3E2ECC48C600897521 /* ResetPasswordViewController.swift */,
 				6B7D3A3F2ECC48C600897521 /* SelectLanguageViewController.swift */,
@@ -1324,6 +1338,8 @@
 		6B7D3A6C2ECC48C600897521 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6BB33F352ED034C200C7BE25 /* String.swift */,
+				6BB33F332ED0342D00C7BE25 /* StringValidation.swift */,
 				6BE5D1A62ECEECDC000A7EA6 /* DataTypeConversion.swift */,
 				6B7D3A642ECC48C600897521 /* Application.swift */,
 				6B7D3A652ECC48C600897521 /* AppStoryboards.swift */,
@@ -1357,6 +1373,7 @@
 		6B7D3A712ECC48C600897521 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
+				6BB33F482ED0970900C7BE25 /* LocationManager.swift */,
 				6B7D3A702ECC48C600897521 /* LocationManagerHandler.swift */,
 			);
 			path = LocationManager;
@@ -1483,6 +1500,7 @@
 			isa = PBXGroup;
 			children = (
 				6BE5D1662ECEDAB9000A7EA6 /* ProfileVC.swift */,
+				6BB33F462ED0904D00C7BE25 /* ProfileVM.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1519,6 +1537,9 @@
 			isa = PBXGroup;
 			children = (
 				6BE5D1A82ECEF1C9000A7EA6 /* LoginViewModel.swift */,
+				6BB33F392ED0431600C7BE25 /* ForgotPasswordViewModel.swift */,
+				6BB33F3E2ED074F300C7BE25 /* OTPViewModel.swift */,
+				6BB33F442ED0841600C7BE25 /* ResetPasswordViewModel.swift */,
 			);
 			path = AuthSections;
 			sourceTree = "<group>";
@@ -2648,11 +2669,12 @@
 				6B7D3A952ECC48C600897521 /* ForgotPasswordViewController.swift in Sources */,
 				6BE5D5392ECEF446000A7EA6 /* ADCountryPicker.swift in Sources */,
 				6BE5D53A2ECEF446000A7EA6 /* ADCountry.swift in Sources */,
+				6BB33F412ED078B800C7BE25 /* OTPViewController.swift in Sources */,
+				6BB33F3A2ED0431600C7BE25 /* ForgotPasswordViewModel.swift in Sources */,
 				6B7D3A962ECC48C600897521 /* LocationPermissionViewController.swift in Sources */,
 				6B7D3A982ECC48C600897521 /* MediaPermissionViewController.swift in Sources */,
 				6B7D3A992ECC48C600897521 /* NotificationPermissionViewController.swift in Sources */,
 				6BE5D1A92ECEF1C9000A7EA6 /* LoginViewModel.swift in Sources */,
-				6B7D3A9A2ECC48C600897521 /* OTPViewController.swift in Sources */,
 				6B7D3A9B2ECC48C600897521 /* RegisterationSuccessViewController.swift in Sources */,
 				6B7D3A9C2ECC48C600897521 /* ResetPasswordViewController.swift in Sources */,
 				6B7D3A9D2ECC48C600897521 /* SelectLanguageViewController.swift in Sources */,
@@ -2667,11 +2689,13 @@
 				6B7D3A9F2ECC48C600897521 /* HomeViewController.swift in Sources */,
 				6B7D3AA02ECC48C600897521 /* WalkThroughCell.swift in Sources */,
 				6B7D3AA12ECC48C600897521 /* WelcomeScreenCollectionViewCell.swift in Sources */,
+				6BB33F3F2ED074F300C7BE25 /* OTPViewModel.swift in Sources */,
 				6B7D3AA22ECC48C600897521 /* Application.swift in Sources */,
 				6B7D3AA32ECC48C600897521 /* AppStoryboards.swift in Sources */,
 				6B7D3AA42ECC48C600897521 /* BannerPageControl.swift in Sources */,
 				6B7D3AA52ECC48C600897521 /* Bundle.swift in Sources */,
 				6B7D3AA62ECC48C600897521 /* CollectionViewExtensio.swift in Sources */,
+				6BB33F362ED034C200C7BE25 /* String.swift in Sources */,
 				6B7D3AA72ECC48C600897521 /* StringExtensions.swift in Sources */,
 				6B7D3AA82ECC48C600897521 /* TableViewExtension.swift in Sources */,
 				6B7D3AA92ECC48C600897521 /* UIViewController.swift in Sources */,
@@ -2689,13 +2713,17 @@
 				6BE5D53E2ECF2DE3000A7EA6 /* LoginViewController.swift in Sources */,
 				6B7D3AB32ECC48C600897521 /* TableViewDynamicHeight.swift in Sources */,
 				6B7D3AB42ECC48C600897521 /* CarouselScrollView.swift in Sources */,
+				6BB33F472ED0904D00C7BE25 /* ProfileVM.swift in Sources */,
 				6B7D3AB52ECC48C600897521 /* Attachable.swift in Sources */,
+				6BB33F342ED0342D00C7BE25 /* StringValidation.swift in Sources */,
+				6BB33F492ED0970900C7BE25 /* LocationManager.swift in Sources */,
 				6B7D3AB62ECC48C600897521 /* ImagePickerHelper.swift in Sources */,
 				6B7719572ECC5C580097AAF8 /* NewDeliveriesTableCell.swift in Sources */,
 				6B7D3AB72ECC48C600897521 /* ImagePickerManager.swift in Sources */,
 				6B7D3AB82ECC48C600897521 /* UIImageView+FaceAware.swift in Sources */,
 				6B7D3AB92ECC48C600897521 /* APIKeys.swift in Sources */,
 				6B7D3ABA2ECC48C600897521 /* NetworkManager.swift in Sources */,
+				6BB33F452ED0841600C7BE25 /* ResetPasswordViewModel.swift in Sources */,
 				6B7D3ABB2ECC48C600897521 /* NetworkSupport.swift in Sources */,
 				6B7D3ABC2ECC48C600897521 /* NetworkURL.swift in Sources */,
 				6B7D3ABD2ECC48C600897521 /* SocialLoginManager.swift in Sources */,
@@ -2727,15 +2755,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2V6DSNQKA9;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6QKUQGN93F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DesynatDriver/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Allow;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = Allow;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Allow;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2744,6 +2778,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rakhi.DesynatDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Desynat Driver Provisioning";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2756,15 +2792,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2V6DSNQKA9;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6QKUQGN93F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DesynatDriver/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Allow;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = Allow;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Allow;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2773,6 +2815,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rakhi.DesynatDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Desynat Driver Provisioning";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,13 +10,10 @@ import UIKit
 class RegisterationSuccessViewController: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    var comingReason: ComingReasonAtRegisterationSuccess = .passwordUpdated
     var callBackDismiss: (()->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetup()
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.dismiss(animated: true) {
                 self.callBackDismiss?()
@@ -24,15 +21,8 @@ class RegisterationSuccessViewController: UIViewController {
         }
     }
     
-    func initialSetup() {
-        switch comingReason {
-        case .passwordUpdated:
-            descriptionLabel.text = "Password Reset\nsuccessfully!"
-        }
-    }
-
 }
 
-enum ComingReasonAtRegisterationSuccess {
-    case passwordUpdated
-}
+//enum ComingReasonAtRegisterationSuccess {
+//    case passwordUpdated
+//}

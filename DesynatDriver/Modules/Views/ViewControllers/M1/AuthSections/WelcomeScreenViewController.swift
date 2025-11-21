@@ -3,7 +3,6 @@
 //  DesynatUser
 //
 //  Created by Rakhi Kumari on 22/10/25.
-//
 
 import UIKit
 import JXPageControl
@@ -46,6 +45,7 @@ class WelcomeScreenViewController: UIViewController {
         } else {
             let vc = LoginViewController.instantiate(fromAppStoryboard: .Main)
             self.navigationController?.pushViewController(vc, animated: true)
+            UserDefaults.standard.setValue("true", forKey: "isOnBoardingChecked")
         }
     }
     
@@ -58,6 +58,7 @@ class WelcomeScreenViewController: UIViewController {
     @IBAction func skipDidTapped(_ sender: Any) {
         let vc = LoginViewController.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
+        UserDefaults.standard.setValue("true", forKey: "isOnBoardingChecked")
     }
     
     private func setupCollectionView() {

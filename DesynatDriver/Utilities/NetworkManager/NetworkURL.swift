@@ -21,7 +21,12 @@ enum NetworkEndPoint: String {
     
     case register                     = "user-registration/basic-registration"
     case login                        = "/api/deliveryboy/login"
-    
+    case country                      = "/api/country"
+    case forgotPassword               = "/api/deliveryboy/forgot_password"
+    case verifyOtp                    = "/api/deliveryboy/verify_otp"
+    case resendOtp                    = "/api/deliveryboy/resend_otp"
+    case createPassword               = "/api/deliveryboy/create_password"
+    case logout                       = "/api/deliveryboy/logout"
     
     func withBaseURL() -> String {
         return "\(BaseURL.value())\(self.rawValue)"

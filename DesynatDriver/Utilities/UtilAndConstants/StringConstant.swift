@@ -32,12 +32,24 @@ enum AlertConstant: String {
     case decodingError              = "Failed to decode response"
     
     ///Validation Error Message
-    case email                      = "Please enter email ID"
-    case password                   = "Please enter password"
+    case EnterEmailOrMobileNumber   = "Please Enter Mobile Number or Email Address"
+    case EnterEmail                 = " Please Enter Email Address"
+    case EnterMobileNumber          = "Please Enter Mobile Number"
+    case EnterValidEmailAddress     = " Please Enter Valid Email Address"
+    case validMobileNumber          = "Please enter valid mobile number"
+    case EnterValidEmailorMobile    = "Please Enter Valid Email ID or Mobile Number"
+    case EnterPassword              = "Please enter password"
     
     func value() -> String {
         return self.rawValue
     }
 }
 
-
+struct MatchCharacterConstant {
+    static let capitalAlphabet      = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    static let smallAlphabet        = "abcdefghijklmnopqrstuvwxyz"
+    static let spacialCharacter     = "@._!#$%^&*()/<>'+,:;=?[]{}|~`-\""
+    static let number               = "0123456789"
+    static let timing               = number + ":"
+    static let cardExpiration       = number + "/"
+}
