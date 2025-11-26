@@ -36,14 +36,13 @@ class LoginViewModel:NSObject{
         
         let password = String.getString(hostVC.txtPassword.text).trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if errorMessage == .none {
-            if password.isEmpty {
-                errorMessage = .EnterPassword
-            }
-//            else if !password.isValidPassword() {
-//                errorMessage = .InvalidPasswordFormat
-//            }
-        }
+      if errorMessage == .none {
+          if password.isEmpty {
+              errorMessage = .EnterPassword
+          }else if password.count < 6 {
+              errorMessage = .PasswordMinLength   // <-- Add this in AlertConstant
+          }
+      }
         
         if errorMessage != .none {
             hostVC.showAlert(msg: errorMessage.rawValue)

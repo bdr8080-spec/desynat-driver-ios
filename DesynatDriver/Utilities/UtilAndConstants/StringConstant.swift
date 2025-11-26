@@ -39,7 +39,8 @@ enum AlertConstant: String {
     case validMobileNumber          = "Please enter valid mobile number"
     case EnterValidEmailorMobile    = "Please Enter Valid Email ID or Mobile Number"
     case EnterPassword              = "Please enter password"
-    
+  case PasswordMinLength = "Password must be at least 6 characters long"
+  
     func value() -> String {
         return self.rawValue
     }

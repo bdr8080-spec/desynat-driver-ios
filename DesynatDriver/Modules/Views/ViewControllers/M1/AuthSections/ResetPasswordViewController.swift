@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     private lazy var viewModel = ResetPasswordViewModel(hostVC:self)
     @IBOutlet weak var txtCreatePass: UITextField!
     @IBOutlet weak var txtConfirmPass: UITextField!
@@ -15,21 +15,60 @@ class ResetPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      txtCreatePass.delegate = self
+             txtConfirmPass.delegate = self
     }
     
     @IBAction func doneDidTapped(_ sender: Any) {
-        if txtCreatePass.text == ""{
-            showToast(msg:"Please enter create password")
-        }else if txtConfirmPass.text == ""{
-            showToast(msg:"Please enter confirm password")
-        }else{
-            viewModel.createPasswordApi()
-        }
+      let createPass = txtCreatePass.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+              let confirmPass = txtConfirmPass.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+
+              // Empty field checks
+              if createPass.isEmpty {
+                  showAlert(msg:"Please enter create password")
+                  return
+              }else if createPass.count < 6 {
+                showAlert(msg:"Password must be at least 6 characters long")
+                  return
+              }else if confirmPass.isEmpty {
+                showAlert(msg:"Please enter confirm password")
+                  return
+              }else if confirmPass != createPass {
+                showAlert(msg:"Password does not match")
+                  return
+              } else {
+                viewModel.createPasswordApi()
+              }
+      
+//        if txtCreatePass.text == ""{
+//            showToast(msg:"Please enter create password")
+//        }else if txtConfirmPass.text == ""{
+//            showToast(msg:"Please enter confirm password")
+//        }else{
+//
+//        }
     }
     
     @IBAction func backDidTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+  
+  @IBAction func btnTapCreatePasswordEye(_ sender: UIButton) {
+      sender.isSelected.toggle()
+      txtCreatePass.isSecureTextEntry.toggle()
+  }
+  
+  @IBAction func btnTapConfirmPasswordEye(_ sender: UIButton) {
+      sender.isSelected.toggle()
+      txtConfirmPass.isSecureTextEntry.toggle()
+  }
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      
+      // ❌ Block space character
+      if string == " " { return false }
+      
+      return true
+  }
     
 }

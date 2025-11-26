@@ -17,8 +17,8 @@ class ProfileVM:NSObject{
     
     //Mark:->LogoutApi
     func logoutApi(){
-        WebService.sharedInstance.logoutService { user in
+//        WebService.sharedInstance.logoutService { user in
             kSharedSceneDelegate.logoutUser()
-        }
+//        }
     }
 }

@@ -75,12 +75,25 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        if string == " " {
+            return false
+        }
         
         let currentText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+
+        if textField == txtPassword {
+            return true   // allow everything except space
+        }
+
         var validation: StringValidation?
         
         if textField == self.emailTextField {
+            
+            // Extra protection: no leading space
             if currentText.hasPrefix(" ") {
                 return false
             }
@@ -89,13 +102,17 @@ extension LoginViewController: UITextFieldDelegate {
                 self.viewCountryCode.isHidden = true
                 emailMobileImageView.image = UIImage(named: "email")
                 self.txtFieldLeading.constant = -65
-                validation = StringValidation(string: currentText, characterCount: 65, validation: .emailId)
+                validation = StringValidation(string: currentText,
+                                              characterCount: 65,
+                                              validation: .emailId)
                 self.type = 1
             } else {
                 self.viewCountryCode.isHidden = false
                 emailMobileImageView.image = UIImage(named: "phone")
                 self.txtFieldLeading.constant = 12
-                validation = StringValidation(string: currentText, characterCount: 15, validation: .mobileNo)
+                validation = StringValidation(string: currentText,
+                                              characterCount: 15,
+                                              validation: .mobileNo)
                 self.type = 0
             }
     
@@ -105,6 +122,7 @@ extension LoginViewController: UITextFieldDelegate {
                 return true
             }
         }
+        
         return true
     }
 }

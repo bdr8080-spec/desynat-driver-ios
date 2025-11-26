@@ -100,10 +100,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-7c-rlw">
-                                <rect key="frame" x="0.0" y="112" width="393" height="640"/>
+                                <rect key="frame" x="0.0" y="112" width="393" height="670"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmT-ij-YN6">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="640"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="670"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbf-Gr-QiE">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="135"/>
@@ -348,7 +348,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_deliveries" translatesAutoresizingMaskIntoConstraints="NO" id="BTn-n5-fjh">
-                                                        <rect key="frame" x="308" y="46" width="40" height="40"/>
+                                                        <rect key="frame" x="308" y="42.666666666666686" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="vMd-ru-Cif"/>
                                                             <constraint firstAttribute="width" constant="40" id="vkK-1F-fqs"/>
@@ -366,7 +366,7 @@
                                                 <constraints>
                                                     <constraint firstItem="Dmd-mu-grM" firstAttribute="leading" secondItem="Co1-Px-Tcw" secondAttribute="leading" id="6fB-Ei-L7z"/>
                                                     <constraint firstItem="Dmd-mu-grM" firstAttribute="top" secondItem="Co1-Px-Tcw" secondAttribute="top" id="7ZG-8h-ZLq"/>
-                                                    <constraint firstItem="BTn-n5-fjh" firstAttribute="centerY" secondItem="3dL-K3-ws1" secondAttribute="centerY" id="8Ff-58-Afv"/>
+                                                    <constraint firstItem="BTn-n5-fjh" firstAttribute="centerY" secondItem="3dL-K3-ws1" secondAttribute="centerY" multiplier="0.95" id="8Ff-58-Afv"/>
                                                     <constraint firstAttribute="trailing" secondItem="74h-eC-utU" secondAttribute="trailing" constant="5" id="8UF-uM-I1p"/>
                                                     <constraint firstItem="3dL-K3-ws1" firstAttribute="top" secondItem="74h-eC-utU" secondAttribute="bottom" constant="7" id="9V3-T4-x9w"/>
                                                     <constraint firstAttribute="trailing" secondItem="Dmd-mu-grM" secondAttribute="trailing" id="Quc-vI-CfC"/>
@@ -392,7 +392,7 @@
                                                         <real key="value" value="3"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="3"/>
+                                                        <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -415,7 +415,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_deliveries" translatesAutoresizingMaskIntoConstraints="NO" id="ChA-e3-o2i">
-                                                                <rect key="frame" x="121" y="42.666666666666686" width="40" height="40"/>
+                                                                <rect key="frame" x="121" y="39.333333333333314" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="FlG-nm-O9q"/>
                                                                     <constraint firstAttribute="height" constant="40" id="G9q-OD-aDI"/>
@@ -442,7 +442,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="T59-zd-HOv" secondAttribute="bottom" id="bpX-Jo-eJw"/>
                                                             <constraint firstItem="T59-zd-HOv" firstAttribute="leading" secondItem="Xga-2g-Fm3" secondAttribute="leading" id="flY-im-CNs"/>
                                                             <constraint firstAttribute="trailing" secondItem="8JL-6V-8b3" secondAttribute="trailing" constant="5" id="hHo-Ll-PUY"/>
-                                                            <constraint firstItem="ChA-e3-o2i" firstAttribute="centerY" secondItem="mWh-Qw-i4X" secondAttribute="centerY" id="ydj-ic-Mxb"/>
+                                                            <constraint firstItem="ChA-e3-o2i" firstAttribute="centerY" secondItem="mWh-Qw-i4X" secondAttribute="centerY" multiplier="0.95" id="ydj-ic-Mxb"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -458,14 +458,14 @@
                                                                 <real key="value" value="3"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="3"/>
+                                                                <real key="value" value="4"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZF-kS-e3x" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                         <rect key="frame" x="187" y="0.0" width="174" height="90"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Deliveries Completed" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-Fq-PHn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Deliveries Completed" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-Fq-PHn">
                                                                 <rect key="frame" x="12" y="10" width="107" height="39.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -478,7 +478,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="total_deliveries" translatesAutoresizingMaskIntoConstraints="NO" id="fUV-mM-lCj">
-                                                                <rect key="frame" x="121" y="42.666666666666686" width="40" height="40"/>
+                                                                <rect key="frame" x="121" y="39.333333333333314" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="GI9-9d-pu4"/>
                                                                     <constraint firstAttribute="height" constant="40" id="UfZ-eS-rdf"/>
@@ -497,7 +497,7 @@
                                                             <constraint firstItem="6sZ-Fq-PHn" firstAttribute="leading" secondItem="uZF-kS-e3x" secondAttribute="leading" constant="12" id="2IL-eR-DsP"/>
                                                             <constraint firstItem="fUV-mM-lCj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TcG-h4-pOb" secondAttribute="trailing" constant="5" id="6JC-GX-7hB"/>
                                                             <constraint firstItem="fUV-mM-lCj" firstAttribute="leading" secondItem="6sZ-Fq-PHn" secondAttribute="trailing" constant="2" id="FYX-Ln-aeG"/>
-                                                            <constraint firstItem="fUV-mM-lCj" firstAttribute="centerY" secondItem="TcG-h4-pOb" secondAttribute="centerY" id="a5W-gQ-IEq"/>
+                                                            <constraint firstItem="fUV-mM-lCj" firstAttribute="centerY" secondItem="TcG-h4-pOb" secondAttribute="centerY" multiplier="0.95" id="a5W-gQ-IEq"/>
                                                             <constraint firstAttribute="bottom" secondItem="TcG-h4-pOb" secondAttribute="bottom" constant="12" id="cIX-tN-AVG"/>
                                                             <constraint firstAttribute="bottom" secondItem="PZw-yu-oAu" secondAttribute="bottom" id="eJu-kl-Q5Z"/>
                                                             <constraint firstAttribute="trailing" secondItem="fUV-mM-lCj" secondAttribute="trailing" constant="13" id="fNC-VL-OJH"/>
@@ -521,7 +521,7 @@
                                                                 <real key="value" value="3"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="3"/>
+                                                                <real key="value" value="4"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
@@ -531,17 +531,17 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfL-dQ-UkG" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="382" width="393" height="258"/>
+                                                <rect key="frame" x="0.0" y="382" width="393" height="288"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uEu-gc-6M7" customClass="TableViewDynamicHeight" customModule="DesynatDriver" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="20" width="361" height="238"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.74901962280000001" green="0.63921570780000003" blue="0.49019610879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.83529411760000005" green="0.70980392160000005" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="uEu-gc-6M7" firstAttribute="top" secondItem="IfL-dQ-UkG" secondAttribute="top" constant="20" id="3eN-To-9ce"/>
-                                                    <constraint firstAttribute="bottom" secondItem="uEu-gc-6M7" secondAttribute="bottom" id="5ZD-nI-3L5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="uEu-gc-6M7" secondAttribute="bottom" constant="30" id="5ZD-nI-3L5"/>
                                                     <constraint firstAttribute="trailing" secondItem="uEu-gc-6M7" secondAttribute="trailing" constant="16" id="AXv-EH-eSq"/>
                                                     <constraint firstItem="uEu-gc-6M7" firstAttribute="leading" secondItem="IfL-dQ-UkG" secondAttribute="leading" constant="16" id="xRv-jk-YPz"/>
                                                 </constraints>
@@ -620,7 +620,7 @@
                             <constraint firstItem="GkB-7c-rlw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Mgi-5P-UDH"/>
                             <constraint firstItem="xsA-3L-4iS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="WIs-gX-dIN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GkB-7c-rlw" secondAttribute="trailing" id="ZXq-Vm-XTm"/>
-                            <constraint firstAttribute="bottom" secondItem="GkB-7c-rlw" secondAttribute="bottom" constant="100" id="aJP-aO-chU"/>
+                            <constraint firstAttribute="bottom" secondItem="GkB-7c-rlw" secondAttribute="bottom" constant="70" id="aJP-aO-chU"/>
                             <constraint firstItem="xsA-3L-4iS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aVW-cV-UQp"/>
                             <constraint firstItem="GkB-7c-rlw" firstAttribute="top" secondItem="xsA-3L-4iS" secondAttribute="bottom" id="dBS-i7-UZI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v6g-G2-rI6" secondAttribute="trailing" constant="20" id="gh0-Md-F7X"/>
@@ -682,9 +682,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineTabbar" translatesAutoresizingMaskIntoConstraints="NO" id="e1n-0D-0Np">
-                                <rect key="frame" x="0.0" y="694" width="393" height="95"/>
+                                <rect key="frame" x="0.0" y="714" width="393" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="rf7-zJ-4MA"/>
+                                    <constraint firstAttribute="height" constant="75" id="rf7-zJ-4MA"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwZ-EY-tQn" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">

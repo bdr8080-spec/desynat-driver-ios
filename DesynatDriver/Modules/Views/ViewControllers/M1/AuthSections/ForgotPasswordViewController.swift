@@ -24,6 +24,8 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         emailView.isHidden = true
         viewModel.countryListApi()
+      txtMobile.delegate = self
+      txtEmailAddress.delegate = self
         txtCountryCode.text = countryCode
     }
     
@@ -78,27 +80,43 @@ extension ForgotPasswordViewController: UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
-        // Safely unwrap the current text
+        // ❌ Block any space character for ALL textfields
+        if string == " " {
+            return false
+        }
+        
+        // Safely unwrap
         guard let currentText = textField.text else { return true }
         
-        // Construct the updated text after the change
+        // New updated text
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-        // Prevent leading space
+        // ❌ Block leading space
         if updatedText.hasPrefix(" ") {
             return false
         }
         
         var validation: StringValidation?
         
-        // Validate email
+        // -------------------------------------
+        // Email validation
+        // -------------------------------------
         if textField == txtEmailAddress {
-            validation = StringValidation(string: updatedText, characterCount: 55, validation: .emailId)
-        }else if textField == txtMobile {
-            validation = StringValidation(string: updatedText, characterCount: 15, validation: .mobileNo)
+            validation = StringValidation(string: updatedText,
+                                          characterCount: 55,
+                                          validation: .emailId)
         }
         
-        // Perform validation if applicable
+        // -------------------------------------
+        // Mobile number validation
+        // -------------------------------------
+        else if textField == txtMobile {
+            validation = StringValidation(string: updatedText,
+                                          characterCount: 15,
+                                          validation: .mobileNo)
+        }
+        
+        // Validate
         if let validation = validation {
             return validation.validate()
         }

@@ -1274,18 +1274,33 @@ letters and special characters.</string>
                                                         <rect key="frame" x="0.0" y="25" width="353" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-GS-3g9">
-                                                                <rect key="frame" x="20" y="5" width="313" height="40"/>
+                                                                <rect key="frame" x="20" y="5" width="269" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRb-8G-DZU">
+                                                                <rect key="frame" x="309" y="13" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="CC8-BY-IjI"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="cfV-FP-aNS"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Button" image="eyeClose"/>
+                                                                <state key="selected" image="eye_open"/>
+                                                                <connections>
+                                                                    <action selector="btnTapCreatePasswordEye:" destination="wZF-Pg-kMv" eventType="touchUpInside" id="SSy-Yg-dWF"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="eCm-GS-3g9" secondAttribute="trailing" constant="20" id="5Ui-Vf-lDG"/>
                                                             <constraint firstAttribute="height" constant="50" id="Bla-d2-gVa"/>
                                                             <constraint firstItem="eCm-GS-3g9" firstAttribute="top" secondItem="siw-Au-CL0" secondAttribute="top" constant="5" id="H8p-7G-nUt"/>
+                                                            <constraint firstItem="zRb-8G-DZU" firstAttribute="leading" secondItem="eCm-GS-3g9" secondAttribute="trailing" constant="20" id="ZTM-VL-8sz"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zRb-8G-DZU" secondAttribute="trailing" constant="20" id="qNQ-bc-p7V"/>
                                                             <constraint firstAttribute="bottom" secondItem="eCm-GS-3g9" secondAttribute="bottom" constant="5" id="qXw-yC-tyt"/>
                                                             <constraint firstItem="eCm-GS-3g9" firstAttribute="leading" secondItem="siw-Au-CL0" secondAttribute="leading" constant="20" id="vDi-Wc-wTN"/>
+                                                            <constraint firstItem="zRb-8G-DZU" firstAttribute="centerY" secondItem="siw-Au-CL0" secondAttribute="centerY" id="wUX-Pe-qgH"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1324,16 +1339,31 @@ letters and special characters.</string>
                                                         <rect key="frame" x="0.0" y="25" width="353" height="50"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6y9-9g-nU8">
-                                                                <rect key="frame" x="20" y="5" width="313" height="40"/>
+                                                                <rect key="frame" x="20" y="5" width="269" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-oU-rkc">
+                                                                <rect key="frame" x="309" y="13" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="0BI-UV-JGo"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="IJc-Q0-hyE"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Button" image="eyeClose"/>
+                                                                <state key="selected" image="eye_open"/>
+                                                                <connections>
+                                                                    <action selector="btnTapConfirmPasswordEye:" destination="wZF-Pg-kMv" eventType="touchUpInside" id="5YG-iZ-5in"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="G4c-p8-oEu"/>
                                                             <constraint firstItem="6y9-9g-nU8" firstAttribute="leading" secondItem="AsA-So-Pxe" secondAttribute="leading" constant="20" id="LCc-Yq-bQZ"/>
-                                                            <constraint firstAttribute="trailing" secondItem="6y9-9g-nU8" secondAttribute="trailing" constant="20" id="V4m-Eb-yqx"/>
+                                                            <constraint firstAttribute="trailing" secondItem="h2D-oU-rkc" secondAttribute="trailing" constant="20" id="O55-eJ-z1U"/>
+                                                            <constraint firstItem="h2D-oU-rkc" firstAttribute="centerY" secondItem="AsA-So-Pxe" secondAttribute="centerY" id="esX-Uj-Cux"/>
+                                                            <constraint firstItem="h2D-oU-rkc" firstAttribute="leading" secondItem="6y9-9g-nU8" secondAttribute="trailing" constant="20" id="etI-3D-J6W"/>
                                                             <constraint firstAttribute="bottom" secondItem="6y9-9g-nU8" secondAttribute="bottom" constant="5" id="g3m-Ot-rfW"/>
                                                             <constraint firstItem="6y9-9g-nU8" firstAttribute="top" secondItem="AsA-So-Pxe" secondAttribute="top" constant="5" id="tVP-9C-e1L"/>
                                                         </constraints>
@@ -2270,7 +2300,7 @@ miss out</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fcn-eu-4Tg">
                                         <rect key="frame" x="20" y="399.66666666666663" width="353" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXq-dE-cmw" customClass="CustomView" customModule="DesynatDealer" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXq-dE-cmw" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50.666666666666664" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4e9-Ra-TEa">
@@ -2299,7 +2329,7 @@ miss out</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-Kn-Bdc" customClass="CustomView" customModule="DesynatDealer" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-Kn-Bdc" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="60.666666666666671" y="0.0" width="50.333333333333329" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ROm-D9-JVE">
@@ -2328,7 +2358,7 @@ miss out</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8Y-VL-LR6" customClass="CustomView" customModule="DesynatDealer" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8Y-VL-LR6" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="121.00000000000001" y="0.0" width="50.666666666666671" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctc-Kw-jiB">
@@ -2357,7 +2387,7 @@ miss out</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAg-1j-KXq" customClass="CustomView" customModule="DesynatDealer" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAg-1j-KXq" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="181.66666666666666" y="0.0" width="50.333333333333343" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-rt-uNP">
@@ -2386,7 +2416,7 @@ miss out</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ly-62-fte" customClass="CustomView" customModule="DesynatDealer" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ly-62-fte" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="241.99999999999997" y="0.0" width="50.666666666666657" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-I1-gPn">
@@ -2415,7 +2445,7 @@ miss out</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opg-4p-YvF" customClass="CustomView" customModule="DesynatDealer" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opg-4p-YvF" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="302.66666666666669" y="0.0" width="50.333333333333314" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UIq-oT-LmN">
@@ -2504,7 +2534,7 @@ miss out</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dS4-4U-bwl">
                                         <rect key="frame" x="20" y="553.66666666666663" width="353" height="38"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="My0-ZH-XMl" customClass="CustomButton" customModule="DesynatDealer" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="My0-ZH-XMl" customClass="CustomButton" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
