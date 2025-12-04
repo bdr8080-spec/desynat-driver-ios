@@ -8,13 +8,44 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-    private lazy var viewModel = ProfileVM(hostVC:self)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+  
+  @IBOutlet weak var logoutButtonOutlet: UIButton!
+  @IBOutlet weak var detailsStackView: UIStackView!
+  @IBOutlet weak var userDetailsView: UIView!
+  @IBOutlet weak var vehicleLabel: UILabel!
+  @IBOutlet weak var vehicleButtonOutlet: CustomButton!
+  @IBOutlet weak var myProfileLabel: UILabel!
+  @IBOutlet weak var myProfileButtonOutlet: CustomButton!
+  @IBOutlet weak var userProfileImageView: CustomImageView!
+  @IBOutlet weak var userNameLaebl: UILabel!
+  @IBOutlet weak var userEmailLabel: UILabel!
+  @IBOutlet weak var phoneLabel: UILabel!
+  @IBOutlet weak var addressLabel: UILabel!
+  @IBOutlet weak var zoneLabel: UILabel!
+  
+  private lazy var viewModel = ProfileVM(hostVC:self)
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    viewModel.populateDataInProfile()
+  }
+  
+  @IBAction func btnTapLogout(_ sender: UIButton) {
+    viewModel.logoutApi()
+  }
+  
+  @IBAction func myProfileDidTapped(_ sender: Any) {
 
-    @IBAction func btnTapLogout(_ sender: UIButton) {
-        viewModel.logoutApi()
-    }
+  }
+  
+  @IBAction func vehicleDidTapped(_ sender: Any) {
+    let nextVC = VehicleInfoViewController.instantiate(fromAppStoryboard: .Profile)
+    self.navigationController?.pushViewController(nextVC, animated: false)
+  }
+  
+  @IBAction func editDidTapped(_ sender: Any) {
+    let nextVC = EditProfileViewController.instantiate(fromAppStoryboard: .Profile)
+    self.navigationController?.pushViewController(nextVC, animated: true)
+  }
+  
 }

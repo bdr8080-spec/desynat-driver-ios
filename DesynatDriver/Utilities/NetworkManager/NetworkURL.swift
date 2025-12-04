@@ -28,6 +28,13 @@ enum NetworkEndPoint: String {
     case createPassword               = "/api/deliveryboy/create_password"
     case logout                       = "/api/deliveryboy/logout"
     
+  
+  // M2
+  case dutyOnOff                      = "/api/deliveryboy/duty_on_off"
+  case getProfile                     = "/api/deliveryboy/get_profile_details"
+  case uploadImage                    = "/api/upload"
+  case getZoneListOfDriver          = "api/admin/get_kuwait_zones"
+  
     func withBaseURL() -> String {
         return "\(BaseURL.value())\(self.rawValue)"
     }

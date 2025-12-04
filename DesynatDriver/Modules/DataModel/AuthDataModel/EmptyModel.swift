@@ -9,3 +9,8 @@
 struct EmptyModel:Codable{
     
 }
+
+// MARK: - UploadFileDataModel
+struct UploadFileDataModel: Codable {
+    let url: String
+}

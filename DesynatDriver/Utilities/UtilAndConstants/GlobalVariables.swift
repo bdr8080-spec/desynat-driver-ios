@@ -13,6 +13,7 @@ let kSharedAppDelegate = UIApplication.shared.delegate as! AppDelegate
 let kSharedSceneDelegate = UIApplication.shared.connectedScenes.first!.delegate as! SceneDelegate
 let kScreenWidth = UIScreen.main.bounds.size.width
 let kScreenHeight = UIScreen.main.bounds.size.height
+var driverProfileData: UserProfileData?
 
 final class Global {
     static let shared = Global()
