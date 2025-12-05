@@ -14,4 +14,14 @@ class DeliveriesVC: UIViewController {
 
     }
     
+  @IBAction func btnTapLogout(_ sender: UIButton) {
+    logoutApi()
+  }
+  
+  //Mark:->LogoutApi
+  func logoutApi(){
+//        WebService.sharedInstance.logoutService { user in
+          kSharedSceneDelegate.logoutUser()
+//        }
+  }
 }

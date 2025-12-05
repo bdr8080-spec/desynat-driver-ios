@@ -9,7 +9,6 @@ import UIKit
 
 class ProfileVC: UIViewController {
   
-  @IBOutlet weak var logoutButtonOutlet: UIButton!
   @IBOutlet weak var detailsStackView: UIStackView!
   @IBOutlet weak var userDetailsView: UIView!
   @IBOutlet weak var vehicleLabel: UILabel!
@@ -30,10 +29,6 @@ class ProfileVC: UIViewController {
     viewModel.populateDataInProfile()
   }
   
-  @IBAction func btnTapLogout(_ sender: UIButton) {
-    viewModel.logoutApi()
-  }
-  
   @IBAction func myProfileDidTapped(_ sender: Any) {
 
   }
@@ -45,6 +40,10 @@ class ProfileVC: UIViewController {
   
   @IBAction func editDidTapped(_ sender: Any) {
     let nextVC = EditProfileViewController.instantiate(fromAppStoryboard: .Profile)
+    nextVC.profileIsUpdated = { [weak self] in
+      guard let self else { return }
+      viewModel.getDelearProfile()
+    }
     self.navigationController?.pushViewController(nextVC, animated: true)
   }
   

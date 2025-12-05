@@ -9,7 +9,8 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
   
-  
+  @IBOutlet weak var fullNameInEnglishTF: UITextField!
+  @IBOutlet weak var fullNameInArabicTF: UITextField!
   @IBOutlet weak var profileImageView: CustomImageView!
   @IBOutlet weak var firstNameTF: UITextField!
   @IBOutlet weak var lastNameTF: UITextField!
@@ -27,12 +28,13 @@ class EditProfileViewController: UIViewController {
   var zoneId: Int? = 0
   var latitude: Double? = 0.0
   var longitude: Double? = 0.0
-  var profileImageUrl: String? = ""
+  var profileImageUrl: String = ""
   private lazy var viewModel = EditProfileViewModel(hostVC: self)
+  var profileIsUpdated: (() -> Void)?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    viewModel.getAllZone()
+//    viewModel.getAllZone()
     fillDriverData(data: driverProfileData)
   }
   
@@ -58,7 +60,6 @@ class EditProfileViewController: UIViewController {
       let name = country.nameEnglish ?? ""
       return "\(name)"
     }
-    
     kSharedAppDelegate.dropDown(dataSource: zoneNames, anchorView: sender) { index, item in
       let selectedCountry = self.viewModel.zoneListData[index]
       self.zoneTF.text = selectedCountry.nameEnglish
@@ -68,51 +69,43 @@ class EditProfileViewController: UIViewController {
   
   @IBAction func addLocationDidTapped(_ sender: Any) {
     let vc = LocationViewController.instantiate(fromAppStoryboard: .Profile)
-    vc.preSelectedLat = self.latitude   // your saved lat
-    vc.preSelectedLng = self.longitude  // your saved long
-    
+    vc.preSelectedLat = self.latitude
+    vc.preSelectedLng = self.longitude
     vc.locationCallBack = { [weak self] address, locality, city, state, country, pincode, lat, long in
       guard let self = self else { return }
-      
-      // Make fallback-safe variables
-      let safeLocality = locality.isEmpty ? address : locality        // fallback to full address
+      let safeLocality = locality.isEmpty ? address : locality
       let safeCity = city.isEmpty ? locality.isEmpty ? address : locality : city
       let safeState = state.isEmpty ? city.isEmpty ? locality.isEmpty ? address : locality : city : state
       let safePincode = pincode.isEmpty ? "" : pincode
-      
-      // Field 1 — Address Line One
       self.addressLineTF.text = safeLocality
-      
-      // Field 2 — Address Line Two (city + state + pincode)
       var components: [String] = []
-      
       if !safeCity.isEmpty { components.append(safeCity) }
       if !safeState.isEmpty { components.append(safeState) }
-      
       var addressLine2 = components.joined(separator: ", ")
       if !safePincode.isEmpty { addressLine2 += " - \(safePincode)" }
-      
-      // Last fallback if line2 becomes empty
       if addressLine2.isEmpty { addressLine2 = address }
-      
       self.houseNumberTF.text = addressLine2
-      
-      // City & State fields
       self.cityTF.text = safeCity.isEmpty ? address : safeCity
       self.stateTF.text = safeState.isEmpty ? safeCity.isEmpty ? address : safeCity : safeState
-      
-      // Coordinates
       self.latitude = lat
       self.longitude = long
     }
     self.navigationController?.pushViewController(vc, animated: true)
   }
   
+  @IBAction func saveChangesDidTapped(_ sender: Any) {
+    if viewModel.validateFields() {
+      viewModel.editDriverProfileApi()
+    }
+  }
+  
   func fillDriverData(data: UserProfileData?) {
     // MARK: - Text Fields
-    let fullName = splitName(data?.fullNameEnglish ?? "")
-    firstNameTF.text = fullName.firstName
-    lastNameTF.text = fullName.lastName
+//    let fullName = splitName(data?.fullNameEnglish ?? "")
+//    firstNameTF.text = fullName.firstName
+//    lastNameTF.text = fullName.lastName
+    fullNameInEnglishTF.text = data?.fullNameEnglish
+    fullNameInArabicTF.text = data?.fullNameArabic
     mobileTF.text = data?.mobile
     countryCodeTF.text = data?.countryCode
     emailTF.text = data?.email

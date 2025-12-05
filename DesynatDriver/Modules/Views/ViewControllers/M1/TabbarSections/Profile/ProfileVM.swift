@@ -14,13 +14,6 @@ class ProfileVM:NSObject{
     init(hostVC: ProfileVC) {
         self.hostVC = hostVC
     }
-    
-    //Mark:->LogoutApi
-    func logoutApi(){
-//        WebService.sharedInstance.logoutService { user in
-            kSharedSceneDelegate.logoutUser()
-//        }
-    }
   
   func populateDataInProfile() {
     hostVC.userNameLaebl.text = driverProfileData?.fullNameEnglish
@@ -38,5 +31,15 @@ class ProfileVM:NSObject{
     .joined(separator: ", ")
     hostVC.userProfileImageView.setImage(with: driverProfileData?.profilePic)
     hostVC.zoneLabel.text = driverProfileData?.zoneInfo?.nameEnglish
+  }
+  
+  func getDelearProfile() {
+    WebService.sharedInstance.getProfile { [weak self] response in
+      guard let self = self else { return }
+      driverProfileData = response
+      DispatchQueue.main.async {
+        self.populateDataInProfile()
+      }
+    }
   }
 }

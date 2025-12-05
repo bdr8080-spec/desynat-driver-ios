@@ -33,7 +33,8 @@ enum NetworkEndPoint: String {
   case dutyOnOff                      = "/api/deliveryboy/duty_on_off"
   case getProfile                     = "/api/deliveryboy/get_profile_details"
   case uploadImage                    = "/api/upload"
-  case getZoneListOfDriver          = "api/admin/get_kuwait_zones"
+  case getZoneListOfDriver          = "/api/admin/get_kuwait_zones"
+  case editDriverDetails          = "/api/deliveryboy/update_profile"
   
     func withBaseURL() -> String {
         return "\(BaseURL.value())\(self.rawValue)"

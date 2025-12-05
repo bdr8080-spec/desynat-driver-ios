@@ -40,48 +40,56 @@ class VehicleInfoViewController: UIViewController {
   @IBAction func vehcileNameDidTapped(_ sender: Any) {
     let nextVC = UpdateVehicleViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .vehicleName
+    nextVC.vehicleInfo = driverProfileData?.vehicleName
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func registrationNumberDidTappd(_ sender: Any) {
     let nextVC = UpdateVehicleViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .updateVehicleRegistration
+    nextVC.vehicleInfo = driverProfileData?.vehicleRegNo
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func uploadVehicleDidTapped(_ sender: Any) {
     let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .vehicleImage
+    nextVC.driverDocuments = driverProfileData?.vehicleImage
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func uploadIdentityDidTapped(_ sender: Any) {
     let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .identityProof
+    nextVC.driverDocuments = driverProfileData?.identityProof
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func drivingLicenseDidTapped(_ sender: Any) {
     let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .drivingLicence
+    nextVC.driverDocuments = driverProfileData?.drivingLicense
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func vehicleInsuranceDidTapped(_ sender: Any) {
     let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .vehcileInsurance
+    nextVC.driverDocuments = driverProfileData?.vehicleInsurance
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func pollutionCertificateDidTapped(_ sender: Any) {
     let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .pollutionPaper
+    nextVC.driverDocuments = driverProfileData?.pollutionPaper
     self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func registrationCertificateDidTapped(_ sender: Any) {
     let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.comingReason = .registrationCertificate
+    nextVC.driverDocuments = driverProfileData?.registrationCertificate
     self.navigationController?.present(nextVC, animated: true)
   }
   
