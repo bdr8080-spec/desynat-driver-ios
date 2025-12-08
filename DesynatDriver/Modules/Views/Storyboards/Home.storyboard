@@ -987,10 +987,10 @@
                                                     <action selector="editDidTapped:" destination="Gwe-x1-55e" eventType="touchUpInside" id="Qsb-oc-R9T"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMd-Wd-zx0">
-                                                <rect key="frame" x="37.333333333333314" y="11.333333333333314" width="22.333333333333329" height="17"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
-                                                <color key="textColor" red="0.35294117650000001" green="0.20784313730000001" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-D4-LTj">
+                                                <rect key="frame" x="35.333333333333314" y="10.000000000000002" width="26.333333333333329" height="19.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
+                                                <color key="textColor" red="0.61960784313725492" green="0.47058823529411764" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -998,9 +998,9 @@
                                             <constraint firstAttribute="trailing" secondItem="oUl-XW-4GA" secondAttribute="trailing" id="1C3-0m-KiS"/>
                                             <constraint firstItem="oUl-XW-4GA" firstAttribute="top" secondItem="0lj-yA-qeB" secondAttribute="top" id="8IY-kM-lXu"/>
                                             <constraint firstAttribute="bottom" secondItem="oUl-XW-4GA" secondAttribute="bottom" id="H1Y-oV-8Zc"/>
+                                            <constraint firstItem="XEB-D4-LTj" firstAttribute="centerX" secondItem="0lj-yA-qeB" secondAttribute="centerX" id="RLi-MR-bzL"/>
                                             <constraint firstItem="oUl-XW-4GA" firstAttribute="leading" secondItem="0lj-yA-qeB" secondAttribute="leading" id="ayZ-bU-Zhf"/>
-                                            <constraint firstItem="eMd-Wd-zx0" firstAttribute="centerX" secondItem="0lj-yA-qeB" secondAttribute="centerX" id="cQg-XJ-F0M"/>
-                                            <constraint firstItem="eMd-Wd-zx0" firstAttribute="centerY" secondItem="oUl-XW-4GA" secondAttribute="centerY" id="gu9-d6-D7p"/>
+                                            <constraint firstItem="XEB-D4-LTj" firstAttribute="centerY" secondItem="0lj-yA-qeB" secondAttribute="centerY" id="oL3-Dw-kl1"/>
                                         </constraints>
                                     </view>
                                 </subviews>

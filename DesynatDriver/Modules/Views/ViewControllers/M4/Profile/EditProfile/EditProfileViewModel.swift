@@ -113,7 +113,7 @@ class EditProfileViewModel:NSObject{
     
     WebService.sharedInstance.editDriverDetails(param: params) { (response) in
       DispatchQueue.main.async {
-        CommonUtils.showToast(message: "Driver Details updated succesfully")
+        CommonUtils.showToast(message: "profile updated succesfully")
         self.hostVC.profileIsUpdated?()
         self.hostVC.navigationController?.popViewController(animated: true)
       }

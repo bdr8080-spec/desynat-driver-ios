@@ -23,8 +23,8 @@ class ProfileVM:NSObject{
     hostVC.addressLabel.text = [
       driverProfileData?.addressLine1,
       driverProfileData?.addressLine2,
-      driverProfileData?.city,
-      driverProfileData?.state
+//      driverProfileData?.city,
+//      driverProfileData?.state
     ]
     .compactMap { $0 }
     .filter { !$0.isEmpty }

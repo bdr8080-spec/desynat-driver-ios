@@ -213,12 +213,12 @@ extension UIImageView {
     
     guard let urlString = urlString,
           let url = URL(string: urlString) else {
-      self.image = UIImage(named: "userProfile")
+      self.image = UIImage(named: "")
       return
     }
     
     self.sd_setImage(with: url,
-                     placeholderImage: UIImage(named: "userProfile"),
+                     placeholderImage: UIImage(named: ""),
                      options: [.continueInBackground, .highPriority])
   }
   
@@ -229,4 +229,29 @@ extension UIImageView {
       self.image = UIImage(named: placeholder)
     }
   }
+}
+
+
+import SDWebImage
+
+extension UIImageView {
+    func setDocumentImage(path: String?, placeholder: String = "") {
+        guard let path = path, !path.isEmpty else {
+            self.image = UIImage(named: placeholder)
+            return
+        }
+
+        // Check if file is PDF
+        if path.lowercased().hasSuffix(".pdf") {
+            self.image = UIImage(named: "pdf_uploaded_sec")   // your pdf icon
+            return
+        }
+
+        // Otherwise load image normally
+        if let url = URL(string: path) {
+            self.sd_setImage(with: url, placeholderImage: UIImage(named: placeholder))
+        } else {
+            self.image = UIImage(named: placeholder)
+        }
+    }
 }

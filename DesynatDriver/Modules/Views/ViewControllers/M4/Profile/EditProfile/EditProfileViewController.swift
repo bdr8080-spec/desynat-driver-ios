@@ -53,43 +53,80 @@ class EditProfileViewController: UIViewController {
             }
         }
     }
+    
+    
+//    ImagePickerManager().pickImage(self) { [weak self] image, fileName, url in
+//        guard let self = self else { return }
+//        self.viewModel.uploadDocument(file: image, isImage: true) { [weak self] uploadedUrl in
+//            guard let self = self else { return }
+//            DispatchQueue.main.async {
+//                self.selectedProfileImageUrl = uploadedUrl
+//                self.imgProfile.image = image
+//            }
+//        }
+//    }
   }
   
   @IBAction func zoneDidTapped(_ sender: UIButton) {
-    let zoneNames = viewModel.zoneListData.map { country -> String in
-      let name = country.nameEnglish ?? ""
-      return "\(name)"
-    }
-    kSharedAppDelegate.dropDown(dataSource: zoneNames, anchorView: sender) { index, item in
-      let selectedCountry = self.viewModel.zoneListData[index]
-      self.zoneTF.text = selectedCountry.nameEnglish
-      self.zoneId = selectedCountry.id
-    }
+//    let zoneNames = viewModel.zoneListData.map { country -> String in
+//      let name = country.nameEnglish ?? ""
+//      return "\(name)"
+//    }
+//    kSharedAppDelegate.dropDown(dataSource: zoneNames, anchorView: sender) { index, item in
+//      let selectedCountry = self.viewModel.zoneListData[index]
+//      self.zoneTF.text = selectedCountry.nameEnglish
+//      self.zoneId = selectedCountry.id
+//    }
   }
   
   @IBAction func addLocationDidTapped(_ sender: Any) {
     let vc = LocationViewController.instantiate(fromAppStoryboard: .Profile)
     vc.preSelectedLat = self.latitude
     vc.preSelectedLng = self.longitude
+//    vc.locationCallBack = { [weak self] address, locality, city, state, country, pincode, lat, long in
+//      guard let self = self else { return }
+//      let safeLocality = locality.isEmpty ? address : locality
+//      let safeCity = city.isEmpty ? locality.isEmpty ? address : locality : city
+//      let safeState = state.isEmpty ? city.isEmpty ? locality.isEmpty ? address : locality : city : state
+//      let safePincode = pincode.isEmpty ? "" : pincode
+//      self.addressLineTF.text = safeLocality
+//      var components: [String] = []
+//      if !safeCity.isEmpty { components.append(safeCity) }
+//      if !safeState.isEmpty { components.append(safeState) }
+//      var addressLine2 = components.joined(separator: ", ")
+//      if !safePincode.isEmpty { addressLine2 += " - \(safePincode)" }
+//      if addressLine2.isEmpty { addressLine2 = address }
+//      self.houseNumberTF.text = addressLine2
+//      self.cityTF.text = safeCity.isEmpty ? address : safeCity
+//      self.stateTF.text = safeState.isEmpty ? safeCity.isEmpty ? address : safeCity : safeState
+//      self.latitude = lat
+//      self.longitude = long
+//    }
+    
     vc.locationCallBack = { [weak self] address, locality, city, state, country, pincode, lat, long in
-      guard let self = self else { return }
-      let safeLocality = locality.isEmpty ? address : locality
+        guard let self = self else { return }
+
+        // Always show full address in the main address field
+        self.addressLineTF.text = address
       let safeCity = city.isEmpty ? locality.isEmpty ? address : locality : city
       let safeState = state.isEmpty ? city.isEmpty ? locality.isEmpty ? address : locality : city : state
-      let safePincode = pincode.isEmpty ? "" : pincode
-      self.addressLineTF.text = safeLocality
-      var components: [String] = []
-      if !safeCity.isEmpty { components.append(safeCity) }
-      if !safeState.isEmpty { components.append(safeState) }
-      var addressLine2 = components.joined(separator: ", ")
-      if !safePincode.isEmpty { addressLine2 += " - \(safePincode)" }
-      if addressLine2.isEmpty { addressLine2 = address }
-      self.houseNumberTF.text = addressLine2
+        // Fill other fields with best available info
+        self.houseNumberTF.text = {
+            var components: [String] = []
+            if !locality.isEmpty { components.append(locality) }
+            if !city.isEmpty { components.append(city) }
+            if !state.isEmpty { components.append(state) }
+          if !country.isEmpty { components.append(country)}
+            if !pincode.isEmpty { components.append(pincode) }
+            return components.joined(separator: ", ")
+        }()
+
       self.cityTF.text = safeCity.isEmpty ? address : safeCity
       self.stateTF.text = safeState.isEmpty ? safeCity.isEmpty ? address : safeCity : safeState
-      self.latitude = lat
-      self.longitude = long
+        self.latitude = lat
+        self.longitude = long
     }
+
     self.navigationController?.pushViewController(vc, animated: true)
   }
   

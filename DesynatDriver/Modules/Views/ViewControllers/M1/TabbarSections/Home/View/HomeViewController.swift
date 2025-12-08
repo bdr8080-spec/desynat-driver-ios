@@ -52,11 +52,11 @@ class HomeViewController: UIViewController {
           if status == 1 {
             busyOnOffLabel.text = "On Duty"
             btnToggle.setImage(UIImage(named: "toggle"), for: .normal)
-            CommonUtils.showToast(message: "On Duty")
+            CommonUtils.showToast(message: "Duty on succesfully ")
           } else {
             busyOnOffLabel.text = "Off Duty"
             btnToggle.setImage(UIImage(named: "toggle_off"), for: .normal)
-            CommonUtils.showToast(message: "Off Duty")
+            CommonUtils.showToast(message: "Duty off succesfully ")
           }
         }
       }
