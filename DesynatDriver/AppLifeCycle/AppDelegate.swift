@@ -9,6 +9,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import DropDown
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 2.5)
+      IQKeyboardManager.shared.enableAutoToolbar = true
+      IQKeyboardManager.shared.isEnabled = true
         LocationManager.sharedInstance.startUpdatingLocation()
         GMSServices.provideAPIKey("AIzaSyBlCfJlRuxElolt6l-4erdJPR9ySUB8Jwk")
         GMSPlacesClient.provideAPIKey("AIzaSyAekJV3oxQlPy_OWHCxPYfFw5CnrD-Wzkg")
