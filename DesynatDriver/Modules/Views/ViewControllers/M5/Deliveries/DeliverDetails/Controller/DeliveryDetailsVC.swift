@@ -67,17 +67,17 @@ class DeliveryDetailsVC: UIViewController {
             }else if self?.viewModel.orderDetail?.deliveryStatus == "2" {
                 self?.lblStatus.text = "Confirm"
             }
-            self?.pickupAddressLbl.text = self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
-            self?.deliveryNamelbl.text = "\(self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.firstName ?? "") \(self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.lastName ?? "")"
+            self?.pickupAddressLbl.text = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+            self?.deliveryNamelbl.text = "\(self?.viewModel.orderDetail?.productDetails?.sellerDetails?.firstName ?? "") \(self?.viewModel.orderDetail?.productDetails?.sellerDetails?.lastName ?? "")"
             self?.imgProduct.image = .placeholder
-            if let url = URL(string: self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.profilePic ?? "") {
+            if let url = URL(string: self?.viewModel.orderDetail?.productDetails?.sellerDetails?.profilePic ?? "") {
                 self?.imgProduct.sd_setImage(with: url,placeholderImage: .placeholder)
             }
-            self?.ratinglbl.text = self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.reviewRating ?? 0.description
-            self?.dropLocationLbl.text = self?.viewModel.orderDetail?.deliveryDetails?.address ?? ""
-            self?.customerNameLbl.text = self?.viewModel.orderDetail?.deliveryDetails?.name ?? ""
-            self?.orderIdLbl.text = CommonUtils.lastSevenWithHash(self?.viewModel.orderDetail?.orderID ?? "")
-            self?.priceLbl.text = CommonUtils.formatAmount(self?.viewModel.orderDetail?.totalAmount ?? "")
+            self?.ratinglbl.text = "4.5"
+            self?.dropLocationLbl.text = self?.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
+            self?.customerNameLbl.text = self?.viewModel.orderDetail?.order?.deliveryDetails?.name ?? ""
+            self?.orderIdLbl.text = CommonUtils.lastSevenWithHash("\(self?.viewModel.orderDetail?.orderID ?? 0)")
+            self?.priceLbl.text = CommonUtils.formatAmount(self?.viewModel.orderDetail?.order?.totalAmount ?? "")
             if self?.viewModel.orderDetail?.paymentStatus == "1" {
                 self?.painStatusLbl.text = "Paid"
             }else {
@@ -107,12 +107,20 @@ class DeliveryDetailsVC: UIViewController {
 extension DeliveryDetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.orderDetail?.orderDetails?.count ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTVC", for: indexPath) as! ProductTVC
-        cell.setData(data: self.viewModel.orderDetail?.orderDetails?[indexPath.row])
+       // cell.setData(data: self.viewModel.orderDetail?.orderDetails?[indexPath.row])
+        cell.productNameLbl.text = self.viewModel.orderDetail?.productDetails?.productNameEn ?? ""
+        cell.productSizeLbl.text = self.viewModel.orderDetail?.variationDetails?.size?.name ?? ""
+        //self.colourLabel.text = data?.variationDetails?.color?.name ?? ""
+        cell.productQuantityLbl.text = self.viewModel.orderDetail?.quantity?.description
+        cell.productImageView.image = .placeholder
+        if let url = URL(string: self.viewModel.orderDetail?.variationDetails?.variantImage?.first ?? "") {
+            cell.productImageView.sd_setImage(with: url,placeholderImage: .placeholder)
+        }
         return cell
     }
 }

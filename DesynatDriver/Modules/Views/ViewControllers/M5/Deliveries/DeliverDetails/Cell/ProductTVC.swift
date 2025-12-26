@@ -26,14 +26,14 @@ class ProductTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(data: OrderDetail?) {
-        self.productNameLbl.text = data?.productDetails?.productNameEn ?? ""
-        self.productSizeLbl.text = data?.variationDetails?.size?.name ?? ""
-        //self.colourLabel.text = data?.variationDetails?.color?.name ?? ""
-        self.productQuantityLbl.text = data?.quantity?.description
-        self.productImageView.image = .placeholder
-        if let url = URL(string: data?.variationDetails?.variantImage?.first ?? "") {
-            self.productImageView.sd_setImage(with: url,placeholderImage: .placeholder)
-        }
-    }
+//    func setData(data: Order?) {
+//        self.productNameLbl.text = data?.productDetails?.productNameEn ?? ""
+//        self.productSizeLbl.text = data?.variationDetails?.size?.name ?? ""
+//        //self.colourLabel.text = data?.variationDetails?.color?.name ?? ""
+//        self.productQuantityLbl.text = data?.quantity?.description
+//        self.productImageView.image = .placeholder
+//        if let url = URL(string: data?.variationDetails?.variantImage?.first ?? "") {
+//            self.productImageView.sd_setImage(with: url,placeholderImage: .placeholder)
+//        }
+//    }
 }

@@ -19,7 +19,8 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var lblNewDeliveries: UILabel!
   @IBOutlet weak var lblOnGoingDeliveries: UILabel!
   @IBOutlet weak var lblTotalDeliveries: UILabel!
-  @IBOutlet weak var newDeliveriesTableView: UITableView!
+  @IBOutlet weak var newDeliveriesCollectionView: UICollectionView!
+    @IBOutlet weak var ongoingCollectionView: UICollectionView!
   
   private lazy var viewModel = HomeViewModel(hostVC: self)
   
@@ -28,18 +29,53 @@ class HomeViewController: UIViewController {
   var timeStamp = Double()
   var date = ""
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setDelegates()
-    setDate()
-    viewModel.getDelearProfile()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setDate()
+        setDelegates()
+        viewModel.getDelearProfile()
+        setupCollectionViewLayouts()
+        
+        viewModel.onHomeDataUpdate = { [weak self] in
+            DispatchQueue.main.async {
+                self?.newDeliveriesCollectionView.reloadData()
+                self?.ongoingCollectionView.reloadData()
+                // completed ka table / collection agar ho
+            }
+        }
+        
+        viewModel.getHomeData()
+    }
+    
+    func setDelegates(){
+        newDeliveriesCollectionView.delegate = self
+        newDeliveriesCollectionView.dataSource = self
+        newDeliveriesCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
+        
+        ongoingCollectionView.delegate = self
+        ongoingCollectionView.dataSource = self
+        ongoingCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
+    }
   
-  func setDelegates(){
-    newDeliveriesTableView.delegate = self
-    newDeliveriesTableView.dataSource = self
-    newDeliveriesTableView.register(UINib(nibName:"NewDeliveriesTableCell", bundle:nil), forCellReuseIdentifier:"NewDeliveriesTableCell")
-  }
+    func setupCollectionViewLayouts() {
+
+        let newLayout = UICollectionViewFlowLayout()
+        newLayout.scrollDirection = .horizontal
+        newLayout.minimumLineSpacing = 12
+        newLayout.minimumInteritemSpacing = 12
+        newLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        newDeliveriesCollectionView.collectionViewLayout = newLayout
+        newDeliveriesCollectionView.showsHorizontalScrollIndicator = false
+
+        let ongoingLayout = UICollectionViewFlowLayout()
+        ongoingLayout.scrollDirection = .horizontal
+        ongoingLayout.minimumLineSpacing = 12
+        ongoingLayout.minimumInteritemSpacing = 12
+        ongoingLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        ongoingCollectionView.collectionViewLayout = ongoingLayout
+        ongoingCollectionView.showsHorizontalScrollIndicator = false
+    }
+
   
   @IBAction func btnTapSideMenu(_ sender: Any) {
   }
@@ -92,23 +128,108 @@ class HomeViewController: UIViewController {
   
   @IBAction func btnTapTotalDeliveries(_ sender: UIButton) {
   }
+    
+    @IBAction func btnActionNewDeliveries(_ sender: UIButton) {
+        NotificationCenter.default.post(
+                name: .switchToDeliveriesTab,
+                object: nil,
+                userInfo: ["tab": DeliveriesTab.new]
+            )
+    }
+    
+    @IBAction func btnActionGoingDeliveries(_ sender: UIButton) {
+        NotificationCenter.default.post(
+               name: .switchToDeliveriesTab,
+               object: nil,
+               userInfo: ["tab": DeliveriesTab.ongoing]
+           )
+    }
   
 }
 
-extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 4
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = newDeliveriesTableView.dequeueReusableCell(withIdentifier:"NewDeliveriesTableCell", for:indexPath)as!NewDeliveriesTableCell
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
-  }
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+
+        if collectionView == newDeliveriesCollectionView {
+            return viewModel.newOrders.count
+        } else {
+            return viewModel.ongoingOrders.count
+        }
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "DeliveryCVC",
+            for: indexPath
+        ) as! DeliveryCVC
+
+        if collectionView == newDeliveriesCollectionView {
+            let data = viewModel.newOrders[indexPath.row]
+            cell.configureNewDelivery(data: data)
+
+            cell.btnCall.tag = indexPath.row
+            cell.btnCall.accessibilityIdentifier = "new"
+        } else {
+            let data = viewModel.ongoingOrders[indexPath.row]
+            cell.configureOngoingDelivery(data: data)
+
+            cell.btnCall.tag = indexPath.row
+            cell.btnCall.accessibilityIdentifier = "ongoing"
+        }
+
+        cell.btnCall.addTarget(self,
+                               action: #selector(call(_:)),
+                               for: .touchUpInside)
+
+        return cell
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(
+            width: (collectionView.frame.width ) / 1,
+            height: 100
+        )
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        if collectionView == newDeliveriesCollectionView {
+            print("New delivery tapped at \(indexPath.row)")
+        } else {
+            print("Ongoing delivery tapped at \(indexPath.row)")
+        }
+    }
+    
+    
+    @objc func call(_ sender: UIButton) {
+
+        let index = sender.tag
+        var mobileNumber: String?
+
+        if sender.accessibilityIdentifier == "new" {
+            mobileNumber = viewModel.newOrders[index].productDetails?.sellerDetails?.storeInfo?.storePhone ?? ""
+        } else {
+            mobileNumber = viewModel.ongoingOrders[index].productDetails?.sellerDetails?.storeInfo?.storePhone ?? ""
+        }
+
+        guard let number = mobileNumber,
+              let url = URL(string: "tel://\(number)") else { return }
+
+        UIApplication.shared.open(url)
+    }
+
 }
+
+
 
 extension HomeViewController:UITextFieldDelegate {
   func setDate(){

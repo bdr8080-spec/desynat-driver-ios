@@ -10,6 +10,9 @@ extension Notification.Name {
     static let switchToHomeTab = Notification.Name("switchToHomeTab")
 }
 
+extension Notification.Name {
+    static let switchToDeliveriesTab = Notification.Name("switchToDeliveriesTab")
+}
 
 class TabBarVC: UIViewController {
     
@@ -24,12 +27,33 @@ class TabBarVC: UIViewController {
         super.viewDidLoad()
         updateTabSelection(forTag: initialTabIndex)
         NotificationCenter.default.addObserver(
+               self,
+               selector: #selector(switchToDeliveries(_:)),
+               name: .switchToDeliveriesTab,
+               object: nil
+           )
+        NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(switchToHome),
                 name: .switchToHomeTab,
                 object: nil
             )
     }
+    
+    @objc private func switchToDeliveries(_ notification: Notification) {
+
+        let tab = notification.userInfo?["tab"] as? DeliveriesTab ?? .all
+
+        // switch tabbar to Deliveries
+        updateTabSelection(forTag: 1)
+
+        // get DeliveriesVC safely
+        if let deliveriesVC = children.first as? DeliveriesVC {
+            deliveriesVC.initialTabFromHome = tab   // 🔥 STORE ONLY
+        }
+    }
+
+
     
     @objc private func switchToHome() {
         updateTabSelection(forTag: 0)

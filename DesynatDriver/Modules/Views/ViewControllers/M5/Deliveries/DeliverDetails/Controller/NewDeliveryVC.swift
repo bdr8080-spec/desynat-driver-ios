@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import GoogleMaps
+import MapKit
 
 class NewDeliveryVC: UIViewController {
     
@@ -56,15 +57,15 @@ class NewDeliveryVC: UIViewController {
     func setData() {
         self.viewModel.getOrderDetail(orderId: self.orderId ?? 0) { [weak self] in
             self?.orderDetail = self?.viewModel.orderDetail
-            self?.lblPickUpAddress.text = self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
-            self?.storeNameLbl.text = self?.viewModel.orderDetail?.deliveryDetails?.name ?? ""
+            self?.lblPickUpAddress.text = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+            self?.storeNameLbl.text = self?.viewModel.orderDetail?.order?.deliveryDetails?.name ?? ""
             self?.imgStore.image = .placeholder
-            if let url = URL(string: self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
+            if let url = URL(string: self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
                 self?.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
             }
-            self?.lblRating.text = self?.viewModel.orderDetail?.orderDetails?.first?.productDetails?.reviewRating ?? 0.description
-            self?.lblDropAddress.text = self?.viewModel.orderDetail?.deliveryDetails?.address ?? ""
-            if self?.viewModel.orderDetail?.deliveryStatus == "3" || self?.viewModel.orderDetail?.deliveryStatus == "7" || self?.viewModel.orderDetail?.deliveryStatus == "8"{
+            self?.lblRating.text = "4.5"
+            self?.lblDropAddress.text = self?.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
+            if self?.viewModel.orderDetail?.order?.deliveryStatus == "3" || self?.viewModel.orderDetail?.order?.deliveryStatus == "7" || self?.viewModel.orderDetail?.order?.deliveryStatus == "8"{
                 self?.viewPickUpLocation.isHidden = true
                 self?.viewPick.isHidden = true
                 self?.btnStack.isHidden = false
@@ -83,8 +84,84 @@ class NewDeliveryVC: UIViewController {
             }else if self?.viewModel.orderDetail?.deliveryStatus == "3" {
                 self?.lblStatus.text = "Delivered"
             }
+            
+            let origin = CLLocationCoordinate2D(
+                latitude: Double(self?.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
+                longitude: Double(self?.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0
+            )
+
+            let destination = CLLocationCoordinate2D(
+                latitude: Double(self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
+                longitude: Double(self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
+            )
+
+            self?.drawRoute(origin: origin, destination: destination)
+
         }
     }
+    
+    func drawRoute(origin: CLLocationCoordinate2D,
+                   destination: CLLocationCoordinate2D) {
+
+        let apiKey = "AIzaSyA4L_dBeJDWuqtBT9ZOOUhjigbh6Lxi43s"
+
+        let urlString =
+        "https://maps.googleapis.com/maps/api/directions/json?" +
+        "origin=\(origin.latitude),\(origin.longitude)" +
+        "&destination=\(destination.latitude),\(destination.longitude)" +
+        "&key=\(apiKey)"
+
+        guard let url = URL(string: urlString) else { return }
+
+        DispatchQueue.global(qos: .background).async {
+
+            guard let data = try? Data(contentsOf: url) else { return }
+
+            do {
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                let routes = json?["routes"] as? [[String: Any]]
+
+                guard let route = routes?.first,
+                      let overviewPolyline = route["overview_polyline"] as? [String: Any],
+                      let points = overviewPolyline["points"] as? String else {
+                    return
+                }
+
+                let path = GMSPath(fromEncodedPath: points)
+
+                DispatchQueue.main.async {
+
+                    let polyline = GMSPolyline(path: path)
+                    polyline.strokeColor = UIColor(hex: "#00C2D1")
+                    polyline.strokeWidth = 5
+                    polyline.map = self.mapVew
+
+                    // Pickup Marker
+                    let pickupMarker = GMSMarker(position: origin)
+                    pickupMarker.title = "Pickup Location"
+                    pickupMarker.icon = UIImage(named: "ic_pickup_pin")
+                    pickupMarker.map = self.mapVew
+
+                    // Drop Marker
+                    let dropMarker = GMSMarker(position: destination)
+                    dropMarker.title = "Drop Location"
+                    dropMarker.icon = UIImage(named: "ic_drop_pin")
+                    dropMarker.map = self.mapVew
+
+                    let camera = GMSCameraPosition.camera(
+                        withLatitude: origin.latitude,
+                        longitude: origin.longitude,
+                        zoom: 7
+                    )
+                    self.mapVew.animate(to: camera)
+                }
+
+            } catch {
+                print("Route parsing error:", error)
+            }
+        }
+    }
+
     
     
     @IBAction func backBtn(_ sender: Any) {
@@ -92,15 +169,31 @@ class NewDeliveryVC: UIViewController {
     }
     
     @IBAction func btnPickUpLocation(_ sender: UIButton) {
+        let pickupCoordinate = CLLocationCoordinate2D(
+            latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
+            longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0
+        )
         
+        openAppleMap(
+            destination: pickupCoordinate,
+            placeName: "Pickup Location"
+        )
     }
     
     @IBAction func btnDropLocation(_ sender: UIButton) {
+        let dropCoordinate = CLLocationCoordinate2D(
+            latitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
+            longitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
+        )
         
+        openAppleMap(
+            destination: dropCoordinate,
+            placeName: "Drop Location"
+        )
     }
     
     @IBAction func btnActionCall(_ sender: UIButton) {
-        let mobileNumber = self.viewModel.orderDetail?.orderDetails?.first?.productDetails?.sellerDetails?.storeInfo?.storePhone
+        let mobileNumber = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storePhone
         callNumber(mobileNumber)
     }
     
@@ -169,7 +262,6 @@ class NewDeliveryVC: UIViewController {
             }
         }
     }
-    
 
     
     @IBAction func btnActionDropdown(_ sender: UIButton) {
@@ -208,6 +300,25 @@ class NewDeliveryVC: UIViewController {
             showAlert(msg: "Calling not supported on this device")
         }
     }
+    
+    func openAppleMap(destination: CLLocationCoordinate2D, placeName: String) {
+
+        let currentLocation = MKMapItem.forCurrentLocation()
+
+        let destinationPlacemark = MKPlacemark(coordinate: destination)
+        let destinationItem = MKMapItem(placemark: destinationPlacemark)
+        destinationItem.name = placeName
+
+        let options = [
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+        ]
+
+        MKMapItem.openMaps(
+            with: [currentLocation, destinationItem],
+            launchOptions: options
+        )
+    }
+
 }
 
 extension  NewDeliveryVC:CLLocationManagerDelegate,GMSMapViewDelegate {
@@ -275,5 +386,21 @@ extension NewDeliveryVC {
 //                self.state = pm.administrativeArea ?? ""
             }
         })
+    }
+}
+extension UIColor {
+    convenience init(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+
+        var rgb: UInt64 = 0
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+
+        self.init(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: 1.0
+        )
     }
 }

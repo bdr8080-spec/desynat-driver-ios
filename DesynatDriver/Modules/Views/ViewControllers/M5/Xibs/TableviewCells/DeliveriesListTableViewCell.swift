@@ -30,12 +30,12 @@ class DeliveriesListTableViewCell: UITableViewCell {
     }
     
     func setData(data: DeliveryList?) {
-        self.lblName.text = data?.deliveryDetails?.name ?? ""
-        self.lblPrice.text = CommonUtils.formatAmount(data?.totalAmount ?? "")
+        self.lblName.text = data?.order?.deliveryDetails?.name ?? ""
+        self.lblPrice.text = CommonUtils.formatAmount(data?.order?.totalAmount ?? "")
         self.lblDate.text = CommonUtils.formatISODate(data?.createdAt ?? "")
         self.lblID.text = "#\(data?.id ?? 0) ● \(data?.distance ?? 0) Km"
         self.imgUser.image = .userProfile
-        if let url = URL(string: data?.orderDetails?.first?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
+        if let url = URL(string: data?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
             self.imgUser.sd_setImage(with: url,placeholderImage: .userProfile)
         }
        // 6-confirmed 7-picked 8 not delivered 3-delivered

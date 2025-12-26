@@ -32,12 +32,22 @@ class DeliveriesVC: UIViewController {
     
     //MARK: VARIABLES
     let viewModel = DeliveriesViewModel()
+    var initialTabFromHome: DeliveriesTab?   
     
     //MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
         viewModel.getData()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let tab = initialTabFromHome {
+            switchTab(tab)
+            initialTabFromHome = nil   // reset (important)
+        }
     }
 
     
@@ -62,9 +72,7 @@ class DeliveriesVC: UIViewController {
          self.present(nextVC, animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.switchTab(self.viewModel.currentTab)
-    }
+    
     private func switchTab(_ tab:DeliveriesTab) {
         self.lblAll.textColor = .init(hexString: tab == .all ? "#875C3A" : "#C0BBBB")
         self.lblAllBar.backgroundColor = .init(hexString: tab == .all ? "#875C3A" : "#C0BBBB")
