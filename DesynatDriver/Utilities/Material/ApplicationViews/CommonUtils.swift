@@ -8,14 +8,14 @@ import FTIndicator
 class CommonUtils {
     
     /// This function will help developer to get default country of the user based on locale
-//    static func getDefaultCountryCode() -> String {
-//        let countryPicker = ADCountryPicker()
-//        if #available(iOS 16, *) {
-//            return countryPicker.getDialCode(countryCode: NSLocale.current.region?.identifier ?? "UK") ?? "+44"
-//        } else {
-//            return countryPicker.getDialCode(countryCode: NSLocale.current.identifier) ?? "+44"
-//        }
-//    }
+    //    static func getDefaultCountryCode() -> String {
+    //        let countryPicker = ADCountryPicker()
+    //        if #available(iOS 16, *) {
+    //            return countryPicker.getDialCode(countryCode: NSLocale.current.region?.identifier ?? "UK") ?? "+44"
+    //        } else {
+    //            return countryPicker.getDialCode(countryCode: NSLocale.current.identifier) ?? "+44"
+    //        }
+    //    }
     
     /// This function will help developer to get top, bottom and total SafeArea Height
     static func getSafeAreaHeight() -> (top: CGFloat, bottom: CGFloat, total: CGFloat) {
@@ -75,7 +75,7 @@ class CommonUtils {
         if show == true {
             SVProgressHUD.setDefaultMaskType(.none)
             SVProgressHUD.setDefaultStyle(.custom)
-           // SVProgressHUD.setForegroundColor(.themeBlue)
+            // SVProgressHUD.setForegroundColor(.themeBlue)
             SVProgressHUD.setBackgroundColor(.white)
             SVProgressHUD.show()
         } else {
@@ -124,7 +124,7 @@ class CommonUtils {
     ///   - selectedColor: selected value color
     ///   - completion: Index of selection and value of selection
     static func dropDown(dataSource:[String], anchorView:UIView, selectedColor:UIColor,
-                  completion: @escaping (  _ index: Int ,  _ item: String) -> ()) {
+                         completion: @escaping (  _ index: Int ,  _ item: String) -> ()) {
         let dropDown = DropDown()
         dropDown.anchorView = anchorView
         dropDown.dataSource = dataSource
@@ -136,30 +136,30 @@ class CommonUtils {
         dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
         dropDown.dismissMode = .automatic
         // Customize cell configuration for text alignment
-//            dropDown.customCellConfiguration = { (index: Int, item: String, cell: DropDownCell) in
-//                if kSharedUserDefaults.getValue(Key: .language) == "ar" {
-//                    cell.optionLabel.textAlignment = .right // Align text to the right for Arabic
-//                } else {
-//                    cell.optionLabel.textAlignment = .left // Align text to the left for English
-//                }
-//            }
+        //            dropDown.customCellConfiguration = { (index: Int, item: String, cell: DropDownCell) in
+        //                if kSharedUserDefaults.getValue(Key: .language) == "ar" {
+        //                    cell.optionLabel.textAlignment = .right // Align text to the right for Arabic
+        //                } else {
+        //                    cell.optionLabel.textAlignment = .left // Align text to the left for English
+        //                }
+        //            }
         dropDown.show()
         dropDown.selectionAction = {(index: Int, item: String) in
             completion(index,item)
         }
     }
     
-//    static func openPicker(controller:UIViewController, callBack:@escaping ((String,String,String) -> Void)) {
-//        let picker = ADCountryPicker(style: .grouped)
-//        picker.searchBarBackgroundColor = .white
-//        picker.showCallingCodes = true
-//        picker.didSelectCountryWithCallingCodeClosure = { name,code, callingCodes in
-//            picker.dismiss(animated: true)
-//            callBack(name,code, callingCodes)
-//        }
-//        let pickerNavigationController = UINavigationController(rootViewController: picker)
-//        controller.present(pickerNavigationController, animated: true, completion: nil)
-//    }
+    //    static func openPicker(controller:UIViewController, callBack:@escaping ((String,String,String) -> Void)) {
+    //        let picker = ADCountryPicker(style: .grouped)
+    //        picker.searchBarBackgroundColor = .white
+    //        picker.showCallingCodes = true
+    //        picker.didSelectCountryWithCallingCodeClosure = { name,code, callingCodes in
+    //            picker.dismiss(animated: true)
+    //            callBack(name,code, callingCodes)
+    //        }
+    //        let pickerNavigationController = UINavigationController(rootViewController: picker)
+    //        controller.present(pickerNavigationController, animated: true, completion: nil)
+    //    }
     
     static func getCode(dialCode:String) -> String {
         guard let path = Bundle.main.path(forResource: "CallingCodes", ofType: "plist") else {return ""}
@@ -189,6 +189,55 @@ class CommonUtils {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formate
         return dateFormatter.date(from: date)
+    }
+    
+    static func formatISODate(
+        _ isoDateString: String,
+        to format: String = "dd MMM yyyy, hh:mm a"
+    ) -> String {
+        
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        
+        guard let date = isoFormatter.date(from: isoDateString) else {
+            return ""
+        }
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = format
+        outputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        return outputFormatter.string(from: date)
+    }
+    
+    static func lastSevenWithHash(_ text: String) -> String {
+        guard text.count >= 7 else { return "" }
+        return "#" + String(text.suffix(7))
+    }
+    
+    static func formatAmount(
+        _ value: String,
+        decimals: Int = 2,
+        suffix: String = " KD"
+    ) -> String {
+        
+        let doubleValue = Double(value) ?? 0.0
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = decimals
+        formatter.maximumFractionDigits = decimals
+        
+        return "\(formatter.string(from: NSNumber(value: doubleValue)) ?? "0.00")\(suffix)"
+    }
+    
+    static func getDateStrings(from date: Date?, format: String) -> String {
+        guard let date = date else { return "" }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "en_US_POSIX") // ✅ AM / PM uppercase
+        return formatter.string(from: date)
     }
 }
 

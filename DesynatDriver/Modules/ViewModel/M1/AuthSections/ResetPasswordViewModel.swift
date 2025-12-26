@@ -25,6 +25,7 @@ class ResetPasswordViewModel:NSObject{
         ]
         WebService.sharedInstance.createPasswordService(withParams:params) { user in
             let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+            vc.comingReason = .passwordUpdated
             vc.callBackDismiss = {
                 self.hostVC.navigationController?.popToViewController(ofClass: LoginViewController.self, animated: true)
             }

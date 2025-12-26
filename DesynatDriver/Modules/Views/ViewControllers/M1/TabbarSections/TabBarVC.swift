@@ -6,6 +6,10 @@
 //
 
 import UIKit
+extension Notification.Name {
+    static let switchToHomeTab = Notification.Name("switchToHomeTab")
+}
+
 
 class TabBarVC: UIViewController {
     
@@ -14,10 +18,27 @@ class TabBarVC: UIViewController {
 
     var initialTabIndex: Int = 0
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTabSelection(forTag: initialTabIndex)
+        NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(switchToHome),
+                name: .switchToHomeTab,
+                object: nil
+            )
     }
+    
+    @objc private func switchToHome() {
+        updateTabSelection(forTag: 0)
+    }
+    
+    deinit {
+            NotificationCenter.default.removeObserver(self)
+            print("TabBarVC deinitialized")
+        }
     
     @IBAction func tabBarAction(_ sender: UIButton) {
         updateTabSelection(forTag: sender.tag)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -668,7 +668,7 @@
                                     <constraint firstItem="1pv-wy-oLg" firstAttribute="centerY" secondItem="hop-ox-QIi" secondAttribute="centerY" id="oUN-w9-WfL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dy-Tw-SBX" customClass="CustomView" customModule="DesynatAdmin" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dy-Tw-SBX" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                 <rect key="frame" x="24" y="160.66666666666666" width="345" height="38"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="KxP-EI-fs2">
@@ -678,7 +678,7 @@
                                             <constraint firstAttribute="height" constant="20" id="jBX-RY-JZZ"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQI-He-lbs">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQI-He-lbs" customClass="BindableTextField" customModule="DesynatDriver" customModuleProvider="target">
                                         <rect key="frame" x="51" y="0.0" width="224" height="38"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -695,6 +695,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="filter"/>
+                                        <connections>
+                                            <action selector="filterBtn:" destination="FYo-Gf-665" eventType="touchUpInside" id="NDL-Pe-BJ8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -727,7 +730,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-f1-vq5">
                                         <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All(12)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2p-Oa-UWv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2p-Oa-UWv">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="33"/>
                                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                                 <color key="textColor" name="darkBrown"/>
@@ -746,6 +749,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJn-j3-iKU">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="35"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="handleTabSwitch:" destination="FYo-Gf-665" eventType="touchUpInside" id="Ia9-d2-l4i"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -782,9 +788,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj4-JV-g9a">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj4-JV-g9a">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="35"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="handleTabSwitch:" destination="FYo-Gf-665" eventType="touchUpInside" id="ZuF-u9-hry"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -821,9 +830,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-0s-Qz0">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-0s-Qz0">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="35"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="handleTabSwitch:" destination="FYo-Gf-665" eventType="touchUpInside" id="shB-jc-xQg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -860,9 +872,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-bM-Qwu">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-bM-Qwu">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="35"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="handleTabSwitch:" destination="FYo-Gf-665" eventType="touchUpInside" id="GTo-q2-9wF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -893,14 +908,22 @@
                                     <outlet property="delegate" destination="FYo-Gf-665" id="iZj-ou-sOi"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Result found " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-i4-Vb5">
+                                <rect key="frame" x="131.33333333333337" y="517.66666666666663" width="130.66666666666663" height="22.666666666666629"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="19H-Fc-mQs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="19H-Fc-mQs" firstAttribute="trailing" secondItem="7Dy-Tw-SBX" secondAttribute="trailing" constant="24" id="1J2-7P-09w"/>
                             <constraint firstItem="pLS-mm-kFE" firstAttribute="leading" secondItem="7Dy-Tw-SBX" secondAttribute="leading" id="5Xz-vN-ANx"/>
+                            <constraint firstItem="mmi-i4-Vb5" firstAttribute="centerY" secondItem="Vsg-S4-BNv" secondAttribute="centerY" id="ASx-DD-9Sz"/>
                             <constraint firstItem="hop-ox-QIi" firstAttribute="top" secondItem="19H-Fc-mQs" secondAttribute="top" id="Kyf-Zo-277"/>
                             <constraint firstItem="Vsg-S4-BNv" firstAttribute="leading" secondItem="7Dy-Tw-SBX" secondAttribute="leading" id="OWS-nb-QM1"/>
+                            <constraint firstItem="mmi-i4-Vb5" firstAttribute="centerX" secondItem="Vsg-S4-BNv" secondAttribute="centerX" id="XZX-SE-71N"/>
                             <constraint firstItem="Vsg-S4-BNv" firstAttribute="trailing" secondItem="7Dy-Tw-SBX" secondAttribute="trailing" id="eBo-jM-xeh"/>
                             <constraint firstItem="hop-ox-QIi" firstAttribute="trailing" secondItem="19H-Fc-mQs" secondAttribute="trailing" id="fwX-h8-ucT"/>
                             <constraint firstItem="Vsg-S4-BNv" firstAttribute="top" secondItem="pLS-mm-kFE" secondAttribute="bottom" constant="20" id="kaV-tU-IWr"/>
@@ -914,6 +937,16 @@
                     </view>
                     <connections>
                         <outlet property="deliveriesTableview" destination="Vsg-S4-BNv" id="3r9-f9-DZ6"/>
+                        <outlet property="lblAll" destination="y2p-Oa-UWv" id="2Tw-Ro-joJ"/>
+                        <outlet property="lblAllBar" destination="9Oa-oS-WLe" id="rv1-U2-pWC"/>
+                        <outlet property="lblCompleted" destination="XLh-Fe-CvR" id="lwy-0K-B4i"/>
+                        <outlet property="lblCompletedBar" destination="vJa-Kb-NC6" id="rw5-Wf-MMh"/>
+                        <outlet property="lblNew" destination="R2s-mL-x56" id="EgD-ss-fpl"/>
+                        <outlet property="lblNewBar" destination="DpJ-rd-ELu" id="e6U-d5-Ftk"/>
+                        <outlet property="lblOngoing" destination="10x-Fp-iob" id="fOT-Nl-mJz"/>
+                        <outlet property="lblOngoingBar" destination="CxB-sy-4rt" id="m7j-Un-m5F"/>
+                        <outlet property="noDataFoundLabel" destination="mmi-i4-Vb5" id="2tO-Np-eYU"/>
+                        <outlet property="txtFieldSearch" destination="fQI-He-lbs" id="ufM-Cc-9gv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrP-Hn-Hif" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

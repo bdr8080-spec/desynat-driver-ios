@@ -72,7 +72,7 @@ enum AlertConstant: String {
   
   case uploadRCFront = "Please upload RC front image"
   case uploadRCBack = "Please upload RC back image"
-  
+    case selectOrEnterReason = "Please select or enter a reason"
     func value() -> String {
         return self.rawValue
     }

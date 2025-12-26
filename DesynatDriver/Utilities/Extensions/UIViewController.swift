@@ -312,4 +312,70 @@ extension UINavigationController {
     
 }
 
+extension UIView {
+    
+    func addGradientBorder(cornerRadius:CGFloat = 0.0,direction:GradiantDirection = .leftToRight,colors:[UIColor] = [.black,.black]) {
+        // Remove any existing gradient border layers to prevent duplicates
+        layer.sublayers?.filter { $0.name == "gradientBorderLayer" }.forEach { $0.removeFromSuperlayer() }
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map({$0.cgColor})  // Customize your gradient colors
+        
+        switch direction {
+        case .topToBottom:
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        case .bottomToTop:
+            gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        case .leftToRight:
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        case .rightToLeft:
+            gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        }
+        gradientLayer.name = "gradientBorderLayer" // Assign a name for easy identification
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.lineWidth = 1.5 // Customize border width
+        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath // Use button's corner radius
+        shapeLayer.strokeColor = UIColor.black.cgColor // This color will be masked by the gradient
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        
+        gradientLayer.mask = shapeLayer
+        layer.addSublayer(gradientLayer)
+    }
+    enum GradiantDirection {
+        case leftToRight
+        case rightToLeft
+        case topToBottom
+        case bottomToTop
+    }
+    
+    func appendDashedBorder(rect:CGRect? = nil,radius:CGFloat = 5,gap:NSNumber = 2,dashWidth:NSNumber = 4,color:UIColor = UIColor.clear) {
+        
+        
+        let yourViewShapeLayer: CAShapeLayer = CAShapeLayer()
+        let frame = rect ?? self.bounds
+        yourViewShapeLayer.frame = frame
+        yourViewShapeLayer.bounds = frame
+        yourViewShapeLayer.position = CGPoint(x: frame.width/2, y: frame.height/2)
+        yourViewShapeLayer.fillColor = UIColor.white.cgColor
+        yourViewShapeLayer.strokeColor =  color.cgColor
+        yourViewShapeLayer.lineWidth = 1
+        yourViewShapeLayer.lineJoin = CAShapeLayerLineJoin.round
+        yourViewShapeLayer.lineDashPattern = [dashWidth,gap]
+        yourViewShapeLayer.path = UIBezierPath(roundedRect: frame, cornerRadius: radius).cgPath
+        if let layer = self.layer.sublayers?.first(where: {$0 is CAShapeLayer}) {
+            layer.frame = frame
+            self.layoutIfNeeded()
+        } else {
+            self.layer.insertSublayer(yourViewShapeLayer, at: 0)
+        }
+        
+    }
+}
+
 
