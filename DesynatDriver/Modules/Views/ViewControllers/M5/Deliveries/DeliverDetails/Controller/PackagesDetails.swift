@@ -40,7 +40,7 @@ class PackagesDetails: UIViewController {
         self.oredrDateLbl.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
         self.dropLocationLbl.text = orderDetail?.order?.deliveryDetails?.address ?? ""
         self.customerNameLbl.text = orderDetail?.order?.deliveryDetails?.name ?? ""
-        self.orderIdLbl.text = CommonUtils.lastSevenWithHash("\(orderDetail?.orderID ?? 0)")
+        self.orderIdLbl.text = "#\(orderDetail?.orderID ?? 0)"
         self.priceLbl.text = CommonUtils.formatAmount(orderDetail?.order?.totalAmount ?? "")
         if orderDetail?.paymentStatus == "1" {
             self.painStatusLbl.text = "Paid"
@@ -63,15 +63,15 @@ extension PackagesDetails: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTVC", for: indexPath) as! ProductTVC
-       // cell.setData(data: self.orderDetail?.orderDetails?[0])
-        cell.productNameLbl.text = self.orderDetail?.productDetails?.productNameEn ?? ""
-        cell.productSizeLbl.text = self.orderDetail?.variationDetails?.size?.name ?? ""
-        //self.colourLabel.text = data?.variationDetails?.color?.name ?? ""
-        cell.productQuantityLbl.text = self.orderDetail?.quantity?.description
-        cell.productImageView.image = .placeholder
-        if let url = URL(string: self.orderDetail?.variationDetails?.variantImage?.first ?? "") {
-            cell.productImageView.sd_setImage(with: url,placeholderImage: .placeholder)
-        }
+        cell.setData(data: self.orderDetail)
+//        cell.productNameLbl.text = self.orderDetail?.productDetails?.productNameEn ?? ""
+//        cell.productSizeLbl.text = self.orderDetail?.variationDetails?.size?.name ?? ""
+//        //self.colourLabel.text = data?.variationDetails?.color?.name ?? ""
+//        cell.productQuantityLbl.text = self.orderDetail?.quantity?.description
+//        cell.productImageView.image = .placeholder
+//        if let url = URL(string: self.orderDetail?.variationDetails?.variantImage?.first ?? "") {
+//            cell.productImageView.sd_setImage(with: url,placeholderImage: .placeholder)
+//        }
         return cell
     }
 }

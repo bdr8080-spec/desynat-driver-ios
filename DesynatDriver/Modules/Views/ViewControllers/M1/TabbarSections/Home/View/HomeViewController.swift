@@ -203,7 +203,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         if collectionView == newDeliveriesCollectionView {
-            print("New delivery tapped at \(indexPath.row)")
+          let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
+          let nextVC = storyboard.instantiateViewController(withIdentifier: "NewDeliveryVC") as! NewDeliveryVC
+          nextVC.orderId = self.viewModel.newOrders[indexPath.row].id ?? 0
+          navigationController?.pushViewController(nextVC, animated: true)
         } else {
             print("Ongoing delivery tapped at \(indexPath.row)")
         }

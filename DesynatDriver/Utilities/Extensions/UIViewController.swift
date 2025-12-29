@@ -127,15 +127,52 @@ extension UIViewController {
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Kolkata")
         return dateFormatter.string(from: currentDate)
     }
-    public func showBlockAlert(msg:String, completion:(()->())? = nil) {
-        let alert = UIAlertController(title: Bundle.main.ApplicationName ?? "", message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: StringConstant.ok.value(), style: .default, handler: { _ in
-            completion?()
-            UserDefaults.standard.set("no", forKey: "isGuest")
-            kSharedSceneDelegate.logoutUser()
-        }))
-        self.present(alert, animated: true)
-    }
+  
+//    public func showLogoutAlert(msg:String, completion:(()->())? = nil) {
+//        let alert = UIAlertController(title: Bundle.main.ApplicationName ?? "", message: msg, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: StringConstant.ok.value(), style: .default, handler: { _ in
+//            completion?()
+//            UserDefaults.standard.set("no", forKey: "isGuest")
+//            kSharedSceneDelegate.logoutUser()
+//        }))
+//        self.present(alert, animated: true)
+//    }
+  
+  public func showConfirmationAlert(
+      msg: String,
+      completion: (() -> Void)? = nil
+  ) {
+      // Prevent multiple alerts
+      guard !UIViewController.isAlertVisible else { return }
+      UIViewController.isAlertVisible = true
+
+      DispatchQueue.main.async {
+          let alert = UIAlertController(
+              title: Bundle.main.ApplicationName ?? "",
+              message: msg,
+              preferredStyle: .alert
+          )
+
+          // Yes Action
+          let yesButton = UIAlertAction(title: "Yes", style: .default) { _ in
+              UIViewController.isAlertVisible = false
+              completion?()
+          }
+
+          // Cancel Action (red color)
+          let cancelButton = UIAlertAction(title: "No", style: .cancel) { _ in
+              UIViewController.isAlertVisible = false
+          }
+
+          // Apply red color to Cancel button text
+          cancelButton.setValue(UIColor.red, forKey: "titleTextColor")
+
+          alert.addAction(yesButton)
+          alert.addAction(cancelButton)
+
+          self.present(alert, animated: true)
+      }
+  }
     
     /// Show Toater Alert
     public func showToast(msg:String) {

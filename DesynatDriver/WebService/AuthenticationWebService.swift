@@ -148,9 +148,6 @@ extension WebService {
                     }
                     return
                 }
-               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
-                print(user)
-                //kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message: message ?? "")
                 completion(user)
             }

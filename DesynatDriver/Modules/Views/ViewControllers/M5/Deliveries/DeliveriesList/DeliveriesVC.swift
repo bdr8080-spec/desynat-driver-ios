@@ -124,7 +124,6 @@ extension DeliveriesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
-        
         if indexPath.row == viewModel.orders.count - 1 {
             if viewModel.currentPage < viewModel.totalPage {
                 viewModel.currentPage += 1
