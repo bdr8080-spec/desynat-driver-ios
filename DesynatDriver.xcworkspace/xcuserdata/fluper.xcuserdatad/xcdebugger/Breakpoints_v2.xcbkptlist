@@ -7,32 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B94357C2-2483-402F-9417-504A15B75B2E"
+            uuid = "F4033FC8-CF0B-4552-B856-357267115137"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliveriesList/DeliveriesVC.swift"
+            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliverDetails/Controller/NewDeliveryVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "btnUpdateStatus(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A29AEE81-9376-4290-9193-A755BAA4F32C"
+            uuid = "FC5FEF82-C76C-4234-BDBA-7D3F22861863"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliveriesList/DeliveriesVC.swift"
+            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliverDetails/Controller/NewDeliveryVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "btnUpdateStatus(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78CAF4ED-0775-47EB-A0E2-762F5BAFE304"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliverDetails/Controller/NewDeliveryVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "btnUpdateStatus(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B01C145F-C8F8-41C3-9137-7599B9B361A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliverDetails/Controller/NewDeliveryVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "btnUpdateStatus(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B4696DE-584B-4887-8A4D-DB2FDADD5FB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliverDetails/Controller/NewDeliveryVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "btnUpdateStatus(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5FDF086-6770-416E-8DDB-EBD216C365A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesynatDriver/Modules/Views/ViewControllers/M5/Deliveries/DeliverDetails/Controller/NewDeliveryVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "btnUpdateStatus(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -81,7 +81,7 @@ class DeliveryDetailsVC: UIViewController {
       let addressLine = "\(selectedAddress?.name ?? "")-\(selectedAddress?.houseNo ?? ""), \(selectedAddress?.streetNo ?? ""), \(selectedAddress?.city ?? ""), \(selectedAddress?.state ?? ""), \(selectedAddress?.countryName ?? "")-\(selectedAddress?.postalCode ?? "")"
       self?.dropLocationLbl.text = addressLine
       self?.customerNameLbl.text = self?.viewModel.orderDetail?.order?.deliveryDetails?.name ?? ""
-      self?.orderIdLbl.text = "#\(self?.viewModel.orderDetail?.orderID ?? 0)"
+      self?.orderIdLbl.text = "#\(self?.viewModel.orderDetail?.id ?? 0)"
       //CommonUtils.lastSevenWithHash("\(self?.viewModel.orderDetail?.orderID ?? 0)")
       self?.priceLbl.text = CommonUtils.formatAmount(self?.viewModel.orderDetail?.order?.totalAmount ?? "")
       if self?.viewModel.orderDetail?.paymentStatus == "1" {

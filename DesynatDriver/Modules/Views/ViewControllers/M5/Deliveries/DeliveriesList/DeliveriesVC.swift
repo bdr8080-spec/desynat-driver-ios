@@ -38,7 +38,7 @@ class DeliveriesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
-        viewModel.getData()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +48,7 @@ class DeliveriesVC: UIViewController {
             switchTab(tab)
             initialTabFromHome = nil   // reset (important)
         }
+      viewModel.getData()
     }
 
     

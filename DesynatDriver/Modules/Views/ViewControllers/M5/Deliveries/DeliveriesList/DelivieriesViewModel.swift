@@ -156,7 +156,12 @@ class DeliveriesViewModel {
             completion()
         }
     }
-    
+//  {
+//      "id":35,
+//      "delivery_status":8, //3-delivered 7-picked 8-not delivered
+//       "reason":"order mismatched",
+//      "collect_amount":1 //when delivery_status =3 pass to collect payment
+//  }
     func updateStatus(orderId: Int,deliveryStatus: String,reason: String, _ completion:@escaping() -> Void) {
         let param: [String: Any] = ["id": orderId, "delivery_status": deliveryStatus, "reason":reason]
         WebService.sharedInstance.updateDeliveryStatus(parameter: param) { [weak self] data in
