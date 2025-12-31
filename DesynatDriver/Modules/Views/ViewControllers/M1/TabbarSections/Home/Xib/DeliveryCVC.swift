@@ -24,10 +24,12 @@ class DeliveryCVC: UICollectionViewCell {
     
     
     func configureNewDelivery(data: DeliveryList?) {
-        self.lblProductName.text = data?.order?.deliveryDetails?.name ?? ""
+      let fullName = "\(data?.productDetails?.sellerDetails?.firstName ?? "") \(data?.productDetails?.sellerDetails?.lastName ?? "")"
+      self.lblProductName.text = fullName//data?.productDetails?.sellerDetails?.firstName
         self.lblName.text = data?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
         self.lblOrderID.text = "#\(data?.id ?? 0)"
-
+      viewStatus.backgroundColor = UIColor(hexString: "#EBFFF5")
+      lblStatus.textColor = UIColor.init(hexString: "#17854C")
        // 6-confirmed 7-picked 8 not delivered 3-delivered
         if data?.deliveryStatus == "6" {
             lblStatus.text = "Confirmed"
@@ -45,10 +47,12 @@ class DeliveryCVC: UICollectionViewCell {
     }
     
     func configureOngoingDelivery(data: DeliveryList?) {
-        self.lblName.text = data?.order?.deliveryDetails?.name ?? ""
-        self.lblProductName.text = data?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
+      
+      self.lblProductName.text = data?.order?.userDetails?.fullName ?? ""
+      self.lblName.text = data?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
         self.lblOrderID.text = "#\(data?.id ?? 0)"
-
+      viewStatus.backgroundColor = UIColor(hexString: "#E3F7FF")
+      lblStatus.textColor = UIColor.init(hexString: "#2A74B8")
        // 6-confirmed 7-picked 8 not delivered 3-delivered
         if data?.deliveryStatus == "6" {
             lblStatus.text = "Confirmed"

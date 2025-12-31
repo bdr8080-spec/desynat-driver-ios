@@ -581,16 +581,27 @@
                                                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="YRo-bF-QOW"/>
                                                                         </connections>
                                                                     </collectionView>
+                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No deliveries found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efw-Gt-E68">
+                                                                        <rect key="frame" x="103.33333333333333" y="64.666666666666629" width="154.33333333333337" height="100"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="100" id="HsJ-78-XIX"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="dIG-cm-k5a" firstAttribute="top" secondItem="hQx-Ix-bj2" secondAttribute="bottom" constant="20" id="2sC-L0-Xlp"/>
                                                                     <constraint firstAttribute="bottom" secondItem="dIG-cm-k5a" secondAttribute="bottom" id="F9I-KN-GPi"/>
+                                                                    <constraint firstItem="Efw-Gt-E68" firstAttribute="centerX" secondItem="dIG-cm-k5a" secondAttribute="centerX" id="GCV-sj-D9a"/>
                                                                     <constraint firstItem="dIG-cm-k5a" firstAttribute="trailing" secondItem="1iy-xx-5eF" secondAttribute="trailing" id="Hl3-Rn-Ipy"/>
                                                                     <constraint firstItem="1iy-xx-5eF" firstAttribute="centerY" secondItem="hQx-Ix-bj2" secondAttribute="centerY" id="ILU-9U-eex"/>
                                                                     <constraint firstItem="dIG-cm-k5a" firstAttribute="leading" secondItem="hQx-Ix-bj2" secondAttribute="leading" id="WsF-Za-e0n"/>
                                                                     <constraint firstItem="hQx-Ix-bj2" firstAttribute="top" secondItem="T8E-Kw-2gu" secondAttribute="top" constant="10" id="aLV-OP-V6M"/>
                                                                     <constraint firstAttribute="trailing" secondItem="1iy-xx-5eF" secondAttribute="trailing" id="w1J-CB-fdd"/>
+                                                                    <constraint firstItem="Efw-Gt-E68" firstAttribute="centerY" secondItem="dIG-cm-k5a" secondAttribute="centerY" id="wUe-k4-Cpz"/>
                                                                     <constraint firstItem="hQx-Ix-bj2" firstAttribute="leading" secondItem="T8E-Kw-2gu" secondAttribute="leading" id="xiq-Mc-jal"/>
                                                                 </constraints>
                                                             </view>
@@ -636,15 +647,26 @@
                                                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="cmR-vG-79Q"/>
                                                                         </connections>
                                                                     </collectionView>
+                                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Ongoing deliveries found " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Du-H3-nao">
+                                                                        <rect key="frame" x="64.333333333333329" y="64.666666666666742" width="232.33333333333337" height="100"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="100" id="7VZ-Nr-1US"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="u6N-Kx-Ith" firstAttribute="leading" secondItem="7Sb-oW-t6g" secondAttribute="leading" id="1lL-yX-fJC"/>
                                                                     <constraint firstItem="u6N-Kx-Ith" firstAttribute="top" secondItem="7Sb-oW-t6g" secondAttribute="top" constant="20" id="3Ue-Di-Ljv"/>
+                                                                    <constraint firstItem="1Du-H3-nao" firstAttribute="centerY" secondItem="4te-Nt-YWo" secondAttribute="centerY" id="8fh-MZ-DfQ"/>
                                                                     <constraint firstItem="6mQ-H4-Sey" firstAttribute="centerY" secondItem="u6N-Kx-Ith" secondAttribute="centerY" id="9i3-Jq-m93"/>
                                                                     <constraint firstAttribute="bottom" secondItem="4te-Nt-YWo" secondAttribute="bottom" id="ADu-bp-RSe"/>
                                                                     <constraint firstItem="4te-Nt-YWo" firstAttribute="top" secondItem="u6N-Kx-Ith" secondAttribute="bottom" constant="20" id="Ehk-45-wZF"/>
                                                                     <constraint firstItem="4te-Nt-YWo" firstAttribute="trailing" secondItem="6mQ-H4-Sey" secondAttribute="trailing" id="MoB-4O-xMa"/>
+                                                                    <constraint firstItem="1Du-H3-nao" firstAttribute="centerX" secondItem="4te-Nt-YWo" secondAttribute="centerX" id="Wqz-zg-w0F"/>
                                                                     <constraint firstAttribute="trailing" secondItem="6mQ-H4-Sey" secondAttribute="trailing" id="Z3Z-ri-gWq"/>
                                                                     <constraint firstItem="4te-Nt-YWo" firstAttribute="leading" secondItem="u6N-Kx-Ith" secondAttribute="leading" id="sow-p2-TeI"/>
                                                                 </constraints>
@@ -750,6 +772,8 @@
                         <outlet property="lblOnGoingDeliveries" destination="mWh-Qw-i4X" id="1NL-LV-Pmj"/>
                         <outlet property="lblTotalDeliveries" destination="TcG-h4-pOb" id="fpS-HR-HKV"/>
                         <outlet property="newDeliveriesCollectionView" destination="dIG-cm-k5a" id="pg8-JY-sUo"/>
+                        <outlet property="noDeliveryFoundLabel" destination="Efw-Gt-E68" id="0W4-sK-al3"/>
+                        <outlet property="noOngingDataFoundLabel" destination="1Du-H3-nao" id="BYl-3c-JGe"/>
                         <outlet property="ongoingCollectionView" destination="4te-Nt-YWo" id="X5W-m6-lEV"/>
                         <outlet property="txtFromDate" destination="MRI-Ks-YzF" id="Oc7-c9-e3S"/>
                         <outlet property="txtToDate" destination="cfI-U7-grF" id="hET-w3-B40"/>

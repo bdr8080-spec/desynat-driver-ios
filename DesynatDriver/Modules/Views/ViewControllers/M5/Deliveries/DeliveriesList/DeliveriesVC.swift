@@ -58,11 +58,20 @@ class DeliveriesVC: UIViewController {
             self.deliveriesTableview.reloadData()
         }
         
-        viewModel.onNoData = { [weak self] isEmpty in
-            guard let self else { return }
-            self.noDataFoundLabel.isHidden = !isEmpty
-            self.deliveriesTableview.isHidden = isEmpty
-        }
+//        viewModel.onNoData = { [weak self] isEmpty in
+//            guard let self else { return }
+//            self.noDataFoundLabel.isHidden = !isEmpty
+//            self.deliveriesTableview.isHidden = isEmpty
+//        }
+      viewModel.onNoData = { [weak self] isEmpty in
+          guard let self else { return }
+          self.noDataFoundLabel.isHidden = !isEmpty
+          self.deliveriesTableview.isHidden = isEmpty
+          if isEmpty {
+              self.noDataFoundLabel.text = viewModel.noDataText(for: self.viewModel.currentTab)
+          }
+      }
+
     }
 
     
@@ -109,7 +118,7 @@ extension DeliveriesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.viewModel.orders[indexPath.row]
-        if data.deliveryStatus == "3" {
+        if data.deliveryStatus == "3" || data.deliveryStatus == "8" {
             let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "DeliveryDetailsVC") as! DeliveryDetailsVC
             nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0

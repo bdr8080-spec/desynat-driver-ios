@@ -230,6 +230,36 @@ class CommonUtils {
         
         return "\(formatter.string(from: NSNumber(value: doubleValue)) ?? "0.00")\(suffix)"
     }
+  
+  static func formatPrice(_ amount: Double?, currency: String = "KD") -> String {
+      guard let amount = amount else { return "0 \(currency)" }
+      
+      let roundedAmount = round(amount * 100) / 100   // Round to 2 decimal places
+      if roundedAmount.truncatingRemainder(dividingBy: 1) == 0 {
+          // If whole number, show without decimal
+          return "\(Int(roundedAmount)) \(currency)"
+      } else {
+          // Show up to 2 decimal places
+          return String(format: "%.2f", roundedAmount) + " \(currency)"
+      }
+  }
+  
+  static func formatPriceForString(_ amountString: String?, currency: String = "KD") -> String {
+      guard let amountString = amountString,
+            let amount = Double(amountString) else {
+          return "0 \(currency)"
+      }
+      
+      let roundedAmount = round(amount * 100) / 100   // Round to 2 decimal places
+      
+      if roundedAmount.truncatingRemainder(dividingBy: 1) == 0 {
+          // If whole number, show without decimal
+          return "\(Int(roundedAmount)) \(currency)"
+      } else {
+          // Show up to 2 decimal places
+          return String(format: "%.2f", roundedAmount) + " \(currency)"
+      }
+  }
     
     static func getDateStrings(from date: Date?, format: String) -> String {
         guard let date = date else { return "" }

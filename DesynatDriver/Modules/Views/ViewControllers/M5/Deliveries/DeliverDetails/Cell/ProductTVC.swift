@@ -41,7 +41,7 @@ class ProductTVC: UITableViewCell {
       let coloredSquare = "■"
       let dot = "●"
       
-      let fullText = "Size: \(size)  \(dot)  Color: \(coloredSquare)  \(dot)"
+      let fullText = "Size: \(size)  \(dot)  Color: \(coloredSquare)"
       
       let attributedString = NSMutableAttributedString(
           string: fullText,
@@ -50,7 +50,7 @@ class ProductTVC: UITableViewCell {
           ]
       )
       
-      let grayColor = UIColor(hexString: "#D9D9D9") ?? UIColor.gray
+      let grayColor = UIColor(hexString: "#D9D9D9")// ?? UIColor.gray
       let nsText = fullText as NSString
       
       // Gray dots
@@ -70,7 +70,7 @@ class ProductTVC: UITableViewCell {
           if squareRange.location != NSNotFound {
               attributedString.addAttribute(.foregroundColor, value: productColor, range: squareRange)
               // Make the square pop (bigger + medium weight)
-              attributedString.addAttribute(.font, value: UIFont(name: "Poppins-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14, weight: .medium), range: squareRange)
+              attributedString.addAttribute(.font, value: UIFont(name: "Poppins-Medium", size: 11) ?? UIFont.systemFont(ofSize: 11, weight: .medium), range: squareRange)
           }
       }
       

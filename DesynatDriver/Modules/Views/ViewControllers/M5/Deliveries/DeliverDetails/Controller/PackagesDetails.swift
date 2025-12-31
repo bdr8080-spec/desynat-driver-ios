@@ -41,12 +41,18 @@ class PackagesDetails: UIViewController {
         self.dropLocationLbl.text = orderDetail?.order?.deliveryDetails?.address ?? ""
         self.customerNameLbl.text = orderDetail?.order?.deliveryDetails?.name ?? ""
         self.orderIdLbl.text = "#\(orderDetail?.id ?? 0)"
-        self.priceLbl.text = CommonUtils.formatAmount(orderDetail?.order?.totalAmount ?? "")
-        if orderDetail?.paymentStatus == "1" {
-            self.painStatusLbl.text = "Paid"
-        }else {
-            self.painStatusLbl.text = "Pending"
-        }
+        self.priceLbl.text = CommonUtils.formatPriceForString(orderDetail?.order?.totalAmount ?? "")
+//        if orderDetail?.paymentStatus == "1" {
+//            self.painStatusLbl.text = "Paid"
+//        }else {
+//            self.painStatusLbl.text = "Pending"
+//        }
+      
+      if orderDetail?.order?.paymentMethod == "3" {
+        self.painStatusLbl.text = "COD"
+      }else {
+        self.painStatusLbl.text = "Paid"
+      }
         self.productTableview.reloadData()
     }
     

@@ -30,8 +30,8 @@ class DeliveriesListTableViewCell: UITableViewCell {
   }
   
   func setData(data: DeliveryList?) {
-    self.lblName.text = data?.order?.deliveryDetails?.name ?? ""
-    self.lblPrice.text = CommonUtils.formatAmount(data?.order?.totalAmount ?? "")
+    self.lblName.text = data?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
+    self.lblPrice.text = CommonUtils.formatPriceForString(data?.order?.totalAmount ?? "")//CommonUtils.formatAmount(data?.order?.totalAmount ?? "")
     self.lblDate.text = CommonUtils.formatISODate(data?.createdAt ?? "")
     self.lblID.text = "#\(data?.id ?? 0) ● \(data?.distance ?? 0) Km"
     self.imgUser.image = .userProfile

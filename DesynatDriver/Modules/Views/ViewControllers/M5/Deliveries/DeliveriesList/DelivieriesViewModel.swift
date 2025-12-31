@@ -44,7 +44,7 @@ class DeliveriesViewModel {
 
     // MARK: - Data
     private(set) var orders: [DeliveryList] = []
-    private(set) var reason: [ReasonListModel] = []
+    var reason: [ReasonListModel] = []
     private(set) var currentTab : DeliveriesTab = .all
     private(set) var filterInfo : FilterInfo = FilterInfo()
     private var searchTimer : Timer?
@@ -87,6 +87,20 @@ class DeliveriesViewModel {
             self?.handleSearch(Timer())
         }
     }
+  
+   func noDataText(for tab: DeliveriesTab) -> String {
+      switch tab {
+      case .all:
+          return "No deliveries found"
+      case .new:
+          return "No New deliveries found"
+      case .ongoing:
+          return "No Ongoing deliveries found"
+      case .completed:
+          return "No Completed deliveries found"
+      }
+  }
+
     
     
     @objc func handleSearch(_ sender: Timer) {
@@ -170,10 +184,12 @@ class DeliveriesViewModel {
     }
     
     func getReason(completion:@escaping() -> Void) {
-        let param: [String: Any] = ["type": "3"]
+        let param: [String: Any] = ["type": "4"]
         WebService.sharedInstance.getReason(parameter: param) { (data) in
             self.reason = data
             completion()
         }
     }
+  
+  
 }

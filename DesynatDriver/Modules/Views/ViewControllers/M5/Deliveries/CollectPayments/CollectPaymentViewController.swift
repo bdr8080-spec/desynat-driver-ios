@@ -10,15 +10,17 @@ import UIKit
 class CollectPaymentViewController: UIViewController {
   
   @IBOutlet weak var amountLabel: UILabel!
+  
+  
   var callBackDismiss: (()->())?
   var orderId: Int? = 0
   var deliveryStatus: String? = ""
   var reason: String? = ""
+  var amount: String? = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
+    amountLabel.text = CommonUtils.formatPriceForString(amount ?? "")
   }
   
   @IBAction func collectedDidTapped(_ sender: Any) {
