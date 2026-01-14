@@ -127,6 +127,16 @@ extension DeliveriesVC: UITableViewDelegate, UITableViewDataSource {
             let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "NewDeliveryVC") as! NewDeliveryVC
             nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0
+            if data.deliveryStatus == "0" {
+                let returnStatus = data.returnType ?? ""
+                if returnStatus == "1" {
+                    nextVC.comingReason = .forReturnOrder
+                } else if returnStatus == "2" {
+                    nextVC.comingReason = .forExchangeOrder
+                }
+            } else {
+                nextVC.comingReason = .newNormalOrder
+            }
             navigationController?.pushViewController(nextVC, animated: true)
         }
     }

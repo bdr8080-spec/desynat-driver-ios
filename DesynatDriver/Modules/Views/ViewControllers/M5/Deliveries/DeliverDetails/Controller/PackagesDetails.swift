@@ -10,6 +10,9 @@ import UIKit
 class PackagesDetails: UIViewController {
   
   //MARK: IBOUTLETS
+    
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var exchnageView: UIView!
   @IBOutlet weak var dropLocationLbl: UILabel!
   @IBOutlet weak var customerNameLbl: UILabel!
   @IBOutlet weak var oredrDateLbl: UILabel!
@@ -26,7 +29,7 @@ class PackagesDetails: UIViewController {
   
   //MARK: VARIABLES
   var orderDetail : DeliveryList?
-  var isComingForReturnExchange: Bool = false
+    var comingReason: OrderDeliveryStatus = .newNormalOrder
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,15 +52,25 @@ class PackagesDetails: UIViewController {
       self.painStatusLbl.text = "Paid"
     }
     self.productTableview.reloadData()
-    if isComingForReturnExchange {
-      returnView.isHidden = true
-      retunrUplaodedImageView.image = .placeholder
-      if let url = URL(string: orderDetail?.returnImage ?? "") {
-        retunrUplaodedImageView.sd_setImage(with: url,placeholderImage: .placeholder)
+      
+      switch comingReason {
+      case .newNormalOrder:
+          returnView.isHidden = true
+          exchnageView.isHidden = true
+      case .forReturnOrder:
+          returnView.isHidden = false
+          exchnageView.isHidden = true
+          retunrUplaodedImageView.image = .placeholder
+          if let url = URL(string: orderDetail?.returnImage ?? "") {
+            retunrUplaodedImageView.sd_setImage(with: url,placeholderImage: .placeholder)
+          }
+          self.dropLocationLbl.text = self.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+      case .forExchangeOrder:
+          returnView.isHidden = true
+          exchnageView.isHidden = false
+          self.dropLocationLbl.text = self.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+          sizeLabel.text = self.orderDetail?.exchangeNewSize
       }
-    } else {
-      returnView.isHidden = false
-    }
   }
   
   @IBAction func crossBtn(_ sender: Any) {
