@@ -28,7 +28,6 @@ class DeliveryDetailsVC: UIViewController {
   @IBOutlet weak var lblStatus: UILabel!
   @IBOutlet weak var lblDistance: UILabel!
   @IBOutlet weak var imgProduct: UIImageView!
-  
   @IBOutlet weak var notDeliveryLabel: UILabel!
   @IBOutlet weak var reasonView: UIView!
   @IBOutlet weak var productTableview: TableViewDynamicHeight! {

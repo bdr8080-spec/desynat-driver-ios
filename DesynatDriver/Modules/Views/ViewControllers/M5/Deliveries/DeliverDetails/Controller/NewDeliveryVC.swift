@@ -42,6 +42,7 @@ class NewDeliveryVC: UIViewController {
   var currentLocation:String?
   var locationManager = CLLocationManager()
   var mobileNumber: String? = ""
+  var comingReason: OrderDeliveryStatus = .newNormalOrder
   
   //MARK: VIEW LIFE CYCLE
   override func viewDidLoad() {
@@ -57,12 +58,7 @@ class NewDeliveryVC: UIViewController {
     self.latitude = LocationManager.sharedInstance.location?.latitude ?? 0.0
     self.longitude = LocationManager.sharedInstance.location?.longitude ?? 0.0
     self.currentLocation =  LocationManager.sharedInstance.currentLocation
-    mapVew.isMyLocationEnabled = false   // Optional: shows blue dot
-//    let camera = GMSCameraPosition.camera(
-//      withLatitude: latitude ?? 0.0,
-//      longitude: longitude ?? 0.0,
-//      zoom: ZOOM_LEVEL_HIGH // Use high zoom
-//    )
+    mapVew.isMyLocationEnabled = false
     let camera = GMSCameraPosition.camera(
       withLatitude: latitude ?? 0.0,
       longitude: longitude ?? 0.0,
@@ -76,67 +72,134 @@ class NewDeliveryVC: UIViewController {
   
   func setData() {
     self.viewModel.getOrderDetail(orderId: self.orderId ?? 0) { [weak self] in
-      self?.orderDetail = self?.viewModel.orderDetail
-      self?.lblPickUpAddress.text = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
-      self?.storeNameLbl.text = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
-      self?.imgStore.image = .placeholder
-      if let url = URL(string: self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
-        self?.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
-      }
-      
-      self?.lblDropAddress.text = self?.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
-      if self?.viewModel.orderDetail?.deliveryStatus == "3" || self?.viewModel.orderDetail?.deliveryStatus == "7" || self?.viewModel.orderDetail?.deliveryStatus == "8"{
-        self?.viewPickUpLocation.isHidden = true
-        self?.viewPick.isHidden = true
-        self?.btnStack.isHidden = false
-        self?.btnPicked.isHidden = true
-        self?.storeRatingStackView.isHidden = true
-        self?.imgStore.image = .userProfile
-        self?.storeNameLbl.text = self?.viewModel.orderDetail?.order?.userDetails?.fullName ?? ""
-        if let url = URL(string: self?.viewModel.orderDetail?.order?.userDetails?.profileImage ?? "") {
-          self?.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+      DispatchQueue.main.async {
+        guard let self = self else { return }
+        self.orderDetail = self.viewModel.orderDetail
+        self.lblPickUpAddress.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+        self.storeNameLbl.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
+        self.imgStore.image = .placeholder
+        if let url = URL(string: self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
+          self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
         }
-        self?.mobileNumber = self?.viewModel.orderDetail?.order?.userDetails?.mobile
-      }else {
-        self?.viewPickUpLocation.isHidden = false
-        self?.storeRatingStackView.isHidden = false
-        self?.viewPick.isHidden = false
-        self?.btnStack.isHidden = true
-        self?.btnPicked.isHidden = false
-        self?.mobileNumber = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storePhone
-      }
-      
-      if self?.viewModel.orderDetail?.deliveryStatus == "7" {
-        self?.lblStatus.text = "Picked"
-      }else if self?.viewModel.orderDetail?.deliveryStatus == "8" {
-        self?.lblStatus.text = "Not delivered"
-      }else if self?.viewModel.orderDetail?.deliveryStatus == "3" {
-        self?.lblStatus.text = "Delivered"
-      }
-      
-      // MARK: --- Correct Pickup and Drop Coordinates ---
-      let pickupCoordinate = CLLocationCoordinate2D(
-        latitude: Double(self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
-        longitude: Double(self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
-      )
-      
-      let dropCoordinate = CLLocationCoordinate2D(
-        latitude: Double(self?.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
-        longitude: Double(self?.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0
-      )
-      
-      // Draw route
-      self?.drawRoute(origin: pickupCoordinate, destination: dropCoordinate)
-      if self?.viewModel.orderDetail?.userRatingReviewProvide == nil {
-        self?.ratingView.rating = 0
-        self?.lblRating.text = "0"
-      } else {
-        let rating = Double(self?.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? "") ?? 0
-        self?.ratingView.rating = rating
-        self?.lblRating.text = self?.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? ""
+        
+        self.lblDropAddress.text = self.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
+        if self.viewModel.orderDetail?.deliveryStatus == "3" || self.viewModel.orderDetail?.deliveryStatus == "7" || self.viewModel.orderDetail?.deliveryStatus == "8"{
+          self.viewPickUpLocation.isHidden = true
+          self.viewPick.isHidden = true
+          self.btnStack.isHidden = false
+          self.btnPicked.isHidden = true
+          self.storeRatingStackView.isHidden = true
+          self.imgStore.image = .userProfile
+          self.storeNameLbl.text = self.viewModel.orderDetail?.order?.userDetails?.fullName ?? ""
+          if let url = URL(string: self.viewModel.orderDetail?.order?.userDetails?.profileImage ?? "") {
+            self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+          }
+          self.mobileNumber = self.viewModel.orderDetail?.order?.userDetails?.mobile
+        }else {
+          self.viewPickUpLocation.isHidden = false
+          self.storeRatingStackView.isHidden = false
+          self.viewPick.isHidden = false
+          self.btnStack.isHidden = true
+          self.btnPicked.isHidden = false
+          self.mobileNumber = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storePhone
+        }
+        
+        if self.viewModel.orderDetail?.deliveryStatus == "7" {
+          self.lblStatus.text = "Picked"
+        }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
+          self.lblStatus.text = "Not delivered"
+        }else if self.viewModel.orderDetail?.deliveryStatus == "3" {
+          self.lblStatus.text = "Delivered"
+        }
+        
+        let pickupCoordinate = CLLocationCoordinate2D(
+          latitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
+          longitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
+        )
+        
+        let dropCoordinate = CLLocationCoordinate2D(
+          latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
+          longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0
+        )
+        
+        // Draw route
+        self.drawRoute(origin: pickupCoordinate, destination: dropCoordinate)
+        if self.viewModel.orderDetail?.userRatingReviewProvide == nil {
+          self.ratingView.rating = 0
+          self.lblRating.text = "0"
+        } else {
+          let rating = Double(self.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? "") ?? 0
+          self.ratingView.rating = rating
+          self.lblRating.text = self.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? ""
+        }
       }
     }
   }
+    
+    func setDataForReturnExchnage() {
+      self.viewModel.getOrderDetail(orderId: self.orderId ?? 0) { [weak self] in
+        DispatchQueue.main.async {
+          guard let self = self else { return }
+          self.orderDetail = self.viewModel.orderDetail
+          self.lblDropAddress.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+          self.storeNameLbl.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
+          self.imgStore.image = .placeholder
+          if let url = URL(string: self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
+            self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+          }
+          
+          self.lblPickUpAddress.text = self.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
+          if self.viewModel.orderDetail?.deliveryStatus == "3" || self.viewModel.orderDetail?.deliveryStatus == "7" || self.viewModel.orderDetail?.deliveryStatus == "8"{
+            self.viewPickUpLocation.isHidden = true
+            self.viewPick.isHidden = true
+            self.btnStack.isHidden = false
+            self.btnPicked.isHidden = true
+            self.storeRatingStackView.isHidden = true
+            self.imgStore.image = .userProfile
+            self.storeNameLbl.text = self.viewModel.orderDetail?.order?.userDetails?.fullName ?? ""
+            if let url = URL(string: self.viewModel.orderDetail?.order?.userDetails?.profileImage ?? "") {
+              self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+            }
+            self.mobileNumber = self.viewModel.orderDetail?.order?.userDetails?.mobile
+          }else {
+            self.viewPickUpLocation.isHidden = false
+            self.storeRatingStackView.isHidden = false
+            self.viewPick.isHidden = false
+            self.btnStack.isHidden = true
+            self.btnPicked.isHidden = false
+            self.mobileNumber = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storePhone
+          }
+          
+          if self.viewModel.orderDetail?.deliveryStatus == "7" {
+            self.lblStatus.text = "Picked"
+          }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
+            self.lblStatus.text = "Not delivered"
+          }else if self.viewModel.orderDetail?.deliveryStatus == "3" {
+            self.lblStatus.text = "Delivered"
+          }
+          
+          let dropCoordinate = CLLocationCoordinate2D(
+            latitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
+            longitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
+          )
+          
+          let pickupCoordinate = CLLocationCoordinate2D(
+            latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
+            longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0)
+          
+          // Draw route
+          self.drawRoute(origin: pickupCoordinate, destination: dropCoordinate)
+          if self.viewModel.orderDetail?.userRatingReviewProvide == nil {
+            self.ratingView.rating = 0
+            self.lblRating.text = "0"
+          } else {
+            let rating = Double(self.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? "") ?? 0
+            self.ratingView.rating = rating
+            self.lblRating.text = self.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? ""
+          }
+        }
+      }
+    }
   
   func drawRoute(origin: CLLocationCoordinate2D,
                  destination: CLLocationCoordinate2D) {
@@ -229,23 +292,15 @@ class NewDeliveryVC: UIViewController {
   }
   
   @IBAction func btnCurrentLocation(_ sender: UIButton) {
-
-//    self.latitude = LocationManager.sharedInstance.location?.latitude ?? 0.0
-//    self.longitude = LocationManager.sharedInstance.location?.longitude ?? 0.0
-//    let camera = GMSCameraPosition.camera(
-//      withLatitude: latitude ?? 0.0,
-//      longitude: longitude ?? 0.0,
-//      zoom: ZOOM_LEVEL_HIGH // Zoomed in
-//    )
     self.latitude = LocationManager.sharedInstance.location?.latitude ?? 0.0
-      self.longitude = LocationManager.sharedInstance.location?.longitude ?? 0.0
-
-      let camera = GMSCameraPosition.camera(
-        withLatitude: latitude ?? 0.0,
-        longitude: longitude ?? 0.0,
-        zoom: 14.0 // good city-level zoom
-      )
-
+    self.longitude = LocationManager.sharedInstance.location?.longitude ?? 0.0
+    
+    let camera = GMSCameraPosition.camera(
+      withLatitude: latitude ?? 0.0,
+      longitude: longitude ?? 0.0,
+      zoom: 14.0 // good city-level zoom
+    )
+    
     self.mapVew.animate(to: camera)
   }
   
@@ -342,7 +397,7 @@ class NewDeliveryVC: UIViewController {
   
   
   @IBAction func btnActionDropdown(_ sender: UIButton) {
-
+    
     let nextVC = UpdateStatusVC.instantiate(fromAppStoryboard: .Deliveries)
     
     // Pre-select current status
@@ -414,21 +469,19 @@ class NewDeliveryVC: UIViewController {
 }
 
 extension  NewDeliveryVC:CLLocationManagerDelegate,GMSMapViewDelegate {
+  
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let location = locations.last
+    guard let location = locations.last else { return }
+    
     let camera = GMSCameraPosition.camera(
-      withLatitude: (location?.coordinate.latitude)!,
-      longitude: (location?.coordinate.longitude)!,
-        zoom: 14.0 // or remove entirely
-      )
-//    let camera = GMSCameraPosition.camera(
-//      withLatitude: (location?.coordinate.latitude)!,
-//      longitude: (location?.coordinate.longitude)!,
-//      zoom: ZOOM_LEVEL_HIGH // Zoomed in
-//    )
-    self.mapVew.animate(to: camera)
-    self.locationManager.stopUpdatingLocation()
+      withLatitude: location.coordinate.latitude,
+      longitude: location.coordinate.longitude,
+      zoom: 14.0
+    )
+    mapVew.animate(to: camera)
+    locationManager.stopUpdatingLocation()
   }
+  
 }
 
 extension NewDeliveryVC {
@@ -444,12 +497,15 @@ extension NewDeliveryVC {
     let loc: CLLocation = CLLocation(latitude:coordinate.latitude, longitude: coordinate.longitude)
     ceo.reverseGeocodeLocation(loc, completionHandler:
                                 {(placemarks, error) in
-      if (error != nil) {
-        print("reverse geodcode fail: \(error!.localizedDescription)")
-      }
-      let pm = placemarks! as [CLPlacemark]
-      if pm.count > 0 {
-        let pm = placemarks![0]
+//      if (error != nil) {
+//        print("reverse geodcode fail: \(error!.localizedDescription)")
+//      }
+//      let pm = placemarks! as [CLPlacemark]
+      guard error == nil,
+              let placemarks = placemarks,
+              let pm = placemarks.first else { return }
+//      if pm.count > 0 {
+//        let pm = placemarks![0]
         var addressString : String = ""
         var addressGlobal : String = ""
         var addressCity : String = ""
@@ -476,16 +532,8 @@ extension NewDeliveryVC {
         if pm.postalCode != nil {
           addressString = addressString + pm.postalCode! + " "
           addressGlobal = addressGlobal + pm.postalCode! + " "
-          // self.currentPinCode = pm.postalCode ?? ""
         }
-        //                self.txtFieldSearch.text = addressString
-        //                self.lblLocation.text = addressString
-        //                self.locality = pm.subLocality ?? ""
-        //                self.pincode = pm.postalCode ?? ""
-        //                self.city = pm.locality ?? ""
-        //                self.district = pm.subAdministrativeArea ?? ""
-        //                self.state = pm.administrativeArea ?? ""
-      }
+//      }
     })
   }
 }
@@ -506,3 +554,8 @@ extension UIColor {
   }
 }
 
+enum OrderDeliveryStatus {
+    case newNormalOrder
+    case forReturnOrder
+    case forExchangeOrder
+}

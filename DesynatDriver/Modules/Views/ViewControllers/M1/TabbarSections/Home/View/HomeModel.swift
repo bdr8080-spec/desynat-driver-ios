@@ -133,7 +133,7 @@ struct DrivingLicense: Codable {
 struct ZoneInfo: Codable {
     let id, countryID, cityID: Int?
     let nameEnglish, nameArabic: String?
-    let coordinates: [Coordinate]?
+//    let coordinates: [Coordinate]?
     let status: Int?
     let createdAt, updatedAt: String?
 
@@ -143,7 +143,8 @@ struct ZoneInfo: Codable {
         case cityID = "city_id"
         case nameEnglish = "name_english"
         case nameArabic = "name_arabic"
-        case coordinates, status
+//        case coordinates
+             case status
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
@@ -151,5 +152,5 @@ struct ZoneInfo: Codable {
 
 // MARK: - Coordinate
 struct Coordinate: Codable {
-    let lat, lng: String?
+    let lat, lng: Double?
 }
