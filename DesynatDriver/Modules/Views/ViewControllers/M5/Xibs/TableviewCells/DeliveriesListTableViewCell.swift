@@ -42,24 +42,24 @@ class DeliveriesListTableViewCell: UITableViewCell {
 //    2 onging 3 delivered 4 cancelled 5 return 6 confirmed 7-picked 8-not delivered
     let deliveryStatus = data?.deliveryStatus ?? "1"
     switch deliveryStatus {
-    case "0":
-        let returnStatus = data?.returnType ?? "0"
-        switch returnStatus {
-        case "1":
-            lblStatus.text = "Return Req."
-            statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
-            lblStatus.textColor = UIColor(hexString: "#FF5F1B")
-        case "2":
-            lblStatus.text = "Exchange Req."
-            statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
-            lblStatus.textColor = UIColor(hexString: "#FF5F1B")
-        default:
-            break
-        }
+      
     case "1", "6":
       lblStatus.text = "Confirmed"
       statusView.backgroundColor = UIColor(hexString: "#EBFFF5")
       lblStatus.textColor = UIColor(hexString: "#17854C")
+      let returnStatus = data?.returnType ?? "0"
+      switch returnStatus {
+      case "1":
+          lblStatus.text = "Return Req."
+          statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
+          lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+      case "2":
+          lblStatus.text = "Exchange Req."
+          statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
+          lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+      default:
+          break
+      }
     case "2":
       lblStatus.text = "Ongoing"
       statusView.backgroundColor = UIColor(hexString: "#EBFFF5")

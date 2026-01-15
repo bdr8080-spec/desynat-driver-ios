@@ -170,7 +170,7 @@ class NewDeliveryVC: UIViewController {
                     self.viewPick.isHidden = true
                     self.btnStack.isHidden = false
                     self.btnPicked.isHidden = true
-                    self.storeRatingStackView.isHidden = true
+                    self.storeRatingStackView.isHidden = false
                     self.storeNameLbl.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
                     
                     self.imgStore.image = .placeholder
@@ -282,6 +282,8 @@ class NewDeliveryVC: UIViewController {
     }
     
     @IBAction func btnPickUpLocation(_ sender: UIButton) {
+      switch comingReason {
+      case .newNormalOrder:
         let pickupCoordinate = CLLocationCoordinate2D(
             latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
             longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0
@@ -290,18 +292,40 @@ class NewDeliveryVC: UIViewController {
             destination: pickupCoordinate,
             placeName: "Pickup Location"
         )
-    }
-    
-    @IBAction func btnDropLocation(_ sender: UIButton) {
+      default:
         let dropCoordinate = CLLocationCoordinate2D(
             latitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
             longitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
         )
-        
         openAppleMap(
             destination: dropCoordinate,
             placeName: "Drop Location"
         )
+      }
+       
+    }
+    
+    @IBAction func btnDropLocation(_ sender: UIButton) {
+      switch comingReason {
+      case .newNormalOrder:
+        let dropCoordinate = CLLocationCoordinate2D(
+            latitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
+            longitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
+        )
+        openAppleMap(
+            destination: dropCoordinate,
+            placeName: "Drop Location"
+        )
+      default:
+        let pickupCoordinate = CLLocationCoordinate2D(
+            latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
+            longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0
+        )
+        openAppleMap(
+            destination: pickupCoordinate,
+            placeName: "Pickup Location"
+        )
+      }
     }
     
     @IBAction func btnActionCall(_ sender: UIButton) {
@@ -342,7 +366,97 @@ class NewDeliveryVC: UIViewController {
     }
     
     @IBAction func btnUpdateStatus(_ sender: UIButton) {
-        if self.viewModel.orderDetail?.deliveryStatus == "0" { // return exchange
+        switch comingReason {
+        case .newNormalOrder:
+            if self.viewModel.orderDetail?.deliveryStatus == "0" {
+                let returnStatus = viewModel.orderDetail?.returnType ?? "1"
+                if returnStatus == "2" {
+                    let collectVC = PreviousOrderCollectedViewController.instantiate(fromAppStoryboard: .Deliveries)
+                    collectVC.orderDetail = self.viewModel.orderDetail
+                    collectVC.amount = self.viewModel.orderDetail?.order?.totalAmount
+                    collectVC.deliveryStatus = self.viewModel.orderDetail?.deliveryStatus ?? ""
+                    collectVC.reason = "Test"
+                    collectVC.callBackDismiss = { [weak self] in
+    //                    guard let self = self else { return }
+    //                    let successVC = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+    //                    successVC.comingReason = .orderDeliveredSuccessfully
+    //                    successVC.callBackDismiss = {
+                        self?.navigationController?.popViewController(animated: true)
+    //                    }
+    //                    self.present(successVC, animated: true)
+                    }
+                    self.present(collectVC, animated: true)
+                } else {
+                  self.viewModel.updateStatus(orderId: self.orderId ?? 0, deliveryStatus: "3", reason: "Test") {
+                      let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                      vc.comingReason = .orderDeliveredSuccessfully
+                      vc.callBackDismiss = {
+                          self.navigationController?.popViewController(animated: true)
+                      }
+                      self.present(vc, animated: true)
+                      self.setData()
+                  }
+                }
+            }else if self.viewModel.orderDetail?.deliveryStatus == "7" {
+                self.viewModel.pickOrder(orderId: self.orderId ?? 0) {
+                    let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                    vc.comingReason = .orderPickedSuccessfully
+                    vc.callBackDismiss = {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    self.present(vc, animated: true)
+                    self.setData()
+                }
+            }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
+                let nextVC = ReasonPopUpVC.instantiate(fromAppStoryboard: .Deliveries)
+                nextVC.onSubmitReason = { [weak self] reasonText in
+                    guard let self = self else { return }
+                    self.viewModel.updateStatus(
+                        orderId: self.orderId ?? 0,
+                        deliveryStatus: "8",
+                        reason: reasonText
+                    ) {
+                        let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                        vc.comingReason = .orderStatusUpdatedasNotDelivered
+                        vc.callBackDismiss = {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        self.present(vc, animated: true)
+                        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+                    }
+                }
+                self.present(nextVC, animated: true)
+            }else {
+                let paymentMethod = viewModel.orderDetail?.order?.paymentMethod
+                if paymentMethod == "3" {
+                    let collectVC = CollectPaymentViewController.instantiate(fromAppStoryboard: .Deliveries)
+                    collectVC.orderId = self.orderId ?? 0
+                    collectVC.amount = self.viewModel.orderDetail?.order?.totalAmount
+                    collectVC.deliveryStatus = self.viewModel.orderDetail?.deliveryStatus ?? ""
+                    collectVC.reason = "Test"
+                    collectVC.callBackDismiss = { [weak self] in
+                        guard let self = self else { return }
+                        let successVC = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                        successVC.comingReason = .orderDeliveredSuccessfully
+                        successVC.callBackDismiss = {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        self.present(successVC, animated: true)
+                    }
+                    self.present(collectVC, animated: true)
+                } else {
+                    self.viewModel.updateStatus(orderId: self.orderId ?? 0, deliveryStatus: self.viewModel.orderDetail?.deliveryStatus ?? "", reason: "Test") {
+                        let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                        vc.comingReason = .orderDeliveredSuccessfully
+                        vc.callBackDismiss = {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        self.present(vc, animated: true)
+                        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+                    }
+                }
+            }
+        default:
             let returnStatus = viewModel.orderDetail?.returnType ?? "1"
             if returnStatus == "2" {
                 let collectVC = PreviousOrderCollectedViewController.instantiate(fromAppStoryboard: .Deliveries)
@@ -360,56 +474,8 @@ class NewDeliveryVC: UIViewController {
 //                    self.present(successVC, animated: true)
                 }
                 self.present(collectVC, animated: true)
-            }
-        }else if self.viewModel.orderDetail?.deliveryStatus == "7" {
-            self.viewModel.pickOrder(orderId: self.orderId ?? 0) {
-                let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
-                vc.comingReason = .orderPickedSuccessfully
-                vc.callBackDismiss = {
-                    self.navigationController?.popViewController(animated: true)
-                }
-                self.present(vc, animated: true)
-                self.setData()
-            }
-        }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
-            let nextVC = ReasonPopUpVC.instantiate(fromAppStoryboard: .Deliveries)
-            nextVC.onSubmitReason = { [weak self] reasonText in
-                guard let self = self else { return }
-                self.viewModel.updateStatus(
-                    orderId: self.orderId ?? 0,
-                    deliveryStatus: "8",
-                    reason: reasonText
-                ) {
-                    let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
-                    vc.comingReason = .orderStatusUpdatedasNotDelivered
-                    vc.callBackDismiss = {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                    self.present(vc, animated: true)
-                    NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
-                }
-            }
-            self.present(nextVC, animated: true)
-        }else {
-            let paymentMethod = viewModel.orderDetail?.order?.paymentMethod
-            if paymentMethod == "3" {
-                let collectVC = CollectPaymentViewController.instantiate(fromAppStoryboard: .Deliveries)
-                collectVC.orderId = self.orderId ?? 0
-                collectVC.amount = self.viewModel.orderDetail?.order?.totalAmount
-                collectVC.deliveryStatus = self.viewModel.orderDetail?.deliveryStatus ?? ""
-                collectVC.reason = "Test"
-                collectVC.callBackDismiss = { [weak self] in
-                    guard let self = self else { return }
-                    let successVC = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
-                    successVC.comingReason = .orderDeliveredSuccessfully
-                    successVC.callBackDismiss = {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                    self.present(successVC, animated: true)
-                }
-                self.present(collectVC, animated: true)
-            } else {
-                self.viewModel.updateStatus(orderId: self.orderId ?? 0, deliveryStatus: self.viewModel.orderDetail?.deliveryStatus ?? "", reason: "Test") {
+            } else if returnStatus == "1" {
+                self.viewModel.updateStatus(orderId: self.orderId ?? 0, deliveryStatus: "3", reason: "Test") {
                     let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
                     vc.comingReason = .orderDeliveredSuccessfully
                     vc.callBackDismiss = {
@@ -420,6 +486,25 @@ class NewDeliveryVC: UIViewController {
                 }
             }
         }
+    
+        
+        
+    }
+    
+    func updateStatus() {
+      let param: [String: Any] = [
+        "id": orderDetail?.id ?? "",
+        "delivery_status": "3", //deliveryStatus ?? "",
+  //      "reason": reason ?? "",
+  //      "collect_amount": 1
+      ]
+      
+      WebService.sharedInstance.updateDeliveryStatus(parameter: param) { [weak self] _ in
+        guard let self = self else { return }
+        self.dismiss(animated: true) {
+            self.navigationController?.popViewController(animated: true)
+        }
+      }
     }
     
     

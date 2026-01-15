@@ -8,45 +8,45 @@
 import UIKit
 
 class PreviousOrderCollectedViewController: UIViewController {
-
-    @IBOutlet weak var productTableView: TableViewDynamicHeight! {
-        didSet {
-            productTableView.registerCellFromNib(cellID: "ProductTVC")
-        }
+  
+  @IBOutlet weak var productTableView: TableViewDynamicHeight! {
+    didSet {
+      productTableView.registerCellFromNib(cellID: "ProductTVC")
     }
-    var orderDetail : DeliveryList?
-    var deliveryStatus: String? = ""
-    var reason: String? = ""
-    var amount: String? = ""
-    var callBackDismiss: (()->())?
+  }
+  var orderDetail : DeliveryList?
+  var deliveryStatus: String? = ""
+  var reason: String? = ""
+  var amount: String? = ""
+  var callBackDismiss: (()->())?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
+    
+  }
+  
+  @IBAction func collectedDidTapped(_ sender: Any) {
+    updateStatus()
+  }
+  
+  func updateStatus() {
+    let param: [String: Any] = [
+      "id": orderDetail?.id ?? "",
+      "delivery_status": "3", //deliveryStatus ?? "",
+//      "reason": reason ?? "",
+//      "collect_amount": 1
+    ]
+    
+    WebService.sharedInstance.updateDeliveryStatus(parameter: param) { [weak self] _ in
+      guard let self = self else { return }
+      self.dismiss(animated: true) {
+        self.callBackDismiss?()
+      }
     }
-    
-    @IBAction func collectedDidTapped(_ sender: Any) {
-      updateStatus()
-    }
-    
-    func updateStatus() {
-            let param: [String: Any] = [
-                "id": orderDetail?.id ?? "",
-                "delivery_status": deliveryStatus ?? "",
-                "reason": reason ?? "",
-                "collect_amount": 1
-            ]
-
-            WebService.sharedInstance.updateDeliveryStatus(parameter: param) { [weak self] _ in
-                guard let self = self else { return }
-                self.dismiss(animated: true) {
-                    self.callBackDismiss?()
-                }
-            }
-        }
-    
-
+  }
+  
+  
 }
 
 extension PreviousOrderCollectedViewController: UITableViewDelegate, UITableViewDataSource {

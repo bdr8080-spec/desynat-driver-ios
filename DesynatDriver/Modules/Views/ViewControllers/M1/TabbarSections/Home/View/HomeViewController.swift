@@ -207,12 +207,38 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     if collectionView == newDeliveriesCollectionView {
       let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
       let nextVC = storyboard.instantiateViewController(withIdentifier: "NewDeliveryVC") as! NewDeliveryVC
+      let data = viewModel.newOrders[indexPath.row]
       nextVC.orderId = self.viewModel.newOrders[indexPath.row].id ?? 0
+      let returnStatus = data.returnType ?? ""
+      if returnStatus == "0"{
+        nextVC.comingReason = .newNormalOrder
+      } else {
+        if data.deliveryStatus == "1" || data.deliveryStatus == "7"{
+          if returnStatus == "1" {
+              nextVC.comingReason = .forReturnOrder
+          } else if returnStatus == "2" {
+              nextVC.comingReason = .forExchangeOrder
+          }
+        }
+      }
       navigationController?.pushViewController(nextVC, animated: true)
     } else {
       let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
       let nextVC = storyboard.instantiateViewController(withIdentifier: "NewDeliveryVC") as! NewDeliveryVC
+      let data = viewModel.ongoingOrders[indexPath.row]
       nextVC.orderId = self.viewModel.ongoingOrders[indexPath.row].id ?? 0
+      let returnStatus = data.returnType ?? ""
+      if returnStatus == "0"{
+        nextVC.comingReason = .newNormalOrder
+      } else {
+        if data.deliveryStatus == "1" || data.deliveryStatus == "7"{
+          if returnStatus == "1" {
+              nextVC.comingReason = .forReturnOrder
+          } else if returnStatus == "2" {
+              nextVC.comingReason = .forExchangeOrder
+          }
+        }
+      }
       navigationController?.pushViewController(nextVC, animated: true)
     }
   }

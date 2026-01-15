@@ -61,7 +61,7 @@ class PackagesDetails: UIViewController {
           returnView.isHidden = false
           exchnageView.isHidden = true
           retunrUplaodedImageView.image = .placeholder
-          if let url = URL(string: orderDetail?.returnImage ?? "") {
+          if let url = URL(string: orderDetail?.returnImage?.first ?? "") {
             retunrUplaodedImageView.sd_setImage(with: url,placeholderImage: .placeholder)
           }
           self.dropLocationLbl.text = self.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""

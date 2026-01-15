@@ -44,7 +44,8 @@ struct DeliveryList: Codable {
   var variantsID, quantity: Int?
   var amount, status, createdAt, updatedAt: String?
   var returnType, rEApprove: String?
-  var returnReason, returnImage, exchangeReason, exchangeNewSize: String?
+  var returnReason, exchangeReason, exchangeNewSize: String?
+  var returnImage: [String]?
   var exchangeOldSize: String?
   var paymentStatus, deliveryStatus, deliveryBoyID, assignStatus: String?
   var assignDate: String?

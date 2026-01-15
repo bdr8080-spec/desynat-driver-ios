@@ -31,7 +31,21 @@ class DeliveryCVC: UICollectionViewCell {
       viewStatus.backgroundColor = UIColor(hexString: "#EBFFF5")
       lblStatus.textColor = UIColor.init(hexString: "#17854C")
        // 6-confirmed 7-picked 8 not delivered 3-delivered
-        if data?.deliveryStatus == "6" {
+      if data?.deliveryStatus == "1" {
+        let returnStatus = data?.returnType ?? "0"
+        switch returnStatus {
+        case "1":
+          lblStatus.text = "Return Req."
+          viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+          lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+        case "2":
+          lblStatus.text = "Exchange Req."
+          viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+          lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+        default:
+          break
+        }
+      }else if data?.deliveryStatus == "6" {
             lblStatus.text = "Confirmed"
         }else if data?.deliveryStatus == "7" {
             lblStatus.text = "Picked"
@@ -54,7 +68,21 @@ class DeliveryCVC: UICollectionViewCell {
       viewStatus.backgroundColor = UIColor(hexString: "#E3F7FF")
       lblStatus.textColor = UIColor.init(hexString: "#2A74B8")
        // 6-confirmed 7-picked 8 not delivered 3-delivered
-        if data?.deliveryStatus == "6" {
+      if data?.deliveryStatus == "1" {
+        let returnStatus = data?.returnType ?? "0"
+        switch returnStatus {
+        case "1":
+          lblStatus.text = "Return Req."
+          viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+          lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+        case "2":
+          lblStatus.text = "Exchange Req."
+          viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+          lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+        default:
+          break
+        }
+      }else if data?.deliveryStatus == "6" {
             lblStatus.text = "Confirmed"
         }else if data?.deliveryStatus == "7" {
             lblStatus.text = "Picked"
