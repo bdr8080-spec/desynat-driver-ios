@@ -9,7 +9,8 @@ import UIKit
 
 class PreviousOrderCollectedViewController: UIViewController {
   
-  @IBOutlet weak var productTableView: TableViewDynamicHeight! {
+    @IBOutlet weak var customParentView: CustomView!
+    @IBOutlet weak var productTableView: TableViewDynamicHeight! {
     didSet {
       productTableView.registerCellFromNib(cellID: "ProductTVC")
     }
@@ -22,9 +23,17 @@ class PreviousOrderCollectedViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+      setupBackgroundTap()
     
   }
+    
+    private func setupBackgroundTap() {
+          let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
+          tapGesture.delegate = self
+          tapGesture.cancelsTouchesInView = false
+          view.addGestureRecognizer(tapGesture)
+      }
+
   
   @IBAction func collectedDidTapped(_ sender: Any) {
     updateStatus()
@@ -60,4 +69,19 @@ extension PreviousOrderCollectedViewController: UITableViewDelegate, UITableView
     cell.setData(data: self.orderDetail)
     return cell
   }
+}
+
+extension PreviousOrderCollectedViewController: UIGestureRecognizerDelegate {
+ 
+    @objc private func backgroundTapped() {
+        dismiss(animated: true)
+    }
+ 
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.isDescendant(of: customParentView) == true {
+            return false
+        }
+        return true
+    }
 }

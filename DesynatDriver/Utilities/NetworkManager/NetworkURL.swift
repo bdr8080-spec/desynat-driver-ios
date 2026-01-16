@@ -42,6 +42,7 @@ enum NetworkEndPoint: String {
     case getOngoingOrders = "/api/deliveryboy/get_ongoing_orders"
     case orderDetails = "/api/deliveryboy/order_details"
     case updateDeliveryStatus = "/api/deliveryboy/update_delivery_status"
+    case returnOrderToStoreInExchangeDeliveryStatus = "/api/deliveryboy/return-order-to-store-in-exchange"
     case pickOrder = "/api/deliveryboy/pick_order"
     case getCompletedOrder = "/api/deliveryboy/get_completed_orders"
     case getReasons = "/api/deliveryboy/get_reasons"

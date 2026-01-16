@@ -52,6 +52,7 @@ class NewDeliveryVC: UIViewController {
         updateStatusLabel.textColor = UIColor.init(hexString: "#808080")
         updateStatusButtonOutlet.isEnabled = false
         initialCaseSetup()
+        print("viewModel.orderDetail?.deliveryStatus =>\(viewModel.orderDetail?.deliveryStatus)")
     }
     
     func initialCaseSetup() {
@@ -61,10 +62,10 @@ class NewDeliveryVC: UIViewController {
             setData()
         case .forReturnOrder:
             viewProductDetailsButtonOutlet.setTitle("View Return details", for: .normal)
-            setDataForReturnExchnage()
+            setDataForReturn()
         case .forExchangeOrder:
             viewProductDetailsButtonOutlet.setTitle("View  Exchange Package details", for: .normal)
-            setDataForReturnExchnage()
+            setDataForExchange()
         }
     }
     
@@ -150,7 +151,7 @@ class NewDeliveryVC: UIViewController {
         }
     }
     
-    func setDataForReturnExchnage() {
+    func setDataForReturn() {
         self.viewModel.getOrderDetail(orderId: self.orderId ?? 0) { [weak self] in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -201,6 +202,86 @@ class NewDeliveryVC: UIViewController {
                 )
                 
                 let pickupCoordinate = CLLocationCoordinate2D(
+                    latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
+                    longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0)
+                
+                // Draw route
+                self.drawRoute(origin: pickupCoordinate, destination: dropCoordinate)
+                if self.viewModel.orderDetail?.userRatingReviewProvide == nil {
+                    self.ratingView.rating = 0
+                    self.lblRating.text = "0"
+                } else {
+                    let rating = Double(self.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? "") ?? 0
+                    self.ratingView.rating = rating
+                    self.lblRating.text = self.viewModel.orderDetail?.userRatingReviewProvide?.storeRating ?? ""
+                }
+            }
+        }
+    }
+    
+    func setDataForExchange() {
+        self.viewModel.getOrderDetail(orderId: self.orderId ?? 0) { [weak self] in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.orderDetail = self.viewModel.orderDetail
+                print("orderDetail, \(self.orderDetail)")
+                self.lblDropAddress.text = self.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
+                self.lblPickUpAddress.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+                self.storeNameLbl.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
+//                self.storeRatingStackView.isHidden = true
+                self.imgStore.image = .placeholder
+                if let url = URL(string: self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
+                    self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+                }
+                
+                if self.viewModel.orderDetail?.deliveryStatus == "7" || self.viewModel.orderDetail?.deliveryStatus == "8"{
+                    self.viewPickUpLocation.isHidden = true
+                    self.viewPick.isHidden = true
+                    self.btnStack.isHidden = false
+                    self.btnPicked.isHidden = true
+                    self.storeRatingStackView.isHidden = true
+                    self.storeNameLbl.text = self.viewModel.orderDetail?.order?.userDetails?.fullName ?? ""
+                    self.imgStore.image = .userProfile
+                    if let url = URL(string: self.viewModel.orderDetail?.order?.userDetails?.profileImage ?? "") {
+                        self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+                    }
+                    self.mobileNumber = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storePhone
+                    
+                } else if self.viewModel.orderDetail?.deliveryStatus == "3" {
+                    self.viewPickUpLocation.isHidden = true
+                    self.storeRatingStackView.isHidden = false
+                    self.btnPicked.isHidden = true
+                    self.btnStack.isHidden = false
+                    self.storeNameLbl.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""
+                    self.mobileNumber = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storePhone
+                    self.imgStore.image = .placeholder
+                    if let url = URL(string: self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeImage ?? "") {
+                        self.imgStore.sd_setImage(with: url,placeholderImage: .placeholder)
+                    }
+                    self.lblDropAddress.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
+                } else {
+                    self.viewPickUpLocation.isHidden = false
+                    self.storeRatingStackView.isHidden = false
+                    self.viewPick.isHidden = false
+                    self.btnStack.isHidden = true
+                    self.btnPicked.isHidden = false
+                    self.mobileNumber = self.viewModel.orderDetail?.order?.userDetails?.mobile
+                }
+                
+                if self.viewModel.orderDetail?.deliveryStatus == "7" {
+                    self.lblStatus.text = "Picked"
+                }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
+                    self.lblStatus.text = "Not delivered"
+                }else if self.viewModel.orderDetail?.deliveryStatus == "3" {
+                    self.lblStatus.text = "Delivered"
+                }
+                
+                let pickupCoordinate = CLLocationCoordinate2D(
+                    latitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeInfoLet ?? "0.0") ?? 0.0,
+                    longitude: Double(self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.long ?? "0.0") ?? 0.0
+                )
+                
+                let dropCoordinate = CLLocationCoordinate2D(
                     latitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.latitude ?? "0.0") ?? 0.0,
                     longitude: Double(self.viewModel.orderDetail?.order?.deliveryDetails?.longitude ?? "0.0") ?? 0.0)
                 
@@ -370,6 +451,24 @@ class NewDeliveryVC: UIViewController {
         case .newNormalOrder:
             if self.viewModel.orderDetail?.deliveryStatus == "0" {
                 let returnStatus = viewModel.orderDetail?.returnType ?? "1"
+                let reEXchnageOrder = viewModel.orderDetail?.pOrderdetailsId ?? "0"
+                if reEXchnageOrder != "0" {
+                    let collectVC = PreviousOrderCollectedViewController.instantiate(fromAppStoryboard: .Deliveries)
+                    collectVC.orderDetail = self.viewModel.orderDetail
+                    collectVC.amount = self.viewModel.orderDetail?.order?.totalAmount
+                    collectVC.deliveryStatus = self.viewModel.orderDetail?.deliveryStatus ?? ""
+                    collectVC.reason = "Test"
+                    collectVC.callBackDismiss = { [weak self] in
+    //                    guard let self = self else { return }
+    //                    let successVC = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+    //                    successVC.comingReason = .orderDeliveredSuccessfully
+    //                    successVC.callBackDismiss = {
+                        self?.navigationController?.popViewController(animated: true)
+    //                    }
+    //                    self.present(successVC, animated: true)
+                    }
+                    self.present(collectVC, animated: true)
+                }
                 if returnStatus == "2" {
                     let collectVC = PreviousOrderCollectedViewController.instantiate(fromAppStoryboard: .Deliveries)
                     collectVC.orderDetail = self.viewModel.orderDetail
@@ -475,14 +574,74 @@ class NewDeliveryVC: UIViewController {
                 }
                 self.present(collectVC, animated: true)
             } else if returnStatus == "1" {
-                self.viewModel.updateStatus(orderId: self.orderId ?? 0, deliveryStatus: "3", reason: "Test") {
-                    let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
-                    vc.comingReason = .orderDeliveredSuccessfully
-                    vc.callBackDismiss = {
-                        self.navigationController?.popViewController(animated: true)
+                let reEXchnageOrder = viewModel.orderDetail?.pOrderdetailsId ?? "0"
+                if reEXchnageOrder != "0" {
+                    self.viewModel.updateStatusForPorductStoringatstore(orderId: self.orderId ?? 0) {
+                        let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                        vc.comingReason = .orderDeliveredSuccessfully
+                        vc.callBackDismiss = {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        self.present(vc, animated: true)
+                        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
                     }
-                    self.present(vc, animated: true)
-                    NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+                } else {
+                    self.viewModel.updateStatus(orderId: self.orderId ?? 0, deliveryStatus: "3", reason: "Test") {
+                        let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                        vc.comingReason = .orderDeliveredSuccessfully
+                        vc.callBackDismiss = {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        self.present(vc, animated: true)
+                        NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+                    }
+                }
+            } else if returnStatus == "0" {
+                let reEXchnageOrder = viewModel.orderDetail?.pOrderdetailsId ?? "0"
+                if reEXchnageOrder != "0" {
+                    if viewModel.orderDetail?.deliveryStatus == "7" {
+                        let collectVC = PreviousOrderCollectedViewController.instantiate(fromAppStoryboard: .Deliveries)
+                        collectVC.orderDetail = self.viewModel.orderDetail
+                        collectVC.amount = self.viewModel.orderDetail?.order?.totalAmount
+                        collectVC.deliveryStatus = self.viewModel.orderDetail?.deliveryStatus ?? ""
+                        collectVC.reason = "Test"
+                        collectVC.callBackDismiss = { [weak self] in
+                            //                    guard let self = self else { return }
+                            //                    let successVC = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                            //                    successVC.comingReason = .orderDeliveredSuccessfully
+                            //                    successVC.callBackDismiss = {
+                            self?.navigationController?.popViewController(animated: true)
+                            //                    }
+                            //                    self.present(successVC, animated: true)
+                        }
+                        self.present(collectVC, animated: true)
+                    }else if viewModel.orderDetail?.deliveryStatus == "3" {
+                        self.viewModel.updateStatusForPorductStoringatstore(orderId: self.orderId ?? 0) {
+                            let vc = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                            vc.comingReason = .orderDeliveredSuccessfully
+                            vc.callBackDismiss = {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            self.present(vc, animated: true)
+                            NotificationCenter.default.post(name: .switchToHomeTab, object: nil)
+                        }
+                    } else {
+                        let collectVC = PreviousOrderCollectedViewController.instantiate(fromAppStoryboard: .Deliveries)
+                        collectVC.orderDetail = self.viewModel.orderDetail
+                        collectVC.amount = self.viewModel.orderDetail?.order?.totalAmount
+                        collectVC.deliveryStatus = self.viewModel.orderDetail?.deliveryStatus ?? ""
+                        collectVC.reason = "Test"
+                        collectVC.callBackDismiss = { [weak self] in
+                            //                    guard let self = self else { return }
+                            //                    let successVC = RegisterationSuccessViewController.instantiate(fromAppStoryboard: .Main)
+                            //                    successVC.comingReason = .orderDeliveredSuccessfully
+                            //                    successVC.callBackDismiss = {
+                            self?.navigationController?.popViewController(animated: true)
+                            //                    }
+                            //                    self.present(successVC, animated: true)
+                        }
+                        self.present(collectVC, animated: true)
+                    }
                 }
             }
         }
@@ -521,8 +680,10 @@ class NewDeliveryVC: UIViewController {
             
             // UI Update
             self.lblStatus.text = status.title
-            self.viewModel.orderDetail?.deliveryStatus = "\(status.rawValue)"
-            print("Selected Status:", status.title, status.rawValue)
+            if comingReason != .forExchangeOrder {
+                self.viewModel.orderDetail?.deliveryStatus = "\(status.rawValue)"
+                print("Selected Status:", status.title, status.rawValue)
+            }
             
             // ✅ Enable button only for Delivered or Not Delivered
             if status.title == "Delivered" || status.title == "Not Delivered" {

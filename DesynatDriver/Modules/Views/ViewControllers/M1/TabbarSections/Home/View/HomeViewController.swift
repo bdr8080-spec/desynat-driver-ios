@@ -46,8 +46,13 @@ class HomeViewController: UIViewController {
       }
     }
     
-    viewModel.getHomeData()
+    
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getHomeData()
+    }
   
   func setDelegates(){
     newDeliveriesCollectionView.delegate = self
@@ -210,13 +215,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
       let data = viewModel.newOrders[indexPath.row]
       nextVC.orderId = self.viewModel.newOrders[indexPath.row].id ?? 0
       let returnStatus = data.returnType ?? ""
+        let reEXchnageOrder = data.pOrderdetailsId ?? "0"
       if returnStatus == "0"{
         nextVC.comingReason = .newNormalOrder
+          if reEXchnageOrder != "0" {
+              nextVC.comingReason = .forExchangeOrder
+          }
       } else {
         if data.deliveryStatus == "1" || data.deliveryStatus == "7"{
           if returnStatus == "1" {
               nextVC.comingReason = .forReturnOrder
           } else if returnStatus == "2" {
+              nextVC.comingReason = .forExchangeOrder
+          } else if returnStatus == "0" {
               nextVC.comingReason = .forExchangeOrder
           }
         }
@@ -228,8 +239,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
       let data = viewModel.ongoingOrders[indexPath.row]
       nextVC.orderId = self.viewModel.ongoingOrders[indexPath.row].id ?? 0
       let returnStatus = data.returnType ?? ""
+        let reEXchnageOrder = data.pOrderdetailsId ?? "0"
       if returnStatus == "0"{
         nextVC.comingReason = .newNormalOrder
+          if reEXchnageOrder != "0" {
+              nextVC.comingReason = .forExchangeOrder
+          }
       } else {
         if data.deliveryStatus == "1" || data.deliveryStatus == "7"{
           if returnStatus == "1" {

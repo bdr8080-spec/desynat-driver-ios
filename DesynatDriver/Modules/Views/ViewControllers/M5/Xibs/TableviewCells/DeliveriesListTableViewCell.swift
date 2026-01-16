@@ -60,14 +60,40 @@ class DeliveriesListTableViewCell: UITableViewCell {
       default:
           break
       }
+        let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+        if pOrderdetailsId != "0" {
+            lblStatus.text = "Exchange Req."
+            statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
+            lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+        }
     case "2":
       lblStatus.text = "Ongoing"
       statusView.backgroundColor = UIColor(hexString: "#EBFFF5")
       lblStatus.textColor = UIColor(hexString: "#17854C")
+    case "2.1":
+        let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+        if pOrderdetailsId != "0" {
+            lblStatus.text = "Exchange Req."
+            statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
+            lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+        }
     case "3":
       lblStatus.text = "Delivered"
       statusView.backgroundColor = UIColor(hexString: "#EBFFF5")
       lblStatus.textColor = UIColor(hexString: "#17854C")
+//        if data?.returnType == "2" {
+            let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+            if pOrderdetailsId != "0" {
+                lblStatus.text = "Ongoing"
+                statusView.backgroundColor = UIColor(hexString: "#EBFFF5")
+                lblStatus.textColor = UIColor(hexString: "#17854C")
+                if data?.returntostore == "1" {
+                    lblStatus.text = "Delivered"
+                    statusView.backgroundColor = UIColor(hexString: "#EBFFF5")
+                    lblStatus.textColor = UIColor(hexString: "#17854C")
+                }
+            }
+//        }
     case "4":
       lblStatus.text = "Cancelled"
       statusView.backgroundColor = UIColor(hexString: "#FFEAEA")
@@ -80,6 +106,12 @@ class DeliveriesListTableViewCell: UITableViewCell {
       lblStatus.text = "Picked"
       statusView.backgroundColor = UIColor(hexString: "#E3F7FF")
       lblStatus.textColor = UIColor(hexString: "#2A74B8")
+//        let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+//        if pOrderdetailsId != "0" {
+//            lblStatus.text = "Exchange "
+//            statusView.backgroundColor = UIColor(hexString: "#EBFFF5")
+//            lblStatus.textColor = UIColor(hexString: "#17854C")
+//        }
     case "8":
       lblStatus.text = "Not delivered"
       statusView.backgroundColor = UIColor(hexString: "#FFEAEA")

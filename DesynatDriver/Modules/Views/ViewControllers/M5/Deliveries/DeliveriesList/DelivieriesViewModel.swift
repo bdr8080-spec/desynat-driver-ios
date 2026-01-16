@@ -160,7 +160,9 @@ class DeliveriesViewModel {
         let param: [String: Any] = ["id": orderId]
         WebService.sharedInstance.getOrderDetail(parameter: param) { [weak self] data in
            self?.orderDetail = data
+            print(self?.orderDetail?.deliveryStatus)
             completion()
+            
         }
     }
     
@@ -179,6 +181,13 @@ class DeliveriesViewModel {
     func updateStatus(orderId: Int,deliveryStatus: String,reason: String, _ completion:@escaping() -> Void) {
         let param: [String: Any] = ["id": orderId, "delivery_status": deliveryStatus, "reason":reason]
         WebService.sharedInstance.updateDeliveryStatus(parameter: param) { [weak self] data in
+            completion()
+        }
+    }
+    
+    func updateStatusForPorductStoringatstore(orderId: Int, _ completion:@escaping() -> Void) {
+        let param: [String: Any] = ["id": orderId, "delivery_status": "1"]
+        WebService.sharedInstance.returnOrderToStoreInExchangeDeliveryStatus(parameter: param) { [weak self] data in
             completion()
         }
     }

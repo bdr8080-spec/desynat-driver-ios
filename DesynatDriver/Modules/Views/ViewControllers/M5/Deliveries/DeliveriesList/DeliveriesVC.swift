@@ -32,7 +32,7 @@ class DeliveriesVC: UIViewController {
     
     //MARK: VARIABLES
     let viewModel = DeliveriesViewModel()
-    var initialTabFromHome: DeliveriesTab?   
+    var initialTabFromHome: DeliveriesTab?
     
     //MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -40,17 +40,17 @@ class DeliveriesVC: UIViewController {
         setupBinding()
         
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         if let tab = initialTabFromHome {
             switchTab(tab)
             initialTabFromHome = nil   // reset (important)
         }
-      viewModel.getData()
+        viewModel.getData()
     }
-
+    
     
     private func setupBinding() {
         viewModel.onDataUpdate = { [weak self] in
@@ -58,28 +58,28 @@ class DeliveriesVC: UIViewController {
             self.deliveriesTableview.reloadData()
         }
         
-//        viewModel.onNoData = { [weak self] isEmpty in
-//            guard let self else { return }
-//            self.noDataFoundLabel.isHidden = !isEmpty
-//            self.deliveriesTableview.isHidden = isEmpty
-//        }
-      viewModel.onNoData = { [weak self] isEmpty in
-          guard let self else { return }
-          self.noDataFoundLabel.isHidden = !isEmpty
-          self.deliveriesTableview.isHidden = isEmpty
-          if isEmpty {
-              self.noDataFoundLabel.text = viewModel.noDataText(for: self.viewModel.currentTab)
-          }
-      }
-
+        //        viewModel.onNoData = { [weak self] isEmpty in
+        //            guard let self else { return }
+        //            self.noDataFoundLabel.isHidden = !isEmpty
+        //            self.deliveriesTableview.isHidden = isEmpty
+        //        }
+        viewModel.onNoData = { [weak self] isEmpty in
+            guard let self else { return }
+            self.noDataFoundLabel.isHidden = !isEmpty
+            self.deliveriesTableview.isHidden = isEmpty
+            if isEmpty {
+                self.noDataFoundLabel.text = viewModel.noDataText(for: self.viewModel.currentTab)
+            }
+        }
+        
     }
-
+    
     
     @IBAction func filterBtn(_ sender: Any) {
         let nextVC = FilterVC.instantiate(fromAppStoryboard: .Deliveries)
-         nextVC.currentTab = viewModel.currentTab   // 🔥 IMPORTANT
-         nextVC.delegate = self
-         self.present(nextVC, animated: true)
+        nextVC.currentTab = viewModel.currentTab   // 🔥 IMPORTANT
+        nextVC.delegate = self
+        self.present(nextVC, animated: true)
     }
     
     
@@ -119,26 +119,49 @@ extension DeliveriesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = self.viewModel.orders[indexPath.row]
         if data.deliveryStatus == "3" || data.deliveryStatus == "8" {
-            let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(withIdentifier: "DeliveryDetailsVC") as! DeliveryDetailsVC
-            nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0
-            navigationController?.pushViewController(nextVC, animated: true)
+            if data.pOrderdetailsId != "0" {
+                // after deliver
+                if data.returntostore == "1" {
+                    let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
+                    let nextVC = storyboard.instantiateViewController(withIdentifier: "DeliveryDetailsVC") as! DeliveryDetailsVC
+                    nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0
+                    navigationController?.pushViewController(nextVC, animated: true)
+                } else {
+                    let nextVC = NewDeliveryVC.instantiate(fromAppStoryboard: .Deliveries)
+                    nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0
+                    nextVC.comingReason = .forExchangeOrder
+                    navigationController?.pushViewController(nextVC, animated: true)
+                }
+                
+            } else {
+                let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
+                let nextVC = storyboard.instantiateViewController(withIdentifier: "DeliveryDetailsVC") as! DeliveryDetailsVC
+                nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0
+                navigationController?.pushViewController(nextVC, animated: true)
+            }
         }else {
             let storyboard = UIStoryboard(name: "Deliveries", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "NewDeliveryVC") as! NewDeliveryVC
             nextVC.orderId = self.viewModel.orders[indexPath.row].id ?? 0
-          let returnStatus = data.returnType ?? ""
-          if returnStatus == "0"{
-            nextVC.comingReason = .newNormalOrder
-          } else {
-            if data.deliveryStatus == "1" || data.deliveryStatus == "7"{
-              if returnStatus == "1" {
-                  nextVC.comingReason = .forReturnOrder
-              } else if returnStatus == "2" {
-                  nextVC.comingReason = .forExchangeOrder
-              }
+            let returnStatus = data.returnType ?? ""
+            let reEXchnageOrder = data.pOrderdetailsId ?? "0"
+            
+            if returnStatus == "0"{
+                nextVC.comingReason = .newNormalOrder
+                if reEXchnageOrder != "0" {
+                    nextVC.comingReason = .forExchangeOrder
+                }
+            } else {
+                if data.deliveryStatus == "1" || data.deliveryStatus == "7"{
+                    if returnStatus == "1" {
+                        nextVC.comingReason = .forReturnOrder
+                    } else if returnStatus == "2" {
+                        nextVC.comingReason = .forExchangeOrder
+                    } else if returnStatus == "0" {
+                        nextVC.comingReason = .forExchangeOrder
+                    }
+                }
             }
-          }
             navigationController?.pushViewController(nextVC, animated: true)
         }
     }
@@ -153,15 +176,15 @@ extension DeliveriesVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-
+    
 }
 
 extension DeliveriesVC: FilterVCDelegate {
-
+    
     func didApplyFilter() {
         viewModel.loadSavedFilter()   // 🔥 API call yahin se hogi
     }
-
+    
     func didClearFilter() {
         viewModel.loadSavedFilter()   // reset + API
     }

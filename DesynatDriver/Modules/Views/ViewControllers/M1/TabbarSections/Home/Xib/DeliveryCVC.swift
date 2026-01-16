@@ -38,6 +38,7 @@ class DeliveryCVC: UICollectionViewCell {
           lblStatus.text = "Return Req."
           viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
           lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+            
         case "2":
           lblStatus.text = "Exchange Req."
           viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
@@ -45,6 +46,12 @@ class DeliveryCVC: UICollectionViewCell {
         default:
           break
         }
+          let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+          if pOrderdetailsId != "0" {
+              lblStatus.text = "Exchange Req."
+              viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+              lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+          }
       }else if data?.deliveryStatus == "6" {
             lblStatus.text = "Confirmed"
         }else if data?.deliveryStatus == "7" {
@@ -53,10 +60,29 @@ class DeliveryCVC: UICollectionViewCell {
             lblStatus.text = "Not delivered"
         }else if data?.deliveryStatus == "3" {
             lblStatus.text = "Delivered"
+//            if data?.returnType == "2" {
+                let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+                if pOrderdetailsId != "0" {
+                    lblStatus.text = "Ongoing"
+                }
+//            }
         }else if data?.deliveryStatus == "1" {
             lblStatus.text = "Confirmed"
+            let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+            if pOrderdetailsId != "0" {
+                lblStatus.text = "Exchange Req."
+                viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+                lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+            }
         }else if data?.deliveryStatus == "2" {
             lblStatus.text = "Confirmed"
+        } else if data?.deliveryStatus == "2.1" {
+            let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+            if pOrderdetailsId != "0" {
+                lblStatus.text = "Exchange Req."
+                viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+                lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+            }
         }
     }
     
@@ -82,6 +108,12 @@ class DeliveryCVC: UICollectionViewCell {
         default:
           break
         }
+          let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+          if pOrderdetailsId != "0" {
+              lblStatus.text = "Exchange Req."
+              viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+              lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+          }
       }else if data?.deliveryStatus == "6" {
             lblStatus.text = "Confirmed"
         }else if data?.deliveryStatus == "7" {
@@ -90,10 +122,29 @@ class DeliveryCVC: UICollectionViewCell {
             lblStatus.text = "Not delivered"
         }else if data?.deliveryStatus == "3" {
             lblStatus.text = "Delivered"
+//            if data?.returnType == "2" {
+                let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+                if pOrderdetailsId != "0" {
+                    lblStatus.text = "Ongoing"
+                }
+//            }
         }else if data?.deliveryStatus == "1" {
             lblStatus.text = "Confirmed"
+            let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+            if pOrderdetailsId != "0" {
+                lblStatus.text = "Exchange Req."
+                viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+                lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+            }
         }else if data?.deliveryStatus == "2" {
             lblStatus.text = "Confirmed"
+        } else if data?.deliveryStatus == "2.1" {
+            let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
+            if pOrderdetailsId != "0" {
+                lblStatus.text = "Exchange Req."
+                viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
+                lblStatus.textColor = UIColor(hexString: "#FF5F1B")
+            }
         }
     }
 

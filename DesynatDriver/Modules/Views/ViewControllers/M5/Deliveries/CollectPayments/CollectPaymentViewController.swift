@@ -11,7 +11,8 @@ class CollectPaymentViewController: UIViewController {
   
   @IBOutlet weak var amountLabel: UILabel!
   
-  
+    @IBOutlet weak var customParentView: CustomView!
+    
   var callBackDismiss: (()->())?
   var orderId: Int? = 0
   var deliveryStatus: String? = ""
@@ -21,11 +22,19 @@ class CollectPaymentViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     amountLabel.text = CommonUtils.formatPriceForString(amount ?? "")
+      setupBackgroundTap()
   }
   
   @IBAction func collectedDidTapped(_ sender: Any) {
     updateStatus()
   }
+    
+    private func setupBackgroundTap() {
+          let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
+          tapGesture.delegate = self
+          tapGesture.cancelsTouchesInView = false
+          view.addGestureRecognizer(tapGesture)
+      }
   
   func updateStatus() {
           let param: [String: Any] = [
@@ -46,4 +55,19 @@ class CollectPaymentViewController: UIViewController {
           }
       }
   
+}
+
+extension CollectPaymentViewController: UIGestureRecognizerDelegate {
+ 
+    @objc private func backgroundTapped() {
+        dismiss(animated: true)
+    }
+ 
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.isDescendant(of: customParentView) == true {
+            return false
+        }
+        return true
+    }
 }

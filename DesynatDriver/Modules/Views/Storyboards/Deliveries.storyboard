@@ -2040,6 +2040,7 @@
                     </view>
                     <connections>
                         <outlet property="amountLabel" destination="tTr-fG-2n9" id="SyO-zx-9LC"/>
+                        <outlet property="customParentView" destination="l00-kg-K7N" id="SkQ-3I-vbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFu-v5-mjA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2138,6 +2139,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="customParentView" destination="7kO-Ns-Vcm" id="6sF-Si-6b2"/>
                         <outlet property="productTableView" destination="8N9-9j-Ifn" id="CYp-za-nBP"/>
                     </connections>
                 </viewController>
@@ -2167,7 +2169,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
