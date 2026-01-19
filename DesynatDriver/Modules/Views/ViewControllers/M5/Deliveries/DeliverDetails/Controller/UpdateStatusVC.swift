@@ -67,13 +67,8 @@ extension UpdateStatusVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         tableView.reloadData()
-
         let selectedStatus = orderStatusType[indexPath.row]
-
-        /// PASS BACK
         onStatusSelected?(selectedStatus)
-
-        /// CLOSE
         self.dismiss(animated: true)
     }
 
