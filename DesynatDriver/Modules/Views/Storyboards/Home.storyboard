@@ -78,14 +78,20 @@
                                             <constraint firstItem="BXr-CH-u7h" firstAttribute="leading" secondItem="CTn-dq-ha7" secondAttribute="leading" id="s3c-lo-5ui"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOX-gH-Nky">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="zC5-7g-Az0">
                                         <rect key="frame" x="345" y="68" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="Bu5-WD-l4z"/>
-                                            <constraint firstAttribute="height" constant="24" id="Qrl-37-odf"/>
+                                            <constraint firstAttribute="width" constant="24" id="CbD-Yh-WBn"/>
+                                            <constraint firstAttribute="height" constant="24" id="Z5h-Rz-wbh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOX-gH-Nky">
+                                        <rect key="frame" x="329" y="65" width="40" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Bu5-WD-l4z"/>
+                                            <constraint firstAttribute="height" constant="30" id="Qrl-37-odf"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="bell"/>
                                         <connections>
                                             <action selector="btnTapBell:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UaR-Zr-6m0"/>
                                         </connections>
@@ -95,11 +101,13 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="oOX-gH-Nky" secondAttribute="trailing" constant="24" id="RXt-og-0hH"/>
                                     <constraint firstAttribute="bottom" secondItem="h1C-eL-bDf" secondAttribute="bottom" constant="20" id="SvI-9w-ziz"/>
+                                    <constraint firstItem="zC5-7g-Az0" firstAttribute="centerY" secondItem="oOX-gH-Nky" secondAttribute="centerY" id="Wfc-MG-G0c"/>
                                     <constraint firstItem="CTn-dq-ha7" firstAttribute="centerX" secondItem="xsA-3L-4iS" secondAttribute="centerX" id="cPe-fx-t5d"/>
                                     <constraint firstItem="h1C-eL-bDf" firstAttribute="leading" secondItem="xsA-3L-4iS" secondAttribute="leading" constant="16" id="gPs-sx-rfm"/>
                                     <constraint firstAttribute="height" constant="112" id="nIR-Ym-ifp"/>
                                     <constraint firstItem="oOX-gH-Nky" firstAttribute="centerY" secondItem="Fop-9j-knu" secondAttribute="centerY" id="nU5-C9-ebw"/>
                                     <constraint firstItem="CTn-dq-ha7" firstAttribute="centerY" secondItem="h1C-eL-bDf" secondAttribute="centerY" id="oAJ-qX-J6O"/>
+                                    <constraint firstItem="zC5-7g-Az0" firstAttribute="trailing" secondItem="oOX-gH-Nky" secondAttribute="trailing" id="x48-Sj-0Mu"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-7c-rlw">

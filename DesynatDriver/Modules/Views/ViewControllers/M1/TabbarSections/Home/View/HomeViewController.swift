@@ -45,8 +45,6 @@ class HomeViewController: UIViewController {
         // completed ka table / collection agar ho
       }
     }
-    
-    
   }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,6 +105,8 @@ class HomeViewController: UIViewController {
   }
   
   @IBAction func btnTapBell(_ sender: UIButton) {
+      let nextVC = NotificationListViewController.instantiate(fromAppStoryboard: .Deliveries)
+      self.navigationController?.pushViewController(nextVC, animated: true)
   }
   
   @IBAction func btnTapToday(_ sender: UIButton) {
