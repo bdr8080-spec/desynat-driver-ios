@@ -9,6 +9,7 @@ import UIKit
 
 class NotificationListViewController: UIViewController {
 
+    @IBOutlet weak var readAllButtonOutlet: UIButton!
     @IBOutlet weak var noDataFoundLabel: UILabel!
     @IBOutlet weak var listTableView: UITableView!{
             didSet {
@@ -20,9 +21,13 @@ class NotificationListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getMyNotificationsListRequest()
+        viewModel.resetAndFetchStories()
     }
 
+    @IBAction func readAllDidTapped(_ sender: Any) {
+        viewModel.markAllReadNotificationsRequest()
+    }
+    
     @IBAction func backDidTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -48,4 +53,24 @@ extension NotificationListViewController: UITableViewDelegate, UITableViewDataSo
             viewModel.markReadNotificationsRequest()
         }
     }
+}
+
+extension NotificationListViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // Don't paginate if content is not scrollable
+        guard scrollView.contentSize.height > scrollView.frame.height else {
+            return
+        }
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let frameHeight = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - frameHeight - 100 {
+            viewModel.getMyNotificationsListRequest()
+        }
+    }
+    
 }

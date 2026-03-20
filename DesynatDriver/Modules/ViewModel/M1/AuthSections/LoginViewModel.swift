@@ -60,14 +60,18 @@ class LoginViewModel:NSObject{
             params = [
                 APIKeys.emailOrMobile:self.hostVC.emailTextField.text ?? "",
                 APIKeys.password:self.hostVC.txtPassword.text ?? "",
-                APIKeys.type:self.hostVC.type
+                APIKeys.type:self.hostVC.type,
+                "device_type": 1,//0 web 1 ios 2 andriod
+                "fcm_token": kSharedUserDefaults.retrieveModelFor(key: .deviceToken, model: String.self) ?? ""
             ]
         }else{
             params = [
                 APIKeys.emailOrMobile:self.hostVC.emailTextField.text ?? "",
                 APIKeys.countryCode:self.hostVC.countryCode,
                 APIKeys.password:self.hostVC.txtPassword.text ?? "",
-                APIKeys.type:self.hostVC.type
+                APIKeys.type:self.hostVC.type,
+                "device_type": 1,//0 web 1 ios 2 andriod
+                "fcm_token": kSharedUserDefaults.retrieveModelFor(key: .deviceToken, model: String.self) ?? ""
             ]
         }
         

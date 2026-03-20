@@ -61,9 +61,9 @@ extension WebService {
                     }
                     return
                 }
-               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
+                // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
                 print(user)
-              //  kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                //  kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message:message ?? "")
                 completion(user)
             }
@@ -71,7 +71,7 @@ extension WebService {
     }
     
     func otpVerificationService(withParams dictParams: Dictionary<String, Any>,
-                      completion:@escaping (_ user:User)-> Void) {
+                                completion:@escaping (_ user:User)-> Void) {
         CommonUtils.showHud(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.verifyOtp), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
@@ -83,9 +83,9 @@ extension WebService {
                     }
                     return
                 }
-               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
+                // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
                 print(user)
-               // kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                // kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message:message ?? "")
                 completion(user)
             }
@@ -105,17 +105,17 @@ extension WebService {
                     }
                     return
                 }
-               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
+                // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
                 print(user)
-               // kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                // kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message:message ?? "")
                 completion(user)
             }
         }
     }
-
+    
     func createPasswordService(withParams dictParams: Dictionary<String, Any>,
-                      completion:@escaping (_ user:User)-> Void) {
+                               completion:@escaping (_ user:User)-> Void) {
         CommonUtils.showHud(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.createPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
@@ -127,9 +127,9 @@ extension WebService {
                     }
                     return
                 }
-               // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
+                // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
                 print(user)
-               // kSharedUserDefaults.saveModelFor(key:.user, value: user)
+                // kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message: message ?? "")
                 completion(user)
             }
