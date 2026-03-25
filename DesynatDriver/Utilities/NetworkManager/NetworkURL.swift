@@ -3,8 +3,8 @@ import Foundation
 let kisOnBoardingChecked = "isOnBoardingChecked"
 
 enum BaseURL {
-    static let development  = "http://157.241.119.72"
-    static let release      = "http://157.241.119.72"
+    static let development  = "https://desynat.com"//"http://157.241.119.72"
+    static let release      = "https://desynat.com"//http://157.241.119.72"
     
     
     static func value() -> String {
@@ -51,6 +51,7 @@ enum NetworkEndPoint: String {
     case getMyNotificationsList          = "/api/deliveryboy/get_notifications_list"
     case markReadNotifications           = "/api/deliveryboy/mark_notification_as_read"
     case markAllReadNotifications        = "/api/deliveryboy/driver_mark_all_notification_as_read"
+    case countOfNotifcationForAffilated  = "/api/deliveryboy/get_notifications_count"
     
     func withBaseURL() -> String {
         return "\(BaseURL.value())\(self.rawValue)"

@@ -16,7 +16,8 @@ struct UserAvailability: Codable {
     let addressLine2, city, state, dataLet: String?
     let long: String?
     let countryID, zoneID: Int?
-    let otp, otpVerify, deviceType: String?
+    let otp, otpVerify: String?
+//    let deviceType: String?
     let deviceToken: String?
     let vehicleName, vehicleRegNo, documentInformation, status: String?
     let onDuty: Int?
@@ -40,7 +41,7 @@ struct UserAvailability: Codable {
         case zoneID = "zone_id"
         case otp
         case otpVerify = "otp_verify"
-        case deviceType = "device_type"
+//        case deviceType = "device_type"
         case deviceToken = "device_token"
         case vehicleName = "vehicle_name"
         case vehicleRegNo = "vehicle_reg_no"
@@ -63,7 +64,8 @@ struct UserProfileData: Codable {
     let addressLine2, city, state, latitude: String?
     let long: String?
     let countryID, zoneID: Int?
-    let otp, otpVerify, deviceType: String?
+//    let deviceType: Int?
+    let otp, otpVerify: String?
     let deviceToken: String?
     let vehicleName, vehicleRegNo, documentInformation, status: String?
     let onDuty, createdAt: String?
@@ -90,7 +92,7 @@ struct UserProfileData: Codable {
         case zoneID = "zone_id"
         case otp
         case otpVerify = "otp_verify"
-        case deviceType = "device_type"
+//        case deviceType = "device_type"
         case deviceToken = "device_token"
         case vehicleName = "vehicle_name"
         case vehicleRegNo = "vehicle_reg_no"

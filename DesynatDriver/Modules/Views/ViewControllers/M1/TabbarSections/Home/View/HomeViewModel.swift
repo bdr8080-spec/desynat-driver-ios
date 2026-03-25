@@ -22,6 +22,17 @@ class HomeViewModel {
   init(hostVC: HomeViewController) {
     self.hostVC = hostVC
   }
+    
+    func getCountOfNotificationRequest(){
+        WebService.sharedInstance.getCountOfNotificationForService { [self] count in
+            if count > 0 {
+                self.hostVC.notificationCountView.isHidden = false
+                self.hostVC.notificationcountLabel.text = count.description
+            } else {
+                self.hostVC.notificationCountView.isHidden = true
+            }
+        }
+    }
   
   func statusUpdateAPI(completion: @escaping (Bool) -> Void) {
     let param: [String: Any] = ["delivery_boy_id": driverProfileData?.id ?? ""]

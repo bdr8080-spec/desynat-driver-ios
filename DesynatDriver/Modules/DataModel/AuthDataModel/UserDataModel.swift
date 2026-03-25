@@ -24,7 +24,7 @@ struct User: Codable {
     let zoneID: Int?
     let otp: String?
     let otpVerify: String?
-    let deviceType: String?
+//    let deviceType: Int?
     let deviceToken: String?
     let vehicleName: String?
     let vehicleRegNo: String?
@@ -53,7 +53,7 @@ struct User: Codable {
         case zoneID = "zone_id"
         case otp
         case otpVerify = "otp_verify"
-        case deviceType = "device_type"
+//        case deviceType = "device_type"
         case deviceToken = "device_token"
         case vehicleName = "vehicle_name"
         case vehicleRegNo = "vehicle_reg_no"

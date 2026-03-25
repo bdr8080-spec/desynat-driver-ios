@@ -176,7 +176,8 @@ struct UserDetails: Codable {
     let profileImage: String?
     let fullName, countryCode, mobile, email: String?
     let emailVerifiedAt: String?
-    let otp, otpVerify, deviceType: String?
+    let otp, otpVerify: String?
+//    let deviceType: String?
     let deviceToken, userDetailsLet, long: String?
     let status, createdAt, updatedAt: String?
 
@@ -189,7 +190,7 @@ struct UserDetails: Codable {
         case emailVerifiedAt = "email_verified_at"
         case otp
         case otpVerify = "otp_verify"
-        case deviceType = "device_type"
+//        case deviceType = "device_type"
         case deviceToken = "device_token"
         case userDetailsLet = "let"
         case long, status
@@ -335,6 +336,7 @@ struct Category: Codable {
 // MARK: - SellerDetails
 struct SellerDetails: Codable {
   var id: Int?
+//  var deviceType: Int?
   var profilePic: String?
   var firstName: String?
   var lastName: String?
@@ -342,7 +344,7 @@ struct SellerDetails: Codable {
   var email: String?
   var password: String?
   var acceptTerms, otp, otpVerify: String?
-  var deviceType, deviceToken: String?
+  var deviceToken: String?
   var adminVerify, storeInformation, bankInformation: String?
   var rejectReason, lang: String?
   var isBlock: Int?
@@ -361,7 +363,7 @@ struct SellerDetails: Codable {
     case acceptTerms = "accept_terms"
     case otp
     case otpVerify = "otp_verify"
-    case deviceType = "device_type"
+//    case deviceType = "device_type"
     case deviceToken = "device_token"
     case adminVerify = "admin_verify"
     case storeInformation = "store_information"
