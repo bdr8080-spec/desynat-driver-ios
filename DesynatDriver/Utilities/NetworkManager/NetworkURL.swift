@@ -53,6 +53,12 @@ enum NetworkEndPoint: String {
     case markAllReadNotifications        = "/api/deliveryboy/driver_mark_all_notification_as_read"
     case countOfNotifcationForAffilated  = "/api/deliveryboy/get_notifications_count"
     
+    
+    //M11
+    case raiseTicket                   = "/api/deliveryboy/raise_ticket"
+    case getRaiseTicket                = "/api/deliveryboy/get_raised_tickets"
+    case getTicketsType                = "/api/ticket_types"
+    
     func withBaseURL() -> String {
         return "\(BaseURL.value())\(self.rawValue)"
     }

@@ -86,6 +86,8 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func btnTapSideMenu(_ sender: Any) {
+        let vc = SideMenuViewController.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnTapToggle(_ sender: UIButton) {

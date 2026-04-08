@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" customClass="SideMenuTableViewCell" customModule="DesynatDriver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIi-Ri-NFc">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="71"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Terms &amp; Condition" translatesAutoresizingMaskIntoConstraints="NO" id="lEs-fS-u7I">
+                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="L16-Gs-ey7"/>
+                                    <constraint firstAttribute="height" constant="28" id="duO-p4-3g5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ta-e0-ndB">
+                                <rect key="frame" x="37.999999999999993" y="5.6666666666666679" width="112.33333333333331" height="17"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightVector" translatesAutoresizingMaskIntoConstraints="NO" id="2sm-rr-Bam">
+                                <rect key="frame" x="310" y="2" width="24" height="24"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="9FB-Su-0Gb"/>
+                                    <constraint firstAttribute="width" constant="24" id="tvA-6f-uzb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1ta-e0-ndB" firstAttribute="leading" secondItem="lEs-fS-u7I" secondAttribute="trailing" constant="10" id="Cj6-ac-u6R"/>
+                            <constraint firstItem="1ta-e0-ndB" firstAttribute="centerY" secondItem="lEs-fS-u7I" secondAttribute="centerY" id="La7-1t-Mps"/>
+                            <constraint firstItem="lEs-fS-u7I" firstAttribute="leading" secondItem="hIi-Ri-NFc" secondAttribute="leading" id="Xb4-NA-jGt"/>
+                            <constraint firstItem="lEs-fS-u7I" firstAttribute="top" secondItem="hIi-Ri-NFc" secondAttribute="top" id="fR2-Sf-cjA"/>
+                            <constraint firstItem="2sm-rr-Bam" firstAttribute="centerY" secondItem="1ta-e0-ndB" secondAttribute="centerY" id="oPL-KQ-fkg"/>
+                            <constraint firstAttribute="trailing" secondItem="2sm-rr-Bam" secondAttribute="trailing" id="s32-uW-SHo"/>
+                            <constraint firstItem="2sm-rr-Bam" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1ta-e0-ndB" secondAttribute="trailing" constant="50" id="yN0-vr-Bqj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hIi-Ri-NFc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MLG-hq-nsI"/>
+                    <constraint firstAttribute="bottom" secondItem="hIi-Ri-NFc" secondAttribute="bottom" id="U6A-2O-wrA"/>
+                    <constraint firstAttribute="trailing" secondItem="hIi-Ri-NFc" secondAttribute="trailing" id="aDT-Ig-nrO"/>
+                    <constraint firstItem="hIi-Ri-NFc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uoi-9H-og7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="rightbtnImg" destination="2sm-rr-Bam" id="leC-LL-T4n"/>
+                <outlet property="tableviewlabel" destination="1ta-e0-ndB" id="W26-Zr-4I8"/>
+                <outlet property="termconditionImg" destination="lEs-fS-u7I" id="ICE-p6-Mzh"/>
+            </connections>
+            <point key="canvasLocation" x="77.862595419847324" y="-3.1690140845070425"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Terms &amp; Condition" width="28" height="28"/>
+        <image name="rightVector" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

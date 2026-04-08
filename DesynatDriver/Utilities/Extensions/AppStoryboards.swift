@@ -12,6 +12,7 @@ enum AppStoryboard : String {
     case Home
     case Profile
     case Deliveries
+    case SideMenu
 }
 
 extension AppStoryboard {

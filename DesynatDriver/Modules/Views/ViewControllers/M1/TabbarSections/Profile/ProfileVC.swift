@@ -47,16 +47,4 @@ class ProfileVC: UIViewController {
     self.navigationController?.pushViewController(nextVC, animated: true)
   }
   
-  @IBAction func logoutDidTapped(_ sender: Any) {
-    self.showConfirmationAlert(msg: "Are you sure you want to logout?"){ [weak self] in
-        guard let self = self else { return }
-        logoutAPI()
-    }
-  }
-  
-  func logoutAPI(){
-      WebService.sharedInstance.logoutService() { (response) in
-          kSharedSceneDelegate.logoutUser()
-      }
-  }
 }

@@ -16,13 +16,13 @@ import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
-
+    
     var forOpenFilePickerView = ""
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Thread.sleep(forTimeInterval: 2.5)
-      IQKeyboardManager.shared.enableAutoToolbar = true
-      IQKeyboardManager.shared.isEnabled = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.isEnabled = true
         LocationManager.sharedInstance.startUpdatingLocation()
         GMSServices.provideAPIKey("AIzaSyBlCfJlRuxElolt6l-4erdJPR9ySUB8Jwk")
         GMSPlacesClient.provideAPIKey("AIzaSyAekJV3oxQlPy_OWHCxPYfFw5CnrD-Wzkg")
@@ -31,17 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         Messaging.messaging().delegate = self
         Messaging.messaging().isAutoInitEnabled = true
         confrigNotification(application: application)
+        UNUserNotificationCenter.current().setBadgeCount(0, withCompletionHandler: nil)
         return true
     }
     
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {}
-
+    
     func dropDown(dataSource:[String] , anchorView:UIView , completion: @escaping (  _ index: Int ,  _ item: String) -> ()) -> Void {
         let dropDown = DropDown()
         dropDown.anchorView = anchorView
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             
         }
     }
-
+    
 }
 
 extension AppDelegate:UNUserNotificationCenterDelegate {
@@ -115,7 +115,16 @@ extension AppDelegate:UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("notification - \(notification.request.content.userInfo)")
+        let payload = notification.request.content.userInfo
+        
+        // Convert payload to JSON text
+        if let jsonText = payload.toPrettyString() {
+            
+            //            showShareAlert(withText: jsonText)
+        }
+        let badge = notification.request.content.badge?.intValue ?? 0
+        
+        UNUserNotificationCenter.current().setBadgeCount(badge, withCompletionHandler: nil)
         if #available(iOS 14.0, *) {
             completionHandler([.banner, .badge, .sound])
         } else {
@@ -127,4 +136,51 @@ extension AppDelegate:UNUserNotificationCenterDelegate {
         print("")
     }
     
+    func topViewController(base: UIViewController? = UIApplication.shared.connectedScenes
+        .compactMap { $0 as? UIWindowScene }
+        .flatMap { $0.windows }
+        .first { $0.isKeyWindow }?
+        .rootViewController) -> UIViewController? {
+            
+            if let nav = base as? UINavigationController {
+                return topViewController(base: nav.visibleViewController)
+            }
+            if let tab = base as? UITabBarController {
+                return topViewController(base: tab.selectedViewController)
+            }
+            if let presented = base?.presentedViewController {
+                return topViewController(base: presented)
+            }
+            return base
+        }
+    
+    func showShareAlert(withText text: String) {
+        guard let topVC = topViewController() else { return }
+        let alert = UIAlertController(title: "Debug / Share", message: text, preferredStyle: .alert)
+        let shareAction = UIAlertAction(title: "Share", style: .default) { _ in
+            let activityVC = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = topVC.view // for iPad
+            topVC.present(activityVC, animated: true, completion: nil)
+        }
+        let copyAction = UIAlertAction(title: "Copy", style: .default) { _ in
+            UIPasteboard.general.string = text
+        }
+        let cancelAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+        alert.addAction(shareAction)
+        alert.addAction(copyAction)
+        alert.addAction(cancelAction)
+        topVC.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+extension Dictionary {
+    func toPrettyString() -> String? {
+        if JSONSerialization.isValidJSONObject(self),
+           let data = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted),
+           let text = String(data: data, encoding: .utf8) {
+            return text
+        }
+        return nil
+    }
 }

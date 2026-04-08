@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zW6-LW-y4g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zW6-LW-y4g">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -177,7 +177,7 @@ experience the app in your preferred language.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="392-HZ-D6F">
                                         <rect key="frame" x="0.0" y="280" width="353" height="38"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-fP-w4T" customClass="CustomButton" customModule="DesynatDriver" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-fP-w4T" customClass="CustomButton" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="38"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -233,7 +233,7 @@ experience the app in your preferred language.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715.2671755725189" y="-28.169014084507044"/>
+            <point key="canvasLocation" x="1679" y="-28"/>
         </scene>
         <!--Welcome Screen View Controller-->
         <scene sceneID="Fx6-ML-ccd">
@@ -424,7 +424,7 @@ experience the app in your preferred language.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtY-5p-rjE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441.9847328244273" y="-43.661971830985919"/>
+            <point key="canvasLocation" x="2425" y="-43"/>
         </scene>
         <!--OTPVC-->
         <scene sceneID="Ull-Of-Jo1">
@@ -2627,7 +2627,7 @@ miss out</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3V-fv-RU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6056" y="-28"/>
+            <point key="canvasLocation" x="5941" y="-28"/>
         </scene>
     </scenes>
     <resources>
@@ -2649,7 +2649,7 @@ miss out</string>
         <image name="radioUnselected" width="20" height="20"/>
         <image name="walk1" width="343" height="343"/>
         <namedColor name="AccentColor">
-            <color red="0.4309999942779541" green="0.27099999785423279" blue="0.15299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="darkBrown">
             <color red="0.43137254901960786" green="0.27058823529411763" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

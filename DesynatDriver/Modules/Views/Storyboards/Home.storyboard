@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1627,36 +1627,10 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KW-oV-cTu" customClass="CustomButton" customModule="DesynatDriver" customModuleProvider="target">
-                                <rect key="frame" x="136.66666666666666" y="610" width="119.99999999999997" height="40"/>
-                                <color key="backgroundColor" name="darkBrown"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="eD1-dZ-MMV"/>
-                                    <constraint firstAttribute="height" constant="40" id="plZ-fK-w7W"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Logout"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.35294117650000001" green="0.20784313730000001" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="logoutDidTapped:" destination="Gwe-x1-55e" eventType="touchUpInside" id="hAI-Yt-uXT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WXR-K3-dDD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4KW-oV-cTu" firstAttribute="top" secondItem="MCK-9N-uWu" secondAttribute="bottom" constant="35" id="9aB-vv-pZ8"/>
                             <constraint firstItem="79o-fN-RYv" firstAttribute="leading" secondItem="WXR-K3-dDD" secondAttribute="leading" id="GU3-07-T65"/>
                             <constraint firstItem="R4r-ry-swd" firstAttribute="leading" secondItem="WXR-K3-dDD" secondAttribute="leading" constant="20" id="TVs-nP-qJX"/>
                             <constraint firstItem="tH7-0c-z04" firstAttribute="top" secondItem="WXR-K3-dDD" secondAttribute="top" id="V4C-pq-z51"/>
@@ -1665,7 +1639,6 @@
                             <constraint firstItem="MCK-9N-uWu" firstAttribute="top" secondItem="79o-fN-RYv" secondAttribute="bottom" constant="30" id="be8-eJ-L8F"/>
                             <constraint firstItem="R4r-ry-swd" firstAttribute="top" secondItem="tH7-0c-z04" secondAttribute="bottom" constant="20" id="bt4-jX-1sm"/>
                             <constraint firstItem="79o-fN-RYv" firstAttribute="trailing" secondItem="WXR-K3-dDD" secondAttribute="trailing" id="cFN-nV-sfR"/>
-                            <constraint firstItem="4KW-oV-cTu" firstAttribute="centerX" secondItem="WXR-K3-dDD" secondAttribute="centerX" id="hec-7x-BK3"/>
                             <constraint firstItem="79o-fN-RYv" firstAttribute="top" secondItem="R4r-ry-swd" secondAttribute="bottom" constant="20" id="jby-HC-h6q"/>
                             <constraint firstItem="tH7-0c-z04" firstAttribute="trailing" secondItem="WXR-K3-dDD" secondAttribute="trailing" id="kJf-Bc-nhC"/>
                             <constraint firstItem="tH7-0c-z04" firstAttribute="leading" secondItem="WXR-K3-dDD" secondAttribute="leading" id="tev-Mv-F1t"/>
