@@ -157,6 +157,11 @@ class HomeViewController: UIViewController {
         )
     }
     
+    @IBAction func chatBotDidTapped(_ sender: Any) {
+        let nextVC = SystemSupportChatViewController.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

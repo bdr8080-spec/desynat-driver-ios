@@ -107,6 +107,11 @@ class SupportViewController: UIViewController {
         self.navigationController?.present(nextVC, animated: true)
     }
     
+    @IBAction func chatWithTeamDidTapped(_ sender: Any) {
+        let nextVC = SystemSupportChatViewController.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     //MARK: Function's declaration
     func updatePaginationButtonImages() {
         // Previous Button

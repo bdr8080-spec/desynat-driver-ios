@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         Messaging.messaging().isAutoInitEnabled = true
         confrigNotification(application: application)
         UNUserNotificationCenter.current().setBadgeCount(0, withCompletionHandler: nil)
+//        TidioSDK.initialize(
+//            projectId: "YOUR_PROJECT_ID",
+//            apiKey: "na5y0weklpcd9uxhccfezplsfg0fggvk"
+//        )
         return true
     }
     

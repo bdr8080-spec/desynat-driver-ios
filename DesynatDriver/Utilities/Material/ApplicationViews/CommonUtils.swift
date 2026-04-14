@@ -33,6 +33,26 @@ class CommonUtils {
         let bottomPadding = window.safeAreaInsets.bottom
         return (topPadding, bottomPadding, topPadding + bottomPadding)
     }
+    static func getModelFromAny<T:Decodable>(model:T.Type, data:Any, completion:(T)->()) {
+        do {
+            if let data = try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted) {
+                let final = try JSONDecoder().decode(model, from: data)
+                completion(final)
+            }
+        } catch let err {
+            debugPrint("Err:\(err)")
+        }
+    }
+    
+    static func getDictionary(_ dictData: Any?) -> Dictionary<String, Any> {
+        guard let dict = dictData as? Dictionary<String, Any> else {
+            guard let arr = dictData as? [Any] else {
+                return ["":""]
+            }
+            return getDictionary(arr.count > 0 ? arr[0] : ["":""])
+        }
+        return dict
+    }
     
     /// This function will help developer to get an image with User's Initials
     static func getImageWithUserInitials(withName name: String?, backgroundColor bgColor: UIColor, textColor txtColor: UIColor, textFont txtFont: UIFont, andSize size: CGFloat) -> UIImage? {
