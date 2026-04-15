@@ -793,6 +793,39 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHH-8v-rMJ" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
+                                <rect key="frame" x="353" y="656" width="20" height="20"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnGradient" translatesAutoresizingMaskIntoConstraints="NO" id="tFB-ub-b9T" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Qi-Zb-ivP">
+                                        <rect key="frame" x="2" y="2" width="16" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="78u-FG-htR"/>
+                                    <constraint firstItem="7Qi-Zb-ivP" firstAttribute="top" secondItem="tHH-8v-rMJ" secondAttribute="top" constant="2" id="7Qp-Ww-os3"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Qi-Zb-ivP" secondAttribute="bottom" constant="2" id="And-w0-Ttp"/>
+                                    <constraint firstAttribute="bottom" secondItem="tFB-ub-b9T" secondAttribute="bottom" id="QpG-4Y-d7P"/>
+                                    <constraint firstItem="tFB-ub-b9T" firstAttribute="top" secondItem="tHH-8v-rMJ" secondAttribute="top" id="Vpc-7S-gbb"/>
+                                    <constraint firstAttribute="trailing" secondItem="tFB-ub-b9T" secondAttribute="trailing" id="Z2C-NZ-sQB"/>
+                                    <constraint firstItem="tFB-ub-b9T" firstAttribute="leading" secondItem="tHH-8v-rMJ" secondAttribute="leading" id="aeW-ar-caL"/>
+                                    <constraint firstAttribute="width" constant="20" id="jpE-TN-4Zq"/>
+                                    <constraint firstItem="7Qi-Zb-ivP" firstAttribute="leading" secondItem="tHH-8v-rMJ" secondAttribute="leading" constant="2" id="mts-hk-frI"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Qi-Zb-ivP" secondAttribute="trailing" constant="2" id="rIc-SU-Bfv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -806,11 +839,15 @@
                             <constraint firstItem="xsA-3L-4iS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aVW-cV-UQp"/>
                             <constraint firstItem="GkB-7c-rlw" firstAttribute="top" secondItem="xsA-3L-4iS" secondAttribute="bottom" id="dBS-i7-UZI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v6g-G2-rI6" secondAttribute="trailing" constant="20" id="gh0-Md-F7X"/>
+                            <constraint firstItem="v6g-G2-rI6" firstAttribute="trailing" secondItem="tHH-8v-rMJ" secondAttribute="trailing" id="pZN-Ae-O6W"/>
+                            <constraint firstItem="v6g-G2-rI6" firstAttribute="top" secondItem="tHH-8v-rMJ" secondAttribute="top" id="vYm-wC-Ty9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aichatbotBageView" destination="tHH-8v-rMJ" id="XeL-jr-mAH"/>
                         <outlet property="btnToggle" destination="Fop-9j-knu" id="0qI-gb-ALI"/>
                         <outlet property="busyOnOffLabel" destination="BXr-CH-u7h" id="BBt-3w-XVu"/>
+                        <outlet property="chatBotBageCountLabel" destination="7Qi-Zb-ivP" id="ZDG-VK-Dsp"/>
                         <outlet property="imgRadioThisMonth" destination="EfV-r4-JkN" id="Ybz-XJ-rba"/>
                         <outlet property="imgRadioThisWeek" destination="z8C-O5-zDP" id="vho-NC-lDH"/>
                         <outlet property="imgRadioToday" destination="f7Y-Vb-Fnr" id="LtO-iW-od6"/>

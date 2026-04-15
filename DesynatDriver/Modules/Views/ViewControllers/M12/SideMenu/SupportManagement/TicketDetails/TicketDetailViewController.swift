@@ -63,7 +63,7 @@ class TicketDetailViewController: UIViewController {
         resolvedOnStackView.isHidden = (data.status != 1)
         resolvedOnDateLabel.text = convertServerDate(data.updatedAt ?? "")
         attachmentView.isHidden = (data.file?.isEmpty ?? true)
-        
+        titleLabel.text = data.title ?? ""
     }
     
     func statusType(status: Int) -> (text: String, color: UIColor) {

@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var ongoingCollectionView: UICollectionView!
     @IBOutlet weak var noDeliveryFoundLabel: UILabel!
     @IBOutlet weak var noOngingDataFoundLabel: UILabel!
+    @IBOutlet weak var aichatbotBageView: CustomView!
+    @IBOutlet weak var chatBotBageCountLabel: UILabel!
     
     private lazy var viewModel = HomeViewModel(hostVC: self)
     
@@ -47,6 +49,13 @@ class HomeViewController: UIViewController {
                 // completed ka table / collection agar ho
             }
         }
+        
+//        NotificationCenter.default.addObserver(
+//                self,
+//                selector: #selector(handleUnreadCount),
+//                name: Notification.Name("TidioUnreadCountUpdated"),
+//                object: nil
+//            )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +73,18 @@ class HomeViewController: UIViewController {
         ongoingCollectionView.dataSource = self
         ongoingCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
     }
+    
+//    @objc func handleUnreadCount(notification: Notification) {
+//        if let count = notification.userInfo?["count"] as? Int {
+//            print("📩 Received count:", count)
+//            updateChatBadge(count: count)
+//        }
+//    }
+//    
+//    func updateChatBadge(count: Int) {
+//        badgeLabel.isHidden = count == 0
+//        badgeLabel.text = "\(count)"
+//    }
     
     func setupCollectionViewLayouts() {
         
@@ -161,6 +182,10 @@ class HomeViewController: UIViewController {
         let nextVC = SystemSupportChatViewController.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+//    deinit {
+//           NotificationCenter.default.removeObserver(self)
+//       }
     
 }
 

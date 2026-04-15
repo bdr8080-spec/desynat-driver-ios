@@ -200,3 +200,4 @@ extension SupportChatViewController : UITextFieldDelegate {
         baseScrollView.scrollRectToVisible(rect, animated: true)
     }
 }
+

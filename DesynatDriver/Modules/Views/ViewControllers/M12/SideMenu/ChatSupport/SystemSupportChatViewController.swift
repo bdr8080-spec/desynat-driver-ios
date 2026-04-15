@@ -16,8 +16,12 @@ class SystemSupportChatViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupWebView()
+        CommonUtils.showHud(show: true)
         if let savedUser: User = kSharedUserDefaults.retrieveModelFor(key: .user, model: User.self) {
             loadTidioHTML(user: savedUser)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            CommonUtils.showHud(show: false)
         }
     }
     
@@ -67,7 +71,7 @@ class SystemSupportChatViewController: UIViewController, WKNavigationDelegate {
         </style>
         
         <!-- ✅ IMPORTANT: Use full https URL -->
-        <script src="https://code.tidio.co/na5y0weklpcd9uxhccfezplsfg0fggvk.js" async></script>
+        <script src="https://code.tidio.co/uxltmye9ysuvgaamvz0sisfhvdb1yctx.js" async></script>
         </head>
         
         <body>
@@ -111,8 +115,30 @@ class SystemSupportChatViewController: UIViewController, WKNavigationDelegate {
         </body>
         </html>
         """
-        
-        
         contentWebview.loadHTMLString(html, baseURL: URL(string: "https://localhost"))
+    }
+}
+
+
+extension SystemSupportChatViewController: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        
+        if message.name == "tidioReady" {
+            CommonUtils.showHud(show: false)
+        }
+        
+        if message.name == "tidioUnreadCount" {
+            if let count = message.body as? Int {
+                
+                print("🔔 Unread count:", count)
+                
+                // ✅ SEND DATA TO OTHER SCREENS
+                NotificationCenter.default.post(
+                    name: Notification.Name("TidioUnreadCountUpdated"),
+                    object: nil,
+                    userInfo: ["count": count]
+                )
+            }
+        }
     }
 }
