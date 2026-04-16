@@ -47,7 +47,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTn-dq-ha7">
-                                        <rect key="frame" x="139.33333333333334" y="69" width="114.33333333333334" height="22"/>
+                                        <rect key="frame" x="134" y="69" width="105.33333333333331" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Duty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXr-CH-u7h">
                                                 <rect key="frame" x="0.0" y="2.6666666666666714" width="48.333333333333336" height="17"/>
@@ -56,7 +56,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fop-9j-knu">
-                                                <rect key="frame" x="72.333333333333314" y="0.0" width="40" height="22"/>
+                                                <rect key="frame" x="63.333333333333343" y="0.0" width="40" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="7Tt-Jd-kf5"/>
                                                     <constraint firstAttribute="height" constant="22" id="x4b-0l-Afh"/>
@@ -74,19 +74,31 @@
                                             <constraint firstAttribute="height" constant="22" id="Tbd-YG-qYe"/>
                                             <constraint firstItem="Fop-9j-knu" firstAttribute="centerY" secondItem="BXr-CH-u7h" secondAttribute="centerY" id="XpT-ek-Aaf"/>
                                             <constraint firstAttribute="trailing" secondItem="Fop-9j-knu" secondAttribute="trailing" constant="2" id="cPU-3O-PcO"/>
-                                            <constraint firstItem="Fop-9j-knu" firstAttribute="leading" secondItem="BXr-CH-u7h" secondAttribute="trailing" constant="24" id="efX-RO-aTo"/>
+                                            <constraint firstItem="Fop-9j-knu" firstAttribute="leading" secondItem="BXr-CH-u7h" secondAttribute="trailing" constant="15" id="efX-RO-aTo"/>
                                             <constraint firstItem="BXr-CH-u7h" firstAttribute="leading" secondItem="CTn-dq-ha7" secondAttribute="leading" id="s3c-lo-5ui"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HK-Wa-i9t">
+                                        <rect key="frame" x="299" y="60" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Vdc-f9-F6z"/>
+                                            <constraint firstAttribute="width" constant="40" id="XBJ-dt-ZFd"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="chatBot"/>
+                                        <connections>
+                                            <action selector="chatBotDidTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Uce-Ev-Np5"/>
+                                        </connections>
+                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="zC5-7g-Az0">
-                                        <rect key="frame" x="345" y="68" width="24" height="24"/>
+                                        <rect key="frame" x="349" y="68" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="CbD-Yh-WBn"/>
                                             <constraint firstAttribute="height" constant="24" id="Z5h-Rz-wbh"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOX-gH-Nky">
-                                        <rect key="frame" x="329" y="65" width="40" height="30"/>
+                                        <rect key="frame" x="333" y="65" width="40" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Bu5-WD-l4z"/>
                                             <constraint firstAttribute="height" constant="30" id="Qrl-37-odf"/>
@@ -97,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fup-YK-Ub1" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
-                                        <rect key="frame" x="352" y="62" width="20" height="20"/>
+                                        <rect key="frame" x="356" y="62" width="20" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnGradient" translatesAutoresizingMaskIntoConstraints="NO" id="uqh-eB-s4K" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -133,15 +145,17 @@
                                 <color key="backgroundColor" red="0.99607843159999998" green="0.96862745289999996" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="oOX-gH-Nky" firstAttribute="top" secondItem="fup-YK-Ub1" secondAttribute="top" constant="3" id="Mkn-uK-vOq"/>
-                                    <constraint firstAttribute="trailing" secondItem="oOX-gH-Nky" secondAttribute="trailing" constant="24" id="RXt-og-0hH"/>
+                                    <constraint firstAttribute="trailing" secondItem="oOX-gH-Nky" secondAttribute="trailing" constant="20" id="RXt-og-0hH"/>
                                     <constraint firstAttribute="bottom" secondItem="h1C-eL-bDf" secondAttribute="bottom" constant="20" id="SvI-9w-ziz"/>
+                                    <constraint firstItem="4HK-Wa-i9t" firstAttribute="centerY" secondItem="zC5-7g-Az0" secondAttribute="centerY" id="Vvj-Mw-eUP"/>
                                     <constraint firstItem="zC5-7g-Az0" firstAttribute="centerY" secondItem="oOX-gH-Nky" secondAttribute="centerY" id="Wfc-MG-G0c"/>
-                                    <constraint firstItem="CTn-dq-ha7" firstAttribute="centerX" secondItem="xsA-3L-4iS" secondAttribute="centerX" id="cPe-fx-t5d"/>
+                                    <constraint firstItem="CTn-dq-ha7" firstAttribute="centerX" secondItem="xsA-3L-4iS" secondAttribute="centerX" multiplier="0.95" id="cPe-fx-t5d"/>
                                     <constraint firstItem="oOX-gH-Nky" firstAttribute="trailing" secondItem="fup-YK-Ub1" secondAttribute="trailing" constant="-3" id="e34-Dg-bI5"/>
                                     <constraint firstItem="h1C-eL-bDf" firstAttribute="leading" secondItem="xsA-3L-4iS" secondAttribute="leading" constant="16" id="gPs-sx-rfm"/>
                                     <constraint firstAttribute="height" constant="112" id="nIR-Ym-ifp"/>
                                     <constraint firstItem="oOX-gH-Nky" firstAttribute="centerY" secondItem="Fop-9j-knu" secondAttribute="centerY" id="nU5-C9-ebw"/>
                                     <constraint firstItem="CTn-dq-ha7" firstAttribute="centerY" secondItem="h1C-eL-bDf" secondAttribute="centerY" id="oAJ-qX-J6O"/>
+                                    <constraint firstItem="zC5-7g-Az0" firstAttribute="leading" secondItem="4HK-Wa-i9t" secondAttribute="trailing" constant="10" id="rAd-3G-nbz"/>
                                     <constraint firstItem="zC5-7g-Az0" firstAttribute="trailing" secondItem="oOX-gH-Nky" secondAttribute="trailing" id="x48-Sj-0Mu"/>
                                 </constraints>
                             </view>
@@ -758,96 +772,22 @@
                                     <constraint firstAttribute="trailing" secondItem="jmT-ij-YN6" secondAttribute="trailing" id="OkT-rq-cc8"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6g-G2-rI6" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
-                                <rect key="frame" x="317" y="656" width="56" height="56"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn" translatesAutoresizingMaskIntoConstraints="NO" id="yYe-Cq-tcD">
-                                        <rect key="frame" x="12" y="12" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="cZm-LF-zNp"/>
-                                            <constraint firstAttribute="width" constant="32" id="xmK-G7-lj8"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HK-Wa-i9t">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <connections>
-                                            <action selector="chatBotDidTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Uce-Ev-Np5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="3XH-Gj-R5z"/>
-                                    <constraint firstAttribute="bottom" secondItem="4HK-Wa-i9t" secondAttribute="bottom" id="3d7-BS-3bt"/>
-                                    <constraint firstItem="yYe-Cq-tcD" firstAttribute="centerX" secondItem="v6g-G2-rI6" secondAttribute="centerX" id="8NZ-oG-ycS"/>
-                                    <constraint firstItem="4HK-Wa-i9t" firstAttribute="leading" secondItem="v6g-G2-rI6" secondAttribute="leading" id="KdN-H3-xOD"/>
-                                    <constraint firstItem="yYe-Cq-tcD" firstAttribute="centerY" secondItem="v6g-G2-rI6" secondAttribute="centerY" id="LZ2-KC-gyq"/>
-                                    <constraint firstItem="4HK-Wa-i9t" firstAttribute="top" secondItem="v6g-G2-rI6" secondAttribute="top" id="Uo5-Wg-XKu"/>
-                                    <constraint firstAttribute="trailing" secondItem="4HK-Wa-i9t" secondAttribute="trailing" id="gQi-gr-1hh"/>
-                                    <constraint firstAttribute="width" constant="56" id="rMk-Mm-EUc"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="28"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHH-8v-rMJ" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
-                                <rect key="frame" x="353" y="656" width="20" height="20"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnGradient" translatesAutoresizingMaskIntoConstraints="NO" id="tFB-ub-b9T" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Qi-Zb-ivP">
-                                        <rect key="frame" x="2" y="2" width="16" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="78u-FG-htR"/>
-                                    <constraint firstItem="7Qi-Zb-ivP" firstAttribute="top" secondItem="tHH-8v-rMJ" secondAttribute="top" constant="2" id="7Qp-Ww-os3"/>
-                                    <constraint firstAttribute="bottom" secondItem="7Qi-Zb-ivP" secondAttribute="bottom" constant="2" id="And-w0-Ttp"/>
-                                    <constraint firstAttribute="bottom" secondItem="tFB-ub-b9T" secondAttribute="bottom" id="QpG-4Y-d7P"/>
-                                    <constraint firstItem="tFB-ub-b9T" firstAttribute="top" secondItem="tHH-8v-rMJ" secondAttribute="top" id="Vpc-7S-gbb"/>
-                                    <constraint firstAttribute="trailing" secondItem="tFB-ub-b9T" secondAttribute="trailing" id="Z2C-NZ-sQB"/>
-                                    <constraint firstItem="tFB-ub-b9T" firstAttribute="leading" secondItem="tHH-8v-rMJ" secondAttribute="leading" id="aeW-ar-caL"/>
-                                    <constraint firstAttribute="width" constant="20" id="jpE-TN-4Zq"/>
-                                    <constraint firstItem="7Qi-Zb-ivP" firstAttribute="leading" secondItem="tHH-8v-rMJ" secondAttribute="leading" constant="2" id="mts-hk-frI"/>
-                                    <constraint firstAttribute="trailing" secondItem="7Qi-Zb-ivP" secondAttribute="trailing" constant="2" id="rIc-SU-Bfv"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xsA-3L-4iS" secondAttribute="trailing" id="18o-cq-m2M"/>
-                            <constraint firstAttribute="bottom" secondItem="v6g-G2-rI6" secondAttribute="bottom" constant="140" id="MIR-9j-igQ"/>
                             <constraint firstItem="GkB-7c-rlw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Mgi-5P-UDH"/>
                             <constraint firstItem="xsA-3L-4iS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="WIs-gX-dIN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GkB-7c-rlw" secondAttribute="trailing" id="ZXq-Vm-XTm"/>
                             <constraint firstAttribute="bottom" secondItem="GkB-7c-rlw" secondAttribute="bottom" constant="70" id="aJP-aO-chU"/>
                             <constraint firstItem="xsA-3L-4iS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aVW-cV-UQp"/>
                             <constraint firstItem="GkB-7c-rlw" firstAttribute="top" secondItem="xsA-3L-4iS" secondAttribute="bottom" id="dBS-i7-UZI"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v6g-G2-rI6" secondAttribute="trailing" constant="20" id="gh0-Md-F7X"/>
-                            <constraint firstItem="v6g-G2-rI6" firstAttribute="trailing" secondItem="tHH-8v-rMJ" secondAttribute="trailing" id="pZN-Ae-O6W"/>
-                            <constraint firstItem="v6g-G2-rI6" firstAttribute="top" secondItem="tHH-8v-rMJ" secondAttribute="top" id="vYm-wC-Ty9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="aichatbotBageView" destination="tHH-8v-rMJ" id="XeL-jr-mAH"/>
                         <outlet property="btnToggle" destination="Fop-9j-knu" id="0qI-gb-ALI"/>
                         <outlet property="busyOnOffLabel" destination="BXr-CH-u7h" id="BBt-3w-XVu"/>
-                        <outlet property="chatBotBageCountLabel" destination="7Qi-Zb-ivP" id="ZDG-VK-Dsp"/>
                         <outlet property="imgRadioThisMonth" destination="EfV-r4-JkN" id="Ybz-XJ-rba"/>
                         <outlet property="imgRadioThisWeek" destination="z8C-O5-zDP" id="vho-NC-lDH"/>
                         <outlet property="imgRadioToday" destination="f7Y-Vb-Fnr" id="LtO-iW-od6"/>
@@ -1995,9 +1935,9 @@
         <image name="address" width="24" height="24"/>
         <image name="attachment" width="24" height="24"/>
         <image name="bell" width="33" height="38"/>
-        <image name="btn" width="32" height="32"/>
         <image name="btnGradient" width="343" height="38"/>
         <image name="calendar" width="22" height="22"/>
+        <image name="chatBot" width="28" height="26.666666030883789"/>
         <image name="deliveriesSelect" width="59" height="44"/>
         <image name="deliveriesUnselect" width="58" height="44"/>
         <image name="filter" width="50" height="38"/>

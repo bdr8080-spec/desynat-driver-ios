@@ -25,8 +25,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var ongoingCollectionView: UICollectionView!
     @IBOutlet weak var noDeliveryFoundLabel: UILabel!
     @IBOutlet weak var noOngingDataFoundLabel: UILabel!
-    @IBOutlet weak var aichatbotBageView: CustomView!
-    @IBOutlet weak var chatBotBageCountLabel: UILabel!
     
     private lazy var viewModel = HomeViewModel(hostVC: self)
     
