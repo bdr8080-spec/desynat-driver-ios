@@ -314,16 +314,28 @@
                                                             <constraint firstAttribute="height" constant="35" id="z79-xY-8T0"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3V3-Ux-eje">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="emailDidTapped:" destination="kJt-Ks-cdK" eventType="touchUpInside" id="far-Ig-0YO"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="3V3-Ux-eje" firstAttribute="top" secondItem="u61-h1-EEX" secondAttribute="top" id="21W-2i-804"/>
                                                     <constraint firstAttribute="height" constant="60" id="2RB-xN-eex"/>
                                                     <constraint firstAttribute="bottom" secondItem="q2X-vq-bfw" secondAttribute="bottom" constant="12" id="6pg-hC-pGP"/>
                                                     <constraint firstItem="Oy8-kk-aQw" firstAttribute="top" secondItem="u61-h1-EEX" secondAttribute="top" constant="12" id="BtT-Nq-wkY"/>
                                                     <constraint firstItem="Oy8-kk-aQw" firstAttribute="leading" secondItem="u61-h1-EEX" secondAttribute="leading" constant="12" id="F2O-2b-vzW"/>
                                                     <constraint firstAttribute="trailing" secondItem="q2X-vq-bfw" secondAttribute="trailing" constant="15" id="IZY-lx-4Y0"/>
+                                                    <constraint firstItem="3V3-Ux-eje" firstAttribute="leading" secondItem="u61-h1-EEX" secondAttribute="leading" id="Nkq-le-UaY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3V3-Ux-eje" secondAttribute="bottom" id="Rkd-66-W8b"/>
                                                     <constraint firstItem="q2X-vq-bfw" firstAttribute="leading" secondItem="Oy8-kk-aQw" secondAttribute="trailing" constant="10" id="Vlo-hT-O0h"/>
                                                     <constraint firstItem="q2X-vq-bfw" firstAttribute="top" secondItem="Oy8-kk-aQw" secondAttribute="top" constant="5" id="iCQ-ou-JQP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3V3-Ux-eje" secondAttribute="trailing" id="kqC-8l-kEJ"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -364,14 +376,26 @@
                                                             <constraint firstAttribute="height" constant="35" id="qZt-FP-a5L"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OH3-CF-uVD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="callDidTapped:" destination="kJt-Ks-cdK" eventType="touchUpInside" id="R9X-2M-8Gh"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="OH3-CF-uVD" secondAttribute="bottom" id="4hv-JW-Rh9"/>
                                                     <constraint firstAttribute="bottom" secondItem="u2m-1v-h1G" secondAttribute="bottom" constant="12" id="93o-Jh-Rqf"/>
                                                     <constraint firstItem="EDN-Vb-CqV" firstAttribute="top" secondItem="0g0-kQ-a2Z" secondAttribute="top" constant="12" id="Bg8-u0-irw"/>
                                                     <constraint firstAttribute="height" constant="60" id="IZB-xD-ety"/>
                                                     <constraint firstItem="EDN-Vb-CqV" firstAttribute="leading" secondItem="0g0-kQ-a2Z" secondAttribute="leading" constant="12" id="NyQ-Z9-yUI"/>
+                                                    <constraint firstItem="OH3-CF-uVD" firstAttribute="top" secondItem="0g0-kQ-a2Z" secondAttribute="top" id="att-65-bQ7"/>
                                                     <constraint firstItem="u2m-1v-h1G" firstAttribute="leading" secondItem="EDN-Vb-CqV" secondAttribute="trailing" constant="10" id="b4E-fb-bP4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OH3-CF-uVD" secondAttribute="trailing" id="bJa-9L-ARa"/>
+                                                    <constraint firstItem="OH3-CF-uVD" firstAttribute="leading" secondItem="0g0-kQ-a2Z" secondAttribute="leading" id="eyg-6D-evr"/>
                                                     <constraint firstAttribute="trailing" secondItem="u2m-1v-h1G" secondAttribute="trailing" constant="15" id="nHi-Ci-vab"/>
                                                     <constraint firstItem="u2m-1v-h1G" firstAttribute="top" secondItem="EDN-Vb-CqV" secondAttribute="top" constant="5" id="o4I-ap-rvQ"/>
                                                 </constraints>
@@ -406,6 +430,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="whatsAppDidTapped:" destination="kJt-Ks-cdK" eventType="touchUpInside" id="mft-On-AQP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1709,6 +1736,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mainWebView" destination="LRS-g4-hGP" id="Cj2-Kz-VDb"/>
                         <outlet property="titleLble" destination="1lM-qX-b87" id="FSJ-zD-L1f"/>
                     </connections>
                 </viewController>
@@ -2859,7 +2887,7 @@ your account?</string>
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

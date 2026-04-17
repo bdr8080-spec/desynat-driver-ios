@@ -60,6 +60,7 @@ struct UserProfileData: Codable {
     let id: Int?
     let profilePic: String?
     let fullNameEnglish, fullNameArabic, email, countryCode: String?
+    let notification, appNotification: Int?
     let mobile, password, unhashedPassword, addressLine1: String?
     let addressLine2, city, state, latitude: String?
     let long: String?
@@ -81,7 +82,7 @@ struct UserProfileData: Codable {
         case fullNameArabic = "full_name_arabic"
         case email
         case countryCode = "country_code"
-        case mobile, password
+        case mobile, password, notification
         case unhashedPassword = "unhashed_password"
         case addressLine1 = "address_line1"
         case addressLine2 = "address_line2"
@@ -108,6 +109,7 @@ struct UserProfileData: Codable {
         case pollutionPaper = "pollution_paper"
         case registrationCertificate = "registration_certificate"
         case zoneInfo = "zone_info"
+        case appNotification = "app_notification"
     }
 }
 

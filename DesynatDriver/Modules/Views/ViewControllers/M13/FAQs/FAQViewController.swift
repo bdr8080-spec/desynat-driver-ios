@@ -24,7 +24,7 @@ class FAQViewController: UIViewController {
     // MARK: - View's LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.getFAQRequest()
+        viewModel.getFAQRequest()
     }
     
     // MARK: - Button's Action
@@ -39,7 +39,7 @@ class FAQViewController: UIViewController {
 extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5//viewModel.faqListData?.count ?? 0
+        return viewModel.faqListData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,8 +51,8 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
             cell.descriptionView.isHidden = true
             cell.vectorImageView.image = .downVector
         }
-//        let data = viewModel.faqListData?[indexPath.row]
-//        cell.configData(data: data, index: indexPath.row)
+        let data = viewModel.faqListData?[indexPath.row]
+        cell.configData(data: data, index: indexPath.row)
         return cell
     }
     
@@ -60,5 +60,4 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
         selecetdIndex = indexPath.row
         listTableView.reloadData()
     }
-    
 }

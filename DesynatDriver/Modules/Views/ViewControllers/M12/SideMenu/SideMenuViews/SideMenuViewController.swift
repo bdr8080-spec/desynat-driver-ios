@@ -60,35 +60,28 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource{
             let vc = CMSViewController.instantiate(fromAppStoryboard: .SideMenu)
             vc.reason = .termsAndCondition
             self.navigationController?.pushViewController(vc, animated: true)
-            print(title)
         case "Return Policy":
             let vc = CMSViewController.instantiate(fromAppStoryboard: .SideMenu)
             vc.reason = .ReturnPolicy
             self.navigationController?.pushViewController(vc, animated: true)
-            print(title)
         case "About Us":
             let vc = CMSViewController.instantiate(fromAppStoryboard: .SideMenu)
             vc.reason = .AboutUs
             self.navigationController?.pushViewController(vc, animated: true)
-            print(title)
         case "FAQ’S":
             let nextVC = FAQViewController.instantiate(fromAppStoryboard: .SideMenu)
             self.navigationController?.pushViewController(nextVC, animated: true)
-            print(title)
         case "Change Language":
             let nextVC = SelectLanguageviewController.instantiate(fromAppStoryboard: .SideMenu)
             self.navigationController?.pushViewController(nextVC, animated: true)
-            print(title)
         case "Cancellation Policy":
             let vc = CMSViewController.instantiate(fromAppStoryboard: .SideMenu)
             vc.reason = .CancellationPolicy
             self.navigationController?.pushViewController(vc, animated: true)
-            print(title)
         case "Exchange Policy":
             let vc = CMSViewController.instantiate(fromAppStoryboard: .SideMenu)
             vc.reason = .ExchangePolicy
             self.navigationController?.pushViewController(vc, animated: true)
-            print(title)
         case "Support":
             let nextVC = SupportViewController.instantiate(fromAppStoryboard: .SideMenu)
             self.navigationController?.pushViewController(nextVC, animated: true)

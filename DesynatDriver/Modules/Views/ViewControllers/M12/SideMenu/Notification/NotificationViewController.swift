@@ -12,26 +12,24 @@ class NotificationViewController: UIViewController {
     @IBOutlet weak var pushnotification: UIButton!
     @IBOutlet weak var appnotificationbtn: UIButton!
     
+    private lazy var viewModel = NotificationViewModel(hostVC: self)
     var isAppNotification = false
-    var isPushNotification = false
+    var isPushNotification = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appnotificationbtn.adjustsImageWhenHighlighted = false
-        pushnotification.adjustsImageWhenHighlighted = false
-        updateAppNotificationUI()
-        updatePushNotificationUI()
+        viewModel.getProfile()
     }
     
     // MARK: - Actions
     @IBAction func appnotificationbtn(_ sender: UIButton) {
-        isAppNotification.toggle()
-        updateAppNotificationUI()
+        viewModel.updateAppNotificationSettingRequest()
     }
+    
     @IBAction func pushnotification(_ sender: UIButton) {
-        isPushNotification.toggle()
-        updatePushNotificationUI()
+        viewModel.updatePushNotificationSettingRequest()
     }
+    
     @IBAction func deleteAccountDidTapped(_ sender: Any) {
         let nextVC = DeleteAccountViewController.instantiate(fromAppStoryboard: .SideMenu)
         nextVC.onYesTapped = { [weak self] in
@@ -40,12 +38,9 @@ class NotificationViewController: UIViewController {
         }
         self.navigationController?.present(nextVC, animated: true)
     }
-    func deleteAccountRequest(){
-        //        WebService.sharedInstance.logoutService() { (response) in
-        //            kSharedSceneDelegate.logoutUser()
-        //            kSharedSceneDelegate.navigateToLoginVc()
-        //            UserDefaults.standard.setValue("No", forKey:"isLogin")
-        //        }
+    
+    @IBAction func backbtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - UI Update
@@ -59,9 +54,12 @@ class NotificationViewController: UIViewController {
         pushnotification.setImage(UIImage(named: imageName), for: .normal)
     }
     
-    @IBAction func backbtn(_ sender: Any) {
-       
-        self.navigationController?.popViewController(animated: true)
+    func deleteAccountRequest(){
+        //        WebService.sharedInstance.logoutService() { (response) in
+        //            kSharedSceneDelegate.logoutUser()
+        //            kSharedSceneDelegate.navigateToLoginVc()
+        //            UserDefaults.standard.setValue("No", forKey:"isLogin")
+        //        }
     }
 }
 

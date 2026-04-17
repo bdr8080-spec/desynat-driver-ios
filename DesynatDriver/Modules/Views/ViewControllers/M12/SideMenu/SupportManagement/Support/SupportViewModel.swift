@@ -46,6 +46,16 @@ class SupportViewModel {
         }
     }
     
+    func getContactUsRequest() {
+        let params: [String : Any] = ["type": 3]
+        WebService.sharedInstance.getContactUsService(param: params) { [weak self] response in
+            guard let self = self else { return }
+            hostVC.whatsAppNumber = response.contentEnglish?.whatsapp
+            hostVC.supportEmailLabe.text = response.contentEnglish?.email
+            hostVC.supportPhoneLabel.text = response.contentEnglish?.mobile
+        }
+    }
+    
     func goToNextPage() {
         guard currentPage < totalPages else { return }
         currentPage += 1

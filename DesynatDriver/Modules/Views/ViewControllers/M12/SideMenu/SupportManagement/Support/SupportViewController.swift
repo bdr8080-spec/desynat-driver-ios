@@ -33,6 +33,7 @@ class SupportViewController: UIViewController {
     
     private lazy var viewModel = SupportViewModel(hostVC: self)
     private var searchWorkItem: DispatchWorkItem?
+    var whatsAppNumber: String? = ""
     
     // MARK: - View's LifeCycle Methods
     override func viewDidLoad() {
@@ -42,11 +43,7 @@ class SupportViewController: UIViewController {
         contactView.isHidden = false
         paginationBottomView.isHidden = true
         noDataFoundLabel.isHidden = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+        viewModel.getContactUsRequest()
     }
     
     // MARK: - Navigation
@@ -63,6 +60,7 @@ class SupportViewController: UIViewController {
         ticketManagementTableView.isHidden = true
         contactView.isHidden = false
         paginationBottomView.isHidden = true
+        noDataFoundLabel.isHidden = true
     }
     
     @IBAction func raiseTicketBtn(_ sender: Any) {
@@ -110,6 +108,30 @@ class SupportViewController: UIViewController {
     @IBAction func chatWithTeamDidTapped(_ sender: Any) {
         let nextVC = SystemSupportChatViewController.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @IBAction func whatsAppDidTapped(_ sender: Any) {
+        let urlString = "https://wa.me/\(whatsAppNumber ?? "")"
+        if let url = URL(string: urlString),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func emailDidTapped(_ sender: Any) {
+        let email = supportEmailLabe.text?.trimmed() ?? ""
+        if let url = URL(string: "mailto:\(email)"),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func callDidTapped(_ sender: Any) {
+        let phoneNumber = supportPhoneLabel.text?.trimmed() ?? ""
+        if let url = URL(string: "tel://\(phoneNumber)"),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     //MARK: Function's declaration

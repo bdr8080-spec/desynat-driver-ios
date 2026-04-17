@@ -42,7 +42,7 @@ class ProfileVC: UIViewController {
     let nextVC = EditProfileViewController.instantiate(fromAppStoryboard: .Profile)
     nextVC.profileIsUpdated = { [weak self] in
       guard let self else { return }
-      viewModel.getDelearProfile()
+      viewModel.getProfile()
     }
     self.navigationController?.pushViewController(nextVC, animated: true)
   }

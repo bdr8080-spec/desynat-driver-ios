@@ -6,17 +6,19 @@
 //
 
 import UIKit
+import WebKit
 
 class CMSViewController: UIViewController {
-
+    
+    @IBOutlet weak var mainWebView: WKWebView!
     @IBOutlet weak var titleLble: UILabel!
     
     //Marks: Variable
-    var reason: ComingFrom?
-    var titleStr: String?
+    private lazy var viewModel = CMSViewModel(hostVC: self)
+    var reason: ComingFrom = .termsAndCondition
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLble.text = titleStr
         initialSetup()
     }
     
@@ -25,20 +27,26 @@ class CMSViewController: UIViewController {
     }
     
     func initialSetup() {
-        switch reason! {
+        switch reason {
         case .termsAndCondition:
             titleLble.text = "Terms & Condition"
+            viewModel.getTermsAndConditionRequest()
         case .ReturnPolicy:
             titleLble.text = "Return Policy"
+            viewModel.getReturnPolicyRequest()
         case .AboutUs:
             titleLble.text = "About Us"
+            viewModel.getAboutUsRequest()
         case .CancellationPolicy:
             titleLble.text = "Cancellation Policy"
+            viewModel.getCancellationPolicyRequest()
         case .ExchangePolicy:
             titleLble.text = "Exchange Policy"
+            viewModel.getExchangePolicyRequest()
         }
     }
 }
+
 enum ComingFrom {
     case termsAndCondition
     case ReturnPolicy
