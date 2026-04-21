@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var noOngingDataFoundLabel: UILabel!
     
     private lazy var viewModel = HomeViewModel(hostVC: self)
-    
     var activeTextField: UITextField?
     var viewDate = UIDatePicker()
     var timeStamp = Double()
@@ -39,21 +38,12 @@ class HomeViewController: UIViewController {
         setDelegates()
         viewModel.getDelearProfile()
         setupCollectionViewLayouts()
-        
         viewModel.onHomeDataUpdate = { [weak self] in
             DispatchQueue.main.async {
                 self?.newDeliveriesCollectionView.reloadData()
                 self?.ongoingCollectionView.reloadData()
-                // completed ka table / collection agar ho
             }
         }
-        
-//        NotificationCenter.default.addObserver(
-//                self,
-//                selector: #selector(handleUnreadCount),
-//                name: Notification.Name("TidioUnreadCountUpdated"),
-//                object: nil
-//            )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,51 +52,9 @@ class HomeViewController: UIViewController {
         viewModel.getCountOfNotificationRequest()
     }
     
-    func setDelegates(){
-        newDeliveriesCollectionView.delegate = self
-        newDeliveriesCollectionView.dataSource = self
-        newDeliveriesCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
-        
-        ongoingCollectionView.delegate = self
-        ongoingCollectionView.dataSource = self
-        ongoingCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
-    }
-    
-//    @objc func handleUnreadCount(notification: Notification) {
-//        if let count = notification.userInfo?["count"] as? Int {
-//            print("📩 Received count:", count)
-//            updateChatBadge(count: count)
-//        }
-//    }
-//    
-//    func updateChatBadge(count: Int) {
-//        badgeLabel.isHidden = count == 0
-//        badgeLabel.text = "\(count)"
-//    }
-    
-    func setupCollectionViewLayouts() {
-        
-        let newLayout = UICollectionViewFlowLayout()
-        newLayout.scrollDirection = .horizontal
-        newLayout.minimumLineSpacing = 12
-        newLayout.minimumInteritemSpacing = 12
-        newLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
-        newDeliveriesCollectionView.collectionViewLayout = newLayout
-        newDeliveriesCollectionView.showsHorizontalScrollIndicator = false
-        
-        let ongoingLayout = UICollectionViewFlowLayout()
-        ongoingLayout.scrollDirection = .horizontal
-        ongoingLayout.minimumLineSpacing = 12
-        ongoingLayout.minimumInteritemSpacing = 12
-        ongoingLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
-        ongoingCollectionView.collectionViewLayout = ongoingLayout
-        ongoingCollectionView.showsHorizontalScrollIndicator = false
-    }
-    
-    
     @IBAction func btnTapSideMenu(_ sender: Any) {
         let vc = SideMenuViewController.instantiate(fromAppStoryboard: .SideMenu)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func btnTapToggle(_ sender: UIButton) {
@@ -181,9 +129,35 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
-//    deinit {
-//           NotificationCenter.default.removeObserver(self)
-//       }
+    func setDelegates(){
+        newDeliveriesCollectionView.delegate = self
+        newDeliveriesCollectionView.dataSource = self
+        newDeliveriesCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
+        
+        ongoingCollectionView.delegate = self
+        ongoingCollectionView.dataSource = self
+        ongoingCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
+    }
+    
+    func setupCollectionViewLayouts() {
+        let newLayout = UICollectionViewFlowLayout()
+        newLayout.scrollDirection = .horizontal
+        newLayout.minimumLineSpacing = 12
+        newLayout.minimumInteritemSpacing = 12
+        newLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        newDeliveriesCollectionView.collectionViewLayout = newLayout
+        newDeliveriesCollectionView.showsHorizontalScrollIndicator = false
+        
+        let ongoingLayout = UICollectionViewFlowLayout()
+        ongoingLayout.scrollDirection = .horizontal
+        ongoingLayout.minimumLineSpacing = 12
+        ongoingLayout.minimumInteritemSpacing = 12
+        ongoingLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        ongoingCollectionView.collectionViewLayout = ongoingLayout
+        ongoingCollectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    
     
 }
 
