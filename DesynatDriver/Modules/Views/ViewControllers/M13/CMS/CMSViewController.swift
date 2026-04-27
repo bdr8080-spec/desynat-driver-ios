@@ -19,6 +19,7 @@ class CMSViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainWebView.scrollView.showsVerticalScrollIndicator = false
         initialSetup()
     }
     

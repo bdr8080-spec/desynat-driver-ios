@@ -17,9 +17,8 @@ class FAQViewController: UIViewController {
     }
     
     // MARK: - Property Decalaration
-    private var selecetdIndex = 0
+    private var selecetdIndex = -1
     private lazy var viewModel = FAQViewModel(hostVC: self)
-    var selectedUserType = 1
     
     // MARK: - View's LifeCycle Methods
     override func viewDidLoad() {
@@ -57,7 +56,11 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selecetdIndex = indexPath.row
+        if selecetdIndex == indexPath.row {
+            selecetdIndex = -1
+        } else {
+            selecetdIndex = indexPath.row
+        }
         listTableView.reloadData()
     }
 }

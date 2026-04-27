@@ -9,6 +9,7 @@ import UIKit
 
 class SideMenuViewController: UIViewController {
 
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var Sidemenutableview: UITableView! {
         didSet {
             Sidemenutableview.registerCellFromNib(cellID: "SideMenuTableViewCell")
@@ -19,6 +20,13 @@ class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        DispatchQueue.main.async {
+            self.tableViewHeightConstraint.constant = self.Sidemenutableview.contentSize.height
+        }
     }
     
     @IBAction func backbtn(_ sender: Any) {
