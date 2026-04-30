@@ -388,7 +388,7 @@ class NewDeliveryVC: UIViewController {
             print("Selected Status:", status.title, status.rawValue)
           }
           // ✅ Enable button only for Delivered or Not Delivered
-          if status.title == "Delivered" || status.title == "Not Delivered" {
+            if status.title == "Delivered".localiz() || status.title == "Not Delivered".localiz() {
             updateStatusButtonOutlet.setImage(UIImage(named: "btnGradient"), for: .normal)
             updateStatusLabel.textColor = UIColor.white
             updateStatusButtonOutlet.isEnabled = true
@@ -414,7 +414,7 @@ class NewDeliveryVC: UIViewController {
           print("Selected Status:", status.title, status.rawValue)
         }
         // ✅ Enable button only for Delivered or Not Delivered
-        if status.title == "Delivered" || status.title == "Not Delivered" {
+          if status.title == "Delivered".localiz() || status.title == "Not Delivered".localiz() {
           updateStatusButtonOutlet.setImage(UIImage(named: "btnGradient"), for: .normal)
           updateStatusLabel.textColor = UIColor.white
           updateStatusButtonOutlet.isEnabled = true
@@ -432,13 +432,13 @@ class NewDeliveryVC: UIViewController {
   func initialCaseSetup() {
     switch comingReason {
     case .newNormalOrder:
-      viewProductDetailsButtonOutlet.setTitle("View Package details", for: .normal)
+        viewProductDetailsButtonOutlet.setTitle("View Package details".localiz(), for: .normal)
       setData()
     case .forReturnOrder:
-      viewProductDetailsButtonOutlet.setTitle("View Return details", for: .normal)
+        viewProductDetailsButtonOutlet.setTitle("View Return details".localiz(), for: .normal)
       setDataForReturn()
     case .forExchangeOrder:
-      viewProductDetailsButtonOutlet.setTitle("View  Exchange Package details", for: .normal)
+        viewProductDetailsButtonOutlet.setTitle("View  Exchange Package details".localiz(), for: .normal)
       setDataForExchange()
     }
   }
@@ -493,11 +493,11 @@ class NewDeliveryVC: UIViewController {
         }
         
         if self.viewModel.orderDetail?.deliveryStatus == "7" {
-          self.lblStatus.text = "Picked"
+          self.lblStatus.text = "Picked".localiz()
         }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
-          self.lblStatus.text = "Not delivered"
+          self.lblStatus.text = "Not delivered".localiz()
         }else if self.viewModel.orderDetail?.deliveryStatus == "3" {
-          self.lblStatus.text = "Delivered"
+          self.lblStatus.text = "Delivered".localiz()
         }
         
         let pickupCoordinate = CLLocationCoordinate2D(
@@ -562,11 +562,11 @@ class NewDeliveryVC: UIViewController {
         }
         
         if self.viewModel.orderDetail?.deliveryStatus == "7" {
-          self.lblStatus.text = "Picked"
+          self.lblStatus.text = "Picked".localiz()
         }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
-          self.lblStatus.text = "Not delivered"
+          self.lblStatus.text = "Not delivered".localiz()
         }else if self.viewModel.orderDetail?.deliveryStatus == "3" {
-          self.lblStatus.text = "Delivered"
+          self.lblStatus.text = "Delivered".localiz()
         }
         
         let dropCoordinate = CLLocationCoordinate2D(
@@ -642,11 +642,11 @@ class NewDeliveryVC: UIViewController {
         }
         
         if self.viewModel.orderDetail?.deliveryStatus == "7" {
-          self.lblStatus.text = "Picked"
+          self.lblStatus.text = "Picked".localiz()
         }else if self.viewModel.orderDetail?.deliveryStatus == "8" {
-          self.lblStatus.text = "Not delivered"
+          self.lblStatus.text = "Not delivered".localiz()
         }else if self.viewModel.orderDetail?.deliveryStatus == "3" {
-          self.lblStatus.text = "Delivered"
+          self.lblStatus.text = "Delivered".localiz()
         }
         
         let pickupCoordinate = CLLocationCoordinate2D(
@@ -707,13 +707,13 @@ class NewDeliveryVC: UIViewController {
           
           // Pickup Marker -> Store
           let pickupMarker = GMSMarker(position: origin)
-          pickupMarker.title = "Pickup Location"
+            pickupMarker.title = "Pickup Location".localiz()
           pickupMarker.icon = UIImage(named: "ic_pickup_pin")
           pickupMarker.map = self.mapVew
           
           // Drop Marker -> User
           let dropMarker = GMSMarker(position: destination)
-          dropMarker.title = "Drop Location"
+            dropMarker.title = "Drop Location".localiz()
           dropMarker.icon = UIImage(named: "ic_drop_pin")
           dropMarker.map = self.mapVew
           
@@ -733,20 +733,20 @@ class NewDeliveryVC: UIViewController {
     
     guard let phone = number,
           !phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-      showAlert(msg: "Mobile number not available")
+      showAlert(msg: "Mobile number not available".localiz())
       return
     }
     
     let cleanNumber = phone.replacingOccurrences(of: " ", with: "")
     guard let url = URL(string: "tel://\(cleanNumber)") else {
-      showAlert(msg: "Invalid mobile number")
+      showAlert(msg: "Invalid mobile number".localiz())
       return
     }
     
     if UIApplication.shared.canOpenURL(url) {
       UIApplication.shared.open(url)
     } else {
-      showAlert(msg: "Calling not supported on this device")
+      showAlert(msg: "Calling not supported on this device".localiz())
     }
   }
   

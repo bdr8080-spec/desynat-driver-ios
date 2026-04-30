@@ -53,7 +53,7 @@ class HomeViewModel {
           UIImage(named: dutyStatus == "1" ? "toggle" : "toggle_off"),
           for: .normal
         )
-        self.hostVC.busyOnOffLabel.text = dutyStatus == "1" ? "On Duty" : "Off Duty"
+          self.hostVC.busyOnOffLabel.text = dutyStatus == "1" ? "On Duty".localiz() : "Off Duty".localiz()
       }
     }
   }

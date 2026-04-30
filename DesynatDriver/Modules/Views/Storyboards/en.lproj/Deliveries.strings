@@ -1,0 +1,237 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0A2-7O-wJX"; */
+"0A2-7O-wJX.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "#672828"; ObjectID = "1kb-Y1-812"; */
+"1kb-Y1-812.text" = "#672828";
+
+/* Class = "UILabel"; text = "#672828"; ObjectID = "3ab-HB-ZPz"; */
+"3ab-HB-ZPz.text" = "#672828";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "3cR-B8-4fr"; */
+"3cR-B8-4fr.normalTitle" = "Clear";
+
+/* Class = "UILabel"; text = "Uploaded image"; ObjectID = "3q2-Y2-IjZ"; */
+"3q2-Y2-IjZ.text" = "Uploaded image";
+
+/* Class = "UILabel"; text = "21/02/25 at 08:00PM"; ObjectID = "4El-UI-CZo"; */
+"4El-UI-CZo.text" = "21/02/25 at 08:00PM";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5aE-Be-ag5"; */
+"5aE-Be-ag5.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Update Status"; ObjectID = "7X1-oK-FOf"; */
+"7X1-oK-FOf.text" = "Update Status";
+
+/* Class = "UILabel"; text = "Delivery Instruction"; ObjectID = "BTA-up-N96"; */
+"BTA-up-N96.text" = "Delivery Instruction";
+
+/* Class = "UILabel"; text = "5 KN 27 Street, Kigali, Rwanda"; ObjectID = "Da7-bc-pHh"; */
+"Da7-bc-pHh.text" = "5 KN 27 Street, Kigali, Rwanda";
+
+/* Class = "UILabel"; text = "Drop location"; ObjectID = "G2s-ud-YYa"; */
+"G2s-ud-YYa.text" = "Drop location";
+
+/* Class = "UILabel"; text = "Pickup location"; ObjectID = "Gqs-NA-Vy2"; */
+"Gqs-NA-Vy2.text" = "Pickup location";
+
+/* Class = "UILabel"; text = "Atif Aslam"; ObjectID = "HFU-51-Ral"; */
+"HFU-51-Ral.text" = "Atif Aslam";
+
+/* Class = "UILabel"; text = "Paid"; ObjectID = "I1v-IR-c0Y"; */
+"I1v-IR-c0Y.text" = "Paid";
+
+/* Class = "UILabel"; text = "Submit"; ObjectID = "JC0-oe-IwG"; */
+"JC0-oe-IwG.text" = "Submit";
+
+/* Class = "UIButton"; normalTitle = "Read All"; ObjectID = "K4X-3b-r1D"; */
+"K4X-3b-r1D.normalTitle" = "Read All";
+
+/* Class = "UILabel"; text = "Total Distance"; ObjectID = "Mk9-Je-S92"; */
+"Mk9-Je-S92.text" = "Total Distance";
+
+/* Class = "UILabel"; text = "Customer Name"; ObjectID = "OYa-b2-tR2"; */
+"OYa-b2-tR2.text" = "Customer Name";
+
+/* Class = "UILabel"; text = "#672828"; ObjectID = "Ogz-Yb-yBk"; */
+"Ogz-Yb-yBk.text" = "#672828";
+
+/* Class = "UILabel"; text = "L"; ObjectID = "Pm0-Dz-m4w"; */
+"Pm0-Dz-m4w.text" = "L";
+
+/* Class = "UITextView"; text = "Write here"; ObjectID = "Pr2-ca-8fw"; */
+"Pr2-ca-8fw.text" = "Write here";
+
+/* Class = "UILabel"; text = "79.96 KD"; ObjectID = "Q23-o6-9tp"; */
+"Q23-o6-9tp.text" = "79.96 KD";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consum adipiscing elit, sed do eiusmod tempor incididunt ut dolore magna tempor incididunt ut dolore magnaaliqua."; ObjectID = "QLL-cN-nPi"; */
+"QLL-cN-nPi.text" = "Lorem ipsum dolor sit amet, consum adipiscing elit, sed do eiusmod tempor incididunt ut dolore magna tempor incididunt ut dolore magnaaliqua.";
+
+/* Class = "UILabel"; text = "4th Floor, A/129, Sun Apartment, Sector 63, Kuwait"; ObjectID = "RFD-VH-kIe"; */
+"RFD-VH-kIe.text" = "4th Floor, A/129, Sun Apartment, Sector 63, Kuwait";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consum adipiscing elit, sed do eiusmod tempor incididunt ut dolore magna tempor incididunt ut dolore magnaaliqua."; ObjectID = "T6Y-l1-yrm"; */
+"T6Y-l1-yrm.text" = "Lorem ipsum dolor sit amet, consum adipiscing elit, sed do eiusmod tempor incididunt ut dolore magna tempor incididunt ut dolore magnaaliqua.";
+
+/* Class = "UILabel"; text = "Delivered"; ObjectID = "TK2-Ff-biV"; */
+"TK2-Ff-biV.text" = "Delivered";
+
+/* Class = "UIButton"; configuration.title = "View Package details"; ObjectID = "Uit-lS-Xoe"; */
+"Uit-lS-Xoe.configuration.title" = "View Package details";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Uit-lS-Xoe"; */
+"Uit-lS-Xoe.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Picked Order"; ObjectID = "VZ9-Lh-CWd"; */
+"VZ9-Lh-CWd.text" = "Picked Order";
+
+/* Class = "UILabel"; text = "Reason for not delivered"; ObjectID = "WKi-mE-lOk"; */
+"WKi-mE-lOk.text" = "Reason for not delivered";
+
+/* Class = "UILabel"; text = "Pick up from"; ObjectID = "X7x-P7-ay9"; */
+"X7x-P7-ay9.text" = "Pick up from";
+
+/* Class = "UILabel"; text = "22/02/25 at 08:00PM"; ObjectID = "YGH-XL-sZN"; */
+"YGH-XL-sZN.text" = "22/02/25 at 08:00PM";
+
+/* Class = "UILabel"; text = "Order details"; ObjectID = "YT9-Dk-w7c"; */
+"YT9-Dk-w7c.text" = "Order details";
+
+/* Class = "UILabel"; text = "Exchange Size"; ObjectID = "YjU-ip-0kG"; */
+"YjU-ip-0kG.text" = "Exchange Size";
+
+/* Class = "UILabel"; text = "My Notifications"; ObjectID = "ZQ3-SO-L3E"; */
+"ZQ3-SO-L3E.text" = "My Notifications";
+
+/* Class = "UILabel"; text = "4th Floor, A/129, Sun Apartment, Sector 63, Kuwait"; ObjectID = "aIf-9N-6xF"; */
+"aIf-9N-6xF.text" = "4th Floor, A/129, Sun Apartment, Sector 63, Kuwait";
+
+/* Class = "UILabel"; text = "Order Date & Time"; ObjectID = "aOE-lB-qgi"; */
+"aOE-lB-qgi.text" = "Order Date & Time";
+
+/* Class = "UILabel"; text = "Atif Aslam"; ObjectID = "aS2-kX-e9y"; */
+"aS2-kX-e9y.text" = "Atif Aslam";
+
+/* Class = "UILabel"; text = "Order details"; ObjectID = "adm-lZ-lJv"; */
+"adm-lZ-lJv.text" = "Order details";
+
+/* Class = "UILabel"; text = "Delivery Instruction"; ObjectID = "bBp-pO-cMp"; */
+"bBp-pO-cMp.text" = "Delivery Instruction";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bxv-7n-gkf"; */
+"bxv-7n-gkf.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Paid"; ObjectID = "cat-4D-Zlx"; */
+"cat-4D-Zlx.text" = "Paid";
+
+/* Class = "UILabel"; text = "Mathew kerry"; ObjectID = "cdm-4Q-h43"; */
+"cdm-4Q-h43.text" = "Mathew kerry";
+
+/* Class = "UILabel"; text = "Atif Aslam"; ObjectID = "d1J-cw-2ly"; */
+"d1J-cw-2ly.text" = "Atif Aslam";
+
+/* Class = "UILabel"; text = "Delivered On"; ObjectID = "d4c-4t-FAw"; */
+"d4c-4t-FAw.text" = "Delivered On";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "dDO-qt-u7w"; */
+"dDO-qt-u7w.text" = "Price";
+
+/* Class = "UILabel"; text = "Select Status"; ObjectID = "e9T-YR-qh0"; */
+"e9T-YR-qh0.text" = "Select Status";
+
+/* Class = "UILabel"; text = "Order Date & Time"; ObjectID = "eNT-v6-knd"; */
+"eNT-v6-knd.text" = "Order Date & Time";
+
+/* Class = "UILabel"; text = "21/02/25 at 08:00PM"; ObjectID = "ea9-xo-DpG"; */
+"ea9-xo-DpG.text" = "21/02/25 at 08:00PM";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "efU-td-ohx"; */
+"efU-td-ohx.text" = "0";
+
+/* Class = "UILabel"; text = "Filter"; ObjectID = "fMF-MN-2wv"; */
+"fMF-MN-2wv.text" = "Filter";
+
+/* Class = "UILabel"; text = "Picked"; ObjectID = "fm9-rj-YTg"; */
+"fm9-rj-YTg.text" = "Picked";
+
+/* Class = "UILabel"; text = "Customer Name"; ObjectID = "hqu-9o-gon"; */
+"hqu-9o-gon.text" = "Customer Name";
+
+/* Class = "UILabel"; text = "Size"; ObjectID = "jKW-XG-iiI"; */
+"jKW-XG-iiI.text" = "Size";
+
+/* Class = "UILabel"; text = "Collected"; ObjectID = "jZn-RH-5OX"; */
+"jZn-RH-5OX.text" = "Collected";
+
+/* Class = "UIViewController"; title = "packageDetails"; ObjectID = "jfy-tS-6Bn"; */
+"jfy-tS-6Bn.title" = "packageDetails";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "jrR-0u-2CH"; */
+"jrR-0u-2CH.text" = "Detail";
+
+/* Class = "UILabel"; text = "7.5 Km"; ObjectID = "kGF-cv-RhB"; */
+"kGF-cv-RhB.text" = "7.5 Km";
+
+/* Class = "UILabel"; text = "79.96 KD"; ObjectID = "kdZ-49-FMh"; */
+"kdZ-49-FMh.text" = "79.96 KD";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mrf-OJ-hCg"; */
+"mrf-OJ-hCg.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "4th Floor, A/129, Sun Apartment, Sector 63, Kuwait"; ObjectID = "nNv-1u-bWI"; */
+"nNv-1u-bWI.text" = "4th Floor, A/129, Sun Apartment, Sector 63, Kuwait";
+
+/* Class = "UILabel"; text = "No Result found "; ObjectID = "nSi-TH-Wkz"; */
+"nSi-TH-Wkz.text" = "No Result found ";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consum adipiscing elit, sed do eiusmod tempor incididunt ut dolore magna tempor incididunt ut dolore magnaaliqua."; ObjectID = "nc1-b7-k4K"; */
+"nc1-b7-k4K.text" = "Lorem ipsum dolor sit amet, consum adipiscing elit, sed do eiusmod tempor incididunt ut dolore magna tempor incididunt ut dolore magnaaliqua.";
+
+/* Class = "UILabel"; text = "collect amount"; ObjectID = "oIr-Jn-Xbi"; */
+"oIr-Jn-Xbi.text" = "collect amount";
+
+/* Class = "UILabel"; text = "Delivered Id"; ObjectID = "oZg-Om-2FN"; */
+"oZg-Om-2FN.text" = "Delivered Id";
+
+/* Class = "UILabel"; text = "Deliver to"; ObjectID = "pUy-N4-Wtw"; */
+"pUy-N4-Wtw.text" = "Deliver to";
+
+/* Class = "UILabel"; text = "Order Id"; ObjectID = "qQN-D1-XGX"; */
+"qQN-D1-XGX.text" = "Order Id";
+
+/* Class = "UILabel"; text = "Apply"; ObjectID = "qUX-4f-qHa"; */
+"qUX-4f-qHa.text" = "Apply";
+
+/* Class = "UILabel"; text = "Previous Order Collected"; ObjectID = "qvC-NR-cib"; */
+"qvC-NR-cib.text" = "Previous Order Collected";
+
+/* Class = "UILabel"; text = "Package details"; ObjectID = "rCK-pa-ZBJ"; */
+"rCK-pa-ZBJ.text" = "Package details";
+
+/* Class = "UILabel"; text = "29.00 KD"; ObjectID = "tTr-fG-2n9"; */
+"tTr-fG-2n9.text" = "29.00 KD";
+
+/* Class = "UILabel"; text = "Select Reason"; ObjectID = "ut1-WB-4xA"; */
+"ut1-WB-4xA.text" = "Select Reason";
+
+/* Class = "UILabel"; text = "4.5"; ObjectID = "vAk-UU-Iju"; */
+"vAk-UU-Iju.text" = "4.5";
+
+/* Class = "UILabel"; text = "Drop location"; ObjectID = "vkt-XK-6sm"; */
+"vkt-XK-6sm.text" = "Drop location";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vwl-r4-DTj"; */
+"vwl-r4-DTj.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "5 KN 27 Street, Kigali, Rwanda"; ObjectID = "wws-00-kw6"; */
+"wws-00-kw6.text" = "5 KN 27 Street, Kigali, Rwanda";
+
+/* Class = "UILabel"; text = "Order Id"; ObjectID = "xBq-4u-9XS"; */
+"xBq-4u-9XS.text" = "Order Id";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xrM-7O-vpa"; */
+"xrM-7O-vpa.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "z2R-gP-6bK"; */
+"z2R-gP-6bK.text" = "Price";

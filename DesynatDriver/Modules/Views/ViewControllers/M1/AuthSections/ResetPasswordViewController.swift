@@ -25,16 +25,16 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
 
               // Empty field checks
               if createPass.isEmpty {
-                  showAlert(msg:"Please enter create password")
+                  showAlert(msg:"Please enter create password".localiz())
                   return
               }else if createPass.count < 6 {
-                showAlert(msg:"Password must be at least 6 characters long")
+                showAlert(msg:"Password must be at least 6 characters long".localiz())
                   return
               }else if confirmPass.isEmpty {
-                showAlert(msg:"Please enter confirm password")
+                showAlert(msg:"Please enter confirm password".localiz())
                   return
               }else if confirmPass != createPass {
-                showAlert(msg:"Password does not match")
+                showAlert(msg:"Password does not match".localiz())
                   return
               } else {
                 viewModel.createPasswordApi()

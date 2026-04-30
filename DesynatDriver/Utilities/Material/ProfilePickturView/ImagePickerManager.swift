@@ -15,7 +15,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     static let shared = ImagePickerManager()
     
     var picker = UIImagePickerController()
-    lazy var alert = UIAlertController(title: "Choose File", message: nil, preferredStyle: .actionSheet) // ✅ lazy to prevent crash
+    lazy var alert = UIAlertController(title: "Choose File".localiz(), message: nil, preferredStyle: .actionSheet) // ✅ lazy to prevent crash
     var viewController: UIViewController?
     var pickImageCallback: ((UIImage, String, URL?) -> ())?
     var allowPDFSelection: Bool = false
@@ -46,25 +46,25 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
 //    }
   
   private func setupAlert() {
-      alert = UIAlertController(title: "Choose File", message: nil, preferredStyle: .actionSheet)
+      alert = UIAlertController(title: "Choose File".localiz(), message: nil, preferredStyle: .actionSheet)
 
-      let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+      let cameraAction = UIAlertAction(title: "Camera".localiz(), style: .default) { _ in
           self.openCamera()
       }
 
-      let galleryAction = UIAlertAction(title: "Gallery", style: .default) { _ in
+      let galleryAction = UIAlertAction(title: "Gallery".localiz(), style: .default) { _ in
           self.openGallery()
       }
 
       // ✅ PDF option — only if allowed
       if allowPDFSelection {
-          let pdfAction = UIAlertAction(title: "PDF / Files", style: .default) { _ in
+          let pdfAction = UIAlertAction(title: "PDF / Files".localiz(), style: .default) { _ in
               self.openDocumentPicker()
           }
           alert.addAction(pdfAction)
       }
 
-      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+      let cancelAction = UIAlertAction(title: "Cancel".localiz(), style: .cancel)
 
       alert.addAction(cameraAction)
       alert.addAction(galleryAction)
@@ -94,11 +94,11 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
             viewController?.present(picker, animated: true)
         } else {
             let alertController = UIAlertController(
-                title: "Warning",
-                message: "You don't have a camera",
+                title: "Warning".localiz(),
+                message: "You don't have a camera".localiz(),
                 preferredStyle: .alert
             )
-            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            alertController.addAction(UIAlertAction(title: "OK".localiz(), style: .default))
             viewController?.present(alertController, animated: true)
         }
     }

@@ -86,7 +86,7 @@ class EditProfileViewModel:NSObject{
     }
     
     if error != .none {
-      hostVC.showAlert(msg: error.rawValue)
+        hostVC.showAlert(msg: error.rawValue.localiz())
       return false
     }
     

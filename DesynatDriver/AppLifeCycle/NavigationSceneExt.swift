@@ -33,7 +33,7 @@ extension SceneDelegate {
 
   // Logout current user and navigate to loginVc
     func logoutUser() {
-        kSharedUserDefaults.clearAllData(except: [.deviceToken,.userLocation,.selectedLanguage,.defaultLanguge,.language])
+        kSharedUserDefaults.clearAllData(except: [.deviceToken,.userLocation,.selectedLanguage,.defaultLanguage,.language])
         Global.shared.user = nil
         self.navigateToLoginVC()
         UserDefaults.standard.setValue("true", forKey: "isOnBoardingChecked")

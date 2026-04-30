@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 //            projectId: "YOUR_PROJECT_ID",
 //            apiKey: "na5y0weklpcd9uxhccfezplsfg0fggvk"
 //        )
+        AppLanguageManager.shared.defaultLanguage = .en
         return true
     }
     

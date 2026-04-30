@@ -14,18 +14,20 @@ class ProductTVC: UITableViewCell {
   @IBOutlet weak var productQuantityLbl: UILabel!
   @IBOutlet weak var detailsLabel: UILabel!
   
-  override func awakeFromNib() {
+    @IBOutlet weak var lblQuantityTitle: UILabel!
+    
+    override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-    
     // Configure the view for the selected state
   }
   
   func setData(data: DeliveryList?) {
+    lblQuantityTitle.text = "Quantity".localiz()
     productNameLbl.text = data?.productDetails?.productNameEn ?? ""
     setColorBox(size: data?.variationDetails?.size?.name ?? "M", label: detailsLabel, hexColor: data?.variationDetails?.color?.hexCode ?? "#98ADFF")
     productQuantityLbl.text = data?.quantity?.description
@@ -40,8 +42,9 @@ class ProductTVC: UITableViewCell {
       // Use this square → fully tintable solid square
       let coloredSquare = "■"
       let dot = "●"
-      
-      let fullText = "Size: \(size)  \(dot)  Color: \(coloredSquare)"
+      let text1 = "Size:".localiz()
+      let text2 = "Color:".localiz()
+      let fullText = "\(text1) \(size)  \(dot)  \(text2) \(coloredSquare)"
       
       let attributedString = NSMutableAttributedString(
           string: fullText,

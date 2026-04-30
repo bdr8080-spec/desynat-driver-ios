@@ -15,61 +15,54 @@ class SelectLanguageviewController: UIViewController {
     @IBOutlet weak var imgEnglish: UIImageView!
     
     var comingFirstTime: Bool = true
-    private var selectedLanguage: String = "en"
+    private var selectedLanguage: Languages = .en
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.sharedInstance.startUpdatingLocation()
-        let isOnBoardingChecked = UserDefaults.standard.string(forKey:"isOnBoardingChecked")
-        if isOnBoardingChecked == "true" {
-            comingFirstTime = false
-        } else {
-            comingFirstTime = true
-        }
+        selectedLanguage = AppLanguageManager.shared.currentLanguage
+        selectLanguage(isEnglishSelected: selectedLanguage != .ar)
     }
-    
-    private func showNotificationPermission() {
-        let vc = NotificationPermissionViewController.instantiate(fromAppStoryboard: .Main)
-        vc.onPermissionCompletion = { [weak self] in
-            self?.showMediaPermission()
-        }
-        self.present(vc, animated: true)
-    }
-
-    private func showMediaPermission() {
-        let vc = MediaPermissionViewController.instantiate(fromAppStoryboard: .Main)
-        vc.onPermissionCompletion = {
-            print("All permissions done")
-        }
-        self.present(vc, animated: true)
-    }
-
     
     @IBAction func btnSelectLanguage(_ sender: UIButton) {
         if sender.tag == 0 {
-            selectedLanguage = "en"
-            imgArabic.image = UIImage(named: "radioUnselected")
-            imgEnglish.image = UIImage(named: "radioSelected")
-            arabicView.layer.borderColor = UIColor.lightGray.cgColor
-            englishView.layer.borderColor = UIColor(named: "darkBrown")?.cgColor
+            selectedLanguage = .en
+            selectLanguage(isEnglishSelected: true)
         } else {
-            selectedLanguage = "ar"
-            imgArabic.image = UIImage(named: "radioSelected")
-            imgEnglish.image = UIImage(named: "radioUnselected")
-            arabicView.layer.borderColor = UIColor(named: "darkBrown")?.cgColor
-            englishView.layer.borderColor = UIColor.lightGray.cgColor
+            selectedLanguage = .ar
+            selectLanguage(isEnglishSelected: false)
         }
+        applyLanguageChange()
+    }
+    
+    private func selectLanguage(isEnglishSelected: Bool) {
+        englishView.layer.borderWidth = 1
+        arabicView.layer.borderWidth = 1
+        let selectedColor = UIColor(named: "darkBrown")?.cgColor
+        let deselectedColor = UIColor.lightGray.cgColor
+        englishView.layer.borderColor = isEnglishSelected ? selectedColor : deselectedColor
+        imgEnglish.image = UIImage(named: isEnglishSelected ? "radioSelected" : "radioUnselected")
+        arabicView.layer.borderColor = isEnglishSelected ? deselectedColor : selectedColor
+        imgArabic.image = UIImage(named: isEnglishSelected ? "radioUnselected" : "radioSelected")
+    }
+    
+    private func applyLanguageChange() {
+        AppLanguageManager.shared.setLanguage(language: selectedLanguage)
+        if selectedLanguage == .ar {
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+        } else {
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        }
+        refreshUI()
+    }
+    
+    private func refreshUI() {
+        let nextVC = SelectLanguageviewController.instantiate(fromAppStoryboard: .SideMenu)
+        self.navigationController?.setViewControllers([nextVC], animated: false)
     }
     
     @IBAction func btnTapContinue(_ sender: Any) {
-//        UserDefaults.standard.setValue(selectedLanguage, forKey: "AppLanguage")
-//        if comingFirstTime {
-//            let vc = WelcomeScreenViewController.instantiate(fromAppStoryboard: .Main)
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        } else {
-//            kSharedSceneDelegate.navigateToLoginVC()
-//        }
-        self.navigationController?.popViewController(animated: true)
+        AppLanguageManager.shared.setLanguage(language: selectedLanguage)
+        kSharedSceneDelegate.navigateToHomeVc()
     }
 
     @IBAction func backbtn(_ sender: Any) {

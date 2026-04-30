@@ -35,7 +35,8 @@ class DeliveryDetailsVC: UIViewController {
       productTableview.registerCellFromNib(cellID: "ProductTVC")
     }
   }
-  
+    @IBOutlet weak var lblDeliveredOnTitle: UILabel!
+    
   //MARK: VARIABLES
   let viewModel = DeliveriesViewModel()
   var orderId:Int?
@@ -44,9 +45,22 @@ class DeliveryDetailsVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 //    viewSet()
-    setData()
+      setData()
+      lblDeliveredOnTitle.text = "Delivered On".localiz()
+      fixArabicLabelAlignment()
   }
-  
+    
+    private func fixArabicLabelAlignment() {
+        guard AppLanguageManager.shared.currentLanguage == .ar else {
+            return
+        }
+        let valueLabels: [UILabel] = [
+           LbldeliveredID,
+           LbldeliveredOn
+        ]
+        valueLabels.forEach { $0.textAlignment = .right }
+    }
+    
   func setData() {
     self.viewModel.getOrderDetail(orderId: self.orderId ?? 0) { [weak self] in
       self?.LbldeliveredID.text = "#\(self?.viewModel.orderDetail?.id ?? 0)"
@@ -58,20 +72,20 @@ class DeliveryDetailsVC: UIViewController {
       self?.oredrDateLbl.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
       self?.lblStatus.textColor = UIColor(hex: "#17854C")
       if self?.viewModel.orderDetail?.deliveryStatus == "6" {
-        self?.lblStatus.text = "Confirmed"
+        self?.lblStatus.text = "Confirmed".localiz()
       }else if self?.viewModel.orderDetail?.deliveryStatus == "7" {
-        self?.lblStatus.text = "Picked"
+        self?.lblStatus.text = "Picked".localiz()
       }else if self?.viewModel.orderDetail?.deliveryStatus == "8" {
-        self?.lblStatus.text = "Not delivered"
+        self?.lblStatus.text = "Not delivered".localiz()
         self?.lblStatus.textColor = UIColor.red
         self?.reasonView.isHidden = false
         self?.notDeliveryLabel.text = self?.viewModel.orderDetail?.notDeliveredReason
       }else if self?.viewModel.orderDetail?.deliveryStatus == "3" {
-        self?.lblStatus.text = "Delivered"
+        self?.lblStatus.text = "Delivered".localiz()
       } else if self?.viewModel.orderDetail?.deliveryStatus == "1" {
-        self?.lblStatus.text = "Confirmed"
+        self?.lblStatus.text = "Confirmed".localiz()
       }else if self?.viewModel.orderDetail?.deliveryStatus == "2" {
-        self?.lblStatus.text = "Confirm"
+        self?.lblStatus.text = "Confirm".localiz()
       }
       self?.pickupAddressLbl.text = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
 //      let pickupAddress = self?.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo
@@ -94,11 +108,12 @@ class DeliveryDetailsVC: UIViewController {
 //      self?.priceLbl.text = CommonUtils.formatAmount(self?.viewModel.orderDetail?.order?.totalAmount ?? "")
       self?.priceLbl.text = CommonUtils.formatPriceForString(self?.viewModel.orderDetail?.order?.totalAmount ?? "")
       if self?.viewModel.orderDetail?.order?.paymentMethod == "3" {
-        self?.painStatusLbl.text = "COD"
+        self?.painStatusLbl.text = "COD".localiz()
       }else {
-        self?.painStatusLbl.text = "Paid"
+        self?.painStatusLbl.text = "Paid".localiz()
       }
-      self?.lblDistance.text = "\(self?.viewModel.orderDetail?.distance ?? 0) Km"
+    let text = "Km".localiz()
+      self?.lblDistance.text = "\(self?.viewModel.orderDetail?.distance ?? 0) \(text)"
       self?.productTableview.reloadData()
       
       if self?.viewModel.orderDetail?.userRatingReviewProvide == nil {

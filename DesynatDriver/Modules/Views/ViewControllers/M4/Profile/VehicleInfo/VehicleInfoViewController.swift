@@ -25,9 +25,11 @@ class VehicleInfoViewController: UIViewController {
   @IBOutlet weak var pollutionPaperImageView: CustomImageView!
   @IBOutlet weak var registrationCertificationFrontImagViw: CustomImageView!
   @IBOutlet weak var registrationCertificationBackImagViw: CustomImageView!
-  
+  @IBOutlet weak var lblVehicleName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblVehicleName.text = "Vehicle Name".localiz()
       fillDriverData(data: driverProfileData)
     }
   

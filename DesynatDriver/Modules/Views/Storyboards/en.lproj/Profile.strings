@@ -1,0 +1,225 @@
+
+/* Class = "UILabel"; text = "Driving license"; ObjectID = "0zP-jT-oiF"; */
+"0zP-jT-oiF.text" = "Driving license";
+
+/* Class = "UILabel"; text = "My Profile"; ObjectID = "13Y-sI-e66"; */
+"13Y-sI-e66.text" = "My Profile";
+
+/* Class = "UILabel"; text = "Update"; ObjectID = "2Le-q0-Jhv"; */
+"2Le-q0-Jhv.text" = "Update";
+
+/* Class = "UITextField"; placeholder = "Enter Mobile Number"; ObjectID = "38y-AD-thx"; */
+"38y-AD-thx.placeholder" = "Enter Mobile Number";
+
+/* Class = "UILabel"; text = "Update Vehicle Name"; ObjectID = "3xQ-gI-qyP"; */
+"3xQ-gI-qyP.text" = "Update Vehicle Name";
+
+/* Class = "UILabel"; text = "Vehicle Registration Number"; ObjectID = "5sB-dh-cUp"; */
+"5sB-dh-cUp.text" = "Vehicle Registration Number";
+
+/* Class = "UITextField"; placeholder = "Enter Email Address"; ObjectID = "65k-uK-Yb1"; */
+"65k-uK-Yb1.placeholder" = "Enter Email Address";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6fr-A1-4Uj"; */
+"6fr-A1-4Uj.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7gW-R0-kUp"; */
+"7gW-R0-kUp.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "City/District"; ObjectID = "Ae4-DV-cEq"; */
+"Ae4-DV-cEq.text" = "City/District";
+
+/* Class = "UILabel"; text = "State"; ObjectID = "Ajr-9F-cO2"; */
+"Ajr-9F-cO2.text" = "State";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BFR-fh-MGQ"; */
+"BFR-fh-MGQ.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Enter Address Line 2 "; ObjectID = "Cgn-1a-ido"; */
+"Cgn-1a-ido.placeholder" = "Enter Address Line 2 ";
+
+/* Class = "UILabel"; text = "Update"; ObjectID = "ED2-Br-lgR"; */
+"ED2-Br-lgR.text" = "Update";
+
+/* Class = "UITextField"; placeholder = "Enter Address Line 1"; ObjectID = "EFu-QA-9SH"; */
+"EFu-QA-9SH.placeholder" = "Enter Address Line 1";
+
+/* Class = "UILabel"; text = "Address Line 1"; ObjectID = "Eoj-aG-gye"; */
+"Eoj-aG-gye.text" = "Address Line 1";
+
+/* Class = "UILabel"; text = "Save"; ObjectID = "FNA-26-EPh"; */
+"FNA-26-EPh.text" = "Save";
+
+/* Class = "UILabel"; text = "Save Changes"; ObjectID = "G4e-bs-Xxv"; */
+"G4e-bs-Xxv.text" = "Save Changes";
+
+/* Class = "UILabel"; text = "Postal Code (optional)"; ObjectID = "Gm6-5t-taD"; */
+"Gm6-5t-taD.text" = "Postal Code (optional)";
+
+/* Class = "UILabel"; text = "Full Name"; ObjectID = "HBy-ib-uPV"; */
+"HBy-ib-uPV.text" = "Full Name";
+
+/* Class = "UILabel"; text = "Mobile number"; ObjectID = "HVK-wY-AcN"; */
+"HVK-wY-AcN.text" = "Mobile number";
+
+/* Class = "UITextField"; placeholder = "Enter Address "; ObjectID = "I5b-lW-XL8"; */
+"I5b-lW-XL8.placeholder" = "Enter Address ";
+
+/* Class = "UITextField"; placeholder = "State"; ObjectID = "IWI-TN-vzu"; */
+"IWI-TN-vzu.placeholder" = "State";
+
+/* Class = "UILabel"; text = "Registration Certificate"; ObjectID = "Jnt-pm-L6v"; */
+"Jnt-pm-L6v.text" = "Registration Certificate";
+
+/* Class = "UITextField"; placeholder = "Enter Full Name"; ObjectID = "JyQ-v2-Cnx"; */
+"JyQ-v2-Cnx.placeholder" = "Enter Full Name";
+
+/* Class = "UILabel"; text = "Add Address"; ObjectID = "LTq-yp-LWH"; */
+"LTq-yp-LWH.text" = "Add Address";
+
+/* Class = "UILabel"; text = "Address Line 2"; ObjectID = "LW0-vz-89t"; */
+"LW0-vz-89t.text" = "Address Line 2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "QWZ-H3-QIK"; */
+"QWZ-H3-QIK.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Email Address"; ObjectID = "Rzk-RF-RLh"; */
+"Rzk-RF-RLh.text" = "Email Address";
+
+/* Class = "UILabel"; text = "Update Vehicle Name"; ObjectID = "TER-Dd-cnC"; */
+"TER-Dd-cnC.text" = "Update Vehicle Name";
+
+/* Class = "UILabel"; text = "Your change request for Driving License  on Desynat app is under review !! Please wait for 3-4 hrs"; ObjectID = "Ufm-BN-wHe"; */
+"Ufm-BN-wHe.text" = "Your change request for Driving License  on Desynat app is under review !! Please wait for 3-4 hrs";
+
+/* Class = "UITextField"; placeholder = "Search address"; ObjectID = "WAK-rm-wb3"; */
+"WAK-rm-wb3.placeholder" = "Search address";
+
+/* Class = "UITextField"; placeholder = "Enter Address "; ObjectID = "WqV-xQ-Tsv"; */
+"WqV-xQ-Tsv.placeholder" = "Enter Address ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Wun-3Y-gYl"; */
+"Wun-3Y-gYl.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Change Image"; ObjectID = "Y9T-mI-WEq"; */
+"Y9T-mI-WEq.text" = "Change Image";
+
+/* Class = "UILabel"; text = "Vehicle insurance"; ObjectID = "YhX-Qi-1O1"; */
+"YhX-Qi-1O1.text" = "Vehicle insurance";
+
+/* Class = "UITextField"; placeholder = "Enter Vehicle Name"; ObjectID = "YnE-9T-szr"; */
+"YnE-9T-szr.placeholder" = "Enter Vehicle Name";
+
+/* Class = "UILabel"; text = "Pollution paper"; ObjectID = "Yvj-Ur-zvl"; */
+"Yvj-Ur-zvl.text" = "Pollution paper";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZZU-id-NX1"; */
+"ZZU-id-NX1.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Enter First Name"; ObjectID = "ZlL-ff-LfV"; */
+"ZlL-ff-LfV.placeholder" = "Enter First Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZnF-Uo-LOv"; */
+"ZnF-Uo-LOv.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Last Name"; ObjectID = "a6L-Vn-s2S"; */
+"a6L-Vn-s2S.text" = "Last Name";
+
+/* Class = "UITextField"; placeholder = "Enter Vehicle Registration Number"; ObjectID = "a6d-V9-E9e"; */
+"a6d-V9-E9e.placeholder" = "Enter Vehicle Registration Number";
+
+/* Class = "UILabel"; text = "Vehicle Name"; ObjectID = "aJI-al-yC3"; */
+"aJI-al-yC3.text" = "Vehicle Name";
+
+/* Class = "UITextField"; text = "+965"; ObjectID = "aRH-iM-XGk"; */
+"aRH-iM-XGk.text" = "+965";
+
+/* Class = "UILabel"; text = "In Arabic"; ObjectID = "awi-Au-1Ro"; */
+"awi-Au-1Ro.text" = "In Arabic";
+
+/* Class = "UITextField"; placeholder = "Enter Last Name"; ObjectID = "cr0-WI-j47"; */
+"cr0-WI-j47.placeholder" = "Enter Last Name";
+
+/* Class = "UILabel"; text = "Vehicle Info"; ObjectID = "eNA-tf-xDu"; */
+"eNA-tf-xDu.text" = "Vehicle Info";
+
+/* Class = "UILabel"; text = "Team Desynat App"; ObjectID = "ePm-ZK-jhn"; */
+"ePm-ZK-jhn.text" = "Team Desynat App";
+
+/* Class = "UITextField"; placeholder = "Select"; ObjectID = "fLl-jZ-5Ne"; */
+"fLl-jZ-5Ne.placeholder" = "Select";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "fWP-XY-czq"; */
+"fWP-XY-czq.text" = "Location";
+
+/* Class = "UILabel"; text = "Vehicle Info"; ObjectID = "fZC-dy-TR5"; */
+"fZC-dy-TR5.text" = "Vehicle Info";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fgT-Pe-VWJ"; */
+"fgT-Pe-VWJ.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "g6P-I2-czC"; */
+"g6P-I2-czC.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Enter Vehicle Name"; ObjectID = "gal-AX-6ip"; */
+"gal-AX-6ip.placeholder" = "Enter Vehicle Name";
+
+/* Class = "UILabel"; text = "HN- 547, Street no,5 Block d new town hale, Saudi Arabia\n"; ObjectID = "hDa-Bp-phR"; */
+"hDa-Bp-phR.text" = "HN- 547, Street no,5 Block d new town hale, Saudi Arabia\n";
+
+/* Class = "UILabel"; text = "Full Name"; ObjectID = "hcw-Ce-eCA"; */
+"hcw-Ce-eCA.text" = "Full Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "i4g-Cf-Wdc"; */
+"i4g-Cf-Wdc.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "In English"; ObjectID = "iKN-QU-zGy"; */
+"iKN-QU-zGy.text" = "In English";
+
+/* Class = "UILabel"; text = "First Name"; ObjectID = "jOZ-aK-KYM"; */
+"jOZ-aK-KYM.text" = "First Name";
+
+/* Class = "UILabel"; text = "Select Zone"; ObjectID = "jZE-l5-u4Y"; */
+"jZE-l5-u4Y.text" = "Select Zone";
+
+/* Class = "UILabel"; text = "Thank you for your patience"; ObjectID = "jxd-5X-fGt"; */
+"jxd-5X-fGt.text" = "Thank you for your patience";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "k8R-X6-UWL"; */
+"k8R-X6-UWL.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kv7-1I-Fmn"; */
+"kv7-1I-Fmn.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mFn-Kn-AXa"; */
+"mFn-Kn-AXa.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Block/Street"; ObjectID = "ng4-sT-Fho"; */
+"ng4-sT-Fho.text" = "Block/Street";
+
+/* Class = "UITextField"; placeholder = "Enter Full Name"; ObjectID = "s1h-5C-0cs"; */
+"s1h-5C-0cs.placeholder" = "Enter Full Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "t5W-rs-Rk2"; */
+"t5W-rs-Rk2.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Use Current Location"; ObjectID = "tc5-mA-XHH"; */
+"tc5-mA-XHH.normalTitle" = "Use Current Location";
+
+/* Class = "UILabel"; text = "Identity proof"; ObjectID = "uGZ-m9-TbG"; */
+"uGZ-m9-TbG.text" = "Identity proof";
+
+/* Class = "UILabel"; text = "Vehicle Images"; ObjectID = "ulY-hi-0XR"; */
+"ulY-hi-0XR.text" = "Vehicle Images";
+
+/* Class = "UITextField"; placeholder = "Enter  City/District"; ObjectID = "vGd-fx-ftq"; */
+"vGd-fx-ftq.placeholder" = "Enter  City/District";
+
+/* Class = "UILabel"; text = "Edit"; ObjectID = "xdl-5U-KH9"; */
+"xdl-5U-KH9.text" = "Edit";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "y9r-4T-FAW"; */
+"y9r-4T-FAW.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Size Chart"; ObjectID = "yVj-h2-LN4"; */
+"yVj-h2-LN4.text" = "Size Chart";

@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
 //    var countryCode: String = LocationManager.sharedInstance.getCurrentLocationCode().dialCode
     var countryCode: String = "+965"
     var type = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         txtCountryCode.text = countryCode
@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         self.txtFieldLeading.constant = -65
         emailMobileImageView.image = UIImage(named: "email")
         viewModel.countryListApi()
+        txtPassword.placeholder = "Enter Password".localiz()
     }
 
     @IBAction func loginDidTapped(_ sender: Any) {

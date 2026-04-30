@@ -26,13 +26,13 @@ class RegisterationSuccessViewController: UIViewController {
     private func configureUI() {
         switch comingReason {
         case .passwordUpdated:
-            descriptionLabel.text = "Password Reset successfully !"
+            descriptionLabel.text = "Password Reset successfully !".localiz()
         case .orderDeliveredSuccessfully:
-            descriptionLabel.text = "Order delivered successfully"
+            descriptionLabel.text = "Order delivered successfully".localiz()
         case .orderPickedSuccessfully:
-            descriptionLabel.text = "Order picked successfully"
+            descriptionLabel.text = "Order picked successfully".localiz()
         case .orderStatusUpdatedasNotDelivered:
-            descriptionLabel.text = "Order Status Updated as Not Delivered"
+            descriptionLabel.text = "Order Status Updated as Not Delivered".localiz()
         }
     }
     

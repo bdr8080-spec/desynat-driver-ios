@@ -11,6 +11,7 @@ class NotificationViewController: UIViewController {
     
     @IBOutlet weak var pushnotification: UIButton!
     @IBOutlet weak var appnotificationbtn: UIButton!
+    @IBOutlet weak var btnDelete: CustomButton!
     
     private lazy var viewModel = NotificationViewModel(hostVC: self)
     var isAppNotification = false
@@ -18,6 +19,7 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnDelete.setTitle("Delete Account".localiz(), for: .normal)
         viewModel.getProfile()
     }
     

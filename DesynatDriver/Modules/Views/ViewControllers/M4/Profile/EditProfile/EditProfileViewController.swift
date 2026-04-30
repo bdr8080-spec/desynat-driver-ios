@@ -24,7 +24,9 @@ class EditProfileViewController: UIViewController {
   @IBOutlet weak var blockNumberTF: UITextField!
   @IBOutlet weak var postalTF: UITextField!
   @IBOutlet weak var zoneTF: UITextField!
-  
+    @IBOutlet weak var lblInEnglish: UILabel!
+    @IBOutlet weak var lblInArabic: UILabel!
+    
   var zoneId: Int? = 0
   var latitude: Double? = 0.0
   var longitude: Double? = 0.0
@@ -34,6 +36,9 @@ class EditProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      lblInArabic.text = "In Arabic".localiz()
+      lblInEnglish.text = "In English".localiz()
+      zoneTF.placeholder = "Select".localiz()
 //    viewModel.getAllZone()
     fillDriverData(data: driverProfileData)
   }

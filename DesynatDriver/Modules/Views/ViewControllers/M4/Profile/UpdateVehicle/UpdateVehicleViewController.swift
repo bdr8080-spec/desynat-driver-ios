@@ -39,11 +39,11 @@ class UpdateVehicleViewController: UIViewController {
     titleTF.text = vehicleInfo ?? ""
     switch comingReason {
     case .vehicleName:
-      titleLabel.text = "Update Vehicle Name"
-      titleTF.placeholder = "Enter Vehicle Name"
+      titleLabel.text = "Update Vehicle Name".localiz()
+      titleTF.placeholder = "Enter Vehicle Name".localiz()
     case .updateVehicleRegistration:
-      titleLabel.text = "Update Vehicle Registration No ."
-      titleTF.placeholder = "Enter Vehicle Registration No ."
+      titleLabel.text = "Update Vehicle Registration No .".localiz()
+      titleTF.placeholder = "Enter Vehicle Registration No .".localiz()
     }
   }
   
@@ -89,7 +89,7 @@ extension UpdateVehicleViewController {
       }
     }
     if error != .none {
-      showAlert(msg: error.rawValue)
+        showAlert(msg: error.rawValue.localiz())
       return false
     }
     return true

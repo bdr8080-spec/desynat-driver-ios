@@ -1,0 +1,129 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "04L-r3-eBu"; */
+"04L-r3-eBu.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Ongoing"; ObjectID = "10x-Fp-iob"; */
+"10x-Fp-iob.text" = "Ongoing";
+
+/* Class = "UILabel"; text = "No Ongoing deliveries found "; ObjectID = "1Du-H3-nao"; */
+"1Du-H3-nao.text" = "No Ongoing deliveries found ";
+
+/* Class = "UIButton"; normalTitle = "View all"; ObjectID = "1iy-xx-5eF"; */
+"1iy-xx-5eF.normalTitle" = "View all";
+
+/* Class = "UILabel"; text = "My Deliveries"; ObjectID = "1pv-wy-oLg"; */
+"1pv-wy-oLg.text" = "My Deliveries";
+
+/* Class = "UILabel"; text = "05"; ObjectID = "3dL-K3-ws1"; */
+"3dL-K3-ws1.text" = "05";
+
+/* Class = "UITextField"; placeholder = "Type here..."; ObjectID = "6Te-E8-S9W"; */
+"6Te-E8-S9W.placeholder" = "Type here...";
+
+/* Class = "UIButton"; normalTitle = "View all"; ObjectID = "6mQ-H4-Sey"; */
+"6mQ-H4-Sey.normalTitle" = "View all";
+
+/* Class = "UILabel"; text = "Total Deliveries Completed"; ObjectID = "6sZ-Fq-PHn"; */
+"6sZ-Fq-PHn.text" = "Total Deliveries Completed";
+
+/* Class = "UILabel"; text = "New Deliveries"; ObjectID = "74h-eC-utU"; */
+"74h-eC-utU.text" = "New Deliveries";
+
+/* Class = "UILabel"; text = "Zone"; ObjectID = "81q-gn-a0H"; */
+"81q-gn-a0H.text" = "Zone";
+
+/* Class = "UILabel"; text = "On Going Deliveries"; ObjectID = "8JL-6V-8b3"; */
+"8JL-6V-8b3.text" = "On Going Deliveries";
+
+/* Class = "UILabel"; text = "Phone Number"; ObjectID = "8dK-Hh-bbe"; */
+"8dK-Hh-bbe.text" = "Phone Number";
+
+/* Class = "UILabel"; text = "On Duty"; ObjectID = "BXr-CH-u7h"; */
+"BXr-CH-u7h.text" = "On Duty";
+
+/* Class = "UILabel"; text = "My Profile"; ObjectID = "DzJ-02-RGj"; */
+"DzJ-02-RGj.text" = "My Profile";
+
+/* Class = "UILabel"; text = "No deliveries found"; ObjectID = "Efw-Gt-E68"; */
+"Efw-Gt-E68.text" = "No deliveries found";
+
+/* Class = "UILabel"; text = "This week"; ObjectID = "KAb-BE-ZvO"; */
+"KAb-BE-ZvO.text" = "This week";
+
+/* Class = "UITextField"; placeholder = "From   //  //"; ObjectID = "MRI-Ks-YzF"; */
+"MRI-Ks-YzF.placeholder" = "From   //  //";
+
+/* Class = "UILabel"; text = "Vehicle Info"; ObjectID = "Mog-c4-0Ka"; */
+"Mog-c4-0Ka.text" = "Vehicle Info";
+
+/* Class = "UILabel"; text = "New"; ObjectID = "R2s-mL-x56"; */
+"R2s-mL-x56.text" = "New";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "TcG-h4-pOb"; */
+"TcG-h4-pOb.text" = "20";
+
+/* Class = "UILabel"; text = "Ahmed Farhan"; ObjectID = "U7z-Bt-hGg"; */
+"U7z-Bt-hGg.text" = "Ahmed Farhan";
+
+/* Class = "UILabel"; text = "Support Chat"; ObjectID = "VUW-u1-vhd"; */
+"VUW-u1-vhd.text" = "Support Chat";
+
+/* Class = "UILabel"; text = "Edit"; ObjectID = "XEB-D4-LTj"; */
+"XEB-D4-LTj.text" = "Edit";
+
+/* Class = "UILabel"; text = "Completed"; ObjectID = "XLh-Fe-CvR"; */
+"XLh-Fe-CvR.text" = "Completed";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "bSK-AB-hzD"; */
+"bSK-AB-hzD.text" = "Address";
+
+/* Class = "UILabel"; text = "Choose date"; ObjectID = "c4H-YQ-TOb"; */
+"c4H-YQ-TOb.text" = "Choose date";
+
+/* Class = "UITextField"; placeholder = "To   //  //"; ObjectID = "cfI-U7-grF"; */
+"cfI-U7-grF.placeholder" = "To   //  //";
+
+/* Class = "UITextField"; placeholder = "Search"; ObjectID = "fQI-He-lbs"; */
+"fQI-He-lbs.placeholder" = "Search";
+
+/* Class = "UILabel"; text = "New Deliveries"; ObjectID = "hQx-Ix-bj2"; */
+"hQx-Ix-bj2.text" = "New Deliveries";
+
+/* Class = "UILabel"; text = "My Profile"; ObjectID = "hZP-EL-mpI"; */
+"hZP-EL-mpI.text" = "My Profile";
+
+/* Class = "UILabel"; text = "08"; ObjectID = "mWh-Qw-i4X"; */
+"mWh-Qw-i4X.text" = "08";
+
+/* Class = "UILabel"; text = "No Result found "; ObjectID = "mmi-i4-Vb5"; */
+"mmi-i4-Vb5.text" = "No Result found ";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "oBc-NY-XlL"; */
+"oBc-NY-XlL.text" = "Today";
+
+/* Class = "UILabel"; text = "+48448151222"; ObjectID = "pW2-gy-iyr"; */
+"pW2-gy-iyr.text" = "+48448151222";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "q2b-Je-O1X"; */
+"q2b-Je-O1X.text" = "0";
+
+/* Class = "UILabel"; text = "Support Chat"; ObjectID = "tJw-dp-Ibi"; */
+"tJw-dp-Ibi.text" = "Support Chat";
+
+/* Class = "UILabel"; text = "Ongoing Deliveries"; ObjectID = "u6N-Kx-Ith"; */
+"u6N-Kx-Ith.text" = "Ongoing Deliveries";
+
+/* Class = "UILabel"; text = "+48448151222"; ObjectID = "uFm-jB-YSt"; */
+"uFm-jB-YSt.text" = "+48448151222";
+
+/* Class = "UILabel"; text = "+48448151222"; ObjectID = "uyn-Eo-NNg"; */
+"uyn-Eo-NNg.text" = "+48448151222";
+
+/* Class = "UILabel"; text = "This Month"; ObjectID = "wh0-n9-ZMm"; */
+"wh0-n9-ZMm.text" = "This Month";
+
+/* Class = "UILabel"; text = "farhan713@mail.com"; ObjectID = "xPl-r9-irk"; */
+"xPl-r9-irk.text" = "farhan713@mail.com";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "y2p-Oa-UWv"; */
+"y2p-Oa-UWv.text" = "All";

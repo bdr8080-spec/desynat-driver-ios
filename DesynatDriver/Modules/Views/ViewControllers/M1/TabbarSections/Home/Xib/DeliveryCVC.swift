@@ -15,11 +15,21 @@ class DeliveryCVC: UICollectionViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblProductName: UILabel!
     @IBOutlet weak var btnCall: UIButton!
-
+    @IBOutlet weak var lblOrderIdTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewStatus.layer.cornerRadius = 25
         viewStatus.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+        lblOrderIdTitle.text = "Order ID".localiz()
+        let isRTL = AppLanguageManager.shared.isRightToLeft
+        viewStatus.layer.cornerRadius = 25
+                if isRTL {
+                    viewStatus.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+                } else {
+                    viewStatus.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMaxYCorner]
+                }
+        viewStatus.clipsToBounds = true
     }
     
     
@@ -35,12 +45,12 @@ class DeliveryCVC: UICollectionViewCell {
         let returnStatus = data?.returnType ?? "0"
         switch returnStatus {
         case "1":
-          lblStatus.text = "Return Req."
+          lblStatus.text = "Return Req.".localiz()
           viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
           lblStatus.textColor = UIColor(hexString: "#FF5F1B")
             
         case "2":
-          lblStatus.text = "Exchange Req."
+          lblStatus.text = "Exchange Req.".localiz()
           viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
           lblStatus.textColor = UIColor(hexString: "#FF5F1B")
         default:
@@ -48,38 +58,38 @@ class DeliveryCVC: UICollectionViewCell {
         }
           let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
           if pOrderdetailsId != "0" {
-              lblStatus.text = "Exchange Req."
+              lblStatus.text = "Exchange Req.".localiz()
               viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
               lblStatus.textColor = UIColor(hexString: "#FF5F1B")
           }
       }else if data?.deliveryStatus == "6" {
-            lblStatus.text = "Confirmed"
+            lblStatus.text = "Confirmed".localiz()
         }else if data?.deliveryStatus == "7" {
-            lblStatus.text = "Picked"
+            lblStatus.text = "Picked".localiz()
         }else if data?.deliveryStatus == "8" {
-            lblStatus.text = "Not delivered"
+            lblStatus.text = "Not delivered".localiz()
         }else if data?.deliveryStatus == "3" {
-            lblStatus.text = "Delivered"
+            lblStatus.text = "Delivered".localiz()
 //            if data?.returnType == "2" {
                 let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
                 if pOrderdetailsId != "0" {
-                    lblStatus.text = "Ongoing"
+                    lblStatus.text = "Ongoing".localiz()
                 }
 //            }
         }else if data?.deliveryStatus == "1" {
-            lblStatus.text = "Confirmed"
+            lblStatus.text = "Confirmed".localiz()
             let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
             if pOrderdetailsId != "0" {
-                lblStatus.text = "Exchange Req."
+                lblStatus.text = "Exchange Req.".localiz()
                 viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
                 lblStatus.textColor = UIColor(hexString: "#FF5F1B")
             }
         }else if data?.deliveryStatus == "2" {
-            lblStatus.text = "Confirmed"
+            lblStatus.text = "Confirmed".localiz()
         } else if data?.deliveryStatus == "2.1" {
             let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
             if pOrderdetailsId != "0" {
-                lblStatus.text = "Exchange Req."
+                lblStatus.text = "Exchange Req.".localiz()
                 viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
                 lblStatus.textColor = UIColor(hexString: "#FF5F1B")
             }
@@ -98,11 +108,11 @@ class DeliveryCVC: UICollectionViewCell {
         let returnStatus = data?.returnType ?? "0"
         switch returnStatus {
         case "1":
-          lblStatus.text = "Return Req."
+          lblStatus.text = "Return Req.".localiz()
           viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
           lblStatus.textColor = UIColor(hexString: "#FF5F1B")
         case "2":
-          lblStatus.text = "Exchange Req."
+          lblStatus.text = "Exchange Req.".localiz()
           viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
           lblStatus.textColor = UIColor(hexString: "#FF5F1B")
         default:
@@ -110,38 +120,38 @@ class DeliveryCVC: UICollectionViewCell {
         }
           let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
           if pOrderdetailsId != "0" {
-              lblStatus.text = "Exchange Req."
+              lblStatus.text = "Exchange Req.".localiz()
               viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
               lblStatus.textColor = UIColor(hexString: "#FF5F1B")
           }
       }else if data?.deliveryStatus == "6" {
-            lblStatus.text = "Confirmed"
+            lblStatus.text = "Confirmed".localiz()
         }else if data?.deliveryStatus == "7" {
-            lblStatus.text = "Picked"
+            lblStatus.text = "Picked".localiz()
         }else if data?.deliveryStatus == "8" {
-            lblStatus.text = "Not delivered"
+            lblStatus.text = "Not delivered".localiz()
         }else if data?.deliveryStatus == "3" {
-            lblStatus.text = "Delivered"
+            lblStatus.text = "Delivered".localiz()
 //            if data?.returnType == "2" {
                 let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
                 if pOrderdetailsId != "0" {
-                    lblStatus.text = "Ongoing"
+                    lblStatus.text = "Ongoing".localiz()
                 }
 //            }
         }else if data?.deliveryStatus == "1" {
-            lblStatus.text = "Confirmed"
+            lblStatus.text = "Confirmed".localiz()
             let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
             if pOrderdetailsId != "0" {
-                lblStatus.text = "Exchange Req."
+                lblStatus.text = "Exchange Req.".localiz()
                 viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
                 lblStatus.textColor = UIColor(hexString: "#FF5F1B")
             }
         }else if data?.deliveryStatus == "2" {
-            lblStatus.text = "Confirmed"
+            lblStatus.text = "Confirmed".localiz()
         } else if data?.deliveryStatus == "2.1" {
             let pOrderdetailsId = data?.pOrderdetailsId ?? "0"
             if pOrderdetailsId != "0" {
-                lblStatus.text = "Exchange Req."
+                lblStatus.text = "Exchange Req.".localiz()
                 viewStatus.backgroundColor = UIColor(hexString: "#FFEAEA")
                 lblStatus.textColor = UIColor(hexString: "#FF5F1B")
             }

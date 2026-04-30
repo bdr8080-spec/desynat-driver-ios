@@ -9,11 +9,12 @@ import Foundation
 
 // MARK: - FAQListDataModel
 struct FAQListDataModel: Codable {
+    
     let id, type: Int?
     let questionEnglish, answerEnglish, questionArabic, answerArabic: String?
     let status: Int?
     let createdAt, updatedAt: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, type
         case questionEnglish = "question_english"

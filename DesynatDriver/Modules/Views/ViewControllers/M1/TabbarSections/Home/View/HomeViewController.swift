@@ -63,13 +63,13 @@ class HomeViewController: UIViewController {
             if success {
                 if let status = viewModel.storeAvailabilityModel?.onDuty {
                     if status == 1 {
-                        busyOnOffLabel.text = "On Duty"
+                        busyOnOffLabel.text = "On Duty".localiz()
                         btnToggle.setImage(UIImage(named: "toggle"), for: .normal)
                         CommonUtils.showToast(message: "Duty on succesfully ")
                     } else {
-                        busyOnOffLabel.text = "Off Duty"
+                        busyOnOffLabel.text = "Off Duty".localiz()
                         btnToggle.setImage(UIImage(named: "toggle_off"), for: .normal)
-                        CommonUtils.showToast(message: "Duty off succesfully ")
+                        CommonUtils.showToast(message: "Duty off succesfully ".localiz())
                     }
                 }
             }
@@ -187,13 +187,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.configureNewDelivery(data: data)
             
             cell.btnCall.tag = indexPath.row
-            cell.btnCall.accessibilityIdentifier = "new"
+            cell.btnCall.accessibilityIdentifier = "new".localiz()
         } else {
             let data = viewModel.ongoingOrders[indexPath.row]
             cell.configureOngoingDelivery(data: data)
             
             cell.btnCall.tag = indexPath.row
-            cell.btnCall.accessibilityIdentifier = "ongoing"
+            cell.btnCall.accessibilityIdentifier = "ongoing".localiz()
         }
         
         cell.btnCall.addTarget(self,
@@ -271,7 +271,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let index = sender.tag
         var mobileNumber: String?
         
-        if sender.accessibilityIdentifier == "new" {
+        if sender.accessibilityIdentifier == "new".localiz() {
             mobileNumber = viewModel.newOrders[index].productDetails?.sellerDetails?.storeInfo?.storePhone ?? ""
         } else {
             mobileNumber = viewModel.ongoingOrders[index].productDetails?.sellerDetails?.storeInfo?.storePhone ?? ""
@@ -325,9 +325,9 @@ extension HomeViewController:UITextFieldDelegate {
         toolBar.tintColor = myColor
         toolBar.sizeToFit()
         // Adding Button ToolBar
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(DoneClick))
+        let doneButton = UIBarButtonItem(title: "Done".localiz(), style: .plain, target: self, action: #selector(DoneClick))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(CancelClick))
+        let cancelButton = UIBarButtonItem(title: "Cancel".localiz(), style: .plain, target: self, action: #selector(CancelClick))
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         return toolBar

@@ -14,11 +14,21 @@ class NewDeliveriesTableCell: UITableViewCell {
     @IBOutlet weak var viewStatus: UIView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblProductName: UILabel!
+    @IBOutlet weak var lblOrderIdTitle: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         viewStatus.layer.cornerRadius = 25
         viewStatus.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+        lblOrderIdTitle.text = "Order ID".localiz()
+        let isRTL = AppLanguageManager.shared.isRightToLeft
+        viewStatus.layer.cornerRadius = 25
+                if isRTL {
+                    viewStatus.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+                } else {
+                    viewStatus.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMaxYCorner]
+                }
+        viewStatus.clipsToBounds = true
     }
 
     @IBAction func btnTapViewAll(_ sender: UIButton) {

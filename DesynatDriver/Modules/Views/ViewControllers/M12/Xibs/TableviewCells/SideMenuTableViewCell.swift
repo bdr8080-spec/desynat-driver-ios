@@ -24,6 +24,7 @@ class SideMenuTableViewCell: UITableViewCell {
         func config(title: String, imagName : String){
             tableviewlabel.text = title
             termconditionImg.image = UIImage(named: imagName)
+            self.rightbtnImg.updateForRTL()
     }
     
 }

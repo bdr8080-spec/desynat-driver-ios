@@ -92,13 +92,13 @@ class DeliveriesViewModel {
    func noDataText(for tab: DeliveriesTab) -> String {
       switch tab {
       case .all:
-          return "No deliveries found"
+          return "No deliveries found".localiz()
       case .new:
-          return "No New deliveries found"
+          return "No New deliveries found".localiz()
       case .ongoing:
-          return "No Ongoing deliveries found"
+          return "No Ongoing deliveries found".localiz()
       case .completed:
-          return "No Completed deliveries found"
+          return "No Completed deliveries found".localiz()
       }
   }
 

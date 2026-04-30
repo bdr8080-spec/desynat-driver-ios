@@ -34,7 +34,7 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func logoutDidTapped(_ sender: Any) {
-      self.showConfirmationAlert(msg: "Are you sure you want to logout?"){ [weak self] in
+        self.showConfirmationAlert(msg: "Are you sure you want to logout?".localiz()){ [weak self] in
           guard let self = self else { return }
           logoutAPI()
       }
@@ -56,7 +56,7 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuTableViewCell",for: indexPath) as! SideMenuTableViewCell
-        cell.config(title: menuTitleArray[indexPath.row], imagName: menuTitleArray[indexPath.row])
+        cell.config(title: menuTitleArray[indexPath.row].localiz(), imagName: menuTitleArray[indexPath.row])
         return cell
     }
     

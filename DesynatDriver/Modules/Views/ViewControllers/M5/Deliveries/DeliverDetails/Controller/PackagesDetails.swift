@@ -47,9 +47,9 @@ class PackagesDetails: UIViewController {
     self.orderIdLbl.text = "#\(orderDetail?.id ?? 0)"
     self.priceLbl.text = CommonUtils.formatPriceForString(orderDetail?.order?.totalAmount ?? "")
     if orderDetail?.order?.paymentMethod == "3" {
-      self.painStatusLbl.text = "COD"
+      self.painStatusLbl.text = "COD".localiz()
     }else {
-      self.painStatusLbl.text = "Paid"
+      self.painStatusLbl.text = "Paid".localiz()
     }
     self.productTableview.reloadData()
       

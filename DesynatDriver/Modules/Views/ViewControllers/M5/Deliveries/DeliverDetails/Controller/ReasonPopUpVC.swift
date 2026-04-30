@@ -106,7 +106,7 @@ class ReasonPopUpVC: UIViewController {
         }
         
         if errorMessage != .none {
-            self.showAlert(msg: errorMessage.rawValue)
+            self.showAlert(msg: errorMessage.rawValue.localiz())
         }
         
         self.view.endEditing(true)

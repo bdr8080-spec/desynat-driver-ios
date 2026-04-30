@@ -15,10 +15,10 @@ enum DeliveryStatus: Int {
 
     var title: String {
         switch self {
-        case .picked: return "Picked"
-        case .confirmed: return "Confirmed"
-        case .delivered: return "Delivered"
-        case .notDelivered: return "Not Delivered"
+        case .picked: return "Picked".localiz()
+        case .confirmed: return "Confirmed".localiz()
+        case .delivered: return "Delivered".localiz()
+        case .notDelivered: return "Not Delivered".localiz()
         }
     }
 }

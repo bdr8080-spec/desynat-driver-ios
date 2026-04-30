@@ -21,7 +21,7 @@ class WebService {
                     completion?(nil, nil, err.localizedDescription)
                 }
             case .sessionExpired:
-                UIApplication.shared.topViewController()?.showAlert(msg: AlertConstant.sessionExpired.value(), completion: {
+                UIApplication.shared.topViewController()?.showAlert(msg: AlertConstant.sessionExpired.value().localiz(), completion: {
                     print("logout")
                     kSharedSceneDelegate.logoutUser()
                 })

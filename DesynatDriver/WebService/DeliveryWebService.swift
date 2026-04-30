@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 
 extension WebService {
-    
     func getAllOrders(parameter:[String:Any],completion: @escaping(DeliveryListModel) -> Void) {
         CommonUtils.showHud(show: true)
         NetworkManager.shared.request(

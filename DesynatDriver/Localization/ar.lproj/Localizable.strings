@@ -1,0 +1,414 @@
+/* 
+  Localizable.strings
+  DesynatDriver
+
+  Created by Fluper New Mac1 on 30/04/26.
+  
+*/
+
+"Term And Condition" = "الشروط والأحكام";
+"Notification" = "الإشعارات";
+"lorem ipsum dolor sit amet, co adipisicing elit, sed do " = "نص تجريبي لوريم إيبسوم";
+"Listening... " = "جاري الاستماع...";
+"Select Ticket Type" = "اختر نوع التذكرة";
+"In-app notifications" = "إشعارات داخل التطبيق";
+"Change Language" = "تغيير اللغة";
+"06 Aug 25, 6:15 pm" = "06 أغسطس 25، 6:15 مساءً";
+"Raise Ticket" = "إنشاء تذكرة";
+"Chat on Whatsapp" = "الدردشة على واتساب";
+"Title" = "العنوان";
+"Enter new password " = "أدخل كلمة المرور الجديدة";
+"Enter Title" = "أدخل العنوان";
+"Delete Account" = "حذف الحساب";
+"FAQ's" = "الأسئلة الشائعة";
+"Resolved on" = "تم الحل في";
+"Ticket Type" = "نوع التذكرة";
+"App Version 1.0" = "إصدار التطبيق 1.0";
+"Yes" = "نعم";
+"In Progress" = "قيد التنفيذ";
+"English" = "الإنجليزية";
+"Ticket Management" = "إدارة التذاكر";
+"Confirm Password" = "تأكيد كلمة المرور";
+"Support Contact Number" = "رقم دعم العملاء";
+"729706KL" = "729706KL";
+"Support Email Address" = "بريد الدعم الإلكتروني";
+"+966 57689025" = "+966 57689025";
+"Attachment" = "مرفق";
+"lorem ipsum dolor sit amet, co adipisicing " = "نص تجريبي لوريم إيبسوم";
+"Push notifications" = "إشعارات الدفع";
+"Contact" = "اتصال";
+"Save" = "حفظ";
+"Ticket Id" = "رقم التذكرة";
+"Change Password" = "تغيير كلمة المرور";
+"Support" = "الدعم";
+"Logout" = "تسجيل الخروج";
+"Hi There 👋" = "مرحباً 👋";
+"01 of 01" = "01 من 01";
+"Description" = "الوصف";
+"Are you sure you want to delete\nyour account?" = "هل أنت متأكد أنك تريد حذف\nحسابك؟";
+"Raised on" = "تم الإنشاء في";
+"Submit" = "إرسال";
+"Enter New Password" = "أدخل كلمة المرور الجديدة";
+"Loremipsum@gmail.com" = "Loremipsum@gmail.com";
+"Notifications" = "الإشعارات";
+"no data found" = "لا توجد بيانات";
+"No" = "لا";
+"Upload attachment (if any)" = "رفع مرفق (إن وجد)";
+"Enter password " = "أدخل كلمة المرور";
+"Settings" = "الإعدادات";
+"Enter old password " = "أدخل كلمة المرور القديمة";
+"More Options" = "المزيد من الخيارات";
+"Arabic" = "العربية";
+"Lorem Ipsum" = "لوريم إيبسوم";
+"Details" = "التفاصيل";
+"Search" = "بحث";
+"Update" = "تحديث";
+"Chat with the Support Team" = "الدردشة مع فريق الدعم";
+
+"Button" = "زر";
+"Ongoing" = "قيد التنفيذ";
+"No Ongoing deliveries found " = "لا توجد توصيلات قيد التنفيذ";
+"View all" = "عرض الكل";
+"My Deliveries" = "توصيلاتي";
+"05" = "05";
+"Type here..." = "اكتب هنا...";
+"Total Deliveries Completed" = "إجمالي التوصيلات المكتملة";
+"New Deliveries" = "توصيلات جديدة";
+"Zone" = "المنطقة";
+"On Going Deliveries" = "التوصيلات الجارية";
+"Phone Number" = "رقم الهاتف";
+"On Duty" = "على رأس العمل";
+"My Profile" = "ملفي الشخصي";
+"No deliveries found" = "لا توجد توصيلات";
+"This week" = "هذا الأسبوع";
+"From   //  //" = "من   //  //";
+"Vehicle Info" = "معلومات المركبة";
+"New" = "جديد";
+"20" = "20";
+"Ahmed Farhan" = "أحمد فرحان";
+"Support Chat" = "دردشة الدعم";
+"Edit" = "تعديل";
+"Completed" = "مكتمل";
+"Address" = "العنوان";
+"Choose date" = "اختر التاريخ";
+"To   //  //" = "إلى   //  //";
+"No Result found " = "لا توجد نتائج";
+"Today" = "اليوم";
+"+48448151222" = "+48448151222";
+"0" = "0";
+"Ongoing Deliveries" = "التوصيلات الجارية";
+"This Month" = "هذا الشهر";
+"farhan713@mail.com" = "farhan713@mail.com";
+"All" = "الكل";
+
+"Please select an option to get verified then we’ll\nsend an OTP to verify that it’s you" = "يرجى اختيار خيار للتحقق ثم سنرسل رمز OTP لتأكيد هويتك";
+"Reset Password" = "إعادة تعيين كلمة المرور";
+"Great! Now you can create your new password" = "رائع! يمكنك الآن إنشاء كلمة مرور جديدة";
+"Deny" = "رفض";
+"Media Permission" = "إذن الوسائط";
+"+971 1 123 123 1234" = "+971 1 123 123 1234";
+"Password Reset \nsuccessfully !" = "تم إعادة تعيين كلمة المرور بنجاح!";
+"Re-Enter Password" = "أعد إدخال كلمة المرور";
+"A verification code has been sent to" = "تم إرسال رمز التحقق إلى";
+"+989" = "+989";
+"Resend OTP in" = "إعادة إرسال OTP خلال";
+"OTPVC" = "OTPVC";
+"Verify" = "تحقق";
+"00:30" = "00:30";
+"Sign In" = "تسجيل الدخول";
+"Notification Permission" = "إذن الإشعارات";
+"Allow" = "سماح";
+"Enter Email Address" = "أدخل البريد الإلكتروني";
+"Choose the language and continue to get the \nexperience the app in your preferred language." = "اختر اللغة للمتابعة والحصول على تجربة التطبيق بلغتك المفضلة.";
+"Forget Password?" = "نسيت كلمة المرور؟";
+"Select language" = "اختر اللغة";
+"Email Address" = "البريد الإلكتروني";
+"Your password must  be at least 8 characters \nand should include a combination of numbers,\nletters and special characters." = "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتحتوي على أرقام وحروف ورموز.";
+"Welcome back ! " = "مرحباً بعودتك!";
+"Resend" = "إعادة إرسال";
+"Skip" = "تخطي";
+"Location Permission" = "إذن الموقع";
+"OTP Verification" = "التحقق من OTP";
+"Enter Mobile Number or Email Address" = "أدخل رقم الجوال أو البريد الإلكتروني";
+"English" = "الإنجليزية";
+"Mobile Number" = "رقم الجوال";
+"Done" = "تم";
+"+91" = "+91";
+"Continue" = "متابعة";
+"Mobile or Email Address" = "رقم الجوال أو البريد الإلكتروني";
+"Enter Password" = "أدخل كلمة المرور";
+"Password" = "كلمة المرور";
+"Create Password" = "إنشاء كلمة المرور";
+"Forgot Password" = "نسيت كلمة المرور";
+"Enter Mobile Number" = "أدخل رقم الجوال";
+"Login" = "تسجيل الدخول";
+"Stay updated with important alerts, offers\n and orders. Enable notifications to never \nmiss out" = "ابقَ على اطلاع بالتنبيهات والعروض والطلبات المهمة";
+"Driving license" = "رخصة القيادة";
+"Update Vehicle Name" = "تحديث اسم المركبة";
+"Vehicle Registration Number" = "رقم تسجيل المركبة";
+"City/District" = "المدينة/المنطقة";
+"State" = "الولاية";
+"Postal Code (optional)" = "الرمز البريدي (اختياري)";
+"Full Name" = "الاسم الكامل";
+"Mobile number" = "رقم الجوال";
+"Add Address" = "إضافة عنوان";
+"Address Line 1" = "العنوان 1";
+"Address Line 2" = "العنوان 2";
+"Save Changes" = "حفظ التغييرات";
+"Enter Address" = "أدخل العنوان";
+"Registration Certificate" = "شهادة التسجيل";
+"Search address" = "بحث عن العنوان";
+"Change Image" = "تغيير الصورة";
+"Vehicle insurance" = "تأمين المركبة";
+"Pollution paper" = "شهادة الانبعاثات";
+"Identity proof" = "إثبات الهوية";
+"Vehicle Images" = "صور المركبة";
+"Select Zone" = "اختر المنطقة";
+"Thank you for your patience" = "شكراً لصبرك";
+"Use Current Location" = "استخدام الموقع الحالي";
+
+"Clear" = "مسح";
+"Uploaded image" = "الصورة المرفوعة";
+"Update Status" = "تحديث الحالة";
+"Delivery Instruction" = "تعليمات التوصيل";
+"Drop location" = "موقع التسليم";
+"Pickup location" = "موقع الاستلام";
+"Paid" = "مدفوع";
+"Read All" = "قراءة الكل";
+"Total Distance" = "المسافة الإجمالية";
+"Customer Name" = "اسم العميل";
+"Write here" = "اكتب هنا";
+"Delivered" = "تم التوصيل";
+"View Package details" = "عرض تفاصيل الطرد";
+"Picked Order" = "تم استلام الطلب";
+"Reason for not delivered" = "سبب عدم التوصيل";
+"Pick up from" = "الاستلام من";
+"Order details" = "تفاصيل الطلب";
+"Exchange Size" = "تغيير المقاس";
+"My Notifications" = "إشعاراتي";
+"Order Date & Time" = "تاريخ ووقت الطلب";
+"Select Status" = "اختر الحالة";
+"Filter" = "تصفية";
+"Picked" = "تم الاستلام";
+"Size" = "الحجم";
+"Collected" = "تم التحصيل";
+"packageDetails" = "تفاصيل الطرد";
+"Detail" = "تفاصيل";
+"7.5 Km" = "7.5 كم";
+"collect amount" = "تحصيل المبلغ";
+"Delivered Id" = "رقم التوصيل";
+"Deliver to" = "التوصيل إلى";
+"Order Id" = "رقم الطلب";
+"Apply" = "تطبيق";
+"Previous Order Collected" = "تم تحصيل الطلب السابق";
+"Package details" = "تفاصيل الطرد";
+"29.00 KD" = "29.00 د.ك";
+"Select Reason" = "اختر السبب";
+"4.5" = "4.5";
+"Price" = "السعر";
+
+"Terms & Condition" = "الشروط والأحكام";
+"Return Policy" = "سياسة الإرجاع";
+"About Us" = "من نحن";
+"FAQ’S" = "الأسئلة الشائعة";
+"Change Language" = "تغيير اللغة";
+"Cancellation Policy" = "سياسة الإلغاء";
+"Exchange Policy" = "سياسة الاستبدال";
+"Support" = "الدعم";
+"Settings" = "الإعدادات";
+"Please Enter Text to Send Message" = "الرجاء إدخال نص لإرسال الرسالة";
+"Please enter old password" = "الرجاء إدخال كلمة المرور القديمة";
+"Please enter new password" = "الرجاء إدخال كلمة المرور الجديدة";
+"Password must be at least 8 characters long and contain letters and numbers" = "يجب أن تكون كلمة المرور 8 أحرف على الأقل وتحتوي على أحرف وأرقام";
+"Please enter confirm password" = "الرجاء إدخال تأكيد كلمة المرور";
+"Passwords do not match" = "كلمات المرور غير متطابقة";
+"Mobile number not available" = "رقم الجوال غير متوفر";
+"Invalid mobile number" = "رقم الجوال غير صالح";
+"Calling not supported on this device" = "الاتصال غير مدعوم على هذا الجهاز";
+"Please enter 6-digit otp" = "الرجاء إدخال رمز التحقق المكون من 6 أرقام";
+"Please enter create password" = "الرجاء إنشاء كلمة المرور";
+"Password must be at least 6 characters long" = "يجب أن تكون كلمة المرور 6 أحرف على الأقل";
+"Please enter confirm password" = "الرجاء إدخال تأكيد كلمة المرور";
+"Password does not match" = "كلمة المرور غير متطابقة";
+"Camera not available." = "الكاميرا غير متوفرة.";
+"Photos not Saved " = "لم يتم حفظ الصور";
+"Your altered image has been saved to your photos. " = "تم حفظ الصورة المعدلة في معرض الصور الخاص بك.";
+"No deliveries found" = "لا توجد طلبات توصيل";
+"No New deliveries found" = "لا توجد طلبات توصيل جديدة";
+"No Ongoing deliveries found" = "لا توجد طلبات توصيل قيد التنفيذ";
+"No Completed deliveries found" = "لا توجد طلبات توصيل مكتملة";
+
+
+"profile updated succesfully" = "تم تحديث الملف الشخصي بنجاح";
+"Duty on succesfully " = "تم تفعيل الدوام بنجاح";
+"Duty off succesfully " = "تم إيقاف الدوام بنجاح";
+
+"Network connection failed. Please check your internet and try again." = "فشل الاتصال بالشبكة. الرجاء التحقق من الإنترنت والمحاولة مرة أخرى";
+"No status code found" = "لم يتم العثور على رمز الحالة";
+"No response data" = "لا توجد بيانات استجابة";
+"Something went wrong" = "حدث خطأ ما";
+"No data found" = "لم يتم العثور على بيانات";
+"Unable to decode data" = "تعذر فك ترميز البيانات";
+" Your session has expired. Please log in again." = "انتهت الجلسة الخاصة بك. الرجاء تسجيل الدخول مرة أخرى";
+"Mime type and file are not of same data type" = "نوع الملف ونوع البيانات غير متطابقين";
+"Video Mime type and file are not URL" = "نوع الفيديو ليس رابط URL صالح";
+"Failed to decode response" = "فشل في فك ترميز الاستجابة";
+
+"Please Enter Mobile Number or Email Address" = "الرجاء إدخال رقم الجوال أو البريد الإلكتروني";
+" Please Enter Email Address" = "الرجاء إدخال البريد الإلكتروني";
+"Please Enter Mobile Number" = "الرجاء إدخال رقم الجوال";
+" Please Enter Valid Email Address" = "الرجاء إدخال بريد إلكتروني صالح";
+"Please enter valid mobile number" = "الرجاء إدخال رقم جوال صالح";
+"Please Enter Valid Email ID or Mobile Number" = "الرجاء إدخال بريد إلكتروني أو رقم جوال صالح";
+"Please enter password" = "الرجاء إدخال كلمة المرور";
+"Password must be at least 6 characters long" = "يجب أن تكون كلمة المرور 6 أحرف على الأقل";
+"Please enter emaill address" = "الرجاء إدخال البريد الإلكتروني";
+
+"Please upload profile image" = "الرجاء رفع صورة الملف الشخصي";
+"Please enter full name in english" = "الرجاء إدخال الاسم الكامل باللغة الإنجليزية";
+"Please enter full name in arabic" = "الرجاء إدخال الاسم الكامل باللغة العربية";
+"Please enter first name" = "الرجاء إدخال الاسم الأول";
+"Please enter last name" = "الرجاء إدخال اسم العائلة";
+
+"Please select Address Line 1" = "الرجاء اختيار عنوان السطر الأول";
+"Please enter Address Line 2" = "الرجاء إدخال عنوان السطر الثاني";
+"Please enter house no./ Building no/Area" = "الرجاء إدخال رقم المنزل / المبنى / المنطقة";
+"Please enter block/street" = "الرجاء إدخال البلوك/الشارع";
+"Please enter city/district" = "الرجاء إدخال المدينة/المنطقة";
+"Please enter state" = "الرجاء إدخال الولاية";
+"Please select zone" = "الرجاء اختيار المنطقة";
+"Please enter vehicle name" = "الرجاء إدخال اسم المركبة";
+"Please enter vehicle registration" = "الرجاء إدخال رقم تسجيل المركبة";
+
+"Please upload vehicle image (front)" = "الرجاء رفع صورة المركبة (الأمامية)";
+"Please upload vehicle image (back)" = "الرجاء رفع صورة المركبة (الخلفية)";
+
+"Please upload identity proof (front)" = "الرجاء رفع إثبات الهوية (الأمامية)";
+"Please upload identity proof (back)" = "الرجاء رفع إثبات الهوية (الخلفية)";
+
+"Please upload driving license (front)" = "الرجاء رفع رخصة القيادة (الأمامية)";
+"Please upload driving license (back)" = "الرجاء رفع رخصة القيادة (الخلفية)";
+
+"Please upload vehicle insurance" = "الرجاء رفع تأمين المركبة";
+"Please upload pollution paper" = "الرجاء رفع شهادة التلوث";
+
+"Please upload RC front image" = "الرجاء رفع صورة الاستمارة (الأمامية)";
+"Please upload RC back image" = "الرجاء رفع صورة الاستمارة (الخلفية)";
+"Please select a reason" = "الرجاء اختيار سبب";
+"Please enter a reason" = "الرجاء إدخال سبب";
+
+"Please upload attachment" = "الرجاء رفع المرفق";
+"Please select ticket type" = "الرجاء اختيار نوع التذكرة";
+"Please enter title" = "الرجاء إدخال العنوان";
+"Please enter description" = "الرجاء إدخال الوصف";
+
+"Off Duty" = "خارج الدوام";
+"Duty off succesfully " = "تم إيقاف الدوام بنجاح";
+
+"Rating" = "التقييم";
+"Exchange Req." = "طلب استبدال";
+"Confirmed" = "تم التأكيد";
+"Ongoing" = "قيد التنفيذ";
+"Delivered" = "تم التسليم";
+"Not delivered" = "لم يتم التسليم";
+"Not Delivered" = "لم يتم التسليم";
+"Picked" = "تم الاستلام";
+"Return Req." = "طلب إرجاع";
+
+"Password Reset successfully !" = "تم إعادة تعيين كلمة المرور بنجاح";
+"Order delivered successfully" = "تم تسليم الطلب بنجاح";
+"Order picked successfully" = "تم استلام الطلب بنجاح";
+"Order Status Updated as Not Delivered" = "تم تحديث حالة الطلب إلى لم يتم التسليم";
+
+"Enter Vehicle Registration No ." = "الرجاء إدخال رقم تسجيل المركبة";
+"Update Vehicle Registration No ." = "تحديث رقم تسجيل المركبة";
+
+"Enter Vehicle Name" = "الرجاء إدخال اسم المركبة";
+"Update Vehicle Name" = "تحديث اسم المركبة";
+
+"Your change request for\nRegistration Certificate on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص بشهادة التسجيل في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+"Your change request for\nPollution paper on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص بشهادة الفحص البيئي في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+
+"Your change request for\nVehicle insurance on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص بتأمين المركبة في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+"Your change request for\nDriving license on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص برخصة القيادة في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+"Your change request for\nIdentity proof on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص بإثبات الهوية في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+"Your change request for\nVehicle Images on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص بصور المركبة في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+"Your change request for\nVehicle Registration No. on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص برقم تسجيل المركبة في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+"Your change request for\nVehicle Name  on Desynat app is\nunder review !! Please wait for 3-4 hrs" = "طلب التعديل الخاص باسم المركبة في تطبيق Desynat قيد المراجعة !! الرجاء الانتظار 3-4 ساعات";
+
+"Registration Certificate" = "شهادة التسجيل";
+"Pollution paper" = "شهادة الفحص البيئي";
+"Vehicle insurance" = "تأمين المركبة";
+"Driving license" = "رخصة القيادة";
+"Identity proof" = "إثبات الهوية";
+"Vehicle Images" = "صور المركبة";
+
+"Ongoing" = "قيد التنفيذ";
+"Not delivered" = "لم يتم التسليم";
+"Picked" = "تم الاستلام";
+"Return Req." = "طلب إرجاع";
+"Cancelled" = "ملغي";
+"Delivered" = "تم التسليم";
+"Confirmed" = "تم التأكيد";
+
+"Paid" = "مدفوع";
+"COD" = "الدفع عند الاستلام";
+"Listening..." = "جاري الاستماع...";
+
+"new" = "جديد";
+"ongoing" = "قيد التنفيذ";
+"Done" = "تم";
+"Cancel" = "إلغاء";
+"Profile" = "الملف الشخصي";
+"Deliveries" = "التوصيلات";
+"Home" = "الرئيسية";
+"Are you sure you want to logout?" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
+"Vehicle Name" = "اسم المركبة";
+"Select" = "اختر";
+"Order ID" = "رقم الطلب";
+"Km" = "كم";
+"Size:" = "الحجم:";
+"Color:" = "اللون:";
+"View Package details" = "عرض تفاصيل الشحنة";
+"View Return details" = "عرض تفاصيل الإرجاع";
+"View Exchange Package details" = "عرض تفاصيل استبدال الشحنة";
+"In English" = "باللغة الإنجليزية";
+"In Arabic" = "باللغة العربية";
+"Pickup Location" = "موقع الاستلام";
+"Drop Location" = "موقع التسليم";
+"Delivered On" = "تم التسليم في";
+"Camera Permission Denied" = "تم رفض إذن الكاميرا";
+"Please allow the camera permission from Phone Settings." = "يرجى السماح بإذن الكاميرا من إعدادات الهاتف";
+
+"OK" = "موافق";
+"You don't have a camera" = "لا يوجد كاميرا على هذا الجهاز";
+"Warning" = "تحذير";
+"Ok" = "موافق";
+"Done" = "تم";
+"Cancel" = "إلغاء";
+"Quantity" = "الكمية";
+"Choose File" = "اختر ملف";
+"Camera" = "الكاميرا";
+"Gallery" = "المعرض";
+"PDF / Files" = "ملف PDF / الملفات";
+"Cancel" = "إلغاء";
+
+"Location Permission" = "إذن الموقع";
+
+"For better experience, please allow sharing your location with DESYNAT" = "للحصول على تجربة أفضل، يرجى السماح بمشاركة موقعك مع DESYNAT";
+
+"Password Reset successfully !" = "تم إعادة تعيين كلمة المرور بنجاح !";
+
+"Allow" = "السماح";
+"Deny" = "رفض";
+
+"Notification Permission" = "إذن الإشعارات";
+
+"Stay updated with important alerts, offers and orders. Enable notifications to never miss out" = "ابقَ على اطلاع على التنبيهات والعروض والطلبات المهمة. فعّل الإشعارات حتى لا تفوت أي شيء";
+
+"Media Permission" = "إذن الوسائط";
+
+"DESYNAT needs access to your camera and gallery to let you upload and capture photos easily" = "يحتاج تطبيق DESYNAT إلى الوصول إلى الكاميرا والمعرض للسماح لك بتحميل والتقاط الصور بسهولة";
+"Pending" = "قيد الانتظار";
+"Resolved" = "تم الحل";
+"Status" = "الحالة";

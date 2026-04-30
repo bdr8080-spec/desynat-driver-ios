@@ -115,33 +115,33 @@ class UploadDocumentViewController: UIViewController {
     headerView.clipsToBounds = true
     switch comingReason {
     case .vehicleImage:
-      titleLabel.text = "Vehicle Images"
+      titleLabel.text = "Vehicle Images".localiz()
       backView.isHidden = false
       driverDocumentFrontImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
       driverDocumentBackImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
       driverDocumnetFrontImageUrl = driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? ""
       driverDocumnetBackImageUrl = driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? ""
     case .identityProof:
-      titleLabel.text = "Identity proof"
+      titleLabel.text = "Identity proof".localiz()
       backView.isHidden = false
       driverDocumentFrontImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
       driverDocumentBackImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
       driverDocumnetFrontImageUrl = driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? ""
       driverDocumnetBackImageUrl = driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? ""
     case .drivingLicence:
-      titleLabel.text = "Driving license"
+      titleLabel.text = "Driving license".localiz()
       backView.isHidden = false
       driverDocumentFrontImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
       driverDocumentBackImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
       driverDocumnetFrontImageUrl = driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? ""
       driverDocumnetBackImageUrl = driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? ""
     case .vehcileInsurance:
-      titleLabel.text = "Vehicle insurance"
+      titleLabel.text = "Vehicle insurance".localiz()
       backView.isHidden = true
       driverDocumentFrontImageView.setImage(with: driverDocuments?.first?.documentPath ?? "uploadFront")
       driverDocumnetFrontImageUrl = driverDocuments?.first?.documentPath ?? ""
     case .pollutionPaper:
-      titleLabel.text = "Pollution paper"
+      titleLabel.text = "Pollution paper".localiz()
       backView.isHidden = true
       driverDocumentFrontImageView.setOrPlaceholderImage(
         path: driverDocuments?.first?.documentPath,
@@ -149,7 +149,7 @@ class UploadDocumentViewController: UIViewController {
       )
       driverDocumnetFrontImageUrl = driverDocuments?.first?.documentPath ?? ""
     case .registrationCertificate:
-      titleLabel.text = "Registration Certificate"
+      titleLabel.text = "Registration Certificate".localiz()
       backView.isHidden = false
       driverDocumentFrontImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
       driverDocumentBackImageView.setImage(with: driverDocuments?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
@@ -250,7 +250,7 @@ extension UploadDocumentViewController {
       print("")
     }
     if error != .none {
-      showAlert(msg: error.rawValue)
+        showAlert(msg: error.rawValue.localiz())
       return false
     }
     return true

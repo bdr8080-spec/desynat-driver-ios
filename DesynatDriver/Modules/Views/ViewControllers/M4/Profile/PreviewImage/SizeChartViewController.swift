@@ -46,21 +46,21 @@ class SizeChartViewController: UIViewController {
   func initialSetup() {
     switch comingReason {
     case .vehicleImage:
-      titleLabel.text = "Vehicle Images"
+      titleLabel.text = "Vehicle Images".localiz()
     case .identityProof:
-      titleLabel.text = "Identity proof"
+      titleLabel.text = "Identity proof".localiz()
       
     case .drivingLicence:
-      titleLabel.text = "Driving license"
+      titleLabel.text = "Driving license".localiz()
      
     case .vehcileInsurance:
-      titleLabel.text = "Vehicle insurance"
+      titleLabel.text = "Vehicle insurance".localiz()
       
     case .pollutionPaper:
-      titleLabel.text = "Pollution paper"
+      titleLabel.text = "Pollution paper".localiz()
       
     case .registrationCertificate:
-      titleLabel.text = "Registration Certificate"
+      titleLabel.text = "Registration Certificate".localiz()
     }
   }
   

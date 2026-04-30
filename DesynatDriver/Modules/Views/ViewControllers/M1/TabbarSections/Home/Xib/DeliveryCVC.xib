@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -137,6 +137,7 @@
                 <outlet property="btnCall" destination="Mfa-q7-jR4" id="pqc-cP-3ev"/>
                 <outlet property="lblName" destination="bpY-5s-BTD" id="foo-aB-43f"/>
                 <outlet property="lblOrderID" destination="407-yy-nXq" id="cDS-ic-IoJ"/>
+                <outlet property="lblOrderIdTitle" destination="k3C-ms-f9Z" id="NBg-KV-skF"/>
                 <outlet property="lblProductName" destination="wIc-0c-zQb" id="E4U-ai-vln"/>
                 <outlet property="lblStatus" destination="S1h-cB-c9X" id="iIl-3H-DE7"/>
                 <outlet property="viewStatus" destination="hfo-Oa-ddp" id="SY9-Gu-kzp"/>
