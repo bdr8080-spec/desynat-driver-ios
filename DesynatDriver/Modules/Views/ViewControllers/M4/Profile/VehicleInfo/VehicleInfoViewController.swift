@@ -26,6 +26,8 @@ class VehicleInfoViewController: UIViewController {
   @IBOutlet weak var registrationCertificationFrontImagViw: CustomImageView!
   @IBOutlet weak var registrationCertificationBackImagViw: CustomImageView!
   @IBOutlet weak var lblVehicleName: UILabel!
+    @IBOutlet weak var vehicleImageBackView: CustomView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,34 +44,12 @@ class VehicleInfoViewController: UIViewController {
   }
   
   @IBAction func vehcileNameDidTapped(_ sender: Any) {
-//    let nextVC = UpdateVehicleViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .vehicleName
-//    nextVC.vehicleInfo = driverProfileData?.vehicleName
-//    self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func registrationNumberDidTappd(_ sender: Any) {
-//    let nextVC = UpdateVehicleViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .updateVehicleRegistration
-//    nextVC.vehicleInfo = driverProfileData?.vehicleRegNo
-//    self.navigationController?.present(nextVC, animated: true)
   }
   
   @IBAction func uploadVehicleDidTapped(_ sender: UIButton) {
-//    let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .vehicleImage
-//    nextVC.driverDocuments = driverProfileData?.vehicleImage
-//    self.navigationController?.present(nextVC, animated: true)
-//    let nextVC = SizeChartViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .vehicleImage
-//    if sender.tag == 0 {
-//      nextVC.sizeChartUrl = driverProfileData?.vehicleImage?.first(where: { $0.isFront == 1})?.documentPath
-//    } else {
-//      nextVC.sizeChartUrl = driverProfileData?.vehicleImage?.first(where: { $0.isFront == 0})?.documentPath
-//    }
-//    self.navigationController?.present(nextVC, animated: true)
-    
-    
     guard let documentPath = sender.tag == 0
         ? driverProfileData?.vehicleImage?.first(where: { $0.isFront == 1 })?.documentPath
         : driverProfileData?.vehicleImage?.first(where: { $0.isFront == 0 })?.documentPath
@@ -88,22 +68,6 @@ class VehicleInfoViewController: UIViewController {
   }
   
   @IBAction func uploadIdentityDidTapped(_ sender: UIButton) {
-//    let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .identityProof
-//    nextVC.driverDocuments = driverProfileData?.identityProof
-//    self.navigationController?.present(nextVC, animated: true)
-//    
-//    
-//    let nextVC = SizeChartViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .identityProof
-//    if sender.tag == 0 {
-//      nextVC.sizeChartUrl = driverProfileData?.identityProof?.first(where: { $0.isFront == 1})?.documentPath
-//    } else {
-//      nextVC.sizeChartUrl = driverProfileData?.identityProof?.first(where: { $0.isFront == 0})?.documentPath
-//    }
-//    self.navigationController?.present(nextVC, animated: true)
-    
-    
     guard let documentPath = sender.tag == 0
         ? driverProfileData?.identityProof?.first(where: { $0.isFront == 1 })?.documentPath
         : driverProfileData?.identityProof?.first(where: { $0.isFront == 0 })?.documentPath
@@ -122,22 +86,6 @@ class VehicleInfoViewController: UIViewController {
   }
   
   @IBAction func drivingLicenseDidTapped(_ sender: UIButton) {
-//    let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .drivingLicence
-//    nextVC.driverDocuments = driverProfileData?.drivingLicense
-//    self.navigationController?.present(nextVC, animated: true)
-    
-//    let nextVC = SizeChartViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .drivingLicence
-//    if sender.tag == 0 {
-//      nextVC.sizeChartUrl = driverProfileData?.drivingLicense?.first(where: { $0.isFront == 1})?.documentPath
-//    } else {
-//      nextVC.sizeChartUrl = driverProfileData?.drivingLicense?.first(where: { $0.isFront == 0})?.documentPath
-//    }
-//    self.navigationController?.present(nextVC, animated: true)
-    
-    
-    
     guard let documentPath = sender.tag == 0
         ? driverProfileData?.drivingLicense?.first(where: { $0.isFront == 1 })?.documentPath
         : driverProfileData?.drivingLicense?.first(where: { $0.isFront == 0 })?.documentPath
@@ -156,22 +104,6 @@ class VehicleInfoViewController: UIViewController {
   }
   
   @IBAction func vehicleInsuranceDidTapped(_ sender: Any) {
-//    let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .vehcileInsurance
-//    nextVC.driverDocuments = driverProfileData?.vehicleInsurance
-//    self.navigationController?.present(nextVC, animated: true)
-//let imageUrlString = driverProfileData?.vehicleInsurance?.first?.documentPath
-//    let previewVC = ImagePreviewViewController()
-//       previewVC.modalPresentationStyle = .fullScreen
-//       previewVC.imageUrlString = imageUrlString
-//       present(previewVC, animated: true, completion: nil)
-//    let nextVC = SizeChartViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .vehcileInsurance
-//    nextVC.sizeChartUrl = driverProfileData?.vehicleInsurance?.first?.documentPath
-//    self.navigationController?.present(nextVC, animated: true)
-    
-    
-    
     guard let documentPath = driverProfileData?.vehicleInsurance?.first?.documentPath else { return }
 
     if documentPath.lowercased().hasSuffix(".pdf") {
@@ -187,21 +119,6 @@ class VehicleInfoViewController: UIViewController {
   }
   
   @IBAction func pollutionCertificateDidTapped(_ sender: Any) {
-//    let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .pollutionPaper
-//    nextVC.driverDocuments = driverProfileData?.pollutionPaper
-//    self.navigationController?.present(nextVC, animated: true)
-//    let imageUrlString = driverProfileData?.pollutionPaper?.first?.documentPath
-//    let previewVC = ImagePreviewViewController()
-//       previewVC.modalPresentationStyle = .fullScreen
-//       previewVC.imageUrlString = imageUrlString
-//       present(previewVC, animated: true, completion: nil)
-//    let nextVC = SizeChartViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .pollutionPaper
-//    nextVC.sizeChartUrl = driverProfileData?.pollutionPaper?.first?.documentPath
-//    self.navigationController?.present(nextVC, animated: true)
-//    
-    
     guard let documentPath = driverProfileData?.pollutionPaper?.first?.documentPath else { return }
 
     if documentPath.lowercased().hasSuffix(".pdf") {
@@ -217,20 +134,6 @@ class VehicleInfoViewController: UIViewController {
   }
   
   @IBAction func registrationCertificateDidTapped(_ sender: UIButton) {
-//    let nextVC = UploadDocumentViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .registrationCertificate
-//    nextVC.driverDocuments = driverProfileData?.registrationCertificate
-//    self.navigationController?.present(nextVC, animated: true)
-    
-//    let nextVC = SizeChartViewController.instantiate(fromAppStoryboard: .Profile)
-//    nextVC.comingReason = .registrationCertificate
-//    if sender.tag == 0 {
-//      nextVC.sizeChartUrl = driverProfileData?.registrationCertificate?.first(where: { $0.isFront == 1})?.documentPath
-//    } else {
-//      nextVC.sizeChartUrl = driverProfileData?.registrationCertificate?.first(where: { $0.isFront == 0})?.documentPath
-//    }
-//    self.navigationController?.present(nextVC, animated: true)
-    
     guard let documentPath = sender.tag == 0
         ? driverProfileData?.registrationCertificate?.first(where: { $0.isFront == 1 })?.documentPath
         : driverProfileData?.registrationCertificate?.first(where: { $0.isFront == 0 })?.documentPath
@@ -254,53 +157,6 @@ class VehicleInfoViewController: UIViewController {
       pdfVC.pdfURLString = urlString
       self.navigationController?.present(pdfVC, animated: true)
   }
-
-  
-//  func fillDriverData(data: UserProfileData?) {
-//      // MARK: - Text Fields
-//    vehicleNameTF.text = data?.vehicleName
-//    registrationTF.text = data?.vehicleRegNo
-//      // MARK: - Show Images
-//    
-//    let pollutionUrl = data?.pollutionPaper?.first?.documentPath ?? ""
-//    pollutionCertificateView.isHidden = pollutionUrl.isEmpty
-//    vehicleImageFrontImageView.setImage(with: data?.vehicleImage?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
-//    vehicleImageBackImageView.setImage(with: data?.vehicleImage?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
-//      
-//    identityProofFrontImageView.setImage(with: data?.identityProof?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
-//    identityProofBackImageView.setImage(with: data?.identityProof?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
-//      
-//    drivingLcenseFrontImageView.setImage(with: data?.drivingLicense?.first(where: { $0.isFront == 1})?.documentPath ?? "uploadFront")
-//    drivingLcenseBackImageView.setImage(with: data?.drivingLicense?.first(where: { $0.isFront == 0})?.documentPath ?? "uplaodBack")
-//      
-//    vehicleInsuranceImageView.setImage(with: data?.vehicleInsurance?.first?.documentPath ?? "uploadFront")
-//    
-//    pollutionPaperImageView.setOrPlaceholderImage(
-//      path: data?.pollutionPaper?.first?.documentPath,
-//        placeholder: "uploadFront"
-//    )
-//
-//    // MARK: - Registration Certificate
-//        let registrationFront = data?.registrationCertificate?.first(where: { $0.isFront == 1 })?.documentPath
-//        let registrationBack = data?.registrationCertificate?.first(where: { $0.isFront == 0 })?.documentPath
-//
-//        registrationCertificationFrontImagViw.setOrPlaceholderImage(
-//            path: registrationFront,
-//            placeholder: "uploadFront"
-//        )
-//        registrationCertificationBackImagViw.setOrPlaceholderImage(
-//            path: registrationBack,
-//            placeholder: "uplaodBack"
-//        )
-//
-//        // Show/hide front/back views individually
-//        registrationCertificationFrontImagViw.isHidden = (registrationFront ?? "").isEmpty
-//        registrationCertificationBackImagViw.isHidden = (registrationBack ?? "").isEmpty
-//
-//        // Hide parent container if **both** images are missing
-//        registrtionCertificateView.isHidden = (registrationFront ?? "").isEmpty && (registrationBack ?? "").isEmpty
-//  }
-  
   
   func fillDriverData(data: UserProfileData?) {
       
@@ -311,43 +167,43 @@ class VehicleInfoViewController: UIViewController {
       // Vehicle Images
       vehicleImageFrontImageView.setDocumentImage(
           path: data?.vehicleImage?.first(where: { $0.isFront == 1 })?.documentPath,
-          placeholder: "uploadFront"
+          placeholder: "dashedBorder"
       )
       vehicleImageBackImageView.setDocumentImage(
           path: data?.vehicleImage?.first(where: { $0.isFront == 0 })?.documentPath,
-          placeholder: "uploadBack"
+          placeholder: "dashedBorder"
       )
       
       // Identity proof
       identityProofFrontImageView.setDocumentImage(
           path: data?.identityProof?.first(where: { $0.isFront == 1 })?.documentPath,
-          placeholder: "uploadFront"
+          placeholder: "dashedBorder" //dashedBorder
       )
       identityProofBackImageView.setDocumentImage(
           path: data?.identityProof?.first(where: { $0.isFront == 0 })?.documentPath,
-          placeholder: "uploadBack"
+          placeholder: "dashedBorder"
       )
       
       // Driving license
       drivingLcenseFrontImageView.setDocumentImage(
           path: data?.drivingLicense?.first(where: { $0.isFront == 1 })?.documentPath,
-          placeholder: "uploadFront"
+          placeholder: "dashedBorder"
       )
       drivingLcenseBackImageView.setDocumentImage(
           path: data?.drivingLicense?.first(where: { $0.isFront == 0 })?.documentPath,
-          placeholder: "uploadBack"
+          placeholder: "dashedBorder"
       )
       
       // Vehicle Insurance
       vehicleInsuranceImageView.setDocumentImage(
           path: data?.vehicleInsurance?.first?.documentPath,
-          placeholder: "uploadFront"
+          placeholder: "dashedBorder"
       )
 
       // Pollution Certificate
       pollutionPaperImageView.setDocumentImage(
           path: data?.pollutionPaper?.first?.documentPath,
-          placeholder: "uploadFront"
+          placeholder: "dashedBorder"
       )
       
       // Registration Certificate
@@ -356,11 +212,11 @@ class VehicleInfoViewController: UIViewController {
       
       registrationCertificationFrontImagViw.setDocumentImage(
           path: registrationFront,
-          placeholder: "uploadFront"
+          placeholder: "dashedBorder"
       )
       registrationCertificationBackImagViw.setDocumentImage(
           path: registrationBack,
-          placeholder: "uploadBack"
+          placeholder: "dashedBorder"
       )
 
       // Visibility
@@ -370,5 +226,4 @@ class VehicleInfoViewController: UIViewController {
                                             (registrationBack ?? "").isEmpty
   }
 
-  
 }

@@ -65,7 +65,7 @@ class HomeViewController: UIViewController {
                     if status == 1 {
                         busyOnOffLabel.text = "On Duty".localiz()
                         btnToggle.setImage(UIImage(named: "toggle"), for: .normal)
-                        CommonUtils.showToast(message: "Duty on succesfully ")
+                        CommonUtils.showToast(message: "Duty on succesfully ".localiz())
                     } else {
                         busyOnOffLabel.text = "Off Duty".localiz()
                         btnToggle.setImage(UIImage(named: "toggle_off"), for: .normal)

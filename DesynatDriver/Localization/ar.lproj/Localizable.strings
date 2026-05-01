@@ -412,3 +412,6 @@
 "Pending" = "قيد الانتظار";
 "Resolved" = "تم الحل";
 "Status" = "الحالة";
+"profile updated successfully" = "تم تحديث الملف الشخصي بنجاح";
+"Front" = "الأمام";
+"Back" = "الخلف";
