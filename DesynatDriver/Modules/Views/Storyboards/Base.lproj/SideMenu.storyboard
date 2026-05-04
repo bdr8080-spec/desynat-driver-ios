@@ -972,7 +972,25 @@
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadDocument" translatesAutoresizingMaskIntoConstraints="NO" id="ZNv-LW-THr" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-UC-eh0">
+                                                                <rect key="frame" x="57.666666666666671" y="51" width="49" height="49"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="taf-8p-xHM">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="49" id="KB8-RJ-gQz"/>
+                                                                            <constraint firstAttribute="height" constant="49" id="bHs-ZX-j55"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xs-Ke-RVW">
+                                                                <rect key="frame" x="50.666666666666671" y="104" width="63" height="17"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                                <color key="textColor" red="0.52941176469999995" green="0.36078431370000003" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashedBorder" translatesAutoresizingMaskIntoConstraints="NO" id="ZNv-LW-THr" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="24" width="164" height="120"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="164" id="1v5-f8-dXy"/>
@@ -995,13 +1013,17 @@
                                                         <constraints>
                                                             <constraint firstItem="Wvx-iT-2qY" firstAttribute="bottom" secondItem="ZNv-LW-THr" secondAttribute="bottom" id="3hU-CX-UXI"/>
                                                             <constraint firstItem="nJ3-Kp-JYu" firstAttribute="top" secondItem="wO0-Ts-y3p" secondAttribute="top" id="N2V-n5-ASi"/>
+                                                            <constraint firstItem="3Xs-Ke-RVW" firstAttribute="centerX" secondItem="Loe-UC-eh0" secondAttribute="centerX" id="P1G-oX-gwd"/>
                                                             <constraint firstItem="Wvx-iT-2qY" firstAttribute="top" secondItem="ZNv-LW-THr" secondAttribute="top" id="SdF-4l-Sag"/>
                                                             <constraint firstItem="ZNv-LW-THr" firstAttribute="leading" secondItem="wO0-Ts-y3p" secondAttribute="leading" id="Tdi-Ua-DzD"/>
                                                             <constraint firstItem="Wvx-iT-2qY" firstAttribute="trailing" secondItem="ZNv-LW-THr" secondAttribute="trailing" id="Za2-ri-M9Z"/>
                                                             <constraint firstItem="Wvx-iT-2qY" firstAttribute="leading" secondItem="ZNv-LW-THr" secondAttribute="leading" id="blm-YU-M2B"/>
                                                             <constraint firstItem="ZNv-LW-THr" firstAttribute="top" secondItem="nJ3-Kp-JYu" secondAttribute="bottom" constant="6" id="cj9-xl-yrG"/>
                                                             <constraint firstAttribute="trailing" secondItem="nJ3-Kp-JYu" secondAttribute="trailing" id="d1i-JE-rbB"/>
+                                                            <constraint firstItem="Loe-UC-eh0" firstAttribute="centerX" secondItem="ZNv-LW-THr" secondAttribute="centerX" id="dvp-vn-eZj"/>
+                                                            <constraint firstItem="Loe-UC-eh0" firstAttribute="centerY" secondItem="ZNv-LW-THr" secondAttribute="centerY" multiplier="0.9" id="ibw-0y-eFv"/>
                                                             <constraint firstAttribute="bottom" secondItem="ZNv-LW-THr" secondAttribute="bottom" id="jgV-Xn-9Dn"/>
+                                                            <constraint firstItem="3Xs-Ke-RVW" firstAttribute="top" secondItem="Loe-UC-eh0" secondAttribute="bottom" constant="4" id="pKi-JN-lXX"/>
                                                             <constraint firstItem="nJ3-Kp-JYu" firstAttribute="leading" secondItem="wO0-Ts-y3p" secondAttribute="leading" id="rIf-jx-dg8"/>
                                                         </constraints>
                                                     </view>
@@ -2255,7 +2277,7 @@ your account?</string>
                                             <constraint firstItem="0ij-fv-UXe" firstAttribute="top" secondItem="NO4-8Z-pcy" secondAttribute="top" id="G4z-9c-uEe"/>
                                             <constraint firstAttribute="bottom" secondItem="0ij-fv-UXe" secondAttribute="bottom" id="Rnu-Gr-KHv"/>
                                             <constraint firstAttribute="trailing" secondItem="RtF-yW-bN3" secondAttribute="trailing" id="afp-lW-pwF"/>
-                                            <constraint firstItem="RtF-yW-bN3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uJU-NU-WuC" secondAttribute="trailing" constant="50" id="hgK-MI-5z9"/>
+                                            <constraint firstItem="RtF-yW-bN3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uJU-NU-WuC" secondAttribute="trailing" constant="20" id="hgK-MI-5z9"/>
                                             <constraint firstItem="RtF-yW-bN3" firstAttribute="centerY" secondItem="uJU-NU-WuC" secondAttribute="centerY" id="r3o-WJ-am6"/>
                                             <constraint firstItem="0ij-fv-UXe" firstAttribute="leading" secondItem="NO4-8Z-pcy" secondAttribute="leading" id="sLa-Bu-uuP"/>
                                             <constraint firstItem="t2d-4n-9ry" firstAttribute="leading" secondItem="NO4-8Z-pcy" secondAttribute="leading" id="vAa-Vd-F5U"/>
@@ -2303,7 +2325,7 @@ your account?</string>
                                             <constraint firstItem="wvt-xh-kOO" firstAttribute="centerY" secondItem="heg-kZ-CDF" secondAttribute="centerY" id="Lnz-u6-2tH"/>
                                             <constraint firstItem="heg-kZ-CDF" firstAttribute="leading" secondItem="Fds-Zs-p5r" secondAttribute="trailing" constant="12" id="WsH-rV-Fzj"/>
                                             <constraint firstItem="Fds-Zs-p5r" firstAttribute="top" secondItem="rRk-Sh-xXi" secondAttribute="top" id="Xsi-6P-ec0"/>
-                                            <constraint firstItem="wvt-xh-kOO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="heg-kZ-CDF" secondAttribute="trailing" constant="50" id="aLq-CN-49n"/>
+                                            <constraint firstItem="wvt-xh-kOO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="heg-kZ-CDF" secondAttribute="trailing" constant="20" id="aLq-CN-49n"/>
                                             <constraint firstItem="heg-kZ-CDF" firstAttribute="centerY" secondItem="Fds-Zs-p5r" secondAttribute="centerY" id="fO9-dQ-iUr"/>
                                             <constraint firstAttribute="trailing" secondItem="69O-r9-F88" secondAttribute="trailing" id="npX-Us-Iz5"/>
                                             <constraint firstItem="Fds-Zs-p5r" firstAttribute="leading" secondItem="rRk-Sh-xXi" secondAttribute="leading" id="oui-ro-Eny"/>
@@ -2336,6 +2358,9 @@ your account?</string>
                                         <color key="value" red="0.7758789062" green="0.24523927270000001" blue="0.12670896949999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteAccountDidTapped:" destination="yCJ-dQ-w5Z" eventType="touchUpInside" id="EoW-DQ-mTi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BEH-Gm-xIL"/>
@@ -2856,6 +2881,7 @@ your account?</string>
         <image name="changepassword" width="28" height="28"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="crossButton" width="18" height="19.333333969116211"/>
+        <image name="dashedBorder" width="164" height="120"/>
         <image name="downVector" width="17.666666030883789" height="9.6666669845581055"/>
         <image name="email" width="22" height="22"/>
         <image name="eyeClose" width="22" height="16.666666030883789"/>
@@ -2871,6 +2897,7 @@ your account?</string>
         <image name="search" width="20" height="20"/>
         <image name="toggle" width="40" height="22"/>
         <image name="uploadDocument" width="164" height="120"/>
+        <image name="uploadPhoto" width="49" height="49"/>
         <image name="userProfile" width="32" height="32.333332061767578"/>
         <namedColor name="darkBrown">
             <color red="0.43137254901960786" green="0.27058823529411763" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

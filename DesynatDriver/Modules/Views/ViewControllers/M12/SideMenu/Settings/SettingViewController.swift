@@ -37,7 +37,24 @@ class SettingViewController: UIViewController {
         let vc = NotificationViewController.instantiate(fromAppStoryboard: .SideMenu)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func backBtnDidTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func deleteAccountDidTapped(_ sender: Any) {
+        let nextVC = DeleteAccountViewController.instantiate(fromAppStoryboard: .SideMenu)
+        nextVC.onYesTapped = { [weak self] in
+            guard let self = self else { return }
+            self.deleteAccountRequest()
+        }
+        self.navigationController?.present(nextVC, animated: true)
+    }
+    
+    func deleteAccountRequest(){
+        WebService.sharedInstance.deleteAccountService() { (response) in
+            kSharedSceneDelegate.logoutUser()
+            kSharedSceneDelegate.navigateToLoginVC()
+        }
     }
 }

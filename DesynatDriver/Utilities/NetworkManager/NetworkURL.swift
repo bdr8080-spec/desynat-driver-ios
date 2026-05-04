@@ -70,6 +70,9 @@ enum NetworkEndPoint: String {
     case pushNotificationOnOff              = "/api/deliveryboy/notification_on_off"
     case appNotificationOnOff               = "/api/deliveryboy/app_notification_on_off"
     
+    //M14
+    case deleteAccount                      = "/api/deliveryboy/delete_account"
+    
     func withBaseURL() -> String {
         return "\(BaseURL.value())\(self.rawValue)"
     }

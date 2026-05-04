@@ -37,7 +37,8 @@ extension SceneDelegate {
         Global.shared.user = nil
         self.navigateToLoginVC()
         UserDefaults.standard.setValue("true", forKey: "isOnBoardingChecked")
-        UserDefaults.standard.set("no", forKey: "isLogin")
+//        UserDefaults.standard.set("no", forKey: "isLogin")
+        UserDefaults.standard.removeObject(forKey: "isLogin")
     }
     
 //    ///Pass custom vc to make it root controller

@@ -44,4 +44,11 @@ class NotificationViewModel {
         }
     }
     
+    func deleteAccountRequest(){
+        WebService.sharedInstance.deleteAccountService() { (response) in
+            kSharedSceneDelegate.logoutUser()
+            kSharedSceneDelegate.navigateToLoginVC()
+        }
+    }
+    
 }

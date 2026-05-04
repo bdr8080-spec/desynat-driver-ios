@@ -10,7 +10,6 @@ import UIKit
 class DeleteAccountViewController: UIViewController {
 
     var onYesTapped: (()-> Void)?
-   // var comingUserRole: UserRoleType = .normalUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
