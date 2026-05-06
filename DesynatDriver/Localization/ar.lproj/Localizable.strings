@@ -417,3 +417,12 @@
 "Back" = "الخلف";
 "Document" = "مستند";
 "Enter Description" = "أدخل الوصف";
+"Enter Full Name" = "أدخل الاسم الكامل";
+"Enter Address Line 1" = "أدخل سطر العنوان الأول";
+"Enter Address Line 2" = "أدخل سطر العنوان الثاني";
+"Enter  City/District" = "أدخل المدينة / المنطقة";
+"State" = "الولاية";
+"Enter Email Address" = "أدخل عنوان البريد الإلكتروني";
+"Select" = "اختر";
+"Save Changes" = "حفظ التغييرات";
+"Location" = "الموقع";

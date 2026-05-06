@@ -295,10 +295,8 @@ extension HomeViewController:UITextFieldDelegate {
             viewDate.preferredDatePickerStyle = .wheels
             viewDate.preferredDatePickerStyle = .wheels
         }
-        
         txtToDate.delegate = self
         txtFromDate.delegate = self
-        
         self.viewDate.datePickerMode = .date
         let currentDate = Date()
         var dateComponents = DateComponents()
@@ -309,12 +307,17 @@ extension HomeViewController:UITextFieldDelegate {
         let maxDate = calendar.date(byAdding: dateComponents, to: currentDate)
         viewDate.maximumDate = maxDate
         viewDate.minimumDate = minDate
-        
+        if AppLanguageManager.shared.currentLanguage == .ar {
+            viewDate.locale = Locale(identifier: "ar")
+            viewDate.semanticContentAttribute = .forceRightToLeft
+        }else {
+            viewDate.locale = Locale(identifier: "en")
+            viewDate.semanticContentAttribute = .forceLeftToRight
+        }
         self.txtFromDate.inputView = self.viewDate
         self.txtToDate.inputView = self.viewDate
         self.txtFromDate.inputAccessoryView = self.gettoolBar()
         self.txtToDate.inputAccessoryView = self.gettoolBar()
-        
     }
     
     func gettoolBar() -> UIToolbar {

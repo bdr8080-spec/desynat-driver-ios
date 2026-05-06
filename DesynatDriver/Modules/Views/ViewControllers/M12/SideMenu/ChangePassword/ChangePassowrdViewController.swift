@@ -20,7 +20,7 @@ class ChangePassowrdViewController: UIViewController {
     // MARK: - View's LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtConfirmPass.placeholder = "Enter password".localiz()
+//        txtConfirmPass.placeholder = "Enter password".localiz()
     }
     // MARK: - Button's Action
     @IBAction func backDidTapped(_ sender: Any) {

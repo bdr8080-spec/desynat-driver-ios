@@ -36,7 +36,7 @@
 "BFR-fh-MGQ.normalTitle" = "Button";
 
 /* Class = "UITextField"; placeholder = "Enter Address Line 2 "; ObjectID = "Cgn-1a-ido"; */
-"Cgn-1a-ido.placeholder" = "Enter Address Line 2 ";
+"Cgn-1a-ido.placeholder" = "Enter Address Line 2";
 
 /* Class = "UILabel"; text = "Update"; ObjectID = "ED2-Br-lgR"; */
 "ED2-Br-lgR.text" = "Update";

@@ -35,90 +35,167 @@ class SystemSupportChatViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("WebView loaded")
-        
         webView.evaluateJavaScript("document.body.innerHTML") { result, error in
             print("HTML:", result ?? "")
         }
     }
+    
+    //    func loadTidioHTML(user: User) {
+    //        let name = (user.fullNameEnglish ?? "").replacingOccurrences(of: "\"", with: "\\\"")
+    //        let email = (user.email ?? "").replacingOccurrences(of: "\"", with: "\\\"")
+    //        let userId = "\(user.id ?? 0)".replacingOccurrences(of: "\"", with: "\\\"")
+    //        let phone = (user.mobile ?? "").replacingOccurrences(of: "\"", with: "\\\"")
+    //        let html  = """
+    //        <!DOCTYPE html>
+    //        <html>
+    //        <head>
+    //        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    //
+    //
+    //        <style>
+    //        html, body {
+    //            margin: 0;
+    //            padding: 0;
+    //            background-color: white;
+    //        }
+    //
+    //        iframe[src*="tidio"],
+    //        #tidio-chat,
+    //            .tidio-chat {
+    //                display: none !important;
+    //                opacity: 0 !important;
+    //                visibility: hidden !important;
+    //            }
+    //        </style>
+    //
+    //        <!-- ✅ IMPORTANT: Use full https URL -->
+    //        <script src="https://code.tidio.co/uxltmye9ysuvgaamvz0sisfhvdb1yctx.js" async></script>
+    //        </head>
+    //
+    //        <body>
+    //
+    //        <script>
+    //        document.addEventListener("tidioChat-ready", function () {
+    //            if (!window.tidioChatApi) return;
+    //
+    //            // 👤 Set user data
+    //            window.tidioChatApi.setVisitorData({
+    //                name: "\(name)",
+    //                email: "\(email)",
+    //                distinct_id: "\(userId)",
+    //                phone: "\(phone)"
+    //            });
+    //
+    //            // 🔥 Force open chat without showing button
+    //            setTimeout(function () {
+    //
+    //                // 👁 Show widget again (after hiding it initially)
+    //                const style = document.createElement("style");
+    //                style.innerHTML = `
+    //                iframe[src*="tidio"],
+    //                #tidio-chat,
+    //                    .tidio-chat {
+    //                        display: block !important;
+    //                        opacity: 1 !important;
+    //                        visibility: visible !important;
+    //                    }
+    //                `;
+    //                document.head.appendChild(style);
+    //
+    //                // 💬 Open chat directly
+    //                window.tidioChatApi.show();
+    //                window.tidioChatApi.open();
+    //
+    //            }, 800); // small delay ensures proper load
+    //        });
+    //        </script>
+    //        </body>
+    //        </html>
+    //        """
+    //        contentWebview.loadHTMLString(html, baseURL: URL(string: "https://localhost"))
+    //    }
     
     func loadTidioHTML(user: User) {
         let name = (user.fullNameEnglish ?? "").replacingOccurrences(of: "\"", with: "\\\"")
         let email = (user.email ?? "").replacingOccurrences(of: "\"", with: "\\\"")
         let userId = "\(user.id ?? 0)".replacingOccurrences(of: "\"", with: "\\\"")
         let phone = (user.mobile ?? "").replacingOccurrences(of: "\"", with: "\\\"")
-        
-        let html  = """
+        let tidioLanguage = AppLanguageManager.shared.currentLanguage == .ar ? "ar" : "en"
+        let isArabic = tidioLanguage == "ar"
+        let html = """
         <!DOCTYPE html>
-        <html>
+        <html lang="\(tidioLanguage)" dir="\(isArabic ? "rtl" : "ltr")">
         <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background-color: white;
-        }
-        
-        iframe[src*="tidio"],
-        #tidio-chat,
-            .tidio-chat {
-                display: none !important;
-                opacity: 0 !important;
-                visibility: hidden !important;
-            }
-        </style>
-        
-        <!-- ✅ IMPORTANT: Use full https URL -->
-        <script src="https://code.tidio.co/uxltmye9ysuvgaamvz0sisfhvdb1yctx.js" async></script>
-        </head>
-        
-        <body>
-        
-        <script>
-        document.addEventListener("tidioChat-ready", function () {
-            if (!window.tidioChatApi) return;
-            
-            // 👤 Set user data
-            window.tidioChatApi.setVisitorData({
-                name: "\(name)",
-                email: "\(email)",
-                distinct_id: "\(userId)",
-                phone: "\(phone)"
-            });
-            
-            // 🔥 Force open chat without showing button
-            setTimeout(function () {
-                
-                // 👁 Show widget again (after hiding it initially)
-                const style = document.createElement("style");
-                style.innerHTML = `
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                html, body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: white;
+                    direction: \(isArabic ? "rtl" : "ltr");
+                }
+
+                /* Initially hide chat to avoid flicker */
                 iframe[src*="tidio"],
                 #tidio-chat,
-                    .tidio-chat {
-                        display: block !important;
-                        opacity: 1 !important;
-                        visibility: visible !important;
-                    }
-                `;
-                document.head.appendChild(style);
-                
-                // 💬 Open chat directly
-                window.tidioChatApi.show();
-                window.tidioChatApi.open();
-                
-            }, 800); // small delay ensures proper load
-        });
-        </script>
-        
-        </body>
+                .tidio-chat {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease;
+                }
+            </style>
+
+            <!-- Tidio config BEFORE script -->
+            <script>
+                window.tidioConfig = {
+                    language: "\(tidioLanguage)",
+                    locale: "\(tidioLanguage)"
+                };
+            </script>
+
+            <!-- Tidio script -->
+            <script src="https://code.tidio.co/uxltmye9ysuvgaamvz0sisfhvdb1yctx.js"></script>
+
+            <script>
+                document.addEventListener("tidioChat-ready", function () {
+                    if (!window.tidioChatApi) return;
+
+                    // 🔥 Force Arabic again (important)
+                    window.tidioChatApi.setLocale("\(tidioLanguage)");
+
+                    // Set user data
+                    window.tidioChatApi.setVisitorData({
+                        name: "\(name)",
+                        email: "\(email)",
+                        distinct_id: "\(userId)",
+                        phone: "\(phone)"
+                    });
+
+                    // Show chat smoothly after ready
+                    setTimeout(function () {
+                        const style = document.createElement("style");
+                        style.innerHTML = `
+                            iframe[src*="tidio"],
+                            #tidio-chat,
+                            .tidio-chat {
+                                opacity: 1 !important;
+                                visibility: visible !important;
+                            }
+                        `;
+                        document.head.appendChild(style);
+
+                        window.tidioChatApi.show();
+                        window.tidioChatApi.open();
+                    }, 400);
+                });
+            </script>
+        </head>
+        <body></body>
         </html>
         """
-        contentWebview.loadHTMLString(html, baseURL: URL(string: "https://localhost"))
+        contentWebview.loadHTMLString(html, baseURL: nil)
     }
 }
-
 
 extension SystemSupportChatViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {

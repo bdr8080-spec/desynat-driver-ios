@@ -334,13 +334,13 @@ extension UIButton {
     }
 }
 
-extension UIImageView {
-    
-    func updateForRTL() {
-        if AppLanguageManager.shared.isRightToLeft {
-            self.transform = CGAffineTransform(scaleX: -1, y: 1)
-        } else {
-            self.transform = .identity
-        }
-    }
-}
+//extension UIImageView {
+//    
+////    func updateForRTL() {
+////        if AppLanguageManager.shared.isRightToLeft {
+////            self.transform = CGAffineTransform(scaleX: -1, y: 1)
+////        } else {
+////            self.transform = .identity
+////        }
+////    }
+//}

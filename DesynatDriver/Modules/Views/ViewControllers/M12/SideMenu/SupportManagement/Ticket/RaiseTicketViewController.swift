@@ -64,6 +64,7 @@ class RaiseTicketViewController: UIViewController {
                         DispatchQueue.main.async {
                             self.selectedImageUrl = uploadedUrl
                         }
+                        
                     }
                 }
             } else {

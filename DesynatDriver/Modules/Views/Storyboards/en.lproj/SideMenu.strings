@@ -198,7 +198,7 @@
 "oiM-TA-gzw.normalTitle" = "Button";
 
 /* Class = "UITextField"; placeholder = "Enter password "; ObjectID = "pCx-6J-Obt"; */
-"pCx-6J-Obt.placeholder" = "Enter password ";
+"pCx-6J-Obt.placeholder" = "Enter password";
 
 /* Class = "UILabel"; text = "Settings"; ObjectID = "q5a-7B-gBi"; */
 "q5a-7B-gBi.text" = "Settings";

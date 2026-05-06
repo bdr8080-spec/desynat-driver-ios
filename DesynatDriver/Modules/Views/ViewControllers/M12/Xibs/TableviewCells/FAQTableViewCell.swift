@@ -17,7 +17,6 @@ class FAQTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,7 +24,12 @@ class FAQTableViewCell: UITableViewCell {
     }
     
     func configData(data: FAQListDataModel?, index: Int) {
-        titleLabel.text = "Q\(index + 1).\(data?.questionEnglish ?? "")"
-        decsriptionLabel.text = data?.answerEnglish
+        if AppLanguageManager.shared.currentLanguage == .ar {
+            titleLabel.text = "Q\(index + 1).\(data?.questionArabic ?? "")"
+            decsriptionLabel.text = data?.answerArabic
+        } else {
+            titleLabel.text = "Q\(index + 1).\(data?.questionEnglish ?? "")"
+            decsriptionLabel.text = data?.answerEnglish
+        }
     }
 }
