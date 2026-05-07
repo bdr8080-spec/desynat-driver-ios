@@ -41,7 +41,13 @@ class PackagesDetails: UIViewController {
     let isoFormatter = ISO8601DateFormatter()
     isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
     let date = isoFormatter.date(from: orderDetail?.order?.createdAt ?? "")
-    self.oredrDateLbl.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
+//    self.oredrDateLbl.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
+      self.oredrDateLbl.text = CommonUtils.getDateStrings(
+          from: date,
+          format: AppLanguageManager.shared.currentLanguage == .ar
+          ? "dd/MM/yyyy 'في' hh:mm a"
+          : "dd/MM/yyyy 'at' hh:mm a"
+      )
     self.dropLocationLbl.text = orderDetail?.order?.deliveryDetails?.address ?? ""
     self.customerNameLbl.text = orderDetail?.order?.deliveryDetails?.name ?? ""
     self.orderIdLbl.text = "#\(orderDetail?.id ?? 0)"

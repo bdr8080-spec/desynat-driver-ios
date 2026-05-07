@@ -68,8 +68,20 @@ class DeliveryDetailsVC: UIViewController {
       let isoFormatter = ISO8601DateFormatter()
       isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
       let date = isoFormatter.date(from: self?.viewModel.orderDetail?.createdAt ?? "")
-      self?.LbldeliveredOn.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
-      self?.oredrDateLbl.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
+//      self?.LbldeliveredOn.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
+//        self?.oredrDateLbl.text = CommonUtils.getDateStrings(from: date, format: "dd/MM/yyyy 'at' hh:mm a")
+        self?.LbldeliveredOn.text = CommonUtils.getDateStrings(
+            from: date,
+            format: AppLanguageManager.shared.currentLanguage == .ar
+            ? "dd/MM/yyyy 'في' hh:mm a"
+            : "dd/MM/yyyy 'at' hh:mm a"
+        )
+        self?.oredrDateLbl.text = CommonUtils.getDateStrings(
+            from: date,
+            format: AppLanguageManager.shared.currentLanguage == .ar
+            ? "dd/MM/yyyy 'في' hh:mm a"
+            : "dd/MM/yyyy 'at' hh:mm a"
+        )
       self?.lblStatus.textColor = UIColor(hex: "#17854C")
       if self?.viewModel.orderDetail?.deliveryStatus == "6" {
         self?.lblStatus.text = "Confirmed".localiz()

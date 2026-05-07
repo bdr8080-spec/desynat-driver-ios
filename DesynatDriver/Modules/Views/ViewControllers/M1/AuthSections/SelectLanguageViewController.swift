@@ -13,6 +13,7 @@ class SelectLanguageViewController: UIViewController {
     @IBOutlet weak var englishView: CustomView!
     @IBOutlet weak var imgArabic: UIImageView!
     @IBOutlet weak var imgEnglish: UIImageView!
+    
     var comingFirstTime: Bool = true
     private var selectedLanguage: Languages = .en
     
@@ -51,7 +52,7 @@ class SelectLanguageViewController: UIViewController {
     }
     
     private func refreshUI() {
-        let nextVC = SelectLanguageviewController.instantiate(fromAppStoryboard: .SideMenu)
+        let nextVC = SelectLanguageViewController.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.setViewControllers([nextVC], animated: false)
     }
     

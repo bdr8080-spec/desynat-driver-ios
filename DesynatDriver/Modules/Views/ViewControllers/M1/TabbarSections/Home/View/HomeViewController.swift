@@ -139,25 +139,43 @@ class HomeViewController: UIViewController {
         ongoingCollectionView.register(UINib(nibName:"DeliveryCVC", bundle:nil), forCellWithReuseIdentifier:"DeliveryCVC")
     }
     
+//    func setupCollectionViewLayouts() {
+//        let newLayout = UICollectionViewFlowLayout()
+//        newLayout.scrollDirection = .horizontal
+//        newLayout.minimumLineSpacing = 12
+//        newLayout.minimumInteritemSpacing = 12
+//        newLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+//        newDeliveriesCollectionView.collectionViewLayout = newLayout
+//        newDeliveriesCollectionView.showsHorizontalScrollIndicator = false
+//        
+//        let ongoingLayout = UICollectionViewFlowLayout()
+//        ongoingLayout.scrollDirection = .horizontal
+//        ongoingLayout.minimumLineSpacing = 12
+//        ongoingLayout.minimumInteritemSpacing = 12
+//        ongoingLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+//        ongoingCollectionView.collectionViewLayout = ongoingLayout
+//        ongoingCollectionView.showsHorizontalScrollIndicator = false
+//    }
+    
     func setupCollectionViewLayouts() {
         let newLayout = UICollectionViewFlowLayout()
         newLayout.scrollDirection = .horizontal
         newLayout.minimumLineSpacing = 12
         newLayout.minimumInteritemSpacing = 12
-        newLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        newLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        newLayout.sectionInsetReference = .fromSafeArea
         newDeliveriesCollectionView.collectionViewLayout = newLayout
         newDeliveriesCollectionView.showsHorizontalScrollIndicator = false
-        
+
         let ongoingLayout = UICollectionViewFlowLayout()
         ongoingLayout.scrollDirection = .horizontal
         ongoingLayout.minimumLineSpacing = 12
         ongoingLayout.minimumInteritemSpacing = 12
-        ongoingLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+        ongoingLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        ongoingLayout.sectionInsetReference = .fromSafeArea
         ongoingCollectionView.collectionViewLayout = ongoingLayout
         ongoingCollectionView.showsHorizontalScrollIndicator = false
     }
-    
-    
     
 }
 
@@ -208,10 +226,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(
-            width: (collectionView.frame.width ) / 1,
-            height: 100
-        )
+        return CGSize(width: collectionView.frame.width,height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -282,10 +297,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         UIApplication.shared.open(url)
     }
-    
 }
-
-
 
 extension HomeViewController:UITextFieldDelegate {
     func setDate(){

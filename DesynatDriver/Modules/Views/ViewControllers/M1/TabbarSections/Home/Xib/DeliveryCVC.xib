@@ -59,7 +59,7 @@
                                         <state key="normal" image="call"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike Abaya" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpY-5s-BTD">
-                                        <rect key="frame" x="12" y="64.333333333333329" width="78.666666666666671" height="19.666666666666671"/>
+                                        <rect key="frame" x="12" y="64.333333333333329" width="314" height="19.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -89,6 +89,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Mfa-q7-jR4" secondAttribute="trailing" constant="16" id="2nZ-c2-SCe"/>
                                     <constraint firstItem="wIc-0c-zQb" firstAttribute="leading" secondItem="k3C-ms-f9Z" secondAttribute="leading" id="7aV-t3-RNY"/>
                                     <constraint firstItem="bpY-5s-BTD" firstAttribute="top" secondItem="wIc-0c-zQb" secondAttribute="bottom" constant="4" id="ALr-Bx-0I7"/>
+                                    <constraint firstAttribute="trailing" secondItem="bpY-5s-BTD" secondAttribute="trailing" constant="10" id="EOH-9t-27F"/>
                                     <constraint firstItem="hfo-Oa-ddp" firstAttribute="top" secondItem="eRj-4I-T7M" secondAttribute="top" id="GEM-UL-scD"/>
                                     <constraint firstItem="k3C-ms-f9Z" firstAttribute="leading" secondItem="eRj-4I-T7M" secondAttribute="leading" constant="12" id="S1w-uW-K5d"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bpY-5s-BTD" secondAttribute="bottom" constant="12" id="VAD-Vz-ODe"/>

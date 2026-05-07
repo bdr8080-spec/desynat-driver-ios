@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  DesynatDriver
+
+  Created by fluper_mac2 on 07/05/26.
+  
+*/
+NSCameraUsageDescription = "يحتاج التطبيق إلى السماح لك بالتقاط صورة.";
+NSPhotoLibraryUsageDescription = "هذا التطبيق يحتاج إلى الوصول إلى مكتبة الصور الخاصة بك.";
+NSPhotoLibraryAddUsageDescription = "هذا التطبيق يحتاج إلى إذن لحفظ الصور.";
+NSSpeechRecognitionUsageDescription = "هذا التطبيق يحول كلامك إلى نص للبحث.";
+NSMicrophoneUsageDescription = "نحتاج لوصول إلى الميكروفون للبحث الصوتي.";

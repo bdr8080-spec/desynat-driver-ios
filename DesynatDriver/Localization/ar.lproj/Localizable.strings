@@ -426,3 +426,8 @@
 "Select" = "اختر";
 "Save Changes" = "حفظ التغييرات";
 "Location" = "الموقع";
+"NSCameraUsageDescription" = "نحتاج إلى إذن لالتقاط صورة.";
+"NSPhotoLibraryUsageDescription" = "يتطلب هذا التطبيق الوصول إلى مكتبة الصور الخاصة بك.";
+"NSPhotoLibraryAddUsageDescription" = "يحتاج هذا التطبيق إلى إذن لحفظ الصور.";
+"NSSpeechRecognitionUsageDescription" = "يقوم هذا التطبيق بتحويل كلامك إلى نص للبحث.";
+"NSMicrophoneUsageDescription" = "نحتاج إلى الوصول إلى الميكروفون للبحث الصوتي.";

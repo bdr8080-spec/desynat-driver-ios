@@ -274,7 +274,7 @@ class CommonUtils {
     
     static func formatISODate(
         _ isoDateString: String,
-        to format: String = "dd MMM yyyy, hh:mm a"
+        to format: String? = nil
     ) -> String {
         
         let isoFormatter = ISO8601DateFormatter()
@@ -285,8 +285,14 @@ class CommonUtils {
         }
         
         let outputFormatter = DateFormatter()
-        outputFormatter.dateFormat = format
-        outputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        if AppLanguageManager.shared.currentLanguage == .ar {
+            outputFormatter.locale = Locale(identifier: "ar")
+            outputFormatter.dateFormat = format ?? "dd MMM yyyy، hh:mm a"
+        } else {
+            outputFormatter.locale = Locale(identifier: "en_US_POSIX")
+            outputFormatter.dateFormat = format ?? "dd MMM yyyy, hh:mm a"
+        }
         
         return outputFormatter.string(from: date)
     }
@@ -342,12 +348,29 @@ class CommonUtils {
       }
   }
     
+//    static func getDateStrings(from date: Date?, format: String) -> String {
+//        guard let date = date else { return "" }
+//        
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = format
+//        formatter.locale = Locale(identifier: "en_US_POSIX") // ✅ AM / PM uppercase
+//        return formatter.string(from: date)
+//    }
+    
     static func getDateStrings(from date: Date?, format: String) -> String {
+        
         guard let date = date else { return "" }
         
         let formatter = DateFormatter()
         formatter.dateFormat = format
-        formatter.locale = Locale(identifier: "en_US_POSIX") // ✅ AM / PM uppercase
+        
+        // App language based locale
+        if AppLanguageManager.shared.currentLanguage == .ar {
+            formatter.locale = Locale(identifier: "ar")
+        } else {
+            formatter.locale = Locale(identifier: "en_US")
+        }
+        
         return formatter.string(from: date)
     }
 }

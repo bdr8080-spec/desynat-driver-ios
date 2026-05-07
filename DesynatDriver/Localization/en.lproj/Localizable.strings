@@ -261,3 +261,8 @@
 "Back" = "Back";
 "Document" = "Document";
 "Enter Description" = "Enter Description";
+"NSCameraUsageDescription" = "Need to allow to take a picture.";
+"NSPhotoLibraryUsageDescription" = "This app requires access to your photo library.";
+"NSPhotoLibraryAddUsageDescription" = "This app needs permission to save photos.";
+"NSSpeechRecognitionUsageDescription" = "This app converts your speech to text for searching.";
+"NSMicrophoneUsageDescription" = "We need microphone access for voice search.";
