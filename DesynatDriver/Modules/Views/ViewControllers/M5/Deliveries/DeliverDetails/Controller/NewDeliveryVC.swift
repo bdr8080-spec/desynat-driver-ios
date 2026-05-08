@@ -30,8 +30,9 @@ class NewDeliveryVC: UIViewController {
   @IBOutlet weak var updateStatusButtonOutlet: CustomButton!
   @IBOutlet weak var updateStatusLabel: UILabel!
   @IBOutlet weak var viewProductDetailsButtonOutlet: CustomButton!
-  
-  //MARK: VARIABLES
+    @IBOutlet weak var backButton: RTLButton!
+    
+    //MARK: VARIABLES
   let viewModel = DeliveriesViewModel()
   var orderDetail : DeliveryList?
   var orderId:Int?
@@ -53,7 +54,15 @@ class NewDeliveryVC: UIViewController {
     updateStatusLabel.textColor = UIColor.init(hexString: "#808080")
     updateStatusButtonOutlet.isEnabled = false
     initialCaseSetup()
-    print("viewModel.orderDetail?.deliveryStatus =>\(viewModel.orderDetail?.deliveryStatus)")
+//      backButton.se
+      if AppLanguageManager.shared.isRightToLeft {
+          backButton.semanticContentAttribute = .forceRightToLeft
+          backButton.imageView?.transform = CGAffineTransform(scaleX: -1, y: 1)
+      } else {
+          backButton.semanticContentAttribute = .forceLeftToRight
+          backButton.imageView?.transform = .identity
+      }
+   // print("viewModel.orderDetail?.deliveryStatus =>\(viewModel.orderDetail?.deliveryStatus)")
   }
   
   @IBAction func backBtn(_ sender: Any) {

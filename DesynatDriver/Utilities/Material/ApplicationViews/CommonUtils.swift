@@ -117,39 +117,53 @@ class CommonUtils {
     }
     
     static func loadHTMLContent(_ content: String, webView: WKWebView) {
+        
         let cleanedContent = content
             .replacingOccurrences(of: "\u{2028}", with: "<br>")
             .replacingOccurrences(of: "\u{2029}", with: "<br><br>")
-            .trimmingCharacters(in: .whitespacesAndNewlines) // IMPORTANT: remove leading blank lines
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // ✅ RTL Support
+        let isArabic = AppLanguageManager.shared.currentLanguage == .ar
+        let direction = isArabic ? "rtl" : "ltr"
+        let textAlign = isArabic ? "right" : "left"
         
         let html = """
-        <html>
+        <html dir="\(direction)">
         <head>
             <meta name="viewport"
                   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
             <style>
                 body {
-                    margin: 0;                           /* remove body margin */
+                    margin: 0;
                     padding: 0;
                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
                     font-size: 16px;
                     line-height: 1.6;
                     -webkit-text-size-adjust: 100%;
-                    white-space: normal !important;      /* reset body */
+                    white-space: normal !important;
+                    
+                    direction: \(direction);
+                    text-align: \(textAlign);
                 }
 
-                /* Clean paragraphs completely */
                 p {
                     margin: 0 !important;
                     padding: 0 !important;
                     white-space: pre-wrap !important;
+                    
+                    direction: \(direction);
+                    text-align: \(textAlign);
                 }
 
                 div, span {
                     white-space: pre-wrap !important;
                     margin: 0 !important;
                     padding: 0 !important;
+                    
+                    direction: \(direction);
+                    text-align: \(textAlign);
                 }
 
                 img {
@@ -159,14 +173,15 @@ class CommonUtils {
 
                 table {
                     width: 100% !important;
+                    direction: \(direction);
                 }
 
-                /* Add controlled spacing between elements */
                 p + p {
-                   margin-top: 10px !important;
+                    margin-top: 10px !important;
                 }
             </style>
         </head>
+
         <body>
             <div style="padding: 12px;">\(cleanedContent)</div>
         </body>

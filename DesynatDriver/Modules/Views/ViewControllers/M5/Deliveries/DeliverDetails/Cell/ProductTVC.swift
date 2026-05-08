@@ -28,8 +28,15 @@ class ProductTVC: UITableViewCell {
   
   func setData(data: DeliveryList?) {
     lblQuantityTitle.text = "Quantity".localiz()
-    productNameLbl.text = data?.productDetails?.productNameEn ?? ""
-    setColorBox(size: data?.variationDetails?.size?.name ?? "M", label: detailsLabel, hexColor: data?.variationDetails?.color?.hexCode ?? "#98ADFF")
+      if AppLanguageManager.shared.currentLanguage == .ar {
+          productNameLbl.text = data?.productDetails?.productNameAr ?? ""
+          setColorBox(size: data?.variationDetails?.size?.nameAr ?? "M", label: detailsLabel, hexColor: data?.variationDetails?.color?.hexCode ?? "#98ADFF")
+      } else {
+          productNameLbl.text = data?.productDetails?.productNameEn ?? ""
+          setColorBox(size: data?.variationDetails?.size?.name ?? "M", label: detailsLabel, hexColor: data?.variationDetails?.color?.hexCode ?? "#98ADFF")
+      }
+    
+    
     productQuantityLbl.text = data?.quantity?.description
     productImageView.image = .placeholder
     if let url = URL(string: data?.variationDetails?.variantImage?.first ?? "") {

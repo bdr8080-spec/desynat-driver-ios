@@ -431,3 +431,6 @@
 "NSPhotoLibraryAddUsageDescription" = "يحتاج هذا التطبيق إلى إذن لحفظ الصور.";
 "NSSpeechRecognitionUsageDescription" = "يقوم هذا التطبيق بتحويل كلامك إلى نص للبحث.";
 "NSMicrophoneUsageDescription" = "نحتاج إلى الوصول إلى الميكروفون للبحث الصوتي.";
+"Order Item" = "عنصر الطلب";
+"Product Delivery" = "توصيل المنتج";
+"Item Tracking" = "تتبع الطلب";

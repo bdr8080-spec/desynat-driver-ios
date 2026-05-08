@@ -1152,14 +1152,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="527"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-Be-ag5">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aE-Be-ag5" customClass="RTLButton" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="44" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="aGz-h9-8ja"/>
                                                     <constraint firstAttribute="width" constant="32" id="tfJ-At-3cz"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="back" cornerStyle="capsule"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="leftVector" cornerStyle="capsule"/>
                                                 <connections>
                                                     <action selector="backBtn:" destination="cvm-VF-R6N" eventType="touchUpInside" id="pMb-97-Cmj"/>
                                                 </connections>
@@ -1652,6 +1652,7 @@
                     </view>
                     <size key="freeformSize" width="393" height="866"/>
                     <connections>
+                        <outlet property="backButton" destination="5aE-Be-ag5" id="tLY-Nj-lrr"/>
                         <outlet property="btnPicked" destination="bOD-MH-W84" id="2k7-mX-QNP"/>
                         <outlet property="btnStack" destination="piU-8D-If7" id="h32-cl-AvX"/>
                         <outlet property="imgStore" destination="ZAe-Uo-rYO" id="2NX-IF-wYd"/>
@@ -2247,7 +2248,6 @@
     <resources>
         <image name="Indicator" width="21" height="21"/>
         <image name="Whatsapp" width="24" height="24"/>
-        <image name="back" width="48" height="48"/>
         <image name="btnGradient" width="343" height="38"/>
         <image name="chevron-up" width="20" height="20"/>
         <image name="crossButton" width="18" height="19.333333969116211"/>

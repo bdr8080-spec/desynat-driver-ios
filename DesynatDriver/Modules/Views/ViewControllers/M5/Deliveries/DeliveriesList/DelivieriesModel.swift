@@ -459,7 +459,7 @@ struct VariationDetails: Codable {
 // MARK: - Color
 struct Color: Codable {
   var id: Int?
-  var name, hexCode: String?
+  var name,nameAr, hexCode: String?
   var createdAt, updatedAt: String?
   
   enum CodingKeys: String, CodingKey {
@@ -467,6 +467,7 @@ struct Color: Codable {
     case hexCode = "hex_code"
     case createdAt = "created_at"
     case updatedAt = "updated_at"
+    case nameAr = "name_ar"
   }
 }
 

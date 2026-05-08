@@ -266,3 +266,6 @@
 "NSPhotoLibraryAddUsageDescription" = "This app needs permission to save photos.";
 "NSSpeechRecognitionUsageDescription" = "This app converts your speech to text for searching.";
 "NSMicrophoneUsageDescription" = "We need microphone access for voice search.";
+"Order Item" = "Order Item";
+"Product Delivery" = "Product Delivery";
+"Item Tracking" = "Item Tracking";
