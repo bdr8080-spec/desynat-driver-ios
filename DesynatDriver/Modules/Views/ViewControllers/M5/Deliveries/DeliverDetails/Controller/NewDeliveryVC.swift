@@ -394,7 +394,7 @@ class NewDeliveryVC: UIViewController {
           self.lblStatus.text = status.title
           if comingReason != .forExchangeOrder {
             self.viewModel.orderDetail?.deliveryStatus = "\(status.rawValue)"
-            print("Selected Status:", status.title, status.rawValue)
+//            print("Selected Status:", status.title, status.rawValue)
           }
           // ✅ Enable button only for Delivered or Not Delivered
             if status.title == "Delivered".localiz() || status.title == "Not Delivered".localiz() {
@@ -420,7 +420,7 @@ class NewDeliveryVC: UIViewController {
         self.lblStatus.text = status.title
         if comingReason != .forExchangeOrder {
           self.viewModel.orderDetail?.deliveryStatus = "\(status.rawValue)"
-          print("Selected Status:", status.title, status.rawValue)
+//          print("Selected Status:", status.title, status.rawValue)
         }
         // ✅ Enable button only for Delivered or Not Delivered
           if status.title == "Delivered".localiz() || status.title == "Not Delivered".localiz() {
@@ -606,7 +606,7 @@ class NewDeliveryVC: UIViewController {
       DispatchQueue.main.async {
         guard let self = self else { return }
         self.orderDetail = self.viewModel.orderDetail
-        print("orderDetail, \(self.orderDetail)")
+//        print("orderDetail, \(self.orderDetail)")
         self.lblDropAddress.text = self.viewModel.orderDetail?.order?.deliveryDetails?.address ?? ""
         self.lblPickUpAddress.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeAddress ?? ""
         self.storeNameLbl.text = self.viewModel.orderDetail?.productDetails?.sellerDetails?.storeInfo?.storeName ?? ""

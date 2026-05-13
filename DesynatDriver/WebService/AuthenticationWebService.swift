@@ -62,7 +62,7 @@ extension WebService {
                     return
                 }
                 // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
-                print(user)
+//                print(user)
                 //  kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message:message ?? "")
                 completion(user)
@@ -84,7 +84,7 @@ extension WebService {
                     return
                 }
                 // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
-                print(user)
+//                print(user)
                 // kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message:message ?? "")
                 completion(user)
@@ -106,7 +106,7 @@ extension WebService {
                     return
                 }
                 // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.accessToken))
-                print(user)
+//                print(user)
                 // kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message:message ?? "")
                 completion(user)
@@ -128,7 +128,7 @@ extension WebService {
                     return
                 }
                 // kSharedUserDefaults.saveValue(Key: .accessToken, value: String.getString(user.access_token))
-                print(user)
+//                print(user)
                 // kSharedUserDefaults.saveModelFor(key:.user, value: user)
                 CommonUtils.showToast(message: message ?? "")
                 completion(user)

@@ -161,7 +161,7 @@ class DeliveriesViewModel {
         let param: [String: Any] = ["id": orderId]
         WebService.sharedInstance.getOrderDetail(parameter: param) { [weak self] data in
            self?.orderDetail = data
-            print(self?.orderDetail?.deliveryStatus)
+//            print(self?.orderDetail?.deliveryStatus)
             completion()
             
         }

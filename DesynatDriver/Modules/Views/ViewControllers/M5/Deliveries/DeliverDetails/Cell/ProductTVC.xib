@@ -27,7 +27,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKP-qw-l4D" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="342" height="84"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orderperson" translatesAutoresizingMaskIntoConstraints="NO" id="3bC-HE-L82" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3bC-HE-L82" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="inb-p4-kRI"/>
@@ -105,7 +105,4 @@
             <point key="canvasLocation" x="-10.687022900763358" y="75"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="orderperson" width="68" height="68"/>
-    </resources>
 </document>

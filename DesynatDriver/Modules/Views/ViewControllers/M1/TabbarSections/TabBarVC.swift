@@ -61,7 +61,7 @@ class TabBarVC: UIViewController {
     
     deinit {
             NotificationCenter.default.removeObserver(self)
-            print("TabBarVC deinitialized")
+//            print("TabBarVC deinitialized")
         }
     
     @IBAction func tabBarAction(_ sender: UIButton) {

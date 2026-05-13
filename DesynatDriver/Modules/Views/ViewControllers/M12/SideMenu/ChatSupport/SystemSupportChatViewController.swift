@@ -34,7 +34,7 @@ class SystemSupportChatViewController: UIViewController, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("WebView loaded")
+//        print("WebView loaded")
         webView.evaluateJavaScript("document.body.innerHTML") { result, error in
             print("HTML:", result ?? "")
         }
@@ -212,7 +212,7 @@ extension SystemSupportChatViewController: WKScriptMessageHandler {
         if message.name == "tidioUnreadCount" {
             if let count = message.body as? Int {
                 
-                print("🔔 Unread count:", count)
+//                print("🔔 Unread count:", count)
                 
                 // ✅ SEND DATA TO OTHER SCREENS
                 NotificationCenter.default.post(

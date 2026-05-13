@@ -118,7 +118,7 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         guard let image = info[.originalImage] as? UIImage else {
-            print("❌ Could not get image from picker info")
+//            print("❌ Could not get image from picker info")
             return
         }
         let fileName = UUID().uuidString + ".jpg"

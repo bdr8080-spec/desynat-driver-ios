@@ -141,7 +141,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deliveryperson" translatesAutoresizingMaskIntoConstraints="NO" id="ciI-Wr-t1C" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfile" translatesAutoresizingMaskIntoConstraints="NO" id="ciI-Wr-t1C" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="62.666666666666657" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="3P2-Fe-bhp"/>
@@ -1201,7 +1201,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Mf-zn-QUw" customClass="CustomView" customModule="DesynatDriver" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="423.66666666666663" width="361" height="296.33333333333337"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deliveryperson" translatesAutoresizingMaskIntoConstraints="NO" id="ZAe-Uo-rYO" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfile" translatesAutoresizingMaskIntoConstraints="NO" id="ZAe-Uo-rYO" customClass="CustomImageView" customModule="DesynatDriver" customModuleProvider="target">
                                                         <rect key="frame" x="12" y="12" width="46" height="46"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="46" id="Xpx-Rw-Jc2"/>
@@ -2251,13 +2251,13 @@
         <image name="btnGradient" width="343" height="38"/>
         <image name="chevron-up" width="20" height="20"/>
         <image name="crossButton" width="18" height="19.333333969116211"/>
-        <image name="deliveryperson" width="50" height="50"/>
         <image name="dropLocation" width="18" height="18"/>
         <image name="emptyStar" width="12" height="12"/>
         <image name="filledStar" width="12" height="12"/>
         <image name="leftVector" width="9.6666669845581055" height="17.666666030883789"/>
         <image name="navigator" width="22" height="23"/>
         <image name="pickup" width="18" height="18"/>
+        <image name="userProfile" width="32" height="32.333332061767578"/>
         <namedColor name="darkBrown">
             <color red="0.43137254901960786" green="0.27058823529411763" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
