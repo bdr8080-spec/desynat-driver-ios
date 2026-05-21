@@ -10,7 +10,7 @@ import UIKit
 class EditProfileViewController: UIViewController {
     
     @IBOutlet weak var fullNameInEnglishTF: UITextField!
-    @IBOutlet weak var fullNameInArabicTF: UITextField!
+    @IBOutlet weak var fullNameInArabicTF: ArabicTextField!
     @IBOutlet weak var profileImageView: CustomImageView!
     @IBOutlet weak var firstNameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!

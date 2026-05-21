@@ -434,3 +434,4 @@
 "Order Item" = "عنصر الطلب";
 "Product Delivery" = "توصيل المنتج";
 "Item Tracking" = "تتبع الطلب";
+"Password must be at least 8 characters long and contain letters and numbers" = "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل وتشمل حروفًا وأرقامًا";

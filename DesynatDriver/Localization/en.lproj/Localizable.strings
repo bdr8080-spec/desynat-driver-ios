@@ -269,3 +269,4 @@
 "Order Item" = "Order Item";
 "Product Delivery" = "Product Delivery";
 "Item Tracking" = "Item Tracking";
+"Password must be at least 8 characters long and contain letters and numbers" = "Password must be at least 8 characters long and contain letters and numbers";
