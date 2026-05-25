@@ -66,6 +66,8 @@ class SelectLanguageviewController: UIViewController {
     }
 
     @IBAction func backbtn(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        kSharedSceneDelegate.navigateToHomeVc(selectedIndex: 0)
     }
+    
 }

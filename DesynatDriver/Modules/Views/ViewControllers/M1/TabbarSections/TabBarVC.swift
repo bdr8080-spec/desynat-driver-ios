@@ -21,8 +21,6 @@ class TabBarVC: UIViewController {
 
     var initialTabIndex: Int = 0
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTabSelection(forTag: initialTabIndex)
