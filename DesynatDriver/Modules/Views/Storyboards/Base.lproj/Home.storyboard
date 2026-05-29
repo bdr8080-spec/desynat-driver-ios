@@ -85,7 +85,7 @@
                                             <constraint firstAttribute="width" constant="40" id="XBJ-dt-ZFd"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="chatBot"/>
+                                        <state key="normal" image="Support"/>
                                         <connections>
                                             <action selector="chatBotDidTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Uce-Ev-Np5"/>
                                         </connections>
@@ -1931,13 +1931,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Support" width="28" height="28"/>
         <image name="active_radio" width="24" height="24"/>
         <image name="address" width="24" height="24"/>
         <image name="attachment" width="24" height="24"/>
         <image name="bell" width="33" height="38"/>
         <image name="btnGradient" width="343" height="38"/>
         <image name="calendar" width="22" height="22"/>
-        <image name="chatBot" width="28" height="26.666666030883789"/>
         <image name="deliveriesSelect" width="58.666667938232422" height="44"/>
         <image name="deliveriesUnselect" width="57.666667938232422" height="44"/>
         <image name="filter" width="50" height="38"/>
