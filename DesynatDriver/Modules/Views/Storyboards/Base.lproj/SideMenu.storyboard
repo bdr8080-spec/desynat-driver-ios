@@ -1974,6 +1974,9 @@ your account?</string>
                             <constraint firstItem="Rgx-1c-IBb" firstAttribute="trailing" secondItem="sky-K2-n8A" secondAttribute="trailing" constant="40" id="iA9-qc-ZBz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buttonActionStackView" destination="Wmb-QF-FRG" id="Lw9-OH-og2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLG-Yg-6Eo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

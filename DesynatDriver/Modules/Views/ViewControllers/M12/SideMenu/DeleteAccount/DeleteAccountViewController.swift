@@ -8,11 +8,14 @@
 import UIKit
 
 class DeleteAccountViewController: UIViewController {
-
+    
+    @IBOutlet weak var buttonActionStackView: UIStackView!
+    
     var onYesTapped: (()-> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonActionStackView.semanticContentAttribute = .forceLeftToRight
     }
 
     @IBAction func yesDidTapped(_ sender: Any) {

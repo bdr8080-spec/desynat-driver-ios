@@ -1119,6 +1119,7 @@
                     </view>
                     <connections>
                         <outlet property="btnClear" destination="3cR-B8-4fr" id="smx-Qx-FUo"/>
+                        <outlet property="buttonActionStackView" destination="MTW-ap-ng7" id="BGi-o8-yC9"/>
                         <outlet property="tableView" destination="hdy-TU-4Sz" id="MCG-kA-07v"/>
                         <outlet property="textView" destination="Pr2-ca-8fw" id="a0F-kJ-70e"/>
                     </connections>

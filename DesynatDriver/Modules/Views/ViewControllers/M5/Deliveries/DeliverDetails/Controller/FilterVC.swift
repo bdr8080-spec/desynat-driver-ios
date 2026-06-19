@@ -36,6 +36,7 @@ class FilterVC: UIViewController {
     @IBOutlet weak var tableView: TableViewDynamicHeight!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var btnClear: UIButton!
+    @IBOutlet weak var buttonActionStackView: UIStackView!
     
     //MARK: VARIABLE
     weak var delegate: FilterVCDelegate?
@@ -59,6 +60,7 @@ class FilterVC: UIViewController {
            let status = DeliveryStatus(rawValue: savedStatus) {
             selectedIndex = orderStatusType.firstIndex(of: status)
         }
+        buttonActionStackView.semanticContentAttribute = .forceLeftToRight
     }
     
     func tableViewRegister() {
