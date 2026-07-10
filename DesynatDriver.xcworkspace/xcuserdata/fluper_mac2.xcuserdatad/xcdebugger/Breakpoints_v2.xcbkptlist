@@ -30,8 +30,8 @@
             filePath = "DesynatDriver/Modules/Views/ViewControllers/M1/AuthSections/SelectLanguageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "btnTapContinue(_:)"
             landmarkType = "7">
          </BreakpointContent>

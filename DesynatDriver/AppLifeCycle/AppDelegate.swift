@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         IQKeyboardManager.shared.isEnabled = true
         LocationManager.sharedInstance.startUpdatingLocation()
         GMSServices.provideAPIKey("AIzaSyBlCfJlRuxElolt6l-4erdJPR9ySUB8Jwk")
-//        GMSServices.provideAPIKey("AIzaSyB5LK7zzKS4q9ov0R4LFLgaRyPZdZsTKz4")
         GMSPlacesClient.provideAPIKey("AIzaSyB5LK7zzKS4q9ov0R4LFLgaRyPZdZsTKz4")
         UNUserNotificationCenter.current().delegate = self
         FirebaseApp.configure()
@@ -33,10 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         Messaging.messaging().isAutoInitEnabled = true
         confrigNotification(application: application)
         UNUserNotificationCenter.current().setBadgeCount(0, withCompletionHandler: nil)
-//        TidioSDK.initialize(
-//            projectId: "YOUR_PROJECT_ID",
-//            apiKey: "na5y0weklpcd9uxhccfezplsfg0fggvk"
-//        )
         AppLanguageManager.shared.defaultLanguage = .en
         return true
     }
@@ -110,7 +105,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate {
             if let error = error {
                 print("Error fetching remote instange ID: \(error)")
             } else if let result = token {
-//                print("Remote instance ID token: \(result)")
+                print("Remote instance ID token: \(result)")
                 kSharedUserDefaults.saveModelFor(key: .deviceToken, value: token)
             }
         }
