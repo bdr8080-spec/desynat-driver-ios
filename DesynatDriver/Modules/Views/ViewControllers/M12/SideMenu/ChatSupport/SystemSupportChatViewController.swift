@@ -16,12 +16,12 @@ class SystemSupportChatViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupWebView()
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         if let savedUser: User = kSharedUserDefaults.retrieveModelFor(key: .user, model: User.self) {
             loadTidioHTML(user: savedUser)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
         }
     }
     
@@ -206,7 +206,7 @@ extension SystemSupportChatViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
         if message.name == "tidioReady" {
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
         }
         
         if message.name == "tidioUnreadCount" {

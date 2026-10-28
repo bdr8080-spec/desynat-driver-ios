@@ -12,10 +12,10 @@ import Alamofire
 extension WebService {
     func loginService(withParams dictParams: Dictionary<String, Any>,
                       completion:@escaping (_ user:User)-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.login), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -32,10 +32,10 @@ extension WebService {
     }
     
     func countryListService(completion:@escaping (_ user:[CountryModel])-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.country), requestMethod: .get,requestModel:[CountryModel].self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -50,10 +50,10 @@ extension WebService {
     
     func forgotPasswordService(withParams dictParams: Dictionary<String, Any>,
                                completion:@escaping (_ user:User)-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.forgotPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -72,10 +72,10 @@ extension WebService {
     
     func otpVerificationService(withParams dictParams: Dictionary<String, Any>,
                                 completion:@escaping (_ user:User)-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.verifyOtp), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -94,10 +94,10 @@ extension WebService {
     
     func resendOtpService(withParams dictParams: Dictionary<String, Any>,
                           completion:@escaping (_ user:User)-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.resendOtp), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -116,10 +116,10 @@ extension WebService {
     
     func createPasswordService(withParams dictParams: Dictionary<String, Any>,
                                completion:@escaping (_ user:User)-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.createPassword), requestMethod: .post, requestParams: dictParams,encoding: JSONEncoding.default,requestModel:User.self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -137,10 +137,10 @@ extension WebService {
     }
     
     func logoutService(completion:@escaping (_ user:EmptyModel)-> Void) {
-        CommonUtils.showHud(show: true)
+        Shimmer.shared.show(show: true)
         NetworkManager.shared.request(withAPI:.endpoint(.logout), requestMethod: .get,requestModel:EmptyModel.self) { result, code in
             
-            CommonUtils.showHud(show: false)
+            Shimmer.shared.show(show: false)
             self.evaluateWebServiceResponse(response: result) { response, message,error in
                 guard let user = response else {
                     if let error {
@@ -156,10 +156,10 @@ extension WebService {
     
     func uploadImage(withParams image: UIImage,
                      completion:@escaping (_ profileURL:UploadImageModel)-> Void) {
-//        CommonUtils.showHud(show: true)
+//        Shimmer.shared.show(show: true)
 //        let multiPart:MultipartUpload = MultipartUpload(fileName:"image", file: image, mimeType: .image)
 //        NetworkManager.shared.requestMultiPart(url: .endpoint(.uploadFile), assets: [multiPart], model:UploadImageModel.self) { result, code in
-//            CommonUtils.showHud(show: false)
+//            Shimmer.shared.show(show: false)
 //            self.evaluateWebServiceResponse(response: result) { response,message ,error in
 //                guard let profileURLString = response else {
 //                    if let error {
